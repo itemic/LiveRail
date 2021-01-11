@@ -11,6 +11,14 @@
 		4563E65625A9EECC00E50C5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65525A9EECC00E50C5F /* ContentView.swift */; };
 		4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65725A9EECD00E50C5F /* Assets.xcassets */; };
 		4563E65B25A9EECD00E50C5F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65A25A9EECD00E50C5F /* Preview Assets.xcassets */; };
+		4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66325A9EF0E00E50C5F /* NetworkManager.swift */; };
+		4563E66825A9EF3800E50C5F /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66725A9EF3800E50C5F /* Station.swift */; };
+		4563E66B25A9F69F00E50C5F /* StationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66A25A9F69F00E50C5F /* StationService.swift */; };
+		45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */; };
+		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
+		45D1BC7C25AC466300D040CD /* HSRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7B25AC466300D040CD /* HSRViewModel.swift */; };
+		45D1BC8025AC49F300D040CD /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationView.swift */; };
+		45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +28,14 @@
 		4563E65725A9EECD00E50C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4563E65A25A9EECD00E50C5F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4563E65C25A9EECD00E50C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4563E66325A9EF0E00E50C5F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4563E66725A9EF3800E50C5F /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		4563E66A25A9F69F00E50C5F /* StationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationService.swift; sourceTree = "<group>"; };
+		45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBoardListView.swift; sourceTree = "<group>"; };
+		45D00A4825AC94F500DB518F /* Date+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
+		45D1BC7B25AC466300D040CD /* HSRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRViewModel.swift; sourceTree = "<group>"; };
+		45D1BC7F25AC49F300D040CD /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		45D1BC8325AC4AA000D040CD /* StationTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +68,13 @@
 		4563E65225A9EECC00E50C5F /* LiveRail */ = {
 			isa = PBXGroup;
 			children = (
+				4563E66A25A9F69F00E50C5F /* StationService.swift */,
+				45D1BC7B25AC466300D040CD /* HSRViewModel.swift */,
+				4563E66625A9EF2B00E50C5F /* Models */,
 				4563E65325A9EECC00E50C5F /* LiveRailApp.swift */,
-				4563E65525A9EECC00E50C5F /* ContentView.swift */,
+				45D1BC7E25AC49E400D040CD /* Views */,
+				4563E66325A9EF0E00E50C5F /* NetworkManager.swift */,
+				45D00A4825AC94F500DB518F /* Date+Time.swift */,
 				4563E65725A9EECD00E50C5F /* Assets.xcassets */,
 				4563E65C25A9EECD00E50C5F /* Info.plist */,
 				4563E65925A9EECD00E50C5F /* Preview Content */,
@@ -67,6 +88,25 @@
 				4563E65A25A9EECD00E50C5F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4563E66625A9EF2B00E50C5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4563E66725A9EF3800E50C5F /* Station.swift */,
+				45D1BC8325AC4AA000D040CD /* StationTimetable.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		45D1BC7E25AC49E400D040CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4563E65525A9EECC00E50C5F /* ContentView.swift */,
+				45D1BC7F25AC49F300D040CD /* StationView.swift */,
+				45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +178,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */,
 				4563E65625A9EECC00E50C5F /* ContentView.swift in Sources */,
+				45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */,
+				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
+				45D1BC8025AC49F300D040CD /* StationView.swift in Sources */,
+				45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */,
+				4563E66B25A9F69F00E50C5F /* StationService.swift in Sources */,
+				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
+				45D1BC7C25AC466300D040CD /* HSRViewModel.swift in Sources */,
 				4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
