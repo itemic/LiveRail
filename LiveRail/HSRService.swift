@@ -28,6 +28,26 @@ public struct HSRService {
         
     }
     
+    static func getTimetable(from origin: Station, to destination: Station, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let now = dateFormatter.string(from: Date())
+        
+        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin.StationID)/to/\(destination.StationID)/\(now)?$format=JSON"), on: client, completion: completion)
+        
+    }
+    
+    static func getTimetable(from origin: String, to destination: String, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let now = dateFormatter.string(from: Date())
+        
+        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin)/to/\(destination)/\(now)?$format=JSON"), on: client, completion: completion)
+        
+    }
+    
     
     
     static func runRequest<T: Codable>(_ request: URLRequest, on client: NetworkManager, completion: (([T]) -> Void)? = nil) {

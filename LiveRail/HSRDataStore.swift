@@ -7,14 +7,12 @@
 
 import Foundation
 
-final class HSRViewModel: ObservableObject {
+final class HSRDataStore: ObservableObject {
     @Published var stations: [Station] = [] // all stations
 //    @Published var stationTimetables: [StationTimetable] = [] // current station
     
     @Published var stationTimetableDict: [Station: [StationTimetable]] = [:]
     
-    @Published var train: RailDailyTimetable? // current train
-
     // TODO: Save station list to local storage
     init(client: NetworkManager) {
         HSRService.getHSRStations(client: client) {[weak self] stations in
@@ -46,14 +44,7 @@ final class HSRViewModel: ObservableObject {
         
         
     }
-    
-    func fetchTrainDetails(for train: String, client: NetworkManager) {
-        HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
-            DispatchQueue.main.async {
-                self?.train = train[0] // single element array
-            }
-        }
-    }
+
     
     
 }

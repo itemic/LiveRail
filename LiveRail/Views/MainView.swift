@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject var data: HSRDataStore
     var body: some View {
         TabView {
-            HSRStationsView()
+            HSRStationsView(data: data)
                 .tabItem {
                     Image(systemName: "ellipsis.rectangle")
-                    Text("Live Board")
+                    Text("Timetable")
                 }
-            PlannerHomeView()
+            PlannerHomeView(data: data)
                 .tabItem {
                     Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
                     Text("Planner")
@@ -24,8 +25,4 @@ struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+

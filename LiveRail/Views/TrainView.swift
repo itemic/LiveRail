@@ -9,30 +9,50 @@ import SwiftUI
 
 struct TrainView: View {
     var train: StationTimetable
-    @ObservedObject var vm: HSRViewModel
+//    @ObservedObject var data: HSRDataStore
+    @ObservedObject var vm = HSRTrainViewModel()
     
     var body: some View {
         ZStack {
-        if (vm.train != nil) {
-            List(vm.train!.StopTimes, id: \.StopSequence) { stop in
-                HStack(alignment: .bottom) {
-                    Text(stop.StationName.En)
-                        .fontWeight(train.StationID == stop.StationID ? .bold : .regular)
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                    Text("\(stop.DepartureTime)").font(.system(.body, design: .monospaced))
-                        .fontWeight(train.StationID == stop.StationID ? .black : .regular)
-                        Text(readableTime(otherTime: stop.DepartureTime)).font(.caption2)
+
+            List {
+
+                if (vm.train != nil) {
+                    Section(header: Text("Details")) {
+
+                        HStack {
+                            Text("\(vm.train!.DailyTrainInfo.Direction == 0 ? "Southbound" : "Northbound")".uppercased())
+                                .bold()
+                                .padding(5)
+                                .background(vm.train!.DailyTrainInfo.Direction == 0 ? Color.green : Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                        }
+
                     }
+                    Section(header: Text("Timetable")) {
+                    ForEach(vm.train!.StopTimes, id: \.StopSequence) { stop in
+                        HStack(alignment: .center) {
+                            Text(stop.StationName.En)
+                                .fontWeight(train.StationID == stop.StationID ? .bold : .regular)
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                            Text("\(stop.DepartureTime)").font(.system(.body, design: .monospaced))
+                                .fontWeight(train.StationID == stop.StationID ? .black : .regular)
+                                Text(readableTime(otherTime: stop.DepartureTime)).font(.caption2)
+                            }
 
+                        }
+                        .foregroundColor(compareTime(otherTime: stop.DepartureTime) ? .primary : .secondary)
+
+                    }
+                    }
                 }
-                .foregroundColor(compareTime(otherTime: stop.DepartureTime) ? .primary : .secondary)
-
-                
             }
-        } else {
-            
-        }
+            .listStyle(InsetGroupedListStyle())
+
+
+
         }
             .onAppear(perform: {
                 vm.fetchTrainDetails(for: train.TrainNo, client: .init())

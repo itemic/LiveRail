@@ -7,6 +7,19 @@
 
 import Foundation
 
+struct RailODDailyTimetable: Codable, Identifiable {
+    
+    var id: String {
+        OriginStopTime.DepartureTime
+    }
+    var TrainDate: String
+    var DailyTrainInfo: DailyTrainInfo
+    
+    var OriginStopTime: StopTime
+    var DestinationStopTime: StopTime
+    
+}
+
 struct RailDailyTimetable: Codable {
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
@@ -23,7 +36,11 @@ struct DailyTrainInfo: Codable {
 //    var Note: NameType? // not sure why
 }
 
-struct StopTime: Codable {
+struct StopTime: Codable, Hashable {
+//    static func > (lhs: StopTime, rhs: StopTime) {
+//        return Time(lhs.DepartureTime) >
+//    }
+    
     var StopSequence: Int32
     var StationID: String
     var StationName: NameType
