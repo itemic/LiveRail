@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct StationTimetable: Codable {
+struct StationTimetable: Codable, Identifiable {
+    
+    var id: String {
+        TrainNo
+    }
+    
+    
     var TrainDate: String
     var StationID: String
     var StationName: NameType

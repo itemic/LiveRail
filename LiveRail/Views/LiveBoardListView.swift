@@ -13,6 +13,7 @@ struct LiveBoardListView: View {
     var body: some View {
         HStack {
             Image(systemName: "arrow.\(train.Direction == 0 ? "down" : "up")\(train.isTerminus ? ".to.line" : "")")
+                .foregroundColor(train.Direction == 0 ? .green : .blue)
             VStack(alignment: .leading) {
                 Text(train.TrainNo).bold()
                 HStack {

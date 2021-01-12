@@ -12,21 +12,28 @@ struct StationView: View {
     
     var station: Station
     @ObservedObject var vm: HSRViewModel
+    @State private var direction = 0
     
     var body: some View {
         
-        List(vm.stationTimetables, id: \.TrainNo) { train in
-            
-            LiveBoardListView(train: train)
-            
+        List(vm.stationTimetables) { train in
+            NavigationLink(destination: TrainView(train: train, vm: vm)) {
+                LiveBoardListView(train: train)
+            }
                    
             }
                 .navigationTitle(station.StationName.En)
             .onAppear(perform: {
                 vm.fetchTimetable(for: station, client: .init())
             })
+        .listStyle(InsetGroupedListStyle())
+        .toolbar {
+            
+        }
+        .animation(.default)
         
     }
+    
 }
 
 

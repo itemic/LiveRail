@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Station: Codable {
+struct Station: Codable, Identifiable {
+    
+    var id: String {
+        StationID
+    }
     var StationID: String
     var StationName: NameType
     var StationCode: String

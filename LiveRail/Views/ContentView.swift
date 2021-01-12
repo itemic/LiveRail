@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-        List(vm.stations, id: \.StationID) { station in
+        List(vm.stations) { station in
             NavigationLink(destination: StationView(station: station, vm: vm)) {
                 VStack(alignment: .leading) {
                     Text("\(station.StationName.En)").bold()
@@ -20,7 +20,7 @@ struct ContentView: View {
                 }
             }
         }.listStyle(InsetGroupedListStyle())
-        .navigationTitle("Transit TW")
+        .navigationTitle("Stations")
         }
     }
 }
