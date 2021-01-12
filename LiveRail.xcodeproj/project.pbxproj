@@ -13,7 +13,8 @@
 		45232F5225AD9C770025BD09 /* PlannerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PlannerHomeView.swift */; };
 		45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5425ADBA920025BD09 /* HSRDataStore.swift */; };
 		45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */; };
-		45232F5D25ADC48C0025BD09 /* QueryResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5C25ADC48C0025BD09 /* QueryResultsView.swift */; };
+		45232F5D25ADC48C0025BD09 /* QueryResultsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5C25ADC48C0025BD09 /* QueryResultsCardView.swift */; };
+		45232F6225ADDD900025BD09 /* SeatAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F6125ADDD900025BD09 /* SeatAvailability.swift */; };
 		4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65325A9EECC00E50C5F /* LiveRailApp.swift */; };
 		4563E65625A9EECC00E50C5F /* HSRStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65525A9EECC00E50C5F /* HSRStationsView.swift */; };
 		4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65725A9EECD00E50C5F /* Assets.xcassets */; };
@@ -35,7 +36,8 @@
 		45232F5125AD9C770025BD09 /* PlannerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerHomeView.swift; sourceTree = "<group>"; };
 		45232F5425ADBA920025BD09 /* HSRDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRDataStore.swift; sourceTree = "<group>"; };
 		45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRTrainViewModel.swift; sourceTree = "<group>"; };
-		45232F5C25ADC48C0025BD09 /* QueryResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResultsView.swift; sourceTree = "<group>"; };
+		45232F5C25ADC48C0025BD09 /* QueryResultsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResultsCardView.swift; sourceTree = "<group>"; };
+		45232F6125ADDD900025BD09 /* SeatAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatAvailability.swift; sourceTree = "<group>"; };
 		4563E65025A9EECC00E50C5F /* LiveRail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveRail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4563E65325A9EECC00E50C5F /* LiveRailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRailApp.swift; sourceTree = "<group>"; };
 		4563E65525A9EECC00E50C5F /* HSRStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRStationsView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				4563E66725A9EF3800E50C5F /* Station.swift */,
 				45D1BC8325AC4AA000D040CD /* StationTimetable.swift */,
 				451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */,
+				45232F6125ADDD900025BD09 /* SeatAvailability.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,7 +128,7 @@
 				45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */,
 				45232F4E25AD9B260025BD09 /* MainView.swift */,
 				45232F5125AD9C770025BD09 /* PlannerHomeView.swift */,
-				45232F5C25ADC48C0025BD09 /* QueryResultsView.swift */,
+				45232F5C25ADC48C0025BD09 /* QueryResultsCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,8 +213,9 @@
 				45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */,
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
 				451E5C2F25AD59E100BBCE2D /* TrainView.swift in Sources */,
-				45232F5D25ADC48C0025BD09 /* QueryResultsView.swift in Sources */,
+				45232F5D25ADC48C0025BD09 /* QueryResultsCardView.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
+				45232F6225ADDD900025BD09 /* SeatAvailability.swift in Sources */,
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
 				45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */,

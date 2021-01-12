@@ -7,10 +7,28 @@
 
 import Foundation
 
-struct RailODDailyTimetable: Codable, Identifiable {
+struct RailODWithAvailability: Codable, Identifiable, Hashable {
+    static func == (lhs: RailODWithAvailability, rhs: RailODWithAvailability) -> Bool {
+        return lhs.id == rhs.id
+    
+    }
     
     var id: String {
-        OriginStopTime.DepartureTime
+        timetable.DailyTrainInfo.TrainNo
+    }
+    var timetable: RailODDailyTimetable
+    var availability: AvailableSeat
+}
+
+struct RailODDailyTimetable: Codable, Identifiable, Hashable {
+    static func == (lhs: RailODDailyTimetable, rhs: RailODDailyTimetable) -> Bool {
+        return lhs.DailyTrainInfo.TrainNo == rhs.DailyTrainInfo.TrainNo
+    }
+    
+    
+    
+    var id: String {
+        DailyTrainInfo.TrainNo
     }
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
@@ -20,13 +38,13 @@ struct RailODDailyTimetable: Codable, Identifiable {
     
 }
 
-struct RailDailyTimetable: Codable {
+struct RailDailyTimetable: Codable, Hashable {
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
     var StopTimes: [StopTime]
 }
 
-struct DailyTrainInfo: Codable {
+struct DailyTrainInfo: Codable, Hashable {
     var TrainNo: String
     var Direction: Int
     var StartingStationID: String
@@ -37,9 +55,19 @@ struct DailyTrainInfo: Codable {
 }
 
 struct StopTime: Codable, Hashable {
-//    static func > (lhs: StopTime, rhs: StopTime) {
-//        return Time(lhs.DepartureTime) >
+    static func < (lhs: StopTime, rhs: StopTime) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let lhsD = dateFormatter.date(from: lhs.DepartureTime)!
+        let rhsD = dateFormatter.date(from: rhs.DepartureTime)!
+        
+        return lhsD < rhsD
+    }
+    
+//    var DepartureTimestamp: Date {
+//        let dateFormatter
 //    }
+    
     
     var StopSequence: Int32
     var StationID: String

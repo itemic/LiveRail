@@ -28,11 +28,12 @@ struct PlannerHomeView: View {
                 Picker(selection: $endingStation, label: Text("Destination")) {
                     ForEach(data.stations) {
                         Text("\($0.StationName.En)").tag($0.StationID)
+                        
                     }
                 }
 
             }
-            
+//
             Toggle(isOn: $showAvailable) {
                 Text("Hide departed trains")
             }
@@ -47,26 +48,29 @@ struct PlannerHomeView: View {
             
             }
             
-            List(queryVM.queryResultTimetable) { entry in
-                VStack {
-                    HStack {
-                        Text(entry.DailyTrainInfo.TrainNo).bold()
-                        Spacer()
-                    }
-                    HStack {
-                        VStack {
-                        Text(entry.OriginStopTime.StationName.En)
-                        Text(entry.OriginStopTime.DepartureTime)
-                        }
-                        Spacer()
-                        VStack {
-                        Text(entry.DestinationStopTime.StationName.En)
-                        Text(entry.DestinationStopTime.ArrivalTime ?? entry.DestinationStopTime.DepartureTime)
-                        }
-                    }
-                }
+            List(queryVM.queryResultTimetable
+            .sorted {
+                $0.OriginStopTime < $1.OriginStopTime
+            }
+            .filter {
+                showAvailable ? compareTime(otherTime: $0.OriginStopTime.DepartureTime) : true
+
+            }
+            ) { entry in
+//                Text(queryVM.availability[entry]?.DestinationStationName ?? "XXX")
+                QueryResultsCardView(entry: entry, availability: queryVM.availability[entry])
+                
             }
         }.navigationTitle("Planner")
         }
+    }
+    func compareTime(otherTime: String) -> Bool {
+        
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let departure = dateFormatter.date(from: otherTime) else { return false }
+        return now.time < departure.time
+        
     }
 }
