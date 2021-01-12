@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HSRStationsView: View {
     @ObservedObject private var vm = HSRViewModel(client: .init())
     
     var body: some View {

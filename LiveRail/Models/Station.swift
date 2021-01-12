@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Station: Codable, Identifiable {
+struct Station: Codable, Identifiable, Hashable {
+    static func == (lhs: Station, rhs: Station) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     
     var id: String {
         StationID
@@ -23,7 +27,7 @@ struct Station: Codable, Identifiable {
 //    }
 }
 
-struct NameType: Codable {
+struct NameType: Codable, Hashable {
     var Zh_tw: String
     var En: String
     

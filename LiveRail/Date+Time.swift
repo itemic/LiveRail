@@ -77,3 +77,11 @@ extension Date {
         return Time(self)
     }
 }
+
+extension Time {
+    static func - (lhs: Time, rhs: Time) -> Int {
+        let lhsMin = lhs.hour * 60 + lhs.minute
+        let rhsMin = rhs.hour * 60 + rhs.minute
+        return lhsMin - rhsMin
+    }
+}

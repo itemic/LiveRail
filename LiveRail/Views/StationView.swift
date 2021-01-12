@@ -16,7 +16,7 @@ struct StationView: View {
     
     var body: some View {
         
-        List(vm.stationTimetables) { train in
+        List(vm.stationTimetableDict[station]!) { train in
             NavigationLink(destination: TrainView(train: train, vm: vm)) {
                 LiveBoardListView(train: train)
             }

@@ -34,10 +34,6 @@ struct LiveBoardListView: View {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let departure = dateFormatter.date(from: train.DepartureTime)!
-        
-        
-        
-        
         return now.time < departure.time
         
     }

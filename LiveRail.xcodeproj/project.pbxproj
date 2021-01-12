@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		451E5C2F25AD59E100BBCE2D /* TrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2E25AD59E000BBCE2D /* TrainView.swift */; };
+		45232F4F25AD9B260025BD09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F4E25AD9B260025BD09 /* MainView.swift */; };
+		45232F5225AD9C770025BD09 /* PlannerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PlannerHomeView.swift */; };
 		4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65325A9EECC00E50C5F /* LiveRailApp.swift */; };
-		4563E65625A9EECC00E50C5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65525A9EECC00E50C5F /* ContentView.swift */; };
+		4563E65625A9EECC00E50C5F /* HSRStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65525A9EECC00E50C5F /* HSRStationsView.swift */; };
 		4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65725A9EECD00E50C5F /* Assets.xcassets */; };
 		4563E65B25A9EECD00E50C5F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65A25A9EECD00E50C5F /* Preview Assets.xcassets */; };
 		4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66325A9EF0E00E50C5F /* NetworkManager.swift */; };
@@ -26,9 +28,11 @@
 /* Begin PBXFileReference section */
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		451E5C2E25AD59E000BBCE2D /* TrainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainView.swift; sourceTree = "<group>"; };
+		45232F4E25AD9B260025BD09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		45232F5125AD9C770025BD09 /* PlannerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerHomeView.swift; sourceTree = "<group>"; };
 		4563E65025A9EECC00E50C5F /* LiveRail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveRail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4563E65325A9EECC00E50C5F /* LiveRailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRailApp.swift; sourceTree = "<group>"; };
-		4563E65525A9EECC00E50C5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4563E65525A9EECC00E50C5F /* HSRStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRStationsView.swift; sourceTree = "<group>"; };
 		4563E65725A9EECD00E50C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4563E65A25A9EECD00E50C5F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4563E65C25A9EECD00E50C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,10 +111,12 @@
 		45D1BC7E25AC49E400D040CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4563E65525A9EECC00E50C5F /* ContentView.swift */,
+				4563E65525A9EECC00E50C5F /* HSRStationsView.swift */,
 				45D1BC7F25AC49F300D040CD /* StationView.swift */,
 				451E5C2E25AD59E000BBCE2D /* TrainView.swift */,
 				45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */,
+				45232F4E25AD9B260025BD09 /* MainView.swift */,
+				45232F5125AD9C770025BD09 /* PlannerHomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,10 +191,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */,
-				4563E65625A9EECC00E50C5F /* ContentView.swift in Sources */,
+				45232F4F25AD9B260025BD09 /* MainView.swift in Sources */,
+				4563E65625A9EECC00E50C5F /* HSRStationsView.swift in Sources */,
 				45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */,
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
+				45232F5225AD9C770025BD09 /* PlannerHomeView.swift in Sources */,
 				45D1BC8025AC49F300D040CD /* StationView.swift in Sources */,
 				45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */,
 				451E5C2F25AD59E100BBCE2D /* TrainView.swift in Sources */,
