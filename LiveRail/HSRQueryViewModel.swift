@@ -12,7 +12,7 @@ final class HSRQueryViewModel: ObservableObject {
             DispatchQueue.main.async {
                 print("Fetching...")
                 self?.queryResultTimetable = timetables
-
+                self?.availability = [:] // empty dict
                 for item in timetables {
                     print("FETCH")
                     self?.fetchAvailability(from: origin, to: destination, on: item, client: client)

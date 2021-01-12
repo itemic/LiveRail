@@ -16,6 +16,7 @@ struct QueryResultsCardView: View {
             HStack {
                 Text("\(entry.OriginStopTime.DepartureTime) → \(entry.DestinationStopTime.ArrivalTime ?? entry.DestinationStopTime.DepartureTime)")
                     .font(.system(.headline, design: .monospaced))
+                    
                 Spacer()
             }
             .foregroundColor(compareTime(otherTime: entry.DestinationStopTime.DepartureTime) ? .primary : .secondary)
