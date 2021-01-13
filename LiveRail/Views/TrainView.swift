@@ -35,7 +35,7 @@ struct TrainView: View {
                         HStack(alignment: .center) {
                             if (stop.StationID == train.EndingStationID) {
                                 Image(systemName: "largecircle.fill.circle")
-                            } else if (nextStop != nil && stop == nextStop()) {
+                            } else if (nextStop() != nil && stop == nextStop()) {
                                 Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
                             } else {
                             Image(systemName: "\(compareTime(otherTime: stop.DepartureTime) ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
