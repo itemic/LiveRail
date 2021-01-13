@@ -35,7 +35,7 @@ struct TrainView: View {
                         HStack(alignment: .center) {
                             if (stop.StationID == train.EndingStationID) {
                                 Image(systemName: "largecircle.fill.circle")
-                            } else if (stop == nextStop()) {
+                            } else if (nextStop != nil && stop == nextStop()) {
                                 Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
                             } else {
                             Image(systemName: "\(compareTime(otherTime: stop.DepartureTime) ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
@@ -98,7 +98,7 @@ struct TrainView: View {
         
     }
     
-    func nextStop() -> StopTime {
+    func nextStop() -> StopTime? {
 
         let now = Date()
         let dateFormatter = DateFormatter()
@@ -107,7 +107,7 @@ struct TrainView: View {
         return vm.train!.StopTimes.first { a in
             dateFormatter.date(from: a.DepartureTime)!.time - now.time >= 0
 
-        }!
+        }
     }
 
     func readableTime(otherTime: String) -> String {
