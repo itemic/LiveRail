@@ -27,6 +27,7 @@
 		45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */; };
 		45D1BC8025AC49F300D040CD /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationView.swift */; };
 		45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
+		45D9480D25AEA733002FE73C /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9480C25AEA733002FE73C /* MoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRQueryViewModel.swift; sourceTree = "<group>"; };
 		45D1BC7F25AC49F300D040CD /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		45D1BC8325AC4AA000D040CD /* StationTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetable.swift; sourceTree = "<group>"; };
+		45D9480C25AEA733002FE73C /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				451E5C2E25AD59E000BBCE2D /* TrainView.swift */,
 				45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */,
 				45232F4E25AD9B260025BD09 /* MainView.swift */,
+				45D9480C25AEA733002FE73C /* MoreView.swift */,
 				45232F5125AD9C770025BD09 /* PlannerHomeView.swift */,
 				45232F5C25ADC48C0025BD09 /* QueryResultsCardView.swift */,
 			);
@@ -215,6 +218,7 @@
 				451E5C2F25AD59E100BBCE2D /* TrainView.swift in Sources */,
 				45232F5D25ADC48C0025BD09 /* QueryResultsCardView.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
+				45D9480D25AEA733002FE73C /* MoreView.swift in Sources */,
 				45232F6225ADDD900025BD09 /* SeatAvailability.swift in Sources */,
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,

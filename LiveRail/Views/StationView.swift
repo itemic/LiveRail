@@ -13,10 +13,15 @@ struct StationView: View {
     var station: Station
     @ObservedObject var data: HSRDataStore
     @State private var direction = 0
+    @AppStorage("showAvailable") var showAvailable = false
+    @AppStorage("hideTerminus") var hideTerminus = false
     
     var body: some View {
         
-        List(data.stationTimetableDict[station]!) { train in
+        List(data.stationTimetableDict[station]!.filter {
+            (showAvailable ? compareTime(otherTime: $0.DepartureTime) : true) &&
+                (hideTerminus ? !$0.isTerminus : true)
+        }) { train in
             NavigationLink(destination: TrainView(train: train)) {
                 LiveBoardListView(train: train)
             }
@@ -27,10 +32,21 @@ struct StationView: View {
                 data.fetchTimetable(for: station, client: .init())
             })
         .listStyle(InsetGroupedListStyle())
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             
         }
         .animation(.default)
+        
+    }
+    
+    func compareTime(otherTime: String) -> Bool {
+        
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let departure = dateFormatter.date(from: otherTime) else { return false }
+        return now.time < departure.time
         
     }
     

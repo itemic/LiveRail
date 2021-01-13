@@ -12,18 +12,40 @@ struct PlannerHomeView: View {
     // stored as IDs 4-digit string
     @State var startingStation = ""
     @State var endingStation = ""
-    @State var showAvailable = true
+    @AppStorage("showAvailable") var showAvailable = false
+    @State var showingOverlay = false
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
     
     @ObservedObject var queryVM = HSRQueryViewModel()
     var body: some View {
         NavigationView {
+            ZStack {
         Form {
             Section {
+                
+//                HStack {
+//                    Text("A")
+//                        .padding()
+//                        .background(Color.blue)
+//                        .onTapGesture {
+//                            showingOverlay.toggle()
+//                        }
+//                    Spacer()
+//                    Text("A")
+//                        .padding()
+//                        .background(Color.blue)
+//                }
+                
                 Picker(selection: $startingStation, label: Text("Origin")) {
                     ForEach(data.stations) {
                         Text("\($0.StationName.En)").tag($0.StationID)
                     }
                 }
+                
 
                 Picker(selection: $endingStation, label: Text("Destination")) {
                     ForEach(data.stations) {
@@ -31,23 +53,39 @@ struct PlannerHomeView: View {
                         
                     }
                 }
+                
+                
+                Button("Flip origin and destination") {
+                    let temp = startingStation
+                    startingStation = endingStation
+                    endingStation = temp
+                }
+                
 
             }
-//
-            Toggle(isOn: $showAvailable) {
-                Text("Hide departed trains")
+            .onChange(of: startingStation) { newValue in
+                if (!newValue.isEmpty && !endingStation.isEmpty) {
+                    queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
+                }
+            }
+            .onChange(of: endingStation) { newValue in
+                if (!newValue.isEmpty && !startingStation.isEmpty) {
+                    queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
+                }
             }
             
+        
             Section {
                 
+                if (queryVM.queryResultTimetable.isEmpty) {
+                    HStack {
+                        Spacer()
+                        Text("No trains available for your selection")
+                        Spacer()
+                    }
+                }
                 
-                    Button("Find trains") {
-                        queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                    }.disabled(startingStation.isEmpty || endingStation.isEmpty)
                 
-            
-            }
-            
             List(queryVM.queryResultTimetable
             .sorted {
                 $0.OriginStopTime < $1.OriginStopTime
@@ -61,7 +99,48 @@ struct PlannerHomeView: View {
                 QueryResultsCardView(entry: entry, availability: queryVM.availability[entry])
                 
             }
+            }
+            
+            
+        }
+                if (showingOverlay) {
+                    GeometryReader { geo in
+                        VStack {
+                            LazyVGrid(columns: columns) {
+                                ForEach (data.stations) { station in
+                                    Text(station.StationName.En)
+                                        .font(.headline)
+                                        .padding(.vertical, 16)
+                                        .foregroundColor(Color.white)
+                                        .frame(maxWidth: .infinity)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                                                .fill(station.StationID == startingStation ? Color.accentColor : Color.secondary)
+                                            )
+                                        .onTapGesture {
+                                            startingStation = station.StationID
+                                            withAnimation {
+                                            showingOverlay.toggle()
+                                            }
+                                        }
+                                        
+                                }
+                            }.padding()
+                        }
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .background(BlurView())
+                        .onTapGesture {
+                            withAnimation {
+                            showingOverlay.toggle()
+                            }
+                        }.transition(.scale)
+                    }
+           
+
+                }
+                
         }.navigationTitle("Planner")
+            
         }
     }
     func compareTime(otherTime: String) -> Bool {
@@ -72,5 +151,41 @@ struct PlannerHomeView: View {
         guard let departure = dateFormatter.date(from: otherTime) else { return false }
         return now.time < departure.time
         
+    }
+}
+
+
+// source: https://medium.com/dev-genius/blur-effect-with-vibrancy-in-swiftui-bada837fdf50
+struct BlurView: UIViewRepresentable {
+    typealias UIViewType = UIVisualEffectView
+    
+    let style: UIBlurEffect.Style
+    
+    init(style: UIBlurEffect.Style = .systemMaterial) {
+        self.style = style
+    }
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        return UIVisualEffectView(effect: UIBlurEffect(style: self.style))
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.effect = UIBlurEffect(style: self.style)
+    }
+}
+
+
+public struct CustomButtonStyle: ButtonStyle {
+    public func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(Font.body.weight(.medium))
+            .padding(.vertical, 12)
+            .foregroundColor(Color.white)
+            .frame(maxWidth: .infinity)
+            .background(
+                RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                    .fill(Color.accentColor)
+                )
+            .opacity(configuration.isPressed ? 0.4 : 1.0)
     }
 }

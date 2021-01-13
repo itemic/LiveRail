@@ -13,13 +13,18 @@ struct MainView: View {
         TabView {
             HSRStationsView(data: data)
                 .tabItem {
-                    Image(systemName: "ellipsis.rectangle")
+                    Image(systemName: "ellipsis.rectangle.fill")
                     Text("Timetable")
                 }
             PlannerHomeView(data: data)
                 .tabItem {
                     Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
                     Text("Planner")
+                }
+            MoreView(data: data)
+                .tabItem {
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
                 }
         }
     }

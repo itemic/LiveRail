@@ -12,6 +12,7 @@ struct TrainView: View {
 //    @ObservedObject var data: HSRDataStore
     @ObservedObject var vm = HSRTrainViewModel()
     
+
     var body: some View {
         ZStack {
 
@@ -48,6 +49,25 @@ struct TrainView: View {
                     }
                     }
                 }
+            }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    
+                                HStack {
+                                    VStack(spacing: -1) {
+                                    Text("\(train.TrainNo)").font(.headline)
+                                        Text("\(train.EndingStationName.En)").font(Font.system(.caption).smallCaps()).bold()
+                                    }
+                                        .padding(2)
+                                    .padding(.horizontal, 5)
+                                        
+                                        
+                                        .background(Color.orange)
+
+                                        .foregroundColor(.white)
+                                        .cornerRadius(5)
+                                }
+                            }
             }
             .listStyle(InsetGroupedListStyle())
 
