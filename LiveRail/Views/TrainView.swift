@@ -19,28 +19,36 @@ struct TrainView: View {
             List {
 
                 if (vm.train != nil) {
-                    Section(header: Text("Details")) {
-
-                        HStack {
-                            Text("\(vm.train!.DailyTrainInfo.Direction == 0 ? "Southbound" : "Northbound")".uppercased())
-                                .bold()
-                                .padding(5)
-                                .background(vm.train!.DailyTrainInfo.Direction == 0 ? Color.green : Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(5)
-                        }
-
-                    }
-                    Section(header: Text("Timetable")) {
-                    ForEach(vm.train!.StopTimes, id: \.StopSequence) { stop in
+      
+                    
+                    Section(header: HStack {
+                        Text("\(train.Direction == 0 ? "Southbound" : "Northbound")".uppercased())
+                            .bold()
+                            .padding(5)
+                            .background(train.Direction == 0 ? Color.green : Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(5)
+                    }.padding(.top, 15)) {
+                        ForEach(vm.train!.StopTimes.sorted {
+                            train.Direction == 0 ? $0.StopSequence < $1.StopSequence : $0.StopSequence > $1.StopSequence
+                        }, id: \.StopSequence) { stop in
                         HStack(alignment: .center) {
+                            if (stop.StationID == train.EndingStationID) {
+                                Image(systemName: "largecircle.fill.circle")
+                            } else if (stop == nextStop()) {
+                                Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
+                            } else {
+                            Image(systemName: "\(compareTime(otherTime: stop.DepartureTime) ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
+                            }
                             Text(stop.StationName.En)
-                                .fontWeight(train.StationID == stop.StationID ? .bold : .regular)
+                                .fontWeight(stop == nextStop() ? .bold : .regular)
+
                             Spacer()
                             VStack(alignment: .trailing) {
                             Text("\(stop.DepartureTime)").font(.system(.body, design: .monospaced))
-                                .fontWeight(train.StationID == stop.StationID ? .black : .regular)
                                 Text(readableTime(otherTime: stop.DepartureTime)).font(.caption2)
+                                    .fontWeight(stop == nextStop() ? .bold : .regular)
+
                             }
 
                         }
@@ -90,6 +98,18 @@ struct TrainView: View {
         
     }
     
+    func nextStop() -> StopTime {
+
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+
+        return vm.train!.StopTimes.first { a in
+            dateFormatter.date(from: a.DepartureTime)!.time - now.time >= 0
+
+        }!
+    }
+
     func readableTime(otherTime: String) -> String {
         
         let now = Date()
@@ -102,7 +122,7 @@ struct TrainView: View {
         
         if (minutesUntilDeparture < 0) {
             return "departed"
-        } else if (minutesUntilDeparture <= 1) {
+        } else if (minutesUntilDeparture < 1) {
             return "under a minute"
         } else if (minutesUntilDeparture <= 60) {
             return "in \(minutesUntilDeparture)m"
