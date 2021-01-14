@@ -77,12 +77,9 @@ struct PlannerHomeView: View {
             
             
                 if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
-                    Section(header: Text("Fare Details")) {
+                    Section(header: Text("Fare Details"), footer: Text("Please check the official website for group/discount ticket fares.").font(.caption2)) {
                         HStack {
                             FareView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
-//                            VStack {
-//                                Text("\(data.fareSchedule[startingStation]![endingStation]!.fare(for: .reserved))")
-//                            }
                             
                         }
                     }

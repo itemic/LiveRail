@@ -51,8 +51,8 @@ final class HSRDataStore: ObservableObject {
                 DispatchQueue.main.async {
                     print("Fetching...")
                     self?.stationTimetableDict[station] = timetables
+                    self?.lastUpdateDate = now
                 }
-                self?.lastUpdateDate = now
             }
         } else if (calendar.numberOfDaysBetween(lastUpdateDate, and: now) > 0){
            // invalidated because new day
@@ -60,8 +60,9 @@ final class HSRDataStore: ObservableObject {
                 DispatchQueue.main.async {
                     print("Fetching...")
                     self?.stationTimetableDict[station] = timetables
+                    self?.lastUpdateDate = now
                 }
-                self?.lastUpdateDate = now
+                
             }
         } else {
             // already loaded, don't re-fetch
