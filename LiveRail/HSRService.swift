@@ -57,6 +57,9 @@ public struct HSRService {
         
     }
     
+    static func getFares(client: NetworkManager, completion: (([FareSchedule]) -> Void)? = nil) {
+        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/ODFare"), on: client, completion: completion)
+    }
     
     
     static func runRequest<T: Codable>(_ request: URLRequest, on client: NetworkManager, completion: ((T) -> Void)? = nil) {

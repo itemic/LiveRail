@@ -22,6 +22,8 @@
 		4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66325A9EF0E00E50C5F /* NetworkManager.swift */; };
 		4563E66825A9EF3800E50C5F /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66725A9EF3800E50C5F /* Station.swift */; };
 		4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66A25A9F69F00E50C5F /* HSRService.swift */; };
+		4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3725AFFD2A002D376B /* FareSchedule.swift */; };
+		4569AA3B25B00772002D376B /* FareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3A25B00772002D376B /* FareView.swift */; };
 		45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */; };
 		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
 		45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */; };
@@ -48,6 +50,8 @@
 		4563E66325A9EF0E00E50C5F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4563E66725A9EF3800E50C5F /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		4563E66A25A9F69F00E50C5F /* HSRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRService.swift; sourceTree = "<group>"; };
+		4569AA3725AFFD2A002D376B /* FareSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareSchedule.swift; sourceTree = "<group>"; };
+		4569AA3A25B00772002D376B /* FareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareView.swift; sourceTree = "<group>"; };
 		45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBoardListView.swift; sourceTree = "<group>"; };
 		45D00A4825AC94F500DB518F /* Date+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
 		45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRQueryViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				45D1BC8325AC4AA000D040CD /* StationTimetable.swift */,
 				451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */,
 				45232F6125ADDD900025BD09 /* SeatAvailability.swift */,
+				4569AA3725AFFD2A002D376B /* FareSchedule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		45D1BC7E25AC49E400D040CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4569AA3A25B00772002D376B /* FareView.swift */,
 				4563E65525A9EECC00E50C5F /* HSRStationsView.swift */,
 				45D1BC7F25AC49F300D040CD /* StationView.swift */,
 				451E5C2E25AD59E000BBCE2D /* TrainView.swift */,
@@ -212,11 +218,13 @@
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
 				45232F5225AD9C770025BD09 /* PlannerHomeView.swift in Sources */,
+				4569AA3B25B00772002D376B /* FareView.swift in Sources */,
 				45D1BC8025AC49F300D040CD /* StationView.swift in Sources */,
 				45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */,
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
 				451E5C2F25AD59E100BBCE2D /* TrainView.swift in Sources */,
 				45232F5D25ADC48C0025BD09 /* QueryResultsCardView.swift in Sources */,
+				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
 				45D9480D25AEA733002FE73C /* MoreView.swift in Sources */,
 				45232F6225ADDD900025BD09 /* SeatAvailability.swift in Sources */,

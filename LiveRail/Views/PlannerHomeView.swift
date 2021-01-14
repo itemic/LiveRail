@@ -74,8 +74,23 @@ struct PlannerHomeView: View {
                 }
             }
             
+            
+            
+                if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
+                    Section(header: Text("Fare Details")) {
+                        HStack {
+                            FareView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
+//                            VStack {
+//                                Text("\(data.fareSchedule[startingStation]![endingStation]!.fare(for: .reserved))")
+//                            }
+                            
+                        }
+                    }
+                }
+            
+            
         
-            Section {
+            Section(header: Text("Available Trains")) {
                 
                 if (queryVM.queryResultTimetable.isEmpty) {
                     HStack {
