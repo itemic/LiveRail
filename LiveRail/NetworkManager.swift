@@ -9,8 +9,9 @@ import Foundation
 import CryptoKit
 
 public final class NetworkManager {
-    private let appID = "256d110b46c84ddc933ffcda415e1f54"
-    private let appKey = "ZhZ6bBbNlRE1H3b1eL6muP59SOU"
+
+    private let appID = ProcessInfo.processInfo.environment["appID"] ?? ""
+    private let appKey = ProcessInfo.processInfo.environment["appKey"] ?? ""
     
     enum NetworkError: Error {
         case noData
