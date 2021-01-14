@@ -14,6 +14,7 @@ struct MoreView: View {
     var body: some View {
         NavigationView {
             Form {
+                Text("Last updated: \(data.lastUpdateDate)")
                 Toggle("Hide departed services", isOn: $showAvailable)
                 Toggle("Hide terminus services", isOn: $hideTerminus)
             }.navigationBarTitle("Settings")
