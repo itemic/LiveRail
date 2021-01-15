@@ -12,20 +12,29 @@ struct LiveBoardListView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "arrow.\(train.Direction == 0 ? "down" : "up")\(train.isTerminus ? ".to.line" : "")")
-                .foregroundColor(train.Direction == 0 ? .green : .blue)
+            
+            Text("\(train.Direction == 0 ? "S" : "N")")
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(width: 20, height: 40, alignment: .center)
+                .background(train.Direction == 0 ? Color.green : Color.blue)
+                .clipShape(Rectangle())
+
             VStack(alignment: .leading) {
-                Text(train.TrainNo)
-                HStack {
-                Text("\(train.EndingStationName.En)").bold()
-                }
+                Text("\(train.TrainNo)").font(.system(.body, design: .rounded))
+                Text("\(train.EndingStationName.En)").bold().font(.body)
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text(train.DepartureTime).font(.system(.body, design: .monospaced))
-                    
+                Text("\(train.DepartureTime)").font(.system(.body, design: .monospaced))
+
             }
         }.foregroundColor(compareTime() ? .primary : .secondary)
+        
+        
+
+        
+
     }
     
     func compareTime() -> Bool {

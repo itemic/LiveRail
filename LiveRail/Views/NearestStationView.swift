@@ -10,7 +10,6 @@ import SwiftUI
 struct NearestStationView: View {
     var station: Station?
     @ObservedObject var data: HSRDataStore
-    @State var isActive = false
     
     var firstNth: StationTimetable? {
         if let station = station {
@@ -48,21 +47,7 @@ struct NearestStationView: View {
                 
                 
             NavigationLink(destination: TrainView(train: firstNth!)) {
-            HStack {
-                
-                Text("N")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(width: 20, height: 40, alignment: .center)
-                    .background(Color.blue)
-                    .clipShape(Rectangle())
-                VStack(alignment: .leading) {
-                    Text("\(firstNth!.TrainNo)").font(.system(.body, design: .rounded))
-                    Text("\(firstNth!.EndingStationName.En)").bold().font(.body)
-                }
-                Spacer()
-                    Text("\(firstNth!.DepartureTime)").font(.system(.body, design: .monospaced))
-            }
+            LiveBoardListView(train: firstNth!)
             }
             }
                 
@@ -74,20 +59,7 @@ struct NearestStationView: View {
             if (firstSth != nil) {
                 
                 NavigationLink(destination: TrainView(train: firstSth!)) {
-            HStack {
-                Text("S")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(width: 20, height: 40, alignment: .center)
-                    .background(Color.green)
-                    .clipShape(Rectangle())
-                VStack(alignment: .leading) {
-                    Text("\(firstSth!.TrainNo)").font(.system(.body, design: .rounded))
-                    Text("\(firstSth!.EndingStationName.En)").bold().font(.body)
-                }
-                Spacer()
-                Text("\(firstSth!.DepartureTime)").font(.system(.body, design: .monospaced))
-            }
+                    LiveBoardListView(train: firstSth!)
         }
             }
         }

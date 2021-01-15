@@ -17,21 +17,23 @@ struct StationView: View {
     @AppStorage("hideTerminus") var hideTerminus = false
     
     var body: some View {
-        
-        List(data.stationTimetableDict[station]!.filter {
+        List {
+        ForEach(data.stationTimetableDict[station]!.filter {
             (showAvailable ? compareTime(otherTime: $0.DepartureTime) : true) &&
                 (hideTerminus ? !$0.isTerminus : true)
         }) { train in
             NavigationLink(destination: TrainView(train: train)) {
                 LiveBoardListView(train: train)
-            }
+            }.listRowBackground(Color(UIColor.systemGroupedBackground))
                    
             }
+    }
                 .navigationTitle(station.StationName.En)
             .onAppear(perform: {
                 data.fetchTimetable(for: station, client: .init())
             })
         .listStyle(InsetGroupedListStyle())
+        
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             
