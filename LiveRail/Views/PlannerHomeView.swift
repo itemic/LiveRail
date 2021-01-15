@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlannerHomeView: View {
     @ObservedObject var data: HSRDataStore
+    
     // stored as IDs 4-digit string
     @State var startingStation = ""
     @State var endingStation = ""
@@ -22,6 +23,8 @@ struct PlannerHomeView: View {
     ]
     
     @ObservedObject var queryVM = HSRQueryViewModel()
+    
+    
     var body: some View {
         NavigationView {
             ZStack {

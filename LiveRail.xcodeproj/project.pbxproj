@@ -26,6 +26,9 @@
 		4569AA3B25B00772002D376B /* FareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3A25B00772002D376B /* FareView.swift */; };
 		45A7808425B148500078ECD2 /* SeatAvailability2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808325B148500078ECD2 /* SeatAvailability2.swift */; };
 		45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */; };
+		45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808925B16ABF0078ECD2 /* LocationManager.swift */; };
+		45A7808F25B17B8D0078ECD2 /* NearestStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808E25B17B8D0078ECD2 /* NearestStationView.swift */; };
+		45A7809225B18E700078ECD2 /* RequestLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7809125B18E700078ECD2 /* RequestLocationView.swift */; };
 		45D00A4625AC8F0E00DB518F /* LiveBoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */; };
 		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
 		45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */; };
@@ -56,6 +59,9 @@
 		4569AA3A25B00772002D376B /* FareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareView.swift; sourceTree = "<group>"; };
 		45A7808325B148500078ECD2 /* SeatAvailability2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatAvailability2.swift; sourceTree = "<group>"; };
 		45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityIconView.swift; sourceTree = "<group>"; };
+		45A7808925B16ABF0078ECD2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = LiveRail/LocationManager.swift; sourceTree = SOURCE_ROOT; };
+		45A7808E25B17B8D0078ECD2 /* NearestStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NearestStationView.swift; path = LiveRail/Views/NearestStationView.swift; sourceTree = "<group>"; };
+		45A7809125B18E700078ECD2 /* RequestLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLocationView.swift; sourceTree = "<group>"; };
 		45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBoardListView.swift; sourceTree = "<group>"; };
 		45D00A4825AC94F500DB518F /* Date+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
 		45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRQueryViewModel.swift; sourceTree = "<group>"; };
@@ -78,6 +84,7 @@
 		4563E64725A9EECC00E50C5F = {
 			isa = PBXGroup;
 			children = (
+				45A7808E25B17B8D0078ECD2 /* NearestStationView.swift */,
 				4563E65225A9EECC00E50C5F /* LiveRail */,
 				4563E65125A9EECC00E50C5F /* Products */,
 			);
@@ -102,6 +109,7 @@
 				4563E65325A9EECC00E50C5F /* LiveRailApp.swift */,
 				45D1BC7E25AC49E400D040CD /* Views */,
 				4563E66325A9EF0E00E50C5F /* NetworkManager.swift */,
+				45A7808925B16ABF0078ECD2 /* LocationManager.swift */,
 				45D00A4825AC94F500DB518F /* Date+Time.swift */,
 				4563E65725A9EECD00E50C5F /* Assets.xcassets */,
 				4563E65C25A9EECD00E50C5F /* Info.plist */,
@@ -136,6 +144,7 @@
 			children = (
 				4569AA3A25B00772002D376B /* FareView.swift */,
 				4563E65525A9EECC00E50C5F /* HSRStationsView.swift */,
+				45A7809125B18E700078ECD2 /* RequestLocationView.swift */,
 				45D1BC7F25AC49F300D040CD /* StationView.swift */,
 				451E5C2E25AD59E000BBCE2D /* TrainView.swift */,
 				45D00A4525AC8F0E00DB518F /* LiveBoardListView.swift */,
@@ -237,7 +246,10 @@
 				45232F6225ADDD900025BD09 /* SeatAvailability.swift in Sources */,
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
 				45A7808425B148500078ECD2 /* SeatAvailability2.swift in Sources */,
+				45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */,
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
+				45A7808F25B17B8D0078ECD2 /* NearestStationView.swift in Sources */,
+				45A7809225B18E700078ECD2 /* RequestLocationView.swift in Sources */,
 				45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */,
 				4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */,
 			);

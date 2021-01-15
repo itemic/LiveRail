@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Station: Codable, Identifiable, Hashable {
     static func == (lhs: Station, rhs: Station) -> Bool {
@@ -19,12 +20,10 @@ struct Station: Codable, Identifiable, Hashable {
     var StationID: String
     var StationName: NameType
     var StationCode: String
-    
-//    enum CodingKeys: String, CodingKey {
-//        case stationID = "StationID"
-//        case stationName = "StationName"
-//        case stationCode = "StationCode"
-//    }
+    var StationPosition: PointType
+    var coordinates: CLLocation {
+        return CLLocation(latitude: StationPosition.PositionLat, longitude: StationPosition.PositionLon)
+    }
 }
 
 struct NameType: Codable, Hashable {
@@ -35,4 +34,9 @@ struct NameType: Codable, Hashable {
 //        case zhTw = "Zh_tw"
 //        case en = "En"
 //    }
+}
+
+struct PointType: Codable, Hashable {
+    var PositionLat: Double
+    var PositionLon: Double
 }

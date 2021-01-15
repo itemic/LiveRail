@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var data: HSRDataStore
     var body: some View {
+        
         TabView {
             HSRStationsView(data: data)
                 .tabItem {

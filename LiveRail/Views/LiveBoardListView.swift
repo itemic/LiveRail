@@ -15,9 +15,9 @@ struct LiveBoardListView: View {
             Image(systemName: "arrow.\(train.Direction == 0 ? "down" : "up")\(train.isTerminus ? ".to.line" : "")")
                 .foregroundColor(train.Direction == 0 ? .green : .blue)
             VStack(alignment: .leading) {
-                Text(train.TrainNo).bold()
+                Text(train.TrainNo)
                 HStack {
-                Text("\(train.EndingStationName.En)")
+                Text("\(train.EndingStationName.En)").bold()
                 }
             }
             Spacer()
