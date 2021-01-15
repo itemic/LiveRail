@@ -11,15 +11,19 @@ import SwiftUI
 import CoreLocation
 
 struct HSRStationsView: View {
-    @ObservedObject var lm = LocationManager()
+    @StateObject var lm = LocationManager.shared
     @ObservedObject var data: HSRDataStore
-    
+//    let timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @AppStorage("showNearestStation") var showNearestStation = true
     
     var nextUp: String {
-        return lm.closestStation(locations: data.stations)?.StationName.En ?? "N/A"
-//        return "-"
+        return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
     }
+    
+    
+    
+
+
     
     var body: some View {
         NavigationView {
@@ -29,9 +33,8 @@ struct HSRStationsView: View {
                 if (showNearestStation) {
                 if let status = lm.status {
                     if (status == .authorizedAlways || status == .authorizedWhenInUse) {
-                        Section(header: Text("Nearest station: \(nextUp)") , footer: NearestStationView(station: lm.closestStation(locations: data.stations), data: data)
+                        Section(header: Text("Nearest station: \(nextUp)") , footer: NearestStationView(station: lm.closestStation(stations: data.stations), data: data)
                                     .foregroundColor(.primary)) {
-                            
                         }
                     } else  {
                         Section(header: Text("Nearest station") , footer: RequestLocationView(lm: lm)) {
@@ -54,8 +57,18 @@ struct HSRStationsView: View {
         }
                 }
         }.listStyle(InsetGroupedListStyle())
+            .onChange(of: lm.isActive, perform: {loc in
+                print(loc)
+            })
         .navigationTitle("Stations")
+            
         }
+//        .onReceive(timer) { time in
+//            if (lm)
+//        }
+//     
+
+        
     }
 }
 

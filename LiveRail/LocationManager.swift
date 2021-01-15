@@ -10,9 +10,15 @@ import Combine
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject {
+    
+    public static let shared = LocationManager()
+    
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
     let objectWillChange = PassthroughSubject<Void, Never>()
+    
+    // for station details, might need to update later on
+
     
     @Published var status: CLAuthorizationStatus? {
         willSet {
@@ -26,45 +32,55 @@ class LocationManager: NSObject, ObservableObject {
         }
     }
     
-    @Published var placemark: CLPlacemark? {
+    var isActive: Bool {
         willSet {
             objectWillChange.send()
         }
     }
     
+    
+
+    
+//    @Published var placemark: CLPlacemark? {
+//        willSet {
+//            objectWillChange.send()
+//        }
+//    }
+    func pause() {
+        locationManager.stopUpdatingLocation()
+        self.isActive = false
+    }
+    
+    func resume() {
+        locationManager.startUpdatingLocation()
+        self.isActive = true
+    }
+    
     override init() {
+        self.isActive = true
         super.init()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
 //        self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+
     }
-    
-    private func geocode() {
-        guard let location = self.location else {return}
-        geocoder.reverseGeocodeLocation(location) { (places, error) in
-            if error == nil {
-                self.placemark = places?[0]
-            } else {
-                self.placemark = nil
-            }
-        }
-    }
-    
+
     func requestPermission() {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    func requestPermissionThen(completion: () -> Void) {
-        locationManager.requestWhenInUseAuthorization()
-    }
-    func closestStation(locations: [Station]) -> Station? {
+
+    func closestStation(stations: [Station]) -> Station? {
         guard let location = self.location else {return nil}
-        return locations.min {
+    
+        let closest = stations.min {
             location.distance(from: $0.coordinates) < location.distance(from: $1.coordinates)
         }
-        
+        return closest
     }
+    
+    
 }
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -74,14 +90,21 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         self.status = manager.authorizationStatus
-        
+        print("Change")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last  else {return}
         self.location = location
-        self.geocode()
+//        self.locationManager.stopUpdatingLocation()
+
     }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+
+    
 }
 
 

@@ -19,51 +19,8 @@ struct RequestLocationView: View {
     var body: some View {
         ZStack {
             
-        
-//        VStack(alignment: .leading) {
-//            VStack {
-//                HStack {
-//                    Text("N")
-//                        .font(.headline)
-//                        .foregroundColor(.white)
-//                        .frame(width: 20, height: 40, alignment: .center)
-//                        .background(Color.blue)
-//                        .clipShape(Rectangle())
-//
-//                    VStack(alignment: .leading) {
-//                        Text("0000").font(.system(.body, design: .rounded))
-//                            .redacted(reason: .placeholder)
-//                        Text("Destination").bold().font(.body)
-//                            .redacted(reason: .placeholder)
-//                    }
-//                    Spacer()
-//                        Text("--:--").font(.system(.body, design: .monospaced))
-//                            .redacted(reason: .placeholder)
-//                }
-//                Divider()
-//                HStack {
-//                    Text("S")
-//                        .font(.headline)
-//                        .foregroundColor(.white)
-//                        .frame(width: 20, height: 40, alignment: .center)
-//                        .background(Color.green)
-//                        .clipShape(Rectangle())
-//                    VStack(alignment: .leading) {
-//                        Text("0000").font(.system(.body, design: .rounded))
-//                            .redacted(reason: .placeholder)
-//                        Text("Destination").bold().font(.body)
-//                            .redacted(reason: .placeholder)
-//                    }
-//                    Spacer()
-//                        Text("--:--").font(.system(.body, design: .monospaced))
-//                            .redacted(reason: .placeholder)
-//                }
-//
-//            }
-//            Spacer()
-//        }
         VStack {
-            Image(systemName: "clock.arrow.2.circlepath").font(.title)
+            Image(systemName: "checkerboard.rectangle").font(.title)
             Spacer()
                 Text("Next Departure").font(.headline).foregroundColor(.primary)
             Spacer()

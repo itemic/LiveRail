@@ -21,11 +21,13 @@ final class HSRDataStore: ObservableObject {
         HSRService.getHSRStations(client: client) {[weak self] stations in
             DispatchQueue.main.async {
                 self?.stations = stations
+//                LocationManager.shared.stations = stations
                 for station in stations {
                     self!.fareSchedule[station.StationID] = [:]
                     self!.stationTimetableDict[station] = []
                     self?.fetchTimetable(for: station, client: client)
                 }
+//                LocationManager.shared.closestStation()
             }
         }
         HSRService.getFares(client: client) { [weak self] fares in

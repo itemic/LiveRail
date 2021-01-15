@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrainView: View {
     var train: StationTimetable
-//    @ObservedObject var data: HSRDataStore
+    
     @ObservedObject var vm = HSRTrainViewModel()
     
 
@@ -29,7 +29,7 @@ struct TrainView: View {
                             .foregroundColor(.white)
                             .cornerRadius(5)
                     }.padding(.top, 15)) {
-                        ForEach(vm.train!.StopTimes.sorted {
+                        ForEach(Array(vm.train!.StopTimes).sorted {
                             train.Direction == 0 ? $0.StopSequence < $1.StopSequence : $0.StopSequence > $1.StopSequence
                         }, id: \.StopSequence) { stop in
                         HStack(alignment: .center) {
@@ -76,6 +76,14 @@ struct TrainView: View {
                                         .cornerRadius(5)
                                 }
                             }
+            }
+            .onAppear {
+                print("pausing")
+                LocationManager.shared.pause()
+            }
+            .onDisappear {
+                print("resuming")
+                LocationManager.shared.resume()
             }
             .listStyle(InsetGroupedListStyle())
 
