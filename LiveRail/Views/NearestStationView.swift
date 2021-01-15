@@ -57,27 +57,12 @@ struct NearestStationView: View {
                     Text("\(firstNth!.DepartureTime)").font(.system(.body, design: .monospaced))
             }
             }
-            } else {
-                HStack {
-                                    Text("N")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .frame(width: 20, height: 40, alignment: .center)
-                                        .background(Color.blue)
-                                        .clipShape(Rectangle())
-                                    VStack(alignment: .leading) {
-                                        Text("No services").font(.body).foregroundColor(.secondary)
-                                    }
-                                    Spacer()
-//                                        Text("--:--").font(.system(.body, design: .monospaced))
-//                                            .redacted(reason: .placeholder)
-                                }
             }
-            
                 
             Divider()
 
             if (firstSth != nil) {
+                Divider()
                 NavigationLink(destination: TrainView(train: firstSth!)) {
             HStack {
                 Text("S")
@@ -94,22 +79,7 @@ struct NearestStationView: View {
                 Text("\(firstSth!.DepartureTime)").font(.system(.body, design: .monospaced))
             }
         }
-            } else {
-                HStack {
-                                    Text("S")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .frame(width: 20, height: 40, alignment: .center)
-                                        .background(Color.green)
-                                        .clipShape(Rectangle())
-                                    VStack(alignment: .leading) {
-                                        Text("No services").font(.body).foregroundColor(.secondary)
-                                    }
-                                    Spacer()
-//                                        Text("--:--").font(.system(.body, design: .monospaced))
-//                                            .redacted(reason: .placeholder)
-                                }
-            }
+            } 
         }
         .listRowBackground(Color(UIColor.systemGroupedBackground))
     }
