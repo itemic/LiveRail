@@ -61,7 +61,7 @@ enum FareClass: String, CaseIterable {
     
     func text() -> String {
         switch(self) {
-        case .reserved: return "Reserved"
+        case .reserved: return "Standard"
         case .business: return "Business"
         case .nonreserved: return "Nonrsrvd"
         }

@@ -11,8 +11,8 @@ struct QueryResultsCardView: View {
     var entry: RailODDailyTimetable
     var availability: AvailableSeat?
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            
+        HStack(alignment: .center, spacing: 4) {
+            VStack(alignment: .leading, spacing: 4) {
             HStack {
                 Text("\(entry.OriginStopTime.DepartureTime) → \(entry.DestinationStopTime.ArrivalTime ?? entry.DestinationStopTime.DepartureTime)")
                     .font(.system(.headline, design: .monospaced))
@@ -23,12 +23,27 @@ struct QueryResultsCardView: View {
             Text("Train \(entry.DailyTrainInfo.TrainNo)")
                 .font(.subheadline)
                 .foregroundColor(.accentColor)
-            
+            }
             
             
             if (availability != nil) {
-                Spacer()
-                Text("Reserved seats \(availability?.standardAvailability.text() ?? "unknown") | Business seats \(availability?.businessAvailability.text() ?? "unknown")").font(.caption2).foregroundColor(.secondary)
+                HStack(alignment: .center) {
+                    Spacer()
+
+                    AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+                    
+
+                    AvailabilityIconView(text: "Busiess", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+                    
+
+                }
+//                VStack {
+//                    availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID).icon()
+//                        .foregroundColor()
+//                }
+//                Spacer()
+//                Text("Reserved seats \(availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID).text() ?? "unknown")")
+//                Text("Reserved seats \(availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID)) | Business seats \(availability?.businessAvailability.text() ?? "unknown")").font(.caption2).foregroundColor(.secondary)
             }
 
         }

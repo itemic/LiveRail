@@ -17,7 +17,7 @@ struct RailODWithAvailability: Codable, Identifiable, Hashable {
         timetable.DailyTrainInfo.TrainNo
     }
     var timetable: RailODDailyTimetable
-    var availability: AvailableSeat
+    var availability: AvailableSeatX
 }
 
 struct RailODDailyTimetable: Codable, Identifiable, Hashable {

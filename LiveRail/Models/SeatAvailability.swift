@@ -14,10 +14,10 @@ struct AvailableSeatStatus: Codable {
 //    var SrcUpdateInterval: String
     var Count: Int?
     var TrainDate: String
-    var AvailableSeats: [AvailableSeat]
+    var AvailableSeats: [AvailableSeatX]
 }
 
-struct AvailableSeat: Codable, Hashable {
+struct AvailableSeatX: Codable, Hashable {
     var TrainNo: String
     var Direction: Int
     var OriginStationID: String
@@ -54,18 +54,4 @@ struct AvailableSeat: Codable, Hashable {
             return .unknown
         }
     }
-}
-
-enum SeatAvailability: String, CaseIterable {
-    case available, limited, unavailable, unknown
-    
-    func text() -> String {
-        switch self {
-        case .available: return "available"
-        case .limited: return "limited"
-        case .unknown: return "unknown"
-        case .unavailable: return "unavailable"
-        }
-    }
-    
 }

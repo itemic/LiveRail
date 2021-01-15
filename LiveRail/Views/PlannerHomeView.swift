@@ -15,6 +15,7 @@ struct PlannerHomeView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @State var showingOverlay = false
     
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -27,18 +28,18 @@ struct PlannerHomeView: View {
         Form {
             Section {
                 
-//                HStack {
-//                    Text("A")
-//                        .padding()
-//                        .background(Color.blue)
-//                        .onTapGesture {
-//                            showingOverlay.toggle()
-//                        }
-//                    Spacer()
-//                    Text("A")
-//                        .padding()
-//                        .background(Color.blue)
-//                }
+                HStack {
+                    Text("A")
+                        .padding()
+                        .background(Color.blue)
+                        .onTapGesture {
+                            showingOverlay.toggle()
+                        }
+                    Spacer()
+                    Text("A")
+                        .padding()
+                        .background(Color.blue)
+                }
                 
                 Picker(selection: $startingStation, label: Text("Origin")) {
                     ForEach(data.stations) {
@@ -118,10 +119,11 @@ struct PlannerHomeView: View {
                 if (showingOverlay) {
                     GeometryReader { geo in
                         VStack {
+                            Text("Origin").font(.headline)
                             LazyVGrid(columns: columns) {
                                 ForEach (data.stations) { station in
                                     Text(station.StationName.En)
-                                        .font(.headline)
+                                        .font(.title3).bold()
                                         .padding(.vertical, 16)
                                         .foregroundColor(Color.white)
                                         .frame(maxWidth: .infinity)
@@ -138,6 +140,7 @@ struct PlannerHomeView: View {
                                         
                                 }
                             }.padding()
+                            Spacer()
                         }
                         .frame(width: geo.size.width, height: geo.size.height)
                         .background(BlurView())
@@ -151,7 +154,7 @@ struct PlannerHomeView: View {
 
                 }
                 
-        }.navigationTitle("Planner")
+            }.navigationTitle("Planner")
             
         }
     }
