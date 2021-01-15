@@ -28,18 +28,39 @@ struct RequestLocationView: View {
                 Spacer()
                 if (status == .denied) {
                     Text("You'll need to enable Location Services in Settings.").font(.caption)
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+
+                        }) {
+                            Text("Go to Settings").bold().font(.subheadline)
+                                .padding()
+                        }
+                        Spacer()
+                        Button(action: {
+                            showNearestStation = false
+                        }) {
+                            Text("Hide").font(.subheadline)
+                                .padding()
+                        }
+                        Spacer()
+                    }
                     
                 } else {
                     Button("Enable") {
                         lm.requestPermission()
                     }.buttonStyle(CustomButtonStyle())
+                    Spacer()
+                    Button(action: {
+                        showNearestStation = false
+                    }) {
+                        Text("Hide").font(.subheadline)
+                            .padding()
+                    }
                 }
-                Spacer()
-                Button(action: {
-                    showNearestStation = false
-                }) {
-                    Text("Hide").font(.subheadline)
-                }
+                
             }
                 .padding(20)
                 .background(BlurView())

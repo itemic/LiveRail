@@ -24,7 +24,7 @@ struct StationView: View {
         }) { train in
             NavigationLink(destination: TrainView(train: train)) {
                 LiveBoardListView(train: train)
-            }.listRowBackground(Color(UIColor.systemGroupedBackground))
+            }.listRowBackground(Color(UIColor.systemGroupedBackground)) 
                    
             }
     }
