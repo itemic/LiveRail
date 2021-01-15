@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum StationButtonType: CaseIterable {
+    case origin, destination
+}
+
 struct PlannerHomeView: View {
     @ObservedObject var data: HSRDataStore
     
@@ -15,7 +19,9 @@ struct PlannerHomeView: View {
     @State var endingStation = ""
     @AppStorage("showAvailable") var showAvailable = false
     @State var showingOverlay = false
+    @State private var lastPressed: StationButtonType = .origin
     
+    @State private var rotationAmount = 0.0
     
     let columns = [
         GridItem(.flexible()),
@@ -24,49 +30,110 @@ struct PlannerHomeView: View {
     
     @ObservedObject var queryVM = HSRQueryViewModel()
     
+    func flipStations() {
+        let temp = startingStation
+        startingStation = endingStation
+        endingStation = temp
+        
+        rotationAmount += 180
+    }
     
     var body: some View {
         NavigationView {
             ZStack {
         Form {
-            Section {
+            
+            Section(footer: HStack {
+
                 
-                HStack {
-                    Text("A")
-                        .padding()
-                        .background(Color.blue)
-                        .onTapGesture {
-                            showingOverlay.toggle()
+                Button(action: {
+                    lastPressed = .origin
+                    showingOverlay.toggle()
+                }) {
+                    VStack {
+                        VStack {
+                            Text("ORIGIN")
+                                .foregroundColor(.primary).opacity(0.8)
+                            Spacer()
                         }
-                    Spacer()
-                    Text("A")
-                        .padding()
-                        .background(Color.blue)
-                }
-                
-                Picker(selection: $startingStation, label: Text("Origin")) {
-                    ForEach(data.stations) {
-                        Text("\($0.StationName.En)").tag($0.StationID)
-                    }
-                }
-                
-
-                Picker(selection: $endingStation, label: Text("Destination")) {
-                    ForEach(data.stations) {
-                        Text("\($0.StationName.En)").tag($0.StationID)
                         
+                    VStack {
+                        
+                        Text(data.stationName(from: startingStation))
+                            .foregroundColor(.white)
+                            .font(.title2).bold()
+                            
+                    }.frame(maxWidth: .infinity, minHeight: 80)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                            .fill(Color.accentColor)
+                        )
+                        
+                            
+                    }
+//                    .padding()
+                    
+                    
+                }
+                .buttonStyle(OpacityChangingButton())
+                
+              
+                Button(action: {
+                    flipStations()
+                }) {
+                    VStack {
+                        VStack {
+                            Text("")
+                                .foregroundColor(.primary).opacity(0.8)
+//                            Spacer()
+                            Image(systemName: "arrow.triangle.2.circlepath")
+                                .font(.title)
+                                .rotationEffect(Angle.degrees(rotationAmount))
+                                .animation(.easeOut)
+                        }
+                    
                     }
                 }
+//                .buttonStyle(CustomButtonStyle())
                 
                 
-                Button("Flip origin and destination") {
-                    let temp = startingStation
-                    startingStation = endingStation
-                    endingStation = temp
+                Button(action: {
+                    lastPressed = .destination
+                    showingOverlay.toggle()
+                }) {
+                    VStack {
+                        VStack {
+                            Text("DESTINATION")
+                                .foregroundColor(.primary).opacity(0.8)
+                            Spacer()
+                        }
+                        
+                    VStack {
+                        
+                        Text(data.stationName(from: endingStation))
+                            .foregroundColor(.white)
+                            .font(.title2).bold()
+                            
+                    }.frame(maxWidth: .infinity, minHeight: 80)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                            .fill(Color.accentColor)
+                        )
+                        
+                            
+                    }
+//                    .padding()
+                    
+                    
                 }
+                .buttonStyle(OpacityChangingButton())
                 
-
             }
+//            .padding()
+            ) {
+                
+            }
+          
             .onChange(of: startingStation) { newValue in
                 if (!newValue.isEmpty && !endingStation.isEmpty) {
                     queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
@@ -122,7 +189,8 @@ struct PlannerHomeView: View {
                 if (showingOverlay) {
                     GeometryReader { geo in
                         VStack {
-                            Text("Origin").font(.headline)
+                            Spacer()
+                            Text("\(lastPressed == .origin ? "Origin" : "Destination")").font(.title)
                             LazyVGrid(columns: columns) {
                                 ForEach (data.stations) { station in
                                     Text(station.StationName.En)
@@ -132,10 +200,16 @@ struct PlannerHomeView: View {
                                         .frame(maxWidth: .infinity)
                                         .background(
                                             RoundedRectangle(cornerRadius: 14.0, style: .continuous)
-                                                .fill(station.StationID == startingStation ? Color.accentColor : Color.secondary)
+                                                .fill(station.StationID == (lastPressed == .origin ?  startingStation : endingStation) ? Color.accentColor : Color.secondary)
                                             )
                                         .onTapGesture {
-                                            startingStation = station.StationID
+                                            
+                                            switch(lastPressed) {
+                                            case .origin: startingStation = station.StationID
+                                            case .destination: endingStation = station.StationID
+                                                
+                                            }
+                                            
                                             withAnimation {
                                             showingOverlay.toggle()
                                             }
@@ -146,7 +220,9 @@ struct PlannerHomeView: View {
                             Spacer()
                         }
                         .frame(width: geo.size.width, height: geo.size.height)
+                        
                         .background(BlurView())
+//                        .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
                             withAnimation {
                             showingOverlay.toggle()
@@ -204,6 +280,13 @@ public struct CustomButtonStyle: ButtonStyle {
                 RoundedRectangle(cornerRadius: 14.0, style: .continuous)
                     .fill(Color.accentColor)
                 )
+            .opacity(configuration.isPressed ? 0.4 : 1.0)
+    }
+}
+
+public struct OpacityChangingButton: ButtonStyle {
+    public func makeBody(configuration: Configuration) -> some View {
+        configuration.label
             .opacity(configuration.isPressed ? 0.4 : 1.0)
     }
 }

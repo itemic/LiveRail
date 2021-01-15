@@ -43,6 +43,12 @@ final class HSRDataStore: ObservableObject {
         
     }
     
+    func stationName(from id: String) -> String {
+        return stations.first {
+            $0.StationID == id
+        }?.StationName.En ?? ""
+    }
+    
     func fetchTimetable(for station: Station, client: NetworkManager) {
         let calendar = Calendar.current
         // compare dates
