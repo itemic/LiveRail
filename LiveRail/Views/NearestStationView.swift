@@ -10,6 +10,7 @@ import SwiftUI
 struct NearestStationView: View {
     var station: Station?
     @ObservedObject var data: HSRDataStore
+    var direction: Int
     
     var firstNth: StationTimetable? {
         if let station = station {
@@ -35,41 +36,27 @@ struct NearestStationView: View {
         return nil
     }
     
+    var firstTrain: StationTimetable? {
+        return direction == 0 ? firstSth : firstNth
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             //            Text(station?.StationName.En.uppercased() ?? "--").font(.headline)
             
-            if (firstNth != nil) {
+            
+            
+            
+            if (firstTrain != nil) {
                 
-                
-                
-                
-                
-                
-                NavigationLink(destination: TrainView(train: firstNth!)) {
-                    TrainEntryListRowView(train: firstNth!)
+                NavigationLink(destination: TrainView(train: firstTrain!)) {
+                    TrainEntryListRowView(train: firstTrain!)
                 }
             }
             
             
-            if (firstSth != nil && firstNth != nil) {
-                Divider()
-            }
-            
-            if (firstSth != nil) {
-                
-                NavigationLink(destination: TrainView(train: firstSth!)) {
-                    TrainEntryListRowView(train: firstSth!)
-                }
-            }
         }
         .listRowBackground(Color(UIColor.systemGroupedBackground))
     }
     
 }
-
-//struct NearestStationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NearestStationView(station: )
-//    }
-//}

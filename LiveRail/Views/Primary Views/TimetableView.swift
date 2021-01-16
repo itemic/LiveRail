@@ -13,7 +13,7 @@ import CoreLocation
 struct TimetableView: View {
     @StateObject var lm = LocationManager.shared
     @ObservedObject var data: HSRDataStore
-    //    let timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
+//    let timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @AppStorage("showNearestStation") var showNearestStation = true
     
     var nextUp: String {
@@ -22,45 +22,50 @@ struct TimetableView: View {
     
     
     
-    
-    
+
+
     
     var body: some View {
         NavigationView {
-            
+        
             List {
                 
                 if (showNearestStation) {
-                    if let status = lm.status {
-                        if (status == .authorizedAlways || status == .authorizedWhenInUse) {
-                            Section(header: Text("Nearest station: \(nextUp)") , footer: NearestStationView(station: lm.closestStation(stations: data.stations), data: data)
-                                        .foregroundColor(.primary)) {
-                            }
-                        } else  {
-                            Section(header: Text("Nearest station") , footer: RequestLocationView(lm: lm)) {
-                                
-                            }
+                if let status = lm.status {
+                    if (status == .authorizedAlways || status == .authorizedWhenInUse) {
+                        Section(header: Text("Next departures from \(nextUp)")) {
+                                NearestStationView(station: lm.closestStation(stations: data.stations), data: data, direction: 1)
+                                NearestStationView(station: lm.closestStation(stations: data.stations), data: data, direction: 0)
+
+                        }
+                        
+                    } else  {
+                        Section(header: Text("Next Departures") , footer: RequestLocationView(lm: lm)) {
+                            
                         }
                     }
                 }
-                
+                }
+                 
                 
                 
                 Section(header: Text("All stations")) {
-                    ForEach(data.stations) { station in
-                        NavigationLink(destination: StationTimetableView(station: station, data: data)) {
-                            VStack(alignment: .leading) {
-                                Text("\(station.StationName.En)").bold()
-                                Text("\(station.StationName.Zh_tw)")
-                            }
-                        }
-                    }
+            ForEach(data.stations) { station in
+            NavigationLink(destination: StationTimetableView(station: station, data: data)) {
+                VStack(alignment: .leading) {
+                    Text("\(station.StationName.En)").bold()
+                    Text("\(station.StationName.Zh_tw)")
                 }
-            }.listStyle(InsetGroupedListStyle())
+            }
+        }
+                }
+        }
+            .listStyle(InsetGroupedListStyle())
+//            .listStyle(GroupedListStyle())
             
-            .navigationTitle("Stations")
+        .navigationTitle("Stations")
             
         }
-        
+
     }
 }
