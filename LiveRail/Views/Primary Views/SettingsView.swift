@@ -24,8 +24,9 @@ struct SettingsView: View {
                     
                     if (showNearestStation) {
                     Stepper(value: $nextDepartureEntries, in: 1...3, step: 1) {
-                        Text("Next Departures entries")
+                        Text("\(nextDepartureEntries) Next Departures \(nextDepartureEntries == 1 ? "entry" : "entries")")
                     }
+                    
                     }
                 }
             }.navigationBarTitle("Settings")
