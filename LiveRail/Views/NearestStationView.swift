@@ -15,7 +15,7 @@ struct NearestStationView: View {
         if let station = station {
             return data.stationTimetableDict[station]?.first {
                 $0.Direction == 1 &&
-                    Date.compareNowTo(otherTime: $0.DepartureTime)
+                    $0.willDepartAfterNow
                     && !$0.isTerminus
                 
             }
@@ -27,7 +27,7 @@ struct NearestStationView: View {
         if let station = station {
             return data.stationTimetableDict[station]?.first {
                 $0.Direction == 0 &&
-                    Date.compareNowTo(otherTime: $0.DepartureTime)
+                    $0.willDepartAfterNow
                     && !$0.isTerminus
                 
             }

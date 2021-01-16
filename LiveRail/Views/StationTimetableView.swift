@@ -19,7 +19,7 @@ struct StationTimetableView: View {
     var body: some View {
         List {
             ForEach(data.stationTimetableDict[station]!.filter {
-                (showAvailable ? Date.compareNowTo(otherTime: $0.DepartureTime) : true) &&
+                (showAvailable ? $0.willDepartAfterNow : true) &&
                     (hideTerminus ? !$0.isTerminus : true)
             }) { train in
                 NavigationLink(destination: TrainView(train: train)) {

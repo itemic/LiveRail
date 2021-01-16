@@ -174,7 +174,7 @@ struct PlannerView: View {
                                     $0.OriginStopTime < $1.OriginStopTime
                                 }
                                 .filter {
-                                    showAvailable ? Date.compareNowTo(otherTime: $0.OriginStopTime.DepartureTime) : true
+                                    showAvailable ? $0.OriginStopTime.willDepartAfterNow : true
                                     
                                 }
                         ) { entry in

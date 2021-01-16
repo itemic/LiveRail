@@ -29,7 +29,7 @@ struct TrainEntryListRowView: View {
                 Text("\(train.DepartureTime)").font(.system(.body, design: .monospaced))
                 
             }
-        }.foregroundColor(Date.compareNowTo(otherTime: train.DepartureTime) ? .primary : .secondary)
+        }.foregroundColor(train.willDepartAfterNow ? .primary : .secondary)
         
         
         

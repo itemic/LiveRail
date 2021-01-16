@@ -52,15 +52,17 @@ struct StopTime: Codable, Hashable {
         
         return lhsD < rhsD
     }
-    
-//    var DepartureTimestamp: Date {
-//        let dateFormatter
-//    }
-    
-    
     var StopSequence: Int32
     var StationID: String
     var StationName: NameType
-    var ArrivalTime: String?
+    var ArrivalTime: String
     var DepartureTime: String
+    
+    var willDepartAfterNow: Bool {
+        return Date.compareNowTo(otherTime: DepartureTime)
+    }
+    
+    var willArriveAfterNow: Bool {
+        return Date.compareNowTo(otherTime: ArrivalTime)
+    }
 }

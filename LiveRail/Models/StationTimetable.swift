@@ -30,4 +30,13 @@ struct StationTimetable: Codable, Identifiable {
     var isTerminus: Bool {
         StationID == EndingStationID
     }
+    
+    var willDepartAfterNow: Bool {
+        return Date.compareNowTo(otherTime: DepartureTime)
+    }
+    
+    var willArriveAfterNow: Bool {
+        return Date.compareNowTo(otherTime: ArrivalTime)
+    }
+
 }

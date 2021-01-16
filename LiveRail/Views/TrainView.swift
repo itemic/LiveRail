@@ -38,7 +38,7 @@ struct TrainView: View {
                                 } else if (nextStop() != nil && stop == nextStop()) {
                                     Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
                                 } else {
-                                    Image(systemName: "\(Date.compareNowTo(otherTime: stop.DepartureTime) ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
+                                    Image(systemName: "\(stop.willDepartAfterNow ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
                                 }
                                 Text(stop.StationName.En)
                                     .fontWeight(stop == nextStop() ? .bold : .regular)
@@ -52,7 +52,7 @@ struct TrainView: View {
                                 }
                                 
                             }
-                            .foregroundColor(Date.compareNowTo(otherTime: stop.DepartureTime) ? .primary : .secondary)
+                            .foregroundColor(stop.willDepartAfterNow ? .primary : .secondary)
                             
                         }
                     }

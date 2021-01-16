@@ -19,7 +19,7 @@ struct PlannerResultRowView: View {
                     
                     Spacer()
                 }
-                .foregroundColor(Date.compareNowTo(otherTime: entry.DestinationStopTime.DepartureTime) ? .primary : .secondary)
+                .foregroundColor(entry.DestinationStopTime.willDepartAfterNow ? .primary : .secondary)
                 Text("Train \(entry.DailyTrainInfo.TrainNo)")
                     .font(.subheadline)
                     .foregroundColor(.accentColor)
