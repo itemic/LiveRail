@@ -12,7 +12,7 @@ struct StationTimetableView: View {
     
     var station: Station
     @ObservedObject var data: HSRDataStore
-    @State private var direction = 0
+    
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("hideTerminus") var hideTerminus = false
     

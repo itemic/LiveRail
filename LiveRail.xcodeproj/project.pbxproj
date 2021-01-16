@@ -24,6 +24,7 @@
 		4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3725AFFD2A002D376B /* FareSchedule.swift */; };
 		4569AA3B25B00772002D376B /* FareListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3A25B00772002D376B /* FareListingView.swift */; };
 		45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2542C25B2DCDB00CB2522 /* Utilities.swift */; };
+		45A2543225B31DA500CB2522 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2543125B31DA500CB2522 /* Enums.swift */; };
 		45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808325B148500078ECD2 /* SeatAvailability.swift */; };
 		45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */; };
 		45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808925B16ABF0078ECD2 /* LocationManager.swift */; };
@@ -57,6 +58,7 @@
 		4569AA3725AFFD2A002D376B /* FareSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareSchedule.swift; sourceTree = "<group>"; };
 		4569AA3A25B00772002D376B /* FareListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListingView.swift; sourceTree = "<group>"; };
 		45A2542C25B2DCDB00CB2522 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		45A2543125B31DA500CB2522 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		45A7808325B148500078ECD2 /* SeatAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatAvailability.swift; sourceTree = "<group>"; };
 		45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityIconView.swift; sourceTree = "<group>"; };
 		45A7808925B16ABF0078ECD2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = LiveRail/LocationManager.swift; sourceTree = SOURCE_ROOT; };
@@ -145,6 +147,7 @@
 				45D1BC8325AC4AA000D040CD /* StationTimetable.swift */,
 				451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */,
 				4569AA3725AFFD2A002D376B /* FareSchedule.swift */,
+				45A2543125B31DA500CB2522 /* Enums.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
 				45232F5225AD9C770025BD09 /* PlannerView.swift in Sources */,
+				45A2543225B31DA500CB2522 /* Enums.swift in Sources */,
 				4569AA3B25B00772002D376B /* FareListingView.swift in Sources */,
 				45D1BC8025AC49F300D040CD /* StationTimetableView.swift in Sources */,
 				45D00A4625AC8F0E00DB518F /* TrainEntryListRowView.swift in Sources */,

@@ -21,6 +21,8 @@ struct Station: Codable, Identifiable, Hashable {
     var StationName: NameType
     var StationCode: String
     var StationPosition: PointType
+    
+    
     var coordinates: CLLocation {
         return CLLocation(latitude: StationPosition.PositionLat, longitude: StationPosition.PositionLon)
     }
@@ -29,11 +31,6 @@ struct Station: Codable, Identifiable, Hashable {
 struct NameType: Codable, Hashable {
     var Zh_tw: String
     var En: String
-    
-//    enum CodingKeys: String, CodingKey {
-//        case zhTw = "Zh_tw"
-//        case en = "En"
-//    }
 }
 
 struct PointType: Codable, Hashable {

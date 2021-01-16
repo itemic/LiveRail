@@ -40,7 +40,11 @@ struct DailyTrainInfo: Codable, Hashable {
     var StartingStationName: NameType
     var EndingStationID: String
     var EndingStationName: NameType
-//    var Note: NameType? // not sure why
+
+    
+    var direction: TrainDirection {
+        TrainDirection(fromRawValue: Direction)
+    }
 }
 
 struct StopTime: Codable, Hashable {
@@ -65,4 +69,6 @@ struct StopTime: Codable, Hashable {
     var willArriveAfterNow: Bool {
         return Date.compareNowTo(otherTime: ArrivalTime)
     }
+    
+    
 }

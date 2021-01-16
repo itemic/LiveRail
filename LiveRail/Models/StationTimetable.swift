@@ -38,5 +38,9 @@ struct StationTimetable: Codable, Identifiable {
     var willArriveAfterNow: Bool {
         return Date.compareNowTo(otherTime: ArrivalTime)
     }
+    
+    var direction: TrainDirection {
+        TrainDirection(fromRawValue: Direction)
+    }
 
 }

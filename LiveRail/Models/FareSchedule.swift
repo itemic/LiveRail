@@ -23,6 +23,10 @@ struct FareSchedule: Codable {
         }?.Price ?? 0
     }
     
+    var direction: TrainDirection {
+        TrainDirection(fromRawValue: Direction)
+    }
+    
 }
 
 struct Fare: Codable {

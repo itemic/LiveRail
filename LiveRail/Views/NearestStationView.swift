@@ -10,12 +10,12 @@ import SwiftUI
 struct NearestStationView: View {
     var station: Station?
     @ObservedObject var data: HSRDataStore
-    var direction: Int
+    var direction: TrainDirection
     
     var firstNth: StationTimetable? {
         if let station = station {
             return data.stationTimetableDict[station]?.first {
-                $0.Direction == 1 &&
+                $0.direction == .northbound &&
                     $0.willDepartAfterNow
                     && !$0.isTerminus
                 
@@ -27,7 +27,7 @@ struct NearestStationView: View {
     var firstSth: StationTimetable? {
         if let station = station {
             return data.stationTimetableDict[station]?.first {
-                $0.Direction == 0 &&
+                $0.direction == .southbound &&
                     $0.willDepartAfterNow
                     && !$0.isTerminus
                 
@@ -37,7 +37,10 @@ struct NearestStationView: View {
     }
     
     var firstTrain: StationTimetable? {
-        return direction == 0 ? firstSth : firstNth
+        switch (direction) {
+        case .southbound: return firstSth
+        case .northbound: return firstNth
+        }
     }
     
     var body: some View {

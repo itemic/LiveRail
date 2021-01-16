@@ -25,6 +25,9 @@ struct AvailableSeat: Codable {
     var SrcRecTime: String
     var UpdateTime: String
     
+    
+    // ADDITIONAL COMPUTED PROPERTIES
+    
     func standardAvailability(to station: String) -> SeatAvailability {
         return StopStations.first {
             $0.StationID == station
@@ -35,6 +38,12 @@ struct AvailableSeat: Codable {
         return StopStations.first {
             $0.StationID == station
         }?.standardAvailability ?? .unknown
+        
+        
+    }
+    
+    var direction: TrainDirection {
+        TrainDirection(fromRawValue: Direction)
     }
 }
 struct AvailabilityStopStation: Codable {

@@ -22,23 +22,23 @@ struct TrainView: View {
                     
                     
                     Section(header: HStack {
-                        Text("\(train.Direction == 0 ? "Southbound" : "Northbound")".uppercased())
+                        Text("\(train.direction.spelledOut)".uppercased())
                             .bold()
                             .padding(5)
-                            .background(train.Direction == 0 ? Color.green : Color.blue)
+                            .background(train.direction.color)
                             .foregroundColor(.white)
                             .cornerRadius(5)
                     }.padding(.top, 15)) {
                         ForEach(Array(vm.train!.StopTimes).sorted {
-                            train.Direction == 0 ? $0.StopSequence < $1.StopSequence : $0.StopSequence > $1.StopSequence
+                            train.direction == .southbound ? $0.StopSequence < $1.StopSequence : $0.StopSequence > $1.StopSequence
                         }, id: \.StopSequence) { stop in
                             HStack(alignment: .center) {
                                 if (stop.StationID == train.EndingStationID) {
                                     Image(systemName: "largecircle.fill.circle")
                                 } else if (nextStop() != nil && stop == nextStop()) {
-                                    Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
+                                    Image(systemName: "chevron.\(train.direction == .southbound ? "down" : "up").circle.fill")
                                 } else {
-                                    Image(systemName: "\(stop.willDepartAfterNow ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
+                                    Image(systemName: "\(stop.willDepartAfterNow ? "chevron.\(train.direction == .southbound ? "down" : "up").circle" : "circle.dashed")")
                                 }
                                 Text(stop.StationName.En)
                                     .fontWeight(stop == nextStop() ? .bold : .regular)

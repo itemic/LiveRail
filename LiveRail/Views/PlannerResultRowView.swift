@@ -14,7 +14,7 @@ struct PlannerResultRowView: View {
         HStack(alignment: .center, spacing: 4) {
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    Text("\(entry.OriginStopTime.DepartureTime) → \(entry.DestinationStopTime.ArrivalTime ?? entry.DestinationStopTime.DepartureTime)")
+                    Text("\(entry.OriginStopTime.DepartureTime) → \(entry.DestinationStopTime.ArrivalTime)")
                         .font(.system(.headline, design: .monospaced))
                     
                     Spacer()
