@@ -96,3 +96,13 @@ extension Calendar {
         return numberOfDays.day!
     }
 }
+
+extension Date {
+    static func compareNowTo(otherTime: String) -> Bool {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let departure = dateFormatter.date(from: otherTime) else { return false }
+        return now.time < departure.time
+    }
+}

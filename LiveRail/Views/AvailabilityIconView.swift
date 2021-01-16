@@ -12,8 +12,8 @@ struct AvailabilityIconView: View {
     var status: SeatAvailability
     var body: some View {
         VStack(alignment: .center) {
-
-                
+            
+            
             Text(status.icon())
                 .fontWeight(.heavy)
                 .foregroundColor(status.color())
@@ -28,7 +28,7 @@ struct AvailabilityIconView_Previews: PreviewProvider {
     static var previews: some View {
         List {
             AvailabilityIconView(text: "Standard", status: .limited)
-         
+            
         }.listStyle(InsetGroupedListStyle())
         
     }

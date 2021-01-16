@@ -12,14 +12,14 @@ struct TrainView: View {
     
     @ObservedObject var vm = HSRTrainViewModel()
     
-
+    
     var body: some View {
         ZStack {
-
+            
             List {
-
+                
                 if (vm.train != nil) {
-      
+                    
                     
                     Section(header: HStack {
                         Text("\(train.Direction == 0 ? "Southbound" : "Northbound")".uppercased())
@@ -32,50 +32,50 @@ struct TrainView: View {
                         ForEach(Array(vm.train!.StopTimes).sorted {
                             train.Direction == 0 ? $0.StopSequence < $1.StopSequence : $0.StopSequence > $1.StopSequence
                         }, id: \.StopSequence) { stop in
-                        HStack(alignment: .center) {
-                            if (stop.StationID == train.EndingStationID) {
-                                Image(systemName: "largecircle.fill.circle")
-                            } else if (nextStop() != nil && stop == nextStop()) {
-                                Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
-                            } else {
-                            Image(systemName: "\(compareTime(otherTime: stop.DepartureTime) ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
-                            }
-                            Text(stop.StationName.En)
-                                .fontWeight(stop == nextStop() ? .bold : .regular)
-
-                            Spacer()
-                            VStack(alignment: .trailing) {
-                            Text("\(stop.DepartureTime)").font(.system(.body, design: .monospaced))
-                                Text(readableTime(otherTime: stop.DepartureTime)).font(.caption2)
+                            HStack(alignment: .center) {
+                                if (stop.StationID == train.EndingStationID) {
+                                    Image(systemName: "largecircle.fill.circle")
+                                } else if (nextStop() != nil && stop == nextStop()) {
+                                    Image(systemName: "chevron.\(train.Direction == 0 ? "down" : "up").circle.fill")
+                                } else {
+                                    Image(systemName: "\(Date.compareNowTo(otherTime: stop.DepartureTime) ? "chevron.\(train.Direction == 0 ? "down" : "up").circle" : "circle.dashed")")
+                                }
+                                Text(stop.StationName.En)
                                     .fontWeight(stop == nextStop() ? .bold : .regular)
-
+                                
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    Text("\(stop.DepartureTime)").font(.system(.body, design: .monospaced))
+                                    Text(readableTime(otherTime: stop.DepartureTime)).font(.caption2)
+                                        .fontWeight(stop == nextStop() ? .bold : .regular)
+                                    
+                                }
+                                
                             }
-
+                            .foregroundColor(Date.compareNowTo(otherTime: stop.DepartureTime) ? .primary : .secondary)
+                            
                         }
-                        .foregroundColor(compareTime(otherTime: stop.DepartureTime) ? .primary : .secondary)
-
-                    }
                     }
                 }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     
-                                HStack {
-                                    VStack(spacing: -1) {
-                                    Text("\(train.TrainNo)").font(.headline)
-                                        Text("\(train.EndingStationName.En)").font(Font.system(.caption).smallCaps()).bold()
-                                    }
-                                        .padding(2)
-                                    .padding(.horizontal, 5)
-                                        
-                                        
-                                        .background(Color.orange)
-
-                                        .foregroundColor(.white)
-                                        .cornerRadius(5)
-                                }
-                            }
+                    HStack {
+                        VStack(spacing: -1) {
+                            Text("\(train.TrainNo)").font(.headline)
+                            Text("\(train.EndingStationName.En)").font(Font.system(.caption).smallCaps()).bold()
+                        }
+                        .padding(2)
+                        .padding(.horizontal, 5)
+                        
+                        
+                        .background(Color.orange)
+                        
+                        .foregroundColor(.white)
+                        .cornerRadius(5)
+                    }
+                }
             }
             .onAppear {
                 print("pausing")
@@ -86,38 +86,30 @@ struct TrainView: View {
                 LocationManager.shared.resume()
             }
             .listStyle(InsetGroupedListStyle())
-
-
-
+            
+            
+            
         }
-            .onAppear(perform: {
-                vm.fetchTrainDetails(for: train.TrainNo, client: .init())
-            })
+        .onAppear(perform: {
+            vm.fetchTrainDetails(for: train.TrainNo, client: .init())
+        })
         .navigationTitle("\(train.TrainNo) to \(train.EndingStationName.En)")
     }
     
-    func compareTime(otherTime: String) -> Bool {
-        
-        let now = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        guard let departure = dateFormatter.date(from: otherTime) else { return false }
-        return now.time < departure.time
-        
-    }
+
     
     func nextStop() -> StopTime? {
-
+        
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-
+        
         return vm.train!.StopTimes.first { a in
             dateFormatter.date(from: a.DepartureTime)!.time - now.time >= 0
-
+            
         }
     }
-
+    
     func readableTime(otherTime: String) -> String {
         
         let now = Date()
@@ -138,7 +130,7 @@ struct TrainView: View {
             return "in \(hoursUntilDeparture)h\(minutesUntilDeparture % 60)m"
         }
         
-//
+        //
         
     }
 }

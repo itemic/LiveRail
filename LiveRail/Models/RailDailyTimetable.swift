@@ -7,18 +7,7 @@
 
 import Foundation
 
-struct RailODWithAvailability: Codable, Identifiable, Hashable {
-    static func == (lhs: RailODWithAvailability, rhs: RailODWithAvailability) -> Bool {
-        return lhs.id == rhs.id
-    
-    }
-    
-    var id: String {
-        timetable.DailyTrainInfo.TrainNo
-    }
-    var timetable: RailODDailyTimetable
-    var availability: AvailableSeatX
-}
+
 
 struct RailODDailyTimetable: Codable, Identifiable, Hashable {
     static func == (lhs: RailODDailyTimetable, rhs: RailODDailyTimetable) -> Bool {

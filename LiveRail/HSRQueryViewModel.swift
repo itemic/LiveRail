@@ -3,7 +3,6 @@ import Foundation
 
 final class HSRQueryViewModel: ObservableObject {
     @Published var queryResultTimetable: [RailODDailyTimetable] = []
-    @Published var availabilityX: [RailODDailyTimetable:AvailableSeatX] = [:]
     @Published var availability: [RailODDailyTimetable: AvailableSeat] = [:]
 
     
@@ -13,7 +12,6 @@ final class HSRQueryViewModel: ObservableObject {
             DispatchQueue.main.async {
                 print("Fetching...")
                 self?.queryResultTimetable = timetables
-                self?.availabilityX = [:] // empty dict
 //                self?.fetchAvai
                 for item in timetables {
                     self?.fetchAvailability(from: origin, on: item, client: client)

@@ -15,16 +15,16 @@ struct RequestLocationView: View {
     var status: CLAuthorizationStatus {
         return lm.status ?? .notDetermined
     }
-
+    
     var body: some View {
         ZStack {
             
-        VStack {
-            Image(systemName: "checkerboard.rectangle").font(.title)
-            Spacer()
+            VStack {
+                Image(systemName: "checkerboard.rectangle").font(.title)
+                Spacer()
                 Text("Next Departure").font(.headline).foregroundColor(.primary)
-            Spacer()
-            Text("View upcoming departures from the station closest to you.").font(.caption)
+                Spacer()
+                Text("View upcoming departures from the station closest to you.").font(.caption)
                 Spacer()
                 if (status == .denied) {
                     Text("You'll need to enable Location Services in Settings.").font(.caption)
@@ -33,7 +33,7 @@ struct RequestLocationView: View {
                         Spacer()
                         Button(action: {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-
+                            
                         }) {
                             Text("Go to Settings").bold().font(.subheadline)
                                 .padding()
@@ -62,14 +62,14 @@ struct RequestLocationView: View {
                 }
                 
             }
-                .padding(20)
-                .background(BlurView())
+            .padding(20)
+            .background(BlurView())
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         }
-//        .background(Color(UIColor.secondarySystemGroupedBackground))
-//        .cornerRadius(10)
+        //        .background(Color(UIColor.secondarySystemGroupedBackground))
+        //        .cornerRadius(10)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-
+        
         
     }
     

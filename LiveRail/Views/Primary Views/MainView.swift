@@ -12,17 +12,17 @@ struct MainView: View {
     var body: some View {
         
         TabView {
-            HSRStationsView(data: data)
+            TimetableView(data: data)
                 .tabItem {
                     Image(systemName: "ellipsis.rectangle.fill")
                     Text("Timetable")
                 }
-            PlannerHomeView(data: data)
+            PlannerView(data: data)
                 .tabItem {
                     Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
                     Text("Planner")
                 }
-            MoreView(data: data)
+            SettingsView(data: data)
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                     Text("Settings")

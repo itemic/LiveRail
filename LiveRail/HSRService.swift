@@ -48,14 +48,7 @@ public struct HSRService {
         
     }
     
-    static func getAvailability(from origin: String, to destination: String, on train: String, client: NetworkManager, completion: ((AvailableSeatStatus) -> Void)? = nil) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let now = dateFormatter.string(from: Date())
-        
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatus/Train/OD/\(origin)/to/\(destination)/TrainDate/\(now)/TrainNo/\(train)?$format=JSON"), on: client, completion: completion)
-        
-    }
+ 
     
     static func getAvailability(from origin: String, client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil) {
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList/\(origin)"), on: client, completion: completion)

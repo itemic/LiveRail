@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FareView: View {
+struct FareListingView: View {
     var fareSchedule: FareSchedule
     var body: some View {
         HStack(alignment: .center) {
@@ -43,7 +43,7 @@ struct FareBlockView: View {
                 .foregroundColor(ticket.color())
             
             Text("\(String(cost))").font(.system(.title, design: .rounded))
-                
+            
             
             Text("TWD").font(.caption2).foregroundColor(.secondary)
         }
