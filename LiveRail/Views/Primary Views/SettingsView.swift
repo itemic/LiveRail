@@ -12,6 +12,7 @@ struct SettingsView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("hideTerminus") var hideTerminus = false
     @AppStorage("showNearestStation") var showNearestStation = true
+    @AppStorage("nextDepartureEntries") var nextDepartureEntries = 1
     var body: some View {
         NavigationView {
             Form {
@@ -19,7 +20,13 @@ struct SettingsView: View {
                     Text("Last updated: \(data.lastUpdateDate)")
                     Toggle("Hide departed services", isOn: $showAvailable)
                     Toggle("Hide terminus services", isOn: $hideTerminus)
-                    Toggle("Show nearest station", isOn: $showNearestStation)
+                    Toggle("Show Next Departures", isOn: $showNearestStation)
+                    
+                    if (showNearestStation) {
+                    Stepper(value: $nextDepartureEntries, in: 1...3, step: 1) {
+                        Text("Next Departures entries")
+                    }
+                    }
                 }
             }.navigationBarTitle("Settings")
         }

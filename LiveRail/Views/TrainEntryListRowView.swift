@@ -13,11 +13,11 @@ struct TrainEntryListRowView: View {
     var body: some View {
         HStack {
             
-            Text("\(train.Direction == 0 ? "S" : "N")")
+            Text("\(train.direction.abbreviated)")
                 .font(.headline)
                 .foregroundColor(.white)
                 .frame(width: 20, height: 40, alignment: .center)
-                .background(train.Direction == 0 ? Color.green : Color.blue)
+                .background(train.direction.color)
                 .clipShape(Rectangle())
             
             VStack(alignment: .leading) {

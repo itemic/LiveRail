@@ -7,6 +7,9 @@
 
 import Foundation
 
-extension String {
-    
+// https://www.vadimbulavin.com/handling-out-of-bounds-exception/
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }

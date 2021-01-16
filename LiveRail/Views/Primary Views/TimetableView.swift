@@ -13,18 +13,13 @@ import CoreLocation
 struct TimetableView: View {
     @StateObject var lm = LocationManager.shared
     @ObservedObject var data: HSRDataStore
-//    let timer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @AppStorage("showNearestStation") var showNearestStation = true
+    @AppStorage("nextDepartureEntries") var nextDepartureEntries = 1
     
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
     }
-    
-    
-    
-
-
-    
+        
     var body: some View {
         NavigationView {
         
@@ -34,9 +29,8 @@ struct TimetableView: View {
                 if let status = lm.status {
                     if (status == .authorizedAlways || status == .authorizedWhenInUse) {
                         Section(header: Text("Next departures from \(nextUp)")) {
-                                NearestStationView(station: lm.closestStation(stations: data.stations), data: data, direction: 1)
-                                NearestStationView(station: lm.closestStation(stations: data.stations), data: data, direction: 0)
-
+                            NearestStationView(station: lm.closestStation(stations: data.stations), data: data, direction: .northbound, entries: nextDepartureEntries)
+                            NearestStationView(station: lm.closestStation(stations: data.stations), data: data, direction: .southbound, entries: nextDepartureEntries)
                         }
                         
                     } else  {

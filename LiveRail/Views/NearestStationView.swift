@@ -11,55 +11,43 @@ struct NearestStationView: View {
     var station: Station?
     @ObservedObject var data: HSRDataStore
     var direction: TrainDirection
-    
-    var firstNth: StationTimetable? {
-        if let station = station {
-            return data.stationTimetableDict[station]?.first {
-                $0.direction == .northbound &&
-                    $0.willDepartAfterNow
-                    && !$0.isTerminus
-                
-            }
-        }
-        return nil
-    }
-    
-    var firstSth: StationTimetable? {
-        if let station = station {
-            return data.stationTimetableDict[station]?.first {
-                $0.direction == .southbound &&
-                    $0.willDepartAfterNow
-                    && !$0.isTerminus
-                
-            }
-        }
-        return nil
-    }
+    var entries: Int
+   
     
     var firstTrain: StationTimetable? {
-        switch (direction) {
-        case .southbound: return firstSth
-        case .northbound: return firstNth
+        if let station = station {
+            return data.stationTimetableDict[station]?.first {
+                $0.direction == direction &&
+                    $0.willDepartAfterNow
+                    && !$0.isTerminus
+                
+            }
         }
+        return nil
     }
     
+    var upcomingTrains: [StationTimetable] {
+        if let station = station {
+                let slice = data.stationTimetableDict[station]?.filter {$0.direction == direction && $0.willDepartAfterNow && !$0.isTerminus} ?? []
+            return Array(slice.prefix(entries))
+        }
+        return []
+        
+    }
+    
+    
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            //            Text(station?.StationName.En.uppercased() ?? "--").font(.headline)
+
+        ForEach(upcomingTrains) { train in
             
-            
-            
-            
-            if (firstTrain != nil) {
-                
-                NavigationLink(destination: TrainView(train: firstTrain!)) {
-                    TrainEntryListRowView(train: firstTrain!)
-                }
-            }
-            
+                VStack {
+                    NavigationLink(destination: TrainView(train: train)) {
+                        TrainEntryListRowView(train: train)
+                    }
+                }.listRowBackground(Color(UIColor.systemGroupedBackground))
             
         }
-        .listRowBackground(Color(UIColor.systemGroupedBackground))
     }
     
 }
