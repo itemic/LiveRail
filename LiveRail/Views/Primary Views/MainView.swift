@@ -12,6 +12,11 @@ struct MainView: View {
     var body: some View {
         
         TabView {
+//            TestingView(data: data)
+//                .tabItem {
+//                    Image(systemName: "gear")
+//                    Text("Testing")
+//                }
             TimetableView(data: data)
                 .tabItem {
                     Image(systemName: "ellipsis.rectangle.fill")

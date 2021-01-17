@@ -18,8 +18,9 @@ struct PlannerView: View {
     @State var startingStation = ""
     @State var endingStation = ""
     @AppStorage("showAvailable") var showAvailable = false
-    @State var showingOverlay = false
-    @State private var lastPressed: StationButtonType = .origin
+    
+    @State private var originIsActive = false
+    @State private var destinationIsActive = false
     
     @State private var rotationAmount = 0.0
     
@@ -40,126 +41,106 @@ struct PlannerView: View {
     
     var body: some View {
         NavigationView {
+            
             ZStack {
-                Form {
-                    
-                    Section(footer: HStack {
+                
+                //MARK: ZStack 1 - ScrollView
+                ScrollView {
+                    VStack {
+                        
+                        // MARK: HStack - Origin/Destination Buttons
+                        HStack {
+                                                Button(action: {
+                                                    originIsActive = true
+                                                }) {
+                                                    VStack {
+                                                        VStack {
+                                                            Text("ORIGIN")
+                                                                .foregroundColor(.primary).opacity(0.8)
+                                                            Spacer()
+                                                        }
+                        
+                                                        VStack {
+                        
+                                                            Text(data.stationName(from: startingStation))
+                                                                .foregroundColor(.white)
+                                                                .font(.title2).bold()
+                        
+                                                        }.frame(maxWidth: .infinity, minHeight: 80)
+                                                        .background(
+                                                            RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                                                                .fill(Color.accentColor)
+                                                        )
                         
                         
-                        Button(action: {
-                            lastPressed = .origin
-                            showingOverlay.toggle()
-                        }) {
-                            VStack {
-                                VStack {
-                                    Text("ORIGIN")
-                                        .foregroundColor(.primary).opacity(0.8)
-                                    Spacer()
-                                }
-                                
-                                VStack {
-                                    
-                                    Text(data.stationName(from: startingStation))
-                                        .foregroundColor(.white)
-                                        .font(.title2).bold()
-                                    
-                                }.frame(maxWidth: .infinity, minHeight: 80)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 14.0, style: .continuous)
-                                        .fill(Color.accentColor)
-                                )
-                                
-                                
-                            }
-                            //                    .padding()
+                                                    }
+                                                    //                    .padding()
+                        
+                        
+                                                }
+                                                .buttonStyle(OpacityChangingButton())
+                        
+                        
+                                                Button(action: {
+                                                    flipStations()
+                                                }) {
+                                                    VStack {
+                                                        VStack {
+                                                            Text("")
+                                                                .foregroundColor(.primary).opacity(0.8)
+                                                            //                            Spacer()
+                                                            Image(systemName: "arrow.triangle.2.circlepath")
+                                                                .font(.title)
+                                                                .rotationEffect(Angle.degrees(rotationAmount))
+                                                                .animation(.easeOut)
+                                                        }
+                        
+                                                    }
+                                                }
+                                                //                .buttonStyle(CustomButtonStyle())
+                        
+                        
+                                                Button(action: {
+                                                    destinationIsActive = true
+                                                }) {
+                                                    VStack {
+                                                        VStack {
+                                                            Text("DESTINATION")
+                                                                .foregroundColor(.primary).opacity(0.8)
+                                                            Spacer()
+                                                        }
+                        
+                                                        VStack {
+                        
+                                                            Text(data.stationName(from: endingStation))
+                                                                .foregroundColor(.white)
+                                                                .font(.title2).bold()
+                        
+                                                        }.frame(maxWidth: .infinity, minHeight: 80)
+                                                        .background(
+                                                            RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                                                                .fill(Color.accentColor)
+                                                        )
+                        
+                        
+                                                    }
+                        
+                        
+                                                }
+                                                .buttonStyle(OpacityChangingButton())
+                        
+                                            }
+                        .padding()
+                        
                             
-                            
-                        }
-                        .buttonStyle(OpacityChangingButton())
-                        
-                        
-                        Button(action: {
-                            flipStations()
-                        }) {
-                            VStack {
-                                VStack {
-                                    Text("")
-                                        .foregroundColor(.primary).opacity(0.8)
-                                    //                            Spacer()
-                                    Image(systemName: "arrow.triangle.2.circlepath")
-                                        .font(.title)
-                                        .rotationEffect(Angle.degrees(rotationAmount))
-                                        .animation(.easeOut)
-                                }
-                                
-                            }
-                        }
-                        //                .buttonStyle(CustomButtonStyle())
-                        
-                        
-                        Button(action: {
-                            lastPressed = .destination
-                            showingOverlay.toggle()
-                        }) {
-                            VStack {
-                                VStack {
-                                    Text("DESTINATION")
-                                        .foregroundColor(.primary).opacity(0.8)
-                                    Spacer()
-                                }
-                                
-                                VStack {
-                                    
-                                    Text(data.stationName(from: endingStation))
-                                        .foregroundColor(.white)
-                                        .font(.title2).bold()
-                                    
-                                }.frame(maxWidth: .infinity, minHeight: 80)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 14.0, style: .continuous)
-                                        .fill(Color.accentColor)
-                                )
-                                
-                                
-                            }
-                            //                    .padding()
-                            
-                            
-                        }
-                        .buttonStyle(OpacityChangingButton())
-                        
-                    }
-                    //            .padding()
-                    ) {
-                        
-                    }
-                    
-                    .onChange(of: startingStation) { newValue in
-                        if (!newValue.isEmpty && !endingStation.isEmpty) {
-                            queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                        }
-                    }
-                    .onChange(of: endingStation) { newValue in
-                        if (!newValue.isEmpty && !startingStation.isEmpty) {
-                            queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                        }
-                    }
-                    
-                    
-                    
-                    if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
-                        Section(header: Text("Fare Details"), footer: Text("Please check the official website for group/discount ticket fares.").font(.caption2)) {
-                            HStack {
+                        // MARK: HStack - Fee Details
+                        HStack {
+                            if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                                 FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
-                                
                             }
                         }
-                    }
-                    
-                    
-                    
-                    Section(header: Text("Available Trains")) {
                         
+                        // MARK: HStack - Train
                         if (queryVM.queryResultTimetable.isEmpty) {
                             HStack {
                                 Spacer()
@@ -167,74 +148,51 @@ struct PlannerView: View {
                                 Spacer()
                             }
                         }
-                        
-                        
-                        List(queryVM.queryResultTimetable
+
+
+                        ForEach(queryVM.queryResultTimetable
                                 .sorted {
                                     $0.OriginStopTime < $1.OriginStopTime
                                 }
                                 .filter {
                                     showAvailable ? $0.OriginStopTime.willDepartAfterNow : true
-                                    
+
                                 }
                         ) { entry in
                             //                Text(queryVM.availability[entry]?.DestinationStationName ?? "XXX")
-                            PlannerResultRowView(entry: entry, availability: queryVM.availability[entry])
                             
+                            PlannerResultRowView(entry: entry, availability: queryVM.availability[entry])
+
                         }
                     }
-                    
-                    
+                    .padding()
                 }
-                if (showingOverlay) {
-                    GeometryReader { geo in
-                        VStack {
-                            Spacer()
-                            Text("\(lastPressed == .origin ? "Origin" : "Destination")").font(.title)
-                            LazyVGrid(columns: columns) {
-                                ForEach (data.stations) { station in
-                                    Text(station.StationName.En)
-                                        .font(.title3).bold()
-                                        .padding(.vertical, 16)
-                                        .foregroundColor(Color.white)
-                                        .frame(maxWidth: .infinity)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 14.0, style: .continuous)
-                                                .fill(station.StationID == (lastPressed == .origin ?  startingStation : endingStation) ? Color.accentColor : Color.secondary)
-                                        )
-                                        .onTapGesture {
-                                            
-                                            switch(lastPressed) {
-                                            case .origin: startingStation = station.StationID
-                                            case .destination: endingStation = station.StationID
-                                                
-                                            }
-                                            
-                                            withAnimation {
-                                                showingOverlay.toggle()
-                                            }
-                                        }
-                                    
-                                }
-                            }.padding()
-                            Spacer()
-                        }
-                        .frame(width: geo.size.width, height: geo.size.height)
-                        
-                        .background(BlurView())
-                        //                        .edgesIgnoringSafeArea(.all)
-                        .onTapGesture {
-                            withAnimation {
-                                showingOverlay.toggle()
-                            }
-                        }.transition(.scale)
-                    }
-                    
-                    
+//                .padding()
+                
+                //MARK: ZStack 2 - Overlays
+                ZStack {
+                    StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive)
+                    StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive)
                 }
                 
-            }.navigationTitle("Planner")
+                
+            }
             
+            .navigationTitle("Planner")
+            .onChange(of: startingStation) { newValue in
+                                    if (!newValue.isEmpty && !endingStation.isEmpty) {
+                                        queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
+                                    }
+                                }
+                                .onChange(of: endingStation) { newValue in
+                                    if (!newValue.isEmpty && !startingStation.isEmpty) {
+                                        queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
+                                    }
+                                }
+            
+            
+            
+                        
         }
     }
 }

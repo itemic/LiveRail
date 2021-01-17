@@ -11,15 +11,23 @@ struct FareListingView: View {
     var fareSchedule: FareSchedule
     var body: some View {
         HStack(alignment: .center) {
+            Group {
+            Spacer()
             FareBlockView(ticket: .nonreserved, cost: fareSchedule.fare(for: .nonreserved))
             Spacer()
+            }
             Divider()
+            Group {
             Spacer()
             FareBlockView(ticket: .reserved, cost: fareSchedule.fare(for: .reserved))
             Spacer()
+            }
             Divider()
+            Group {
             Spacer()
             FareBlockView(ticket: .business, cost: fareSchedule.fare(for: .business))
+            Spacer()
+            }
         }
     }
 }
