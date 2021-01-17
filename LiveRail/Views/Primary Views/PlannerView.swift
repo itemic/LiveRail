@@ -51,7 +51,9 @@ struct PlannerView: View {
                         // MARK: HStack - Origin/Destination Buttons
                         HStack {
                                                 Button(action: {
+                                                    withAnimation {
                                                     originIsActive = true
+                                                    }
                                                 }) {
                                                     VStack {
                                                         VStack {
@@ -66,9 +68,9 @@ struct PlannerView: View {
                                                                 .foregroundColor(.white)
                                                                 .font(.title2).bold()
                         
-                                                        }.frame(maxWidth: .infinity, minHeight: 80)
+                                                        }.frame(maxWidth: .infinity, minHeight: 60)
                                                         .background(
-                                                            RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                                                            RoundedRectangle(cornerRadius: 4.0, style: .continuous)
                                                                 .fill(Color.accentColor)
                                                         )
                         
@@ -101,7 +103,9 @@ struct PlannerView: View {
                         
                         
                                                 Button(action: {
+                                                    withAnimation {
                                                     destinationIsActive = true
+                                                    }
                                                 }) {
                                                     VStack {
                                                         VStack {
@@ -116,9 +120,9 @@ struct PlannerView: View {
                                                                 .foregroundColor(.white)
                                                                 .font(.title2).bold()
                         
-                                                        }.frame(maxWidth: .infinity, minHeight: 80)
+                                                        }.frame(maxWidth: .infinity, minHeight: 60)
                                                         .background(
-                                                            RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                                                            RoundedRectangle(cornerRadius: 4.0, style: .continuous)
                                                                 .fill(Color.accentColor)
                                                         )
                         
@@ -130,7 +134,7 @@ struct PlannerView: View {
                                                 .buttonStyle(OpacityChangingButton())
                         
                                             }
-                        .padding()
+                        
                         
                             
                         // MARK: HStack - Fee Details
@@ -139,17 +143,19 @@ struct PlannerView: View {
                                 FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
                             }
                         }
+                        .padding(.vertical)
+                        
                         
                         // MARK: HStack - Train
-                        if (queryVM.queryResultTimetable.isEmpty) {
-                            HStack {
-                                Spacer()
-                                Text("No trains available for your selection")
-                                Spacer()
-                            }
-                        }
+//                        if (queryVM.queryResultTimetable.isEmpty) {
+//                            HStack {
+//                                Spacer()
+//                                Text("No trains available for your selection")
+//                                Spacer()
+//                            }
+//                        }
 
-
+                        
                         ForEach(queryVM.queryResultTimetable
                                 .sorted {
                                     $0.OriginStopTime < $1.OriginStopTime
@@ -159,9 +165,10 @@ struct PlannerView: View {
 
                                 }
                         ) { entry in
-                            //                Text(queryVM.availability[entry]?.DestinationStationName ?? "XXX")
                             
+                            HStack {
                             PlannerResultRowView(entry: entry, availability: queryVM.availability[entry])
+                            }
 
                         }
                     }

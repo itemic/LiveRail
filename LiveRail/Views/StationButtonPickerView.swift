@@ -35,11 +35,11 @@ struct StationButtonPickerView: View {
                                 Text(station.StationName.En)
                                     .font(.title3).bold()
                                     .padding(.vertical, 16)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(Color.primary)
                                     .frame(maxWidth: .infinity)
                                     .background(
                                         RoundedRectangle(cornerRadius: 5.0, style: .continuous)
-                                            .fill(station.StationID == selectedStation ? Color.accentColor : Color.secondary)
+                                            .fill(station.StationID == selectedStation ? Color.accentColor : Color(UIColor.systemGray5))
                                     )
                             }
                             
