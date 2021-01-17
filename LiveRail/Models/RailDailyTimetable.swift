@@ -31,6 +31,19 @@ struct RailDailyTimetable: Codable, Hashable {
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
     var StopTimes: [StopTime]
+    
+    func isStarting(stop: StopTime) -> Bool {
+        return stop.StationID == DailyTrainInfo.StartingStationID
+    }
+    
+    func isEnding(stop: StopTime) -> Bool {
+        return stop.StationID == DailyTrainInfo.EndingStationID
+    }
+    
+    func isTrainAtStation(stop: StopTime) -> Bool {
+        return !stop.willArriveAfterNow && stop.willDepartAfterNow
+    }
+    
 }
 
 struct DailyTrainInfo: Codable, Hashable {
@@ -56,7 +69,7 @@ struct StopTime: Codable, Hashable {
         
         return lhsD < rhsD
     }
-    var StopSequence: Int32
+    var StopSequence: Int
     var StationID: String
     var StationName: NameType
     var ArrivalTime: String

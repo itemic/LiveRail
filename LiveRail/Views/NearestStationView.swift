@@ -42,7 +42,7 @@ struct NearestStationView: View {
         ForEach(upcomingTrains) { train in
             
                 VStack {
-                    NavigationLink(destination: TrainView(train: train)) {
+                    NavigationLink(destination: TrainServiceView(train: train)) {
                         TrainEntryListRowView(train: train)
                     }
                 }.listRowBackground(Color(UIColor.systemGroupedBackground))

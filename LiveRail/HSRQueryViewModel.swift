@@ -30,7 +30,7 @@ final class HSRQueryViewModel: ObservableObject {
                     $0.TrainNo == timetable.DailyTrainInfo.TrainNo
                 }
                 
-                self?.availability[timetable] = seat
+                 self?.availability[timetable] = seat
             }
             
             

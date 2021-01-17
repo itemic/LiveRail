@@ -16,6 +16,7 @@
 		45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */; };
 		453366AD25B435470025B42A /* StationButtonPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453366AC25B435470025B42A /* StationButtonPickerView.swift */; };
 		453366B225B436150025B42A /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453366B125B436150025B42A /* TestingView.swift */; };
+		4553202425B476B90080DB48 /* TrainServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4553202325B476B90080DB48 /* TrainServiceView.swift */; };
 		4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65325A9EECC00E50C5F /* LiveRailApp.swift */; };
 		4563E65625A9EECC00E50C5F /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65525A9EECC00E50C5F /* TimetableView.swift */; };
 		4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65725A9EECD00E50C5F /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerResultRowView.swift; sourceTree = "<group>"; };
 		453366AC25B435470025B42A /* StationButtonPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationButtonPickerView.swift; sourceTree = "<group>"; };
 		453366B125B436150025B42A /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		4553202325B476B90080DB48 /* TrainServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainServiceView.swift; sourceTree = "<group>"; };
 		4563E65025A9EECC00E50C5F /* LiveRail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveRail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4563E65325A9EECC00E50C5F /* LiveRailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRailApp.swift; sourceTree = "<group>"; };
 		4563E65525A9EECC00E50C5F /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */,
 				4569AA3A25B00772002D376B /* FareListingView.swift */,
 				45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */,
+				4553202325B476B90080DB48 /* TrainServiceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */,
 				453366B225B436150025B42A /* TestingView.swift in Sources */,
 				453366AD25B435470025B42A /* StationButtonPickerView.swift in Sources */,
+				4553202425B476B90080DB48 /* TrainServiceView.swift in Sources */,
 				4563E65625A9EECC00E50C5F /* TimetableView.swift in Sources */,
 				45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */,
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,

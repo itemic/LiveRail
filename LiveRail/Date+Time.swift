@@ -102,7 +102,15 @@ extension Date {
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        guard let departure = dateFormatter.date(from: otherTime) else { return false }
-        return now.time < departure.time
+        guard let other = dateFormatter.date(from: otherTime) else { return false }
+        return now.time < other.time
+    }
+    
+    static func compareEquality(otherTime: String) -> Bool {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let other = dateFormatter.date(from: otherTime) else { return false }
+        return now.time == other.time
     }
 }

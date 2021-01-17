@@ -15,33 +15,11 @@ struct TestingView: View {
     var body: some View {
         
         NavigationView {
-            ZStack {
+            ScrollView {
                 
-                //MARK First part
-                ScrollView {
-                    Button(action: {
-                        isActive = true
-                    }) {
-                        Text("Button")
-                    }
-                    .buttonStyle(CustomButtonStyle())
-                    VStack {
-
-                    ForEach(1..<100) { _ in
-                        HStack {
-                        Text("Hey")
-                            Spacer()
-                        }
-                    }
-                        Spacer()
-                    }.padding()
-
-
-                    
+                ForEach(data.stations) { station in
+                    Text(station.StationName.En)
                 }
-                
-                //MARK Second part
-                StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $selectedStation, isActive: $isActive)
 
             }.navigationTitle("Testing")
         }
