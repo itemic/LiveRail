@@ -12,12 +12,62 @@ struct TrainServiceView: View {
     
     @ObservedObject var vm = HSRTrainViewModel()
     
- 
+    var prev: StopTime? {
+        return vm.train!.prevStation()
+    }
+    
+    var next: StopTime? {
+        return vm.train!.nextStation()
+    }
+    
+    // next
+    func firstRectColor(_ stop: StopTime) -> Color {
+        if (stop.StationID == vm.train!.DailyTrainInfo.StartingStationID) {return .clear}
+        if (vm.train!.trainIsAtStation()) {return .accentColor}
+        if (stop == next) {return vm.train!.DailyTrainInfo.direction.color}
+        return .accentColor
+    }
+    
+    // prev
+    func secondRectColor(_ stop: StopTime) -> Color {
+        if (stop.StationID == vm.train!.DailyTrainInfo.EndingStationID) {return .clear}
+        if (vm.train!.trainIsAtStation()) {return .accentColor}
+        if (stop == prev) {return vm.train!.DailyTrainInfo.direction.color}
+        return .accentColor
+    }
+    
+    func overlayCircleColor(_ stop: StopTime) -> Color {
+        if (stop == vm.train!.getTrainProgress()?.0) {
+            return .white
+        }
+        return .clear
+    }
+    
+    func overlayValid(_ stop: StopTime) -> Bool {
+        if ( stop == vm.train!.getTrainProgress()?.0 ) {
+            return true
+        }
+        return false
+    }
+    
+    func overlayCircleOffset(_ stop: StopTime) -> Double {
+        if (vm.train!.trainIsAtStation()) { return 0}
+        if (stop == vm.train!.getTrainProgress()?.0) {
+            let offset =  (vm.train!.getTrainProgress()?.1 ?? 1.0) * 50.0
+            print(offset)
+            return offset
+        }
+        return 0
+    }
     
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
             if (vm.train != nil) {
+                Text("Next station: \(vm.train!.nextStation()?.StationName.En ?? "-")")
+                Text("Prev station: \(vm.train!.prevStation()?.StationName.En ?? "-")")
+                
+                
                 ForEach(vm.train!.StopTimes, id: \.StopSequence) { stop in
                     
                     
@@ -32,29 +82,49 @@ struct TrainServiceView: View {
                             }
                             Text(stop.DepartureTime).font(.system(.body, design: .monospaced))
                         }
-                        VStack(spacing: 0) {
-                            if (vm.train!.isStarting(stop: stop)) {
-                                Rectangle()
-                                    .fill(Color.clear)
-                                    .frame(width: 10)
-                            }
-                        Rectangle()
-                            .fill(Color.accentColor)
-                            .frame(width: 10)
                         
-                            if (vm.train!.isEnding(stop: stop)) {
-                                Rectangle()
-                                    .fill(Color.clear)
-                                    .frame(width: 10)
-                            }
+                       
+                        
+                        
+                        VStack(spacing: 0) {
+                            
+                            
+                            Rectangle() // A, next
+                                .fill(firstRectColor(stop))
+                                .frame(width: 10)
+                            
+                            
+                            Rectangle() // B, prev
+                                .fill(secondRectColor(stop))
+                                .frame(width: 10)
+                            
                         }
                         .overlay(Circle()
                                     .strokeBorder(Color.primary, lineWidth: 2)
                                     .background(Circle().foregroundColor(Color(UIColor.systemBackground)))
 //                                    .fill(Color(UIColor.systemBackground))
                                     .frame(width: (vm.train!.isEnding(stop: stop)) ? 18 : 12)
-                                    
                         )
+                        .overlay(ZStack {
+                            Circle()
+                                .strokeBorder(overlayValid(stop) ? Color.primary : Color.clear , lineWidth: 2)
+                                .background(Circle().foregroundColor(overlayValid(stop) ? vm.train!.DailyTrainInfo.direction.color : .clear))
+                                .frame(width: 25, height: 25)
+//                                .offset(y: CGFloat(overlayCircleOffset(stop)))
+
+                            Image(systemName: "tram.fill")
+                                .foregroundColor(overlayValid(stop) ? .black : .clear)
+                                .font(.system(size: 10))
+                                
+                        }
+                                    
+                                    
+                                    .offset(y: CGFloat(overlayCircleOffset(stop)))
+                                    .frame(width: 20, height: 20)
+                        )
+                        
+                        
+                        
                         Text(stop.StationName.En)
                             
                         Spacer()

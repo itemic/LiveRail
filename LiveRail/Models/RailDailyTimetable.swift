@@ -44,6 +44,61 @@ struct RailDailyTimetable: Codable, Hashable {
         return !stop.willArriveAfterNow && stop.willDepartAfterNow
     }
     
+    func trainIsAtStation() -> Bool {
+        return StopTimes.contains {
+            isTrainAtStation(stop: $0)
+        }
+     }
+    
+    func currentTrainAtStation() -> StopTime? {
+        return StopTimes.first {
+            isTrainAtStation(stop: $0)
+        }
+    }
+    
+    func nextStation() -> StopTime? {
+        return StopTimes.first {
+            $0.willArriveAfterNow
+        }
+    }
+    
+    func prevStation() -> StopTime? {
+        return StopTimes.last {
+            !$0.willDepartAfterNow
+        }
+    }
+    
+    func getTrainProgress() -> (StopTime, Double)? {
+        
+        guard let prev = prevStation(), let next = nextStation() else { return nil }
+
+        let now = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        guard let nextArrivalTime = dateFormatter.date(from: next.ArrivalTime) else { return nil }
+        guard let prevDepartureTime = dateFormatter.date(from: prev.DepartureTime) else { return nil }
+        
+        let minutesBetweenStations = nextArrivalTime.time - prevDepartureTime.time
+        let midpoint = minutesBetweenStations / 2
+        let minutesOfCurrentPosition = now.time - prevDepartureTime.time
+        
+        let proportion: Double = 2 *  (Double(minutesOfCurrentPosition) / Double(minutesBetweenStations))
+        print("mbs \(minutesBetweenStations) mocp \(minutesOfCurrentPosition) = p \(proportion)")
+        
+        if (trainIsAtStation()) {
+            return (currentTrainAtStation()!, 0)
+        }
+        else if (minutesOfCurrentPosition < midpoint) {
+            // prev station
+            return (prev, proportion)
+        } else {
+            // next station
+            return (next, -(proportion/2))
+        }
+    }
+    
 }
 
 struct DailyTrainInfo: Codable, Hashable {

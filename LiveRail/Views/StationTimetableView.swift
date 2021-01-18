@@ -22,7 +22,7 @@ struct StationTimetableView: View {
                 (showAvailable ? $0.willDepartAfterNow : true) &&
                     (hideTerminus ? !$0.isTerminus : true)
             }) { train in
-                NavigationLink(destination: TrainView(train: train)) {
+                NavigationLink(destination: TrainServiceView(train: train)) {
                     TrainEntryListRowView(train: train)
                 }.listRowBackground(Color(UIColor.systemGroupedBackground)) 
                 
