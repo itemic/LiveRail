@@ -10,29 +10,29 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var data: HSRDataStore
     var body: some View {
-        
-        TabView {
+        TestingView(data: data)
+//        TabView {
 //            TestingView(data: data)
 //                .tabItem {
 //                    Image(systemName: "gear")
 //                    Text("Testing")
 //                }
-            TimetableView(data: data)
-                .tabItem {
-                    Image(systemName: "ellipsis.rectangle.fill")
-                    Text("Timetable")
-                }
-            PlannerView(data: data)
-                .tabItem {
-                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
-                    Text("Planner")
-                }
-            SettingsView(data: data)
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Settings")
-                }
-        }
+//            TimetableView(data: data)
+//                .tabItem {
+//                    Image(systemName: "ellipsis.rectangle.fill")
+//                    Text("Timetable")
+//                }
+//            PlannerView(data: data)
+//                .tabItem {
+//                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+//                    Text("Planner")
+//                }
+//            SettingsView(data: data)
+//                .tabItem {
+//                    Image(systemName: "gearshape.fill")
+//                    Text("Settings")
+//                }
+//        }
     }
 }
 
