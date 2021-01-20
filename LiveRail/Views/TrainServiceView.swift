@@ -89,8 +89,8 @@ struct TrainServiceView: View {
             if (vm.train != nil) {
                 
          
-//                Text("Next station: \(vm.train!.nextStation()?.StationName.En ?? "-")")
-//                Text("Prev station: \(vm.train!.prevStation()?.StationName.En ?? "-")")
+                Text("Next station: \(vm.train!.nextStation()?.StationName.En ?? "-")")
+                Text("Prev station: \(vm.train!.prevStation()?.StationName.En ?? "-")")
                 
                 
                 ForEach(vm.train!.StopTimes, id: \.StopSequence) { stop in

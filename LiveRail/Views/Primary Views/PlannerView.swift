@@ -31,6 +31,11 @@ struct PlannerView: View {
     
     @State private var showingTimetable: StationTimetable?
     
+    @StateObject var lm = LocationManager.shared
+    var nextUp: String {
+        return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
+    }
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -79,10 +84,10 @@ struct PlannerView: View {
                         Spacer()
                             .frame(height: 110)
                     }
-                    .padding(.horizontal, 5)
+                    .padding(.horizontal)
                 }
             }
-
+            
             //MARK: TWO
             VStack {
                 
@@ -172,7 +177,7 @@ struct PlannerView: View {
             
             //                .padding()
         }
-
+        
     }
     
     var TimetableView: some View {
@@ -185,7 +190,7 @@ struct PlannerView: View {
                         
                         
                         StationTimetableView(station: data.station(from: timetableStation)!, data: data)
-                            
+                        
                         
                         
                     }
@@ -205,25 +210,43 @@ struct PlannerView: View {
                         VStack {
                             
                             VStack {
-                                
                                 Text(data.stationName(from: timetableStation))
                                     .foregroundColor(.white)
                                     .font(.title2).bold()
-                                
                             }.frame(maxWidth: .infinity, minHeight: 60)
                             .background(
                                 RoundedRectangle(cornerRadius: 25, style: .continuous)
                                     .fill(Color.purple)
                             )
-                            
-                            
                         }
-                        //                    .padding()
-                        
-                        
                     }
                     .buttonStyle(OpacityChangingButton())
                     
+                    
+                    if let status = lm.status {
+                        if (status == .authorizedAlways || status == .authorizedWhenInUse) {
+                    Button(action: {
+                        if let nearest = lm.closestStation(stations: data.stations)?.StationID {
+                            timetableStation = nearest
+                        }
+                    }) {
+                        VStack {
+
+                            VStack {
+                                Image(systemName: "location.fill")
+                                    .font(.system(.title2))
+                                    .foregroundColor(.white)
+
+                            }.frame(maxWidth: 60, minHeight: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .fill(Color.purple)
+                            )
+                        }
+                    }
+                    .buttonStyle(OpacityChangingButton())
+                    }
+                    }
                     
                     
                 }
@@ -254,38 +277,38 @@ struct PlannerView: View {
                     Spacer()
                         .frame(height: 55)
                     VStack {
-                    HStack {
-                        Text("Rail \(currentView.string)").font(.title).bold()
-                        Spacer()
-                        Button(action: {
-                            withAnimation {
-                            switch(currentView) {
-                            case .plannerView:
-                                currentView = .timetableView
-                            case .timetableView:
-                                currentView = .plannerView
+                        HStack {
+                            Text("Rail \(currentView.string)").font(.title).bold()
+                            Spacer()
+                            Button(action: {
+                                withAnimation {
+                                    switch(currentView) {
+                                    case .plannerView:
+                                        currentView = .timetableView
+                                    case .timetableView:
+                                        currentView = .plannerView
+                                    }
+                                }
+                            }) {
+                                Image(systemName: "list.bullet.below.rectangle").imageScale(.large).foregroundColor(.accentColor)
+                                    .padding(5)
+                                    .background(Color.accentColor.opacity(0.2))
+                                    .clipShape(Circle())
                             }
+                            
+                            Button(action: {
+                                showingSettings = true
+                            }) {
+                                Image(systemName: "gearshape.fill").imageScale(.large).foregroundColor(.accentColor)
+                                    .padding(5)
+                                    .background(Color.accentColor.opacity(0.2))
+                                    .clipShape(Circle())
                             }
-                        }) {
-                            Image(systemName: "list.bullet.below.rectangle").imageScale(.large).foregroundColor(.accentColor)
-                                .padding(5)
-                                .background(Color.accentColor.opacity(0.2))
-                                .clipShape(Circle())
+                            .sheet(isPresented: $showingSettings) {
+                                SettingsView(data: data)
+                            }
+                            
                         }
-                        
-                        Button(action: {
-                            showingSettings = true
-                        }) {
-                            Image(systemName: "gearshape.fill").imageScale(.large).foregroundColor(.accentColor)
-                                .padding(5)
-                                .background(Color.accentColor.opacity(0.2))
-                                .clipShape(Circle())
-                        }
-                        .sheet(isPresented: $showingSettings) {
-                            SettingsView(data: data)
-                        }
-                        
-                    }
                     }
                 }
                 .padding()
@@ -349,7 +372,7 @@ struct BlurView: UIViewRepresentable {
         uiView.effect = UIBlurEffect(style: self.style)
     }
     
-
+    
 }
 
 

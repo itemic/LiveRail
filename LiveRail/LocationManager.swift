@@ -73,7 +73,7 @@ class LocationManager: NSObject, ObservableObject {
 
     func closestStation(stations: [Station]) -> Station? {
         guard let location = self.location else {return nil}
-    
+        locationManager.requestLocation()
         let closest = stations.min {
             location.distance(from: $0.coordinates) < location.distance(from: $1.coordinates)
         }
@@ -96,7 +96,7 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last  else {return}
         self.location = location
-//        self.locationManager.stopUpdatingLocation()
+        self.locationManager.stopUpdatingLocation()
 
     }
     
