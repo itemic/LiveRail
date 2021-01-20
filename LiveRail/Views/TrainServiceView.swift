@@ -11,6 +11,8 @@ struct TrainServiceView: View {
     var train: StationTimetable
     
     @ObservedObject var vm = HSRTrainViewModel()
+    @Environment(\.presentationMode) var presentationMode
+
     
     var prev: StopTime? {
         return vm.train!.prevStation()
@@ -61,11 +63,34 @@ struct TrainServiceView: View {
     }
     
     var body: some View {
+        VStack(spacing: 0) {
+        VStack {
+            HStack {
+                VStack {
+                    Text("\(train.TrainNo) to \(train.EndingStationName.En)").font(.title).bold().foregroundColor(.white)
+                }
+                Spacer()
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark").imageScale(.medium).foregroundColor(.primary)
+                        .padding(5)
+                        .background(Color.primary.opacity(0.2))
+                        .clipShape(Circle())
+                    }
+            }
+            .padding()
+            .frame(height: 75)
+            .background(train.direction.color)
+        }
         ScrollView {
+            
             VStack(spacing: 0) {
             if (vm.train != nil) {
-                Text("Next station: \(vm.train!.nextStation()?.StationName.En ?? "-")")
-                Text("Prev station: \(vm.train!.prevStation()?.StationName.En ?? "-")")
+                
+         
+//                Text("Next station: \(vm.train!.nextStation()?.StationName.En ?? "-")")
+//                Text("Prev station: \(vm.train!.prevStation()?.StationName.En ?? "-")")
                 
                 
                 ForEach(vm.train!.StopTimes, id: \.StopSequence) { stop in
@@ -145,12 +170,14 @@ struct TrainServiceView: View {
             }
             }
             .padding()
+        
         }
+    }
         
         .onAppear {
             vm.fetchTrainDetails(for: train.TrainNo, client: .init())
         }
-        .navigationTitle("Train Service")
+        
         
     }
 }

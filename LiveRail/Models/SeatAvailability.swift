@@ -22,8 +22,8 @@ struct AvailableSeat: Codable {
     var EndingStationID: String
     var EndingStationName: NameType
     var StopStations: [AvailabilityStopStation]
-    var SrcRecTime: String
-    var UpdateTime: String
+//    var SrcRecTime: String
+//    var UpdateTime: String
     
     
     // ADDITIONAL COMPUTED PROPERTIES

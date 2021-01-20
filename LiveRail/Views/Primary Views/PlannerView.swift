@@ -17,12 +17,19 @@ struct PlannerView: View {
     // stored as IDs 4-digit string
     @State var startingStation = ""
     @State var endingStation = ""
+    @State var timetableStation = ""
     @AppStorage("showAvailable") var showAvailable = false
     
     @State private var originIsActive = false
     @State private var destinationIsActive = false
+    @State private var timetableIsActive = false
     
     @State private var rotationAmount = 0.0
+    
+    @State private var showingSettings = false
+    @State private var currentView: HSRViews = .plannerView
+    
+    @State private var showingTimetable: StationTimetable?
     
     let columns = [
         GridItem(.flexible()),
@@ -39,105 +46,14 @@ struct PlannerView: View {
         rotationAmount += 180
     }
     
-    var body: some View {
-        NavigationView {
-            
-            ZStack {
-                
-                //MARK: ZStack 1 - ScrollView
-                ScrollView {
+    var PlannerView: some View {
+        ZStack {
+            //MARK: ONE
+            VStack {
+                Spacer()
+                    .frame(height: 75)
+                ScrollView(showsIndicators: false) {
                     VStack {
-                        
-                        // MARK: HStack - Origin/Destination Buttons
-                        HStack {
-                                                Button(action: {
-                                                    withAnimation {
-                                                    originIsActive = true
-                                                    }
-                                                }) {
-                                                    VStack {
-                                                        VStack {
-                                                            Text("ORIGIN")
-                                                                .foregroundColor(.primary).opacity(0.8)
-                                                            Spacer()
-                                                        }
-                        
-                                                        VStack {
-                        
-                                                            Text(data.stationName(from: startingStation))
-                                                                .foregroundColor(.white)
-                                                                .font(.title2).bold()
-                        
-                                                        }.frame(maxWidth: .infinity, minHeight: 60)
-                                                        .background(
-                                                            RoundedRectangle(cornerRadius: 4.0, style: .continuous)
-                                                                .fill(Color.accentColor)
-                                                        )
-                        
-                        
-                                                    }
-                                                    //                    .padding()
-                        
-                        
-                                                }
-                                                .buttonStyle(OpacityChangingButton())
-                        
-                        
-                                                Button(action: {
-                                                    flipStations()
-                                                }) {
-                                                    VStack {
-                                                        VStack {
-                                                            Text("")
-                                                                .foregroundColor(.primary).opacity(0.8)
-                                                            //                            Spacer()
-                                                            Image(systemName: "arrow.triangle.2.circlepath")
-                                                                .font(.title)
-                                                                .rotationEffect(Angle.degrees(rotationAmount))
-                                                                .animation(.easeOut)
-                                                        }
-                        
-                                                    }
-                                                }
-                                                //                .buttonStyle(CustomButtonStyle())
-                        
-                        
-                                                Button(action: {
-                                                    withAnimation {
-                                                    destinationIsActive = true
-                                                    }
-                                                }) {
-                                                    VStack {
-                                                        VStack {
-                                                            Text("DESTINATION")
-                                                                .foregroundColor(.primary).opacity(0.8)
-                                                            Spacer()
-                                                        }
-                        
-                                                        VStack {
-                        
-                                                            Text(data.stationName(from: endingStation))
-                                                                .foregroundColor(.white)
-                                                                .font(.title2).bold()
-                        
-                                                        }.frame(maxWidth: .infinity, minHeight: 60)
-                                                        .background(
-                                                            RoundedRectangle(cornerRadius: 4.0, style: .continuous)
-                                                                .fill(Color.accentColor)
-                                                        )
-                        
-                        
-                                                    }
-                        
-                        
-                                                }
-                                                .buttonStyle(OpacityChangingButton())
-                        
-                                            }
-                        
-                        
-                            
-                        // MARK: HStack - Fee Details
                         HStack {
                             if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                                 FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
@@ -145,62 +61,272 @@ struct PlannerView: View {
                         }
                         .padding(.vertical)
                         
-                        
-                        // MARK: HStack - Train
-//                        if (queryVM.queryResultTimetable.isEmpty) {
-//                            HStack {
-//                                Spacer()
-//                                Text("No trains available for your selection")
-//                                Spacer()
-//                            }
-//                        }
-
-                        
                         ForEach(queryVM.queryResultTimetable
-                                .sorted {
-                                    $0.OriginStopTime < $1.OriginStopTime
-                                }
-                                .filter {
-                                    showAvailable ? $0.OriginStopTime.willDepartAfterNow : true
-
-                                }
+                                    .sorted {
+                                        $0.OriginStopTime < $1.OriginStopTime
+                                    }
+                                    .filter {
+                                        showAvailable ? $0.OriginStopTime.willDepartAfterNow : true
+                                        
+                                    }
                         ) { entry in
                             
                             HStack {
-                            PlannerResultRowView(entry: entry, availability: queryVM.availability[entry])
+                                PlannerResultRowView(entry: entry, availability: queryVM.availability[entry])
                             }
+                            
+                        }
+                        Spacer()
+                            .frame(height: 110)
+                    }
+                    .padding(.horizontal, 5)
+                }
+            }
 
+            //MARK: TWO
+            VStack {
+                
+                
+                Spacer()
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            originIsActive = true
+                        }
+                    }) {
+                        VStack {
+                            
+                            VStack {
+                                
+                                Text(data.stationName(from: startingStation))
+                                    .foregroundColor(.white)
+                                    .font(.title2).bold()
+                                
+                            }.frame(maxWidth: .infinity, minHeight: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .fill(Color.accentColor)
+                            )
+                            
+                            
+                        }
+                        //                    .padding()
+                        
+                        
+                    }
+                    .buttonStyle(OpacityChangingButton())
+                    
+                    
+                    Button(action: {
+                        flipStations()
+                    }) {
+                        VStack {
+                            VStack {
+                                Image(systemName: "arrow.triangle.2.circlepath")
+                                    .font(.title)
+                                    .rotationEffect(Angle.degrees(rotationAmount))
+                                    .animation(.easeOut)
+                            }
+                            
                         }
                     }
-                    .padding()
+                    //                .buttonStyle(CustomButtonStyle())
+                    
+                    
+                    Button(action: {
+                        withAnimation {
+                            destinationIsActive = true
+                        }
+                    }) {
+                        VStack {
+                            
+                            VStack {
+                                
+                                Text(data.stationName(from: endingStation))
+                                    .foregroundColor(.white)
+                                    .font(.title2).bold()
+                                
+                            }.frame(maxWidth: .infinity, minHeight: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .fill(Color.accentColor)
+                            )
+                            
+                            
+                        }
+                        
+                        
+                    }
+                    .buttonStyle(OpacityChangingButton())
+                    
                 }
-//                .padding()
-                
-                //MARK: ZStack 2 - Overlays
-                ZStack {
-                    StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive)
-                    StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive)
-                }
+                .padding()
+                .padding(.bottom, 15)
+                .background(BlurView())
                 
                 
             }
-            
-            .navigationTitle("Planner")
-            .onChange(of: startingStation) { newValue in
-                                    if (!newValue.isEmpty && !endingStation.isEmpty) {
-                                        queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                                    }
-                                }
-                                .onChange(of: endingStation) { newValue in
-                                    if (!newValue.isEmpty && !startingStation.isEmpty) {
-                                        queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                                    }
-                                }
+            .edgesIgnoringSafeArea(.all)
             
             
             
-                        
+            //                .padding()
         }
+
+    }
+    
+    var TimetableView: some View {
+        ZStack {
+            VStack {
+                Spacer()
+                    .frame(height: 75)
+                ScrollView {
+                    if (data.station(from: timetableStation) != nil) {
+                        
+                        
+                        StationTimetableView(station: data.station(from: timetableStation)!, data: data)
+                            
+                        
+                        
+                    }
+                }
+            }
+            
+            VStack {
+                
+                
+                Spacer()
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            timetableIsActive = true
+                        }
+                    }) {
+                        VStack {
+                            
+                            VStack {
+                                
+                                Text(data.stationName(from: timetableStation))
+                                    .foregroundColor(.white)
+                                    .font(.title2).bold()
+                                
+                            }.frame(maxWidth: .infinity, minHeight: 60)
+                            .background(
+                                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                    .fill(Color.purple)
+                            )
+                            
+                            
+                        }
+                        //                    .padding()
+                        
+                        
+                    }
+                    .buttonStyle(OpacityChangingButton())
+                    
+                    
+                    
+                }
+                .padding()
+                .padding(.bottom, 15)
+                .background(BlurView())
+                
+                
+            }
+            .edgesIgnoringSafeArea(.all)
+        }
+    }
+    
+    var body: some View {
+        
+        ZStack {
+            
+            if (currentView == .plannerView) {
+                PlannerView
+            } else {
+                TimetableView
+            }
+            
+            
+            //MARK: 1.5
+            VStack {
+                VStack {
+                    Spacer()
+                        .frame(height: 55)
+                    VStack {
+                    HStack {
+                        Text("Rail \(currentView.string)").font(.title).bold()
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                            switch(currentView) {
+                            case .plannerView:
+                                currentView = .timetableView
+                            case .timetableView:
+                                currentView = .plannerView
+                            }
+                            }
+                        }) {
+                            Image(systemName: "list.bullet.below.rectangle").imageScale(.large).foregroundColor(.accentColor)
+                                .padding(5)
+                                .background(Color.accentColor.opacity(0.2))
+                                .clipShape(Circle())
+                        }
+                        
+                        Button(action: {
+                            showingSettings = true
+                        }) {
+                            Image(systemName: "gearshape.fill").imageScale(.large).foregroundColor(.accentColor)
+                                .padding(5)
+                                .background(Color.accentColor.opacity(0.2))
+                                .clipShape(Circle())
+                        }
+                        .sheet(isPresented: $showingSettings) {
+                            SettingsView(data: data)
+                        }
+                        
+                    }
+                    }
+                }
+                .padding()
+                .background(BlurView())
+                Spacer()
+            }
+            .edgesIgnoringSafeArea(.all)
+            
+            //MARK: 2
+            ZStack {
+                StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive)
+                    .edgesIgnoringSafeArea(.all)
+                StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive)
+                    .edgesIgnoringSafeArea(.all)
+                StationButtonPickerView(title: "View Timetable", stations: data.stations, selectedStation: $timetableStation, isActive: $timetableIsActive)
+                    .edgesIgnoringSafeArea(.all)
+            }.onChange(of: startingStation) { newValue in
+                if (!newValue.isEmpty && !endingStation.isEmpty) {
+                    queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
+                    sendHaptics()
+                }
+            }
+            .onChange(of: endingStation) { newValue in
+                if (!newValue.isEmpty && !startingStation.isEmpty) {
+                    queryVM.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
+                    sendHaptics()
+                }
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
+    
+    func sendHaptics() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }
 
@@ -222,6 +348,8 @@ struct BlurView: UIViewRepresentable {
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
         uiView.effect = UIBlurEffect(style: self.style)
     }
+    
+
 }
 
 
@@ -244,5 +372,16 @@ public struct OpacityChangingButton: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .opacity(configuration.isPressed ? 0.4 : 1.0)
+    }
+}
+
+enum HSRViews: String, CaseIterable {
+    case plannerView, timetableView
+    
+    var string: String {
+        switch(self) {
+        case .plannerView:   return "Planner"
+        case .timetableView: return "Timetable"
+        }
     }
 }

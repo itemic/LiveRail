@@ -16,29 +16,40 @@ struct StationTimetableView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("hideTerminus") var hideTerminus = false
     
+    @State private var selectedTrain: StationTimetable? = nil
+    @State private var isShow = false
+    
     var body: some View {
-        List {
+//        NavigationView {
+//            VStack {
+//                Text("CA")
+//            }
+        VStack {
+
             ForEach(data.stationTimetableDict[station]!.filter {
                 (showAvailable ? $0.willDepartAfterNow : true) &&
                     (hideTerminus ? !$0.isTerminus : true)
             }) { train in
-                NavigationLink(destination: TrainServiceView(train: train)) {
+                
+                Button(action: {
+                    selectedTrain = train
+                }, label: {
                     TrainEntryListRowView(train: train)
-                }.listRowBackground(Color(UIColor.systemGroupedBackground)) 
+                    
+                })
+                .padding(2)
+                
                 
             }
         }
-        .navigationTitle(station.StationName.En)
-        .onAppear(perform: {
-            data.fetchTimetable(for: station, client: .init())
+        .padding()
+        .sheet(item: $selectedTrain, content: {train in
+            TrainServiceView(train: train)
         })
-        .listStyle(InsetGroupedListStyle())
+//        }
         
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            
-        }
-        .animation(.default)
+        
+
         
     }
     

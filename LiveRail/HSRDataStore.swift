@@ -17,6 +17,8 @@ final class HSRDataStore: ObservableObject {
     
     // TODO: Save station list to local storage
     init(client: NetworkManager) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy HH:mm:ss (+z)"
         lastUpdateDate = Date(timeIntervalSince1970: 0)
         HSRService.getHSRStations(client: client) {[weak self] stations in
             DispatchQueue.main.async {
@@ -47,6 +49,12 @@ final class HSRDataStore: ObservableObject {
         return stations.first {
             $0.StationID == id
         }?.StationName.En ?? ""
+    }
+    
+    func station(from id: String) -> Station? {
+        return stations.first {
+            $0.StationID == id
+        }
     }
     
     func fetchTimetable(for station: Station, client: NetworkManager) {

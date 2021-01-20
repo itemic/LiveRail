@@ -38,7 +38,7 @@ struct StationButtonPickerView: View {
                                     .foregroundColor(Color.primary)
                                     .frame(maxWidth: .infinity)
                                     .background(
-                                        RoundedRectangle(cornerRadius: 5.0, style: .continuous)
+                                        RoundedRectangle(cornerRadius: 25, style: .continuous)
                                             .fill(station.StationID == selectedStation ? Color.accentColor : Color(UIColor.systemGray5))
                                     )
                             }
@@ -49,7 +49,7 @@ struct StationButtonPickerView: View {
                         .padding(.vertical, 5)
                         .padding(.horizontal, 10)
                     }
-                    Spacer()
+                    
                 }
                 .padding()
                 .frame(width: geo.size.width, height: geo.size.height)

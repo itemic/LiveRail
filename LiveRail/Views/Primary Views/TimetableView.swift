@@ -16,6 +16,8 @@ struct TimetableView: View {
     @AppStorage("showNearestStation") var showNearestStation = true
     @AppStorage("nextDepartureEntries") var nextDepartureEntries = 1
     
+    @State private var presentPopover = false
+    
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
     }
@@ -45,7 +47,7 @@ struct TimetableView: View {
                 
                 Section(header: Text("All stations")) {
             ForEach(data.stations) { station in
-            NavigationLink(destination: StationTimetableView(station: station, data: data)) {
+                NavigationLink(destination: StationTimetableView(station: station, data: data)) {
                 VStack(alignment: .leading) {
                     Text("\(station.StationName.En)").bold()
                     Text("\(station.StationName.Zh_tw)")
@@ -55,10 +57,20 @@ struct TimetableView: View {
                 }
         }
             .listStyle(InsetGroupedListStyle())
+            .navigationBarHidden(true)
 //            .listStyle(GroupedListStyle())
             
-        .navigationTitle("Stations")
-            
+//        .navigationTitle("Home")
+//            .navigationBarItems(trailing:
+//                Button(action: {
+//                    presentPopover.toggle()
+//                }) {
+//                    Image(systemName: "gearshape.fill").imageScale(.large)
+//                }
+//            )
+//            .sheet(isPresented: $presentPopover, content: {
+//                SettingsView(data: data)
+//            })
         }
 
     }

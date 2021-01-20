@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var data: HSRDataStore
     var body: some View {
-        TestingView(data: data)
+//        TestingView(data: data)
 //        TabView {
 //            TestingView(data: data)
 //                .tabItem {
@@ -22,18 +22,18 @@ struct MainView: View {
 //                    Image(systemName: "ellipsis.rectangle.fill")
 //                    Text("Timetable")
 //                }
-//            PlannerView(data: data)
-//                .tabItem {
-//                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
-//                    Text("Planner")
-//                }
+            PlannerView(data: data)
+                .tabItem {
+                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+                    Text("Planner")
+                }
 //            SettingsView(data: data)
 //                .tabItem {
 //                    Image(systemName: "gearshape.fill")
 //                    Text("Settings")
 //                }
-//        }
-    }
+        }
+//    }
 }
 
 
