@@ -64,7 +64,7 @@ struct PlanView: View {
                                     }
                         ) { entry in
                             HStack {
-                                PlannerResultRowView(entry: entry, availability: vm.availability[entry])
+                                PlannerResultRowView(data: data, entry: entry, availability: vm.availability[entry])
                             }
                             
                         }
@@ -74,6 +74,7 @@ struct PlanView: View {
                     .padding(.horizontal)
                 }
             }
+            .background(Color(UIColor.systemGroupedBackground))
             
             //MARK: TWO
             VStack {

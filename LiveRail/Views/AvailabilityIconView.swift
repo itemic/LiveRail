@@ -11,15 +11,14 @@ struct AvailabilityIconView: View {
     var text: String
     var status: SeatAvailability
     var body: some View {
-        VStack(alignment: .center) {
-            
-            
+//        VStack(alignment: .center) {
             Text(status.icon())
-                .fontWeight(.heavy)
+                
+                .font(Font.system(.body, design: .monospaced))
                 .foregroundColor(status.color())
-                .font(.title)
-        }
-        .frame(width: 50)
+                .imageScale(.small)
+//        }
+//        .frame(width: 20)
     }
 }
 

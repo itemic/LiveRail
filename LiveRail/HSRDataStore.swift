@@ -10,7 +10,6 @@ import Foundation
 final class HSRDataStore: ObservableObject {
     @Published var stations: [Station] = [] // all stations
     @Published var lastUpdateDate: Date
-//    @Published var stationTimetables: [StationTimetable] = [] // current station
     
     @Published var stationTimetableDict: [Station: [StationTimetable]] = [:]
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
@@ -41,7 +40,6 @@ final class HSRDataStore: ObservableObject {
             }
             
         }
-        
         
     }
     

@@ -55,34 +55,7 @@ struct LiveboardView: View {
                         }
                     }
                     .buttonStyle(OpacityChangingButton())
-                    
-                    
-//                    if let status = lm.status {
-//                        if (status == .authorizedAlways || status == .authorizedWhenInUse) {
-//                    Button(action: {
-//                        if let nearest = lm.closestStation(stations: data.stations)?.StationID {
-//                            timetableStation = nearest
-//                        }
-//                    }) {
-//                        VStack {
-//
-//                            VStack {
-//                                Image(systemName: "location.fill.viewfinder")
-//                                    .font(.system(.title2))
-//                                    .foregroundColor(.white)
-//
-//                            }.frame(maxWidth: 60, minHeight: 60)
-//                            .background(
-//                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-//                                    .fill(Color.purple)
-//                            )
-//                        }
-//                    }
-//                    .buttonStyle(OpacityChangingButton())
-//                    }
-//                    }
-                    
-                    
+                                        
                 }
                 .padding()
                 .padding(.bottom, 15)

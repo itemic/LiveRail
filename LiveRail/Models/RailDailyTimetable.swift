@@ -32,6 +32,12 @@ struct RailDailyTimetable: Codable, Hashable {
     var DailyTrainInfo: DailyTrainInfo
     var StopTimes: [StopTime]
     
+    func stopsAt(_ station: Station) -> Bool {
+        return StopTimes.contains {
+            $0.StationID == station.StationID
+        }
+    }
+    
     func isStarting(stop: StopTime) -> Bool {
         return stop.StationID == DailyTrainInfo.StartingStationID
     }
