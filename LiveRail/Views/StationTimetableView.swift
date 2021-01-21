@@ -14,7 +14,7 @@ struct StationTimetableView: View {
     @ObservedObject var data: HSRDataStore
     
     @AppStorage("showAvailable") var showAvailable = false
-    @AppStorage("hideTerminus") var hideTerminus = false
+    @AppStorage("showArrivals") var showArrivals = false
     
     @State private var selectedTrain: StationTimetable? = nil
     @State private var isShow = false
@@ -27,8 +27,8 @@ struct StationTimetableView: View {
         VStack {
 
             ForEach(data.stationTimetableDict[station]!.filter {
-                (showAvailable ? $0.willDepartAfterNow : true) &&
-                    (hideTerminus ? !$0.isTerminus : true)
+                (showAvailable ? true : $0.willDepartAfterNow ) &&
+                    (showArrivals ? true : !$0.isTerminus)
             }) { train in
                 
                 Button(action: {

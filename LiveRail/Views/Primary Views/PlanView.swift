@@ -30,6 +30,26 @@ struct PlanView: View {
                         HStack {
                             if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                                 FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
+                            } else {
+                                // EMPTY
+                                Spacer()
+                                VStack {
+                                    Spacer(minLength: 100)
+                                VStack {
+                                    Image(systemName: "face.dashed").imageScale(.large)
+                                        .foregroundColor(.accentColor)
+                                    Spacer()
+                                    Text("No trains found!")
+                                        .font(.headline)
+                                    Text("Try checking out different stations").font(.subheadline)
+                                    Spacer()
+                                }
+                                .padding()
+                                .background(Color.accentColor.opacity(0.2))
+                                .cornerRadius(10)
+                                    Spacer()
+                                }
+                                Spacer()
                             }
                         }
                         .padding(.vertical)
@@ -39,7 +59,7 @@ struct PlanView: View {
                                         $0.OriginStopTime < $1.OriginStopTime
                                     }
                                     .filter {
-                                        showAvailable ? $0.OriginStopTime.willDepartAfterNow : true
+                                        showAvailable ? true : $0.OriginStopTime.willDepartAfterNow
                                         
                                     }
                         ) { entry in

@@ -36,13 +36,7 @@ struct PrimaryView: View {
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
     }
-    
 
-    
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
     
 
     var body: some View {
@@ -55,52 +49,10 @@ struct PrimaryView: View {
                 LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
             }
             
+            HeaderView(data: data, currentView: $currentView, showingSettings: $showingSettings)
             
             //MARK: 1.5
-            VStack {
-                VStack {
-                    Spacer()
-                        .frame(height: 55)
-                    VStack {
-                        HStack {
-                            Text("Rail \(currentView.string)").font(.title).bold()
-                            Spacer()
-                            Button(action: {
-                                withAnimation {
-                                    switch(currentView) {
-                                    case .plannerView:
-                                        currentView = .timetableView
-                                    case .timetableView:
-                                        currentView = .plannerView
-                                    }
-                                }
-                            }) {
-                                Image(systemName: "list.bullet.below.rectangle").imageScale(.large).foregroundColor(.accentColor)
-                                    .padding(5)
-                                    .background(Color.accentColor.opacity(0.2))
-                                    .clipShape(Circle())
-                            }
-                            
-                            Button(action: {
-                                showingSettings = true
-                            }) {
-                                Image(systemName: "gearshape.fill").imageScale(.large).foregroundColor(.accentColor)
-                                    .padding(5)
-                                    .background(Color.accentColor.opacity(0.2))
-                                    .clipShape(Circle())
-                            }
-                            .sheet(isPresented: $showingSettings) {
-                                SettingsView(data: data)
-                            }
-                            
-                        }
-                    }
-                }
-                .padding()
-                .background(BlurView())
-                Spacer()
-            }
-            .edgesIgnoringSafeArea(.all)
+            
             
             //MARK: 2
             ZStack {

@@ -23,10 +23,10 @@ struct MainView: View {
 //                    Text("Timetable")
 //                }
             PrimaryView(data: data)
-                .tabItem {
-                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
-                    Text("Planner")
-                }
+//                .tabItem {
+//                    Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
+//                    Text("Planner")
+//                }
 //            SettingsView(data: data)
 //                .tabItem {
 //                    Image(systemName: "gearshape.fill")
