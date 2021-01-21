@@ -23,9 +23,12 @@ struct PlanView: View {
         ZStack {
             //MARK: ONE
             VStack {
-                Spacer()
-                    .frame(height: 75)
+                
+                
+                if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                 ScrollView(showsIndicators: false) {
+                    Spacer()
+                        .frame(height: 110)
                     VStack {
                         HStack {
                             if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
@@ -73,8 +76,31 @@ struct PlanView: View {
                     }
                     .padding(.horizontal)
                 }
+                } else {
+
+                        
+                    VStack {
+                       
+                        VStack {
+                            Image(systemName: "questionmark.square.dashed").imageScale(.large)
+                                .foregroundColor(.accentColor).font(.system(size: 64))
+                            Spacer().frame(height: 10)
+                            Text("No trains found!")
+                                .font(.headline)
+                            Spacer().frame(height: 5)
+                            Text("Try checking out different stations").font(.subheadline)
+                                .frame(width: 200).multilineTextAlignment(.center)
+                            
+                        }
+                        .padding()
+                        .background(Color.accentColor.opacity(0.2))
+                        .cornerRadius(10)
+
+                    }
+
+                }
             }
-            .background(Color(UIColor.systemGroupedBackground))
+            
             
             //MARK: TWO
             VStack {
@@ -136,6 +162,9 @@ struct PlanView: View {
             }
             .edgesIgnoringSafeArea(.all)
         }
+        .background(Color(UIColor.systemGroupedBackground))
+        .edgesIgnoringSafeArea(.all)
+        
         .onChange(of: startingStation) { newValue in
             if (!newValue.isEmpty && !endingStation.isEmpty) {
                 vm.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())

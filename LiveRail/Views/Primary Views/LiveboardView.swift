@@ -18,17 +18,39 @@ struct LiveboardView: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
-                    .frame(height: 75)
-                ScrollView {
-                    if (data.station(from: timetableStation) != nil) {
-                        
-                        
-                        StationTimetableView(station: data.station(from: timetableStation)!, data: data)
-                        
-                        
+               
+                if (!timetableStation.isEmpty) {
+                    ScrollView {
+                        Spacer()
+                            .frame(height: 90)
+                        if (data.station(from: timetableStation) != nil) {
+                            StationTimetableView(station: data.station(from: timetableStation)!, data: data)
+                        }
+                        Spacer()
+                            .frame(height: 110)
+                    }
+                } else {
+                    VStack {
+                       
+                        VStack {
+                            Image(systemName: "questionmark.square.dashed").imageScale(.large)
+                                .foregroundColor(.purple).font(.system(size: 64))
+                            Spacer().frame(height: 10)
+                            Text("Select a station")
+                                .font(.headline)
+                            Spacer().frame(height: 5)
+                            Text("Pick a station to view its scheduled services").font(.subheadline)
+                                .frame(width: 200).multilineTextAlignment(.center)
+                            
+                        }
+                        .padding()
+                        .background(Color.purple.opacity(0.2))
+                        .cornerRadius(10)
+//                        Spacer()
+//                            .frame(height: 55)
                     }
                 }
+                
             }
             
             VStack {

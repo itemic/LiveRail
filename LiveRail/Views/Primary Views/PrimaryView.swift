@@ -51,8 +51,6 @@ struct PrimaryView: View {
             
             HeaderView(data: data, currentView: $currentView, showingSettings: $showingSettings)
             
-            //MARK: 1.5
-            
             
             //MARK: 2
             ZStack {
@@ -83,7 +81,7 @@ struct BlurView: UIViewRepresentable {
     
     let style: UIBlurEffect.Style
     
-    init(style: UIBlurEffect.Style = .systemMaterial) {
+    init(style: UIBlurEffect.Style = .systemUltraThinMaterial) {
         self.style = style
     }
     

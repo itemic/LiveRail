@@ -13,6 +13,7 @@ struct PlannerResultRowView: View {
     var availability: AvailableSeat?
     @State var extended: Bool = false
     
+    
     var body: some View {
         
         
@@ -23,8 +24,17 @@ struct PlannerResultRowView: View {
                 HStack {
                     Text("\(entry.DailyTrainInfo.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
                     Spacer()
+                    if (!entry.OriginStopTime.willDepartAfterNow) {
+                        Text("DEPARTED")
+                            .font(Font.system(.subheadline, design: .rounded))
+                            .foregroundColor(.red)
+                            .padding(4)
+                            .background(Color.red.opacity(0.2))
+                            .cornerRadius(5)
+                    } else {
                     AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
-                        AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+                    AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+                    }
                     
                 }
                 .padding(.horizontal, 10)
@@ -50,14 +60,15 @@ struct PlannerResultRowView: View {
                 if (extended) {
 
                 ScrollView(.horizontal, showsIndicators: false) {
+                    
                 HStack {
                     Spacer()
                     ForEach(data.stations) { station in
-                        Text(station.StationName.En)
-                            
+                        Text(station.StationName.En)                        
                     }
                     Spacer()
                 }
+                
                 }
                 
                 }
@@ -76,6 +87,7 @@ struct PlannerResultRowView: View {
                 extended.toggle()
             }
         }
+
     }
     
 }
