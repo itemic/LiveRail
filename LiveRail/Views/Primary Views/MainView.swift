@@ -22,7 +22,7 @@ struct MainView: View {
 //                    Image(systemName: "ellipsis.rectangle.fill")
 //                    Text("Timetable")
 //                }
-            PlannerView(data: data)
+            PrimaryView(data: data)
                 .tabItem {
                     Image(systemName: "arrow.triangle.turn.up.right.diamond.fill")
                     Text("Planner")
