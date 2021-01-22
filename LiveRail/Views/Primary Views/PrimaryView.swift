@@ -31,13 +31,12 @@ struct PrimaryView: View {
     @State private var currentView: RailViews = .plannerView
     
     @State private var showingTimetable: StationTimetable?
-    @State private var selectedView: Int = 2
     @StateObject var lm = LocationManager.shared
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
     }
 
-    
+    @State private var offset = CGSize.zero
 
     var body: some View {
         
@@ -63,6 +62,31 @@ struct PrimaryView: View {
             
             
         }
+        .gesture(
+            DragGesture()
+                .onChanged { gesture in
+                    self.offset = gesture.translation
+                }
+                .onEnded { _ in
+                    
+                    if (self.offset.width > 0) {
+                        if (currentView == .plannerView) {
+                            withAnimation {
+                            currentView = .timetableView
+                            }
+                        }
+                    } else if (self.offset.width < 0) {
+                        if (currentView == .timetableView) {
+                            withAnimation {
+                                currentView = .plannerView
+                            }
+                        }
+                    }
+                    self.offset = .zero
+            
+                }
+        )
+
         
         
         
