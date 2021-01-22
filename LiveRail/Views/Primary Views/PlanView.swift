@@ -28,7 +28,7 @@ struct PlanView: View {
                 if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                 ScrollView(showsIndicators: false) {
                     Spacer()
-                        .frame(height: 180)
+                        .frame(height: 150)
                     VStack {
                         
                         
@@ -47,7 +47,6 @@ struct PlanView: View {
                                     }
                                     .filter {
                                         showAvailable ? true : $0.OriginStopTime.willDepartAfterNow
-                                        
                                     }
                         ) { entry in
                             HStack {
@@ -61,7 +60,6 @@ struct PlanView: View {
                     .padding(.horizontal)
                 }
                 } else {
-//                    EmptyScreenView(icon: "questionmark.square.dashed", headline: "Select a station", description: "Pick a station to view its scheduled services", color: .purple)
 
                         EmptyScreenView(icon: "face.dashed", headline: "No trains found", description: "Try checking out different stations", color: .orange)
 
@@ -69,65 +67,10 @@ struct PlanView: View {
             }
             
             
+            
             //MARK: TWO
-            VStack {
-                Spacer()
-                HStack {
-                    Button(action: {
-                        withAnimation {
-                            originIsActive = true
-                        }
-                    }) {
-                        VStack {
-                            VStack {
-                                Text(data.stationName(from: startingStation))
-                                    .foregroundColor(.white)
-                                    .font(.title2).bold()
-                                
-                            }.frame(maxWidth: .infinity, minHeight: 60)
-                            .background(
-                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                    .fill(Color.accentColor)
-                            )
-                        }
-                    }
-                    .buttonStyle(OpacityChangingButton())
-                    Button(action: {
-                        flipStations()
-                    }) {
-                        VStack {
-                            VStack {
-                                Image(systemName: "arrow.triangle.2.circlepath")
-                                    .font(.title)
-                                    .rotationEffect(Angle.degrees(rotationAmount))
-                                    .animation(.easeOut)
-                            }
-                        }
-                    }
-                    Button(action: {
-                        withAnimation {
-                            destinationIsActive = true
-                        }
-                    }) {
-                        VStack {
-                            VStack {
-                                Text(data.stationName(from: endingStation))
-                                    .foregroundColor(.white)
-                                    .font(.title2).bold()
-                            }.frame(maxWidth: .infinity, minHeight: 60)
-                            .background(
-                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                    .fill(Color.accentColor)
-                            )
-                        }
-                    }
-                    .buttonStyle(OpacityChangingButton())
-                }
-                .padding()
-                .padding(.bottom, 15)
-                .background(BlurView())
-            }
-            .edgesIgnoringSafeArea(.all)
+            PlanViewPickerButtonView(data: data, origin: $startingStation, destination: $endingStation, oActive: $originIsActive, dActive: $destinationIsActive, rotation: rotationAmount)
+            
         }
         .background(Color(UIColor.systemGroupedBackground))
         .edgesIgnoringSafeArea(.all)
@@ -147,13 +90,7 @@ struct PlanView: View {
         
     }
     
-    func flipStations() {
-        let temp = startingStation
-        startingStation = endingStation
-        endingStation = temp
-        
-        rotationAmount += 180
-    }
+    
     
     func sendHaptics() {
         let generator = UINotificationFeedbackGenerator()

@@ -43,10 +43,10 @@ final class HSRDataStore: ObservableObject {
         
     }
     
-    func stationName(from id: String) -> String {
+    func stationName(from id: String) -> String? {
         return stations.first {
             $0.StationID == id
-        }?.StationName.En ?? ""
+        }?.StationName.En
     }
     
     func station(from id: String) -> Station? {

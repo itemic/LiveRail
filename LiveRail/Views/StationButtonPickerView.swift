@@ -14,6 +14,7 @@ struct StationButtonPickerView: View {
     @Binding var selectedStation: String
     @Binding var isActive: Bool
     @AppStorage("enableLocationFeatures") var enableLocationFeatures = false
+    var color: Color
 
     let columns = [
         GridItem(.flexible()),
@@ -42,7 +43,7 @@ struct StationButtonPickerView: View {
                                     .frame(maxWidth: .infinity)
                                     .background(
                                         RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                            .fill(station.StationID == selectedStation ? Color.accentColor : Color(UIColor.systemGray5))
+                                            .fill(station.StationID == selectedStation ? color : color.opacity(0.2))
                                     )
                             }
                             
@@ -75,7 +76,7 @@ struct StationButtonPickerView: View {
                             .frame(maxWidth: .infinity)
                             .background(
                             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(nearest.StationID == selectedStation ? Color.accentColor : Color(UIColor.systemGray5))
+                                .fill(nearest.StationID == selectedStation ? color : color.opacity(0.2))
                             )
                     }
                     .padding(.horizontal, 10)

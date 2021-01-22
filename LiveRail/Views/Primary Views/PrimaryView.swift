@@ -28,7 +28,7 @@ struct PrimaryView: View {
     
     
     @State private var showingSettings = false
-    @State private var currentView: HSRViews = .plannerView
+    @State private var currentView: RailViews = .plannerView
     
     @State private var showingTimetable: StationTimetable?
     @State private var selectedView: Int = 2
@@ -43,31 +43,21 @@ struct PrimaryView: View {
         
         ZStack {
             
-            switch (selectedView) {
-            
-            case 3:  PlanView(vm: queryVM, data: data, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
-
-            case 2:  LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
-
-            default: EmptyView()
+            switch (currentView) {
+            case .plannerView:  PlanView(vm: queryVM, data: data, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
+            case .timetableView:  LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
             }
             
-//            if (currentView == .plannerView) {
-//                PlanView(vm: queryVM, data: data, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
-//            } else {
-//                LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
-//            }
-//
-            HeaderView(data: data, currentView: $currentView, showingSettings: $showingSettings, selectedView: $selectedView)
+            HeaderView(data: data, currentView: $currentView, showingSettings: $showingSettings)
             
             
             //MARK: 2
             ZStack {
-                StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive)
+                StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive, color: .orange)
                     .edgesIgnoringSafeArea(.all)
-                StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive)
+                StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive, color: .orange)
                     .edgesIgnoringSafeArea(.all)
-                StationButtonPickerView(title: "View Timetable", stations: data.stations, selectedStation: $timetableStation, isActive: $timetableIsActive)
+                StationButtonPickerView(title: "View Timetable", stations: data.stations, selectedStation: $timetableStation, isActive: $timetableIsActive, color: .purple)
                     .edgesIgnoringSafeArea(.all)
             }
             
@@ -122,19 +112,30 @@ public struct CustomButtonStyle: ButtonStyle {
 }
 
 public struct OpacityChangingButton: ButtonStyle {
+    var color: Color
+    
+    init(_ color: Color) {
+        self.color = color
+    }
+    
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .foregroundColor(.white)
+            .font(Font.system(.title2).bold())
+            .frame(maxWidth: .infinity, minHeight: 60)
+            .background(RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            .fill(color))
             .opacity(configuration.isPressed ? 0.4 : 1.0)
     }
 }
 
-enum HSRViews: String, CaseIterable {
+enum RailViews: Int, CaseIterable {
     case plannerView, timetableView
     
-    var string: String {
+    var value: Int {
         switch(self) {
-        case .plannerView:   return "Planner"
-        case .timetableView: return "Timetable"
+        case .timetableView: return 1
+        case .plannerView:   return 2
         }
     }
 }

@@ -22,7 +22,7 @@ struct LiveboardView: View {
                 if (!timetableStation.isEmpty) {
                     ScrollView {
                         Spacer()
-                            .frame(height: 180)
+                            .frame(height: 150)
                         if (data.station(from: timetableStation) != nil) {
                             StationTimetableView(station: data.station(from: timetableStation)!, data: data)
                         }
@@ -35,39 +35,9 @@ struct LiveboardView: View {
                 
             }
             
-            VStack {
-                
-                
-                Spacer()
-                HStack {
-                    Button(action: {
-                        withAnimation {
-                            timetableIsActive = true
-                        }
-                    }) {
-                        VStack {
-                            
-                            VStack {
-                                Text(data.stationName(from: timetableStation))
-                                    .foregroundColor(.white)
-                                    .font(.title2).bold()
-                            }.frame(maxWidth: .infinity, minHeight: 60)
-                            .background(
-                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                    .fill(Color.purple)
-                            )
-                        }
-                    }
-                    .buttonStyle(OpacityChangingButton())
-                                        
-                }
-                .padding()
-                .padding(.bottom, 15)
-                .background(BlurView())
-                
-                
-            }
-            .edgesIgnoringSafeArea(.all)
+            LiveBoardPickerButtonView(station: data.stationName(from: timetableStation) ?? "Station", activeTimetable: $timetableIsActive)
+            
+
         }
         .background(Color(UIColor.systemGroupedBackground))
         .edgesIgnoringSafeArea(.all)
