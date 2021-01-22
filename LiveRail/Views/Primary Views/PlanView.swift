@@ -28,34 +28,18 @@ struct PlanView: View {
                 if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                 ScrollView(showsIndicators: false) {
                     Spacer()
-                        .frame(height: 110)
+                        .frame(height: 180)
                     VStack {
-                        HStack {
+                        
+                        
                             if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
+                                HStack {
                                 FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
-                            } else {
-                                // EMPTY
-                                Spacer()
-                                VStack {
-                                    Spacer(minLength: 100)
-                                VStack {
-                                    Image(systemName: "face.dashed").imageScale(.large)
-                                        .foregroundColor(.accentColor)
-                                    Spacer()
-                                    Text("No trains found!")
-                                        .font(.headline)
-                                    Text("Try checking out different stations").font(.subheadline)
-                                    Spacer()
                                 }
-                                .padding()
-                                .background(Color.accentColor.opacity(0.2))
-                                .cornerRadius(10)
-                                    Spacer()
-                                }
-                                Spacer()
+                                .padding(.vertical)
                             }
-                        }
-                        .padding(.vertical)
+                        
+                        
                         
                         ForEach(vm.queryResultTimetable
                                     .sorted {
@@ -77,26 +61,9 @@ struct PlanView: View {
                     .padding(.horizontal)
                 }
                 } else {
+//                    EmptyScreenView(icon: "questionmark.square.dashed", headline: "Select a station", description: "Pick a station to view its scheduled services", color: .purple)
 
-                        
-                    VStack {
-                       
-                        VStack {
-                            Image(systemName: "questionmark.square.dashed").imageScale(.large)
-                                .foregroundColor(.accentColor).font(.system(size: 64))
-                            Spacer().frame(height: 10)
-                            Text("No trains found!")
-                                .font(.headline)
-                            Spacer().frame(height: 5)
-                            Text("Try checking out different stations").font(.subheadline)
-                                .frame(width: 200).multilineTextAlignment(.center)
-                            
-                        }
-                        .padding()
-                        .background(Color.accentColor.opacity(0.2))
-                        .cornerRadius(10)
-
-                    }
+                        EmptyScreenView(icon: "face.dashed", headline: "No trains found", description: "Try checking out different stations", color: .orange)
 
                 }
             }

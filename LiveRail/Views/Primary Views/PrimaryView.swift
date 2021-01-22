@@ -31,7 +31,7 @@ struct PrimaryView: View {
     @State private var currentView: HSRViews = .plannerView
     
     @State private var showingTimetable: StationTimetable?
-    
+    @State private var selectedView: Int = 2
     @StateObject var lm = LocationManager.shared
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
@@ -43,13 +43,22 @@ struct PrimaryView: View {
         
         ZStack {
             
-            if (currentView == .plannerView) {
-                PlanView(vm: queryVM, data: data, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
-            } else {
-                LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
+            switch (selectedView) {
+            
+            case 3:  PlanView(vm: queryVM, data: data, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
+
+            case 2:  LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
+
+            default: EmptyView()
             }
             
-            HeaderView(data: data, currentView: $currentView, showingSettings: $showingSettings)
+//            if (currentView == .plannerView) {
+//                PlanView(vm: queryVM, data: data, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
+//            } else {
+//                LiveboardView(data: data, timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
+//            }
+//
+            HeaderView(data: data, currentView: $currentView, showingSettings: $showingSettings, selectedView: $selectedView)
             
             
             //MARK: 2

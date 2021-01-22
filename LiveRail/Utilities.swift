@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // https://www.vadimbulavin.com/handling-out-of-bounds-exception/
 extension Collection {
@@ -13,3 +14,5 @@ extension Collection {
         return indices.contains(index) ? self[index] : nil
     }
 }
+
+
