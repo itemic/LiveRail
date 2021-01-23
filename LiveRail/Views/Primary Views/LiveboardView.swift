@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LiveboardView: View {
     
-    @ObservedObject var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     @StateObject var lm = LocationManager.shared
     
     @Binding var timetableStation: String
@@ -24,7 +24,7 @@ struct LiveboardView: View {
                         Spacer()
                             .frame(height: 150)
                         if (data.station(from: timetableStation) != nil) {
-                            StationTimetableView(station: data.station(from: timetableStation)!, data: data)
+                            StationTimetableView(station: data.station(from: timetableStation)!)
                         }
                         Spacer()
                             .frame(height: 110)

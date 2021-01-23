@@ -4,7 +4,14 @@ import Foundation
 final class HSRQueryViewModel: ObservableObject {
     @Published var queryResultTimetable: [RailODDailyTimetable] = []
     @Published var availability: [RailODDailyTimetable: AvailableSeat] = [:]
+    @Published var timetable: [RailDailyTimetable] = []
 
+    
+    func getTimetable(for train: String) -> RailDailyTimetable? {
+        timetable.first {
+            $0.DailyTrainInfo.TrainNo == train
+        }
+    }
     
     func fetchQueryTimetables(from origin: String, to destination: String, client: NetworkManager) {
         
@@ -15,12 +22,22 @@ final class HSRQueryViewModel: ObservableObject {
 //                self?.fetchAvai
                 for item in timetables {
                     self?.fetchAvailability(from: origin, on: item, client: client)
-
+                    self?.fetchTrainDetails(for: item.DailyTrainInfo.TrainNo, client: client)
                 }
 
             }
         }
     }
+    
+    func fetchTrainDetails(for train: String, client: NetworkManager) {
+        HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
+            DispatchQueue.main.async {
+                self?.timetable.append(train[0])
+//                self?.train = train[0] // single element array
+            }
+        }
+    }
+    
     
     func fetchAvailability(from origin: String, on timetable: RailODDailyTimetable, client: NetworkManager) {
         HSRService.getAvailability(from: origin, client: client) { [weak self] availability in
@@ -36,17 +53,6 @@ final class HSRQueryViewModel: ObservableObject {
             
         }
     }
-    
-//    func fetchAvailability(from origin: String, to destination: String, on timetable: RailODDailyTimetable, client: NetworkManager) {
-//
-//        HSRService.getAvailability(from: origin, to: destination, on: timetable.DailyTrainInfo.TrainNo, client: client) { [weak self] ava in
-//            DispatchQueue.main.async {
-//                print("Fetching availability")
-//                self?.availabilityX[timetable] = ava.AvailableSeats.first
-//            }
-//        }
-//
-//    }
     
 }
 

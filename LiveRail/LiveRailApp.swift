@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct LiveRailApp: App {
-    @StateObject var data = HSRDataStore(client: .init())
+    @StateObject var data = HSRDataStore.shared
     var body: some Scene {
         WindowGroup {
-            MainView(data: data)
+            MainView()
         }
     }
 }

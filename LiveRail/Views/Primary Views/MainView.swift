@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     var body: some View {
 
-            PrimaryView(data: data)
+            PrimaryView()
 
         }
 

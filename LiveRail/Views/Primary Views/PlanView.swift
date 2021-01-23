@@ -10,7 +10,7 @@ import SwiftUI
 struct PlanView: View {
     
     @ObservedObject var vm: HSRQueryViewModel
-    @ObservedObject var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     @Binding var startingStation: String
     @Binding var endingStation: String
     @Binding var originIsActive: Bool
@@ -50,7 +50,7 @@ struct PlanView: View {
                                     }
                         ) { entry in
                             HStack {
-                                PlannerResultRowView(data: data, entry: entry, availability: vm.availability[entry])
+                                PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo))
                             }
                             
                         }
@@ -69,7 +69,7 @@ struct PlanView: View {
             
             
             //MARK: TWO
-            PlanViewPickerButtonView(data: data, origin: $startingStation, destination: $endingStation, oActive: $originIsActive, dActive: $destinationIsActive, rotation: rotationAmount)
+            PlanViewPickerButtonView(origin: $startingStation, destination: $endingStation, oActive: $originIsActive, dActive: $destinationIsActive, rotation: rotationAmount)
             
         }
         .background(Color(UIColor.systemGroupedBackground))

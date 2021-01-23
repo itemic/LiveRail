@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NearestStationView: View {
     var station: Station?
-    @ObservedObject var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     var direction: TrainDirection
     var entries: Int
    

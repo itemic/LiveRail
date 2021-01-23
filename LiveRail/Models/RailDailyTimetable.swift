@@ -38,6 +38,10 @@ struct RailDailyTimetable: Codable, Hashable {
         }
     }
     
+    // For OD transformation
+    var OriginStopTime: StopTime?
+    var DestinationStopTime: StopTime?
+    
     func isStarting(stop: StopTime) -> Bool {
         return stop.StationID == DailyTrainInfo.StartingStationID
     }

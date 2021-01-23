@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct PlannerResultRowView: View {
-    var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     var entry: RailODDailyTimetable
     var availability: AvailableSeat?
     @State var extended: Bool = false
+    var timetable: RailDailyTimetable?
     
     
     var body: some View {
@@ -64,7 +65,9 @@ struct PlannerResultRowView: View {
                 HStack {
                     Spacer()
                     ForEach(data.stations) { station in
-                        Text(station.StationName.En)                        
+                        
+                        Text(station.StationName.En)
+                            .foregroundColor((timetable?.stopsAt(station) ?? false) ? .primary : .secondary)
                     }
                     Spacer()
                 }

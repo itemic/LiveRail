@@ -185,7 +185,7 @@ struct TrainServiceView: View {
 
 struct StoppingStationRowItemView: View {
     var stop: StopTime
-//    var data: HSRDataStore
+
     
     var body: some View {
         Text("---")

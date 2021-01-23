@@ -14,6 +14,8 @@ final class HSRDataStore: ObservableObject {
     @Published var stationTimetableDict: [Station: [StationTimetable]] = [:]
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
     
+    public static let shared = HSRDataStore(client: .init())
+    
     // TODO: Save station list to local storage
     init(client: NetworkManager) {
         let dateFormatter = DateFormatter()
@@ -22,15 +24,14 @@ final class HSRDataStore: ObservableObject {
         HSRService.getHSRStations(client: client) {[weak self] stations in
             DispatchQueue.main.async {
                 self?.stations = stations
-//                LocationManager.shared.stations = stations
                 for station in stations {
                     self!.fareSchedule[station.StationID] = [:]
                     self!.stationTimetableDict[station] = []
                     self?.fetchTimetable(for: station, client: client)
                 }
-//                LocationManager.shared.closestStation()
             }
         }
+        
         HSRService.getFares(client: client) { [weak self] fares in
             DispatchQueue.main.async {
                 for fare in fares {

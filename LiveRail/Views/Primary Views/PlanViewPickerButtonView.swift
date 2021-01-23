@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlanViewPickerButtonView: View {
-    var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     @Binding var origin: String
     @Binding var destination: String
     @Binding var oActive: Bool

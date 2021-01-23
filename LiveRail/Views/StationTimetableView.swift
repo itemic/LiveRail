@@ -11,8 +11,8 @@ struct StationTimetableView: View {
     
     
     var station: Station
-    @ObservedObject var data: HSRDataStore
-    
+    @StateObject var data = HSRDataStore.shared
+
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     

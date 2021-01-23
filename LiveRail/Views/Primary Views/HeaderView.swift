@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     
-    @ObservedObject var data: HSRDataStore
+    @StateObject var data = HSRDataStore.shared
     @Binding var currentView: RailViews
     @Binding var showingSettings: Bool
 //    @Binding var selectedView: Int
@@ -39,7 +39,7 @@ struct HeaderView: View {
                                 .clipShape(Circle())
                         }
                         .sheet(isPresented: $showingSettings) {
-                            SettingsView(data: data)
+                            SettingsView()
                         }
                         
                     }
