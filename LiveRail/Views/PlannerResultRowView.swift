@@ -13,8 +13,16 @@ struct PlannerResultRowView: View {
     var availability: AvailableSeat?
     @State var extended: Bool = false
     var timetable: RailDailyTimetable?
+    var fare: FareSchedule {
+        data.fareSchedule[entry.DailyTrainInfo.StartingStationID]![entry.DailyTrainInfo.EndingStationID]!
+    }
     
-    
+    var stations: [Station] {
+        switch (entry.DailyTrainInfo.direction) {
+        case .northbound: return data.stations.reversed()
+        case .southbound: return data.stations
+        }
+    }
     var body: some View {
         
         
@@ -33,8 +41,8 @@ struct PlannerResultRowView: View {
                             .background(Color.red.opacity(0.2))
                             .cornerRadius(5)
                     } else {
-                    AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
-                    AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+                        AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+                        AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
                     }
                     
                 }
@@ -43,7 +51,7 @@ struct PlannerResultRowView: View {
                     VStack(alignment: .leading) {
                         Text("\(entry.OriginStopTime.StationName.En)").foregroundColor(.secondary).font(Font.system(.caption))
                         Text("\(entry.OriginStopTime.DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
-//                            .foregroundColor(entry.DailyTrainInfo.direction.color)
+                        //                            .foregroundColor(entry.DailyTrainInfo.direction.color)
                     }
                     Spacer()
                     VStack(alignment: .leading) {
@@ -59,25 +67,55 @@ struct PlannerResultRowView: View {
                 .padding(.horizontal, 10)
                 
                 if (extended) {
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    
-                HStack {
-                    Spacer()
-                    ForEach(data.stations) { station in
-                        
-                        Text(station.StationName.En)
-                            .foregroundColor((timetable?.stopsAt(station) ?? false) ? .primary : .secondary)
+                    VStack {
+//                        Spacer().frame(height: 30)
+//                        Text("Non-reserved \(fare.fare(for: .nonreserved)) TWD")
+                        FareListingView(fareSchedule: fare)
                     }
-                    Spacer()
-                }
-                
-                }
-                
+                    .padding([.top, .horizontal], 10)
+                    
+                    
+                    //                    ScrollView(.vertical, showsIndicators: false) {
+                    
+//                    VStack(alignment: .leading) {
+//                        //                    Spacer()
+//                        //                    FareListingView(fareSchedule: data.fareSchedule[entry.DailyTrainInfo.StartingStationID]![entry.DailyTrainInfo.EndingStationID]!)
+//
+//                    ZStack {
+//                        HStack {
+//                            Spacer().frame(width: 20)
+//                            Rectangle()
+//                                .foregroundColor(.red)
+//                                .frame(width: 10)
+//                            Spacer()
+//
+//                        }
+//                        VStack {
+//                        ForEach(stations) { station in
+//
+//                            HStack {
+//                                Spacer().frame(width: 20)
+//                                Circle()
+//                                    .foregroundColor((timetable?.stopsAt(station) ?? false) ? .primary : .secondary)
+//                                    .frame(width: 15)
+//                                Text(station.StationName.En)
+//                                    .foregroundColor((timetable?.stopsAt(station) ?? false) ? .primary : .secondary)
+//                                Spacer()
+//
+//                            }
+//                            //                        .background(Color.green)
+//                        }
+//                        }
+//                    }
+//                        //                    Spacer()
+//                    }
+//
+//                    //                }
+                    
                 }
                 
             }
-//            .padding(.horizontal, 10)
+            //            .padding(.horizontal, 10)
             .padding(.vertical, 10)
             .background(Color(UIColor.secondarySystemGroupedBackground))
             
@@ -90,7 +128,7 @@ struct PlannerResultRowView: View {
                 extended.toggle()
             }
         }
-
+        
     }
     
 }

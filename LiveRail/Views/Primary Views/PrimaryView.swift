@@ -69,13 +69,13 @@ struct PrimaryView: View {
                 }
                 .onEnded { _ in
                     
-                    if (self.offset.width > 0) {
+                    if (self.offset.width > 100) {
                         if (currentView == .plannerView) {
                             withAnimation {
                             currentView = .timetableView
                             }
                         }
-                    } else if (self.offset.width < 0) {
+                    } else if (self.offset.width < -100) {
                         if (currentView == .timetableView) {
                             withAnimation {
                                 currentView = .plannerView
