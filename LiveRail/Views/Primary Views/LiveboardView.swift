@@ -39,6 +39,12 @@ struct LiveboardView: View {
             
 
         }
+        .onAppear {
+            print("apper")
+        }
+        .onChange(of: timetableStation, perform: { value in
+            print(value)
+        })
         .background(Color(UIColor.systemGroupedBackground))
         .edgesIgnoringSafeArea(.all)
 

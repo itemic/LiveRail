@@ -27,7 +27,12 @@ struct RailODDailyTimetable: Codable, Identifiable, Hashable {
     
 }
 
-struct RailDailyTimetable: Codable, Hashable {
+struct RailDailyTimetable: Codable, Hashable, Identifiable {
+    
+    var id: String {
+        DailyTrainInfo.TrainNo
+    }
+    
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
     var StopTimes: [StopTime]
@@ -94,7 +99,7 @@ struct RailDailyTimetable: Codable, Hashable {
         let minutesOfCurrentPosition = now.time - prevDepartureTime.time
         
         let proportion: Double = (Double(minutesOfCurrentPosition) / Double(minutesBetweenStations))
-        print("mbs \(minutesBetweenStations) mocp \(minutesOfCurrentPosition) = p \(proportion)")
+//        print("mbs \(minutesBetweenStations) mocp \(minutesOfCurrentPosition) = p \(proportion)")
         
         if (trainIsAtStation()) {
             return (currentTrainAtStation()!, 0)

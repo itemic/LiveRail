@@ -19,11 +19,10 @@ struct StationTimetableView: View {
     @State private var selectedTrain: StationTimetable? = nil
     @State private var isShow = false
     
+    @State private var presented: Bool = false
+    
     var body: some View {
-//        NavigationView {
-//            VStack {
-//                Text("CA")
-//            }
+
         VStack {
 
             ForEach(data.stationTimetableDict[station]!.filter {
@@ -33,6 +32,7 @@ struct StationTimetableView: View {
                 
                 Button(action: {
                     selectedTrain = train
+                    presented = true
                     
                 }, label: {
                     TrainEntryListRowView(train: train)
@@ -48,11 +48,16 @@ struct StationTimetableView: View {
         
         .padding()
         
-        .sheet(item: $selectedTrain, content: {train in
+//        .sheet(isPresented: $presented, content: {
+//            if let selectedTrain = selectedTrain {
+//            TrainServiceView(train: selectedTrain)
+//            }
+//        })
+////
+        .sheet(item: $selectedTrain) {train in
             TrainServiceView(train: train)
-        })
+        }
         
-//        }
         
         
 
@@ -64,10 +69,3 @@ struct StationTimetableView: View {
     
 }
 
-
-//
-//struct StationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StationView()
-//    }
-//}
