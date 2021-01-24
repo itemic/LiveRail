@@ -91,22 +91,17 @@ struct RailDailyTimetable: Codable, Hashable {
         guard let prevDepartureTime = dateFormatter.date(from: prev.DepartureTime) else { return nil }
         
         let minutesBetweenStations = nextArrivalTime.time - prevDepartureTime.time
-        let midpoint = minutesBetweenStations / 2
         let minutesOfCurrentPosition = now.time - prevDepartureTime.time
         
-        let proportion: Double = 2 *  (Double(minutesOfCurrentPosition) / Double(minutesBetweenStations))
+        let proportion: Double = (Double(minutesOfCurrentPosition) / Double(minutesBetweenStations))
         print("mbs \(minutesBetweenStations) mocp \(minutesOfCurrentPosition) = p \(proportion)")
         
         if (trainIsAtStation()) {
             return (currentTrainAtStation()!, 0)
         }
-        else if (minutesOfCurrentPosition < midpoint) {
-            // prev station
-            return (prev, proportion)
-        } else {
-            // next station
-            return (next, -(proportion/2))
-        }
+        
+        return (prev, proportion)
+        
     }
     
 }

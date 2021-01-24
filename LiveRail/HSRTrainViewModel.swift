@@ -15,6 +15,7 @@ final class HSRTrainViewModel: ObservableObject {
             HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
                 DispatchQueue.main.async {
                     self?.train = train[0] // single element array
+                    print("fetched train details")
                 }
             }
         }

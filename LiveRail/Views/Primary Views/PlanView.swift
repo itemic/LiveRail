@@ -50,7 +50,7 @@ struct PlanView: View {
                                     }
                         ) { entry in
                             HStack {
-                                PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo))
+                                PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStation, destination: endingStation)
                             }
                             
                         }

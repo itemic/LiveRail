@@ -33,25 +33,32 @@ struct StationTimetableView: View {
                 
                 Button(action: {
                     selectedTrain = train
+                    
                 }, label: {
                     TrainEntryListRowView(train: train)
                     
                 })
+                
                 .padding(2)
+                
                 
                 
             }
         }
+        
         .padding()
+        
         .sheet(item: $selectedTrain, content: {train in
             TrainServiceView(train: train)
         })
+        
 //        }
         
         
 
         
     }
+    
     
 
     
