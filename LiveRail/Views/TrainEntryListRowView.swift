@@ -11,31 +11,62 @@ struct TrainEntryListRowView: View {
     var train: StationTimetable
     
     var body: some View {
+        
         HStack {
-            
-            Text("\(train.direction.abbreviated)")
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(width: 20, height: 40, alignment: .center)
-                .background(train.direction.color)
-                .clipShape(Rectangle())
-            
-            VStack(alignment: .leading) {
-                Text("\(train.TrainNo)").font(.system(.body, design: .rounded))
-                Text("\(train.EndingStationName.En)").bold().font(.body)
+            VStack(alignment: .leading, spacing: 5) {
+                HStack(spacing: 5) {
+                    
+                    Text("\(train.direction.abbreviated)")
+                        .font(Font.system(.subheadline, design: .rounded).bold())
+                        .foregroundColor(train.direction.color)
+                        .padding(4)
+                        .background(train.direction.color.opacity(0.15))
+                        .cornerRadius(5)
+                    
+                    Text("\(train.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
+                    
+                    Spacer()
+                    
+                    
+                    
+                    if (!train.willDepartAfterNow) {
+                        Text("DEPARTED")
+                            .font(Font.system(.subheadline, design: .rounded))
+                            .foregroundColor(.red)
+                            .padding(4)
+                            .background(Color.red.opacity(0.2))
+                            .cornerRadius(5)
+                    } else if (train.isAtStation) {
+                        Text("LEAVING SOON")
+                            .font(Font.system(.subheadline, design: .rounded))
+                            .foregroundColor(.orange)
+                            .padding(4)
+                            .background(Color.orange.opacity(0.2))
+                            .cornerRadius(5)
+                    }
+                }
+                .padding(.horizontal, 10)
+                HStack {
+                    
+                    VStack(alignment: .leading) {
+                       
+                        Text("\(train.EndingStationName.En)").font(Font.system(.title, design: .rounded).weight(.semibold))
+                    }
+                    
+                    Spacer()
+                Text("\(train.DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
+//                    Spacer()
+                }
+                .padding(.horizontal, 10)
             }
-            Spacer()
-            VStack(alignment: .trailing) {
-                Text("\(train.DepartureTime)").font(.system(.body, design: .monospaced))
-                
-            }
-        }.foregroundColor(train.willDepartAfterNow ? .primary : .secondary)
+            .padding(.vertical, 10)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
+        }
+        .padding(.leading, 10)
+        .background(train.direction.color)
+        .cornerRadius(5)
         
         
-        
-        
-        
-    }
     
   
 }
@@ -43,3 +74,4 @@ struct TrainEntryListRowView: View {
 
 
 
+}

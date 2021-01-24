@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TrainServiceView: View {
     var train: StationTimetable
+    var scrollTo: String
     
     @StateObject var vm =  HSRTrainViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -40,6 +41,7 @@ struct TrainServiceView: View {
                 .background(train.direction.color)
             }
             ScrollView {
+                ScrollViewReader { value in
                 ForEach(vm.train, id: \.self) { train in
                 
                 
@@ -47,7 +49,7 @@ struct TrainServiceView: View {
                     
                         ForEach(train.StopTimes, id: \.StopSequence) { stop in
                             
-                            TrainServiceLineDrawingEntry(stop: stop, train: train)
+                            TrainServiceLineDrawingEntry(stop: stop, train: train).tag(stop.StationID)
                             
                             //MARK: End of FOREACH
                         }
@@ -55,6 +57,10 @@ struct TrainServiceView: View {
                     .padding()
 
                 
+            }
+                .onAppear {
+                    value.scrollTo(scrollTo, anchor: .top)
+                }
             }
         }
         }

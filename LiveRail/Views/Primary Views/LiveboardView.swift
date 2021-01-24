@@ -39,9 +39,7 @@ struct LiveboardView: View {
             
 
         }
-        .onAppear {
-            print("apper")
-        }
+       
         .onChange(of: timetableStation, perform: { value in
             print(value)
         })

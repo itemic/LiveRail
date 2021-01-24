@@ -32,15 +32,6 @@ struct PlanView: View {
                     VStack {
                         
                         
-//                            if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
-//                                HStack {
-//                                FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
-//                                }
-//                                .padding(.vertical)
-//                            }
-                        
-                        
-                        
                         ForEach(vm.queryResultTimetable
                                     .sorted {
                                         $0.OriginStopTime < $1.OriginStopTime
