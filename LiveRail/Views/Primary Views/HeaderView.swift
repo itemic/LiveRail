@@ -24,8 +24,8 @@ struct HeaderView: View {
                     HStack {
                         HStack {
 //                            HeaderIcon(text: "Home", icon: "house.fill", color: .red, index: 1, current: $selectedView)
-                            HeaderIcon(text: "Timetable", icon: "list.bullet.rectangle", color: .purple, view: .timetableView, current: $currentView)
-                            HeaderIcon(text: "Scheduler", icon: "timer.square", color: .orange, view: .plannerView, current: $currentView)
+                            HeaderIcon(text: "Departures", icon: "list.bullet.rectangle", color: .purple, view: .timetableView, current: $currentView)
+                            HeaderIcon(text: "Trains", icon: "timer.square", color: .orange, view: .plannerView, current: $currentView)
                             Spacer()
                         }
                         
@@ -33,10 +33,22 @@ struct HeaderView: View {
                         Button(action: {
                             showingSettings = true
                         }) {
-                            Image(systemName: "gearshape.fill").imageScale(.medium).foregroundColor(.gray)
-                                .padding(5)
-                                .background(Color.gray.opacity(0.2))
-                                .clipShape(Circle())
+                            Image(systemName: "gearshape.fill")
+                                .imageScale(.medium)
+                                .foregroundColor(.gray)
+                                .font(.system(size: 24))
+                                .padding(.vertical, 8)
+                                .padding(.horizontal)
+                                .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                .background(BlurView(style: .systemUltraThinMaterial))
+                                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.clear))
+                                .cornerRadius(10)
+                            
+//                            Image(systemName: "gearshape.fill").imageScale(.medium).foregroundColor(.gray)
+//                                .padding(5)
+//                                .background(Color.gray.opacity(0.2))
+//                                .clipShape(Circle())
                         }
                         .sheet(isPresented: $showingSettings) {
                             SettingsView()

@@ -160,7 +160,18 @@ struct SettingsView: View {
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 0) {
+                        Link("Terms of Service", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                            .foregroundColor(.secondary).font(.caption)
+                            Text(" and ").foregroundColor(.secondary).font(.caption)
+                        Link("Privacy Policy", destination: URL(string: "https://itemic.github.io/puzzle/privacy.html")!)
+                            .foregroundColor(.secondary).font(.caption)
+                        }
+                        Text("Data source: Taiwan PTX Transport API").foregroundColor(.secondary).font(.caption2)
+                    }
                 }
+           
                 
                 Spacer()
 
