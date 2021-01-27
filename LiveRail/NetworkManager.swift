@@ -10,6 +10,7 @@ import CryptoKit
 
 public final class NetworkManager {
 
+    //Create a Constants.swift and set these values separately!
     private let appID =  APPLICATION_ID
     private let appKey = APPLICATION_KEY
     
