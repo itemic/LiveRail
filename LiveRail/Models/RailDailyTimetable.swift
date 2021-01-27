@@ -36,13 +36,7 @@ struct RailDailyTimetable: Codable, Hashable, Identifiable {
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
     var StopTimes: [StopTime]
-    
-    func stopsAt(_ station: Station) -> Bool {
-        return StopTimes.contains {
-            $0.StationID == station.StationID
-        }
-    }
-    
+        
     // For OD transformation
     var OriginStopTime: StopTime?
     var DestinationStopTime: StopTime?
