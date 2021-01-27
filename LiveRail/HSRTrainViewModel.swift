@@ -42,7 +42,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     func isTrainAtStation(_ stop: StopTime) -> Bool {
-        return !stop.willArriveAfterNow && stop.willDepartAfterNow
+        return !Date.compare(to: stop.ArrivalTime) && Date.compare(to: stop.DepartureTime)
     }
     
     var trainIsAtAnyStation: Bool {
@@ -62,21 +62,21 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     var nextStation: StopTime? {
         guard let train = train else {return nil}
         return train.StopTimes.first {
-            $0.willArriveAfterNow
+            Date.compare(to: $0.ArrivalTime)
         }
     }
     
     var prevStation: StopTime?{
         guard let train = train else {return nil}
         return train.StopTimes.last {
-            !$0.willDepartAfterNow
+            !Date.compare(to: $0.DepartureTime)
         }
     }
     
     var allDepartedStations: [StopTime] {
         guard let train = train else {return []}
         return train.StopTimes.filter {
-            !$0.willDepartAfterNow
+            !Date.compare(to: $0.DepartureTime)
         }
     }
     

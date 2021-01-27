@@ -106,6 +106,13 @@ extension Date {
         return now.time < other.time
     }
     
+    static func compare(now: Date = Date(), to otherTime: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let other = dateFormatter.date(from: otherTime) else {return false}
+        return now.time < other.time
+    }
+    
     static func compareEquality(otherTime: String) -> Bool {
         let now = Date()
         let dateFormatter = DateFormatter()

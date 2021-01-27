@@ -73,14 +73,6 @@ struct StopTime: Codable, Hashable {
     var StationName: NameType
     var ArrivalTime: String
     var DepartureTime: String
-    
-    var willDepartAfterNow: Bool {
-        return Date.compareNowTo(otherTime: DepartureTime)
-    }
-    
-    var willArriveAfterNow: Bool {
-        return Date.compareNowTo(otherTime: ArrivalTime)
-    }
-    
+
     
 }

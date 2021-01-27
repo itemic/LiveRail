@@ -31,13 +31,14 @@ struct PlanView: View {
                         .frame(height: 150)
                     VStack {
                         
-                        
+                        FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
+                            .padding(.bottom, 10)
                         ForEach(vm.queryResultTimetable
                                     .sorted {
                                         $0.OriginStopTime < $1.OriginStopTime
                                     }
                                     .filter {
-                                        showAvailable ? true : $0.OriginStopTime.willDepartAfterNow
+                                        showAvailable ? true : Date.compare(to: $0.OriginStopTime.DepartureTime)
                                     }
                         ) { entry in
                             HStack {

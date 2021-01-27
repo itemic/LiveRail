@@ -11,23 +11,16 @@ struct FareListingView: View {
     var fareSchedule: FareSchedule
     var body: some View {
         HStack(alignment: .center) {
-            Group {
-            Spacer()
+            
             FareBlockView(ticket: .nonreserved, cost: fareSchedule.fare(for: .nonreserved))
-            Spacer()
-            }
-            Divider()
-            Group {
+            
             Spacer()
             FareBlockView(ticket: .reserved, cost: fareSchedule.fare(for: .reserved))
-            Spacer()
-            }
-            Divider()
-            Group {
+          
             Spacer()
             FareBlockView(ticket: .business, cost: fareSchedule.fare(for: .business))
-            Spacer()
-            }
+            
+            
         }
     }
 }
@@ -35,8 +28,25 @@ struct FareListingView: View {
 struct FareBlockView_Previews: PreviewProvider {
     static var previews: some View {
         Form {
-            FareBlockView(ticket: .business, cost: 1200)
-        }
+        HStack(alignment: .center) {
+            
+            
+            FareBlockView(ticket: .nonreserved, cost: 80)
+            Spacer()
+            
+            
+            
+            
+            FareBlockView(ticket: .reserved, cost: 120)
+            
+            
+            
+            
+            Spacer()
+            FareBlockView(ticket: .business, cost: 1440)
+            
+//            Spacer()
+        }}
     }
 }
 
@@ -45,15 +55,22 @@ struct FareBlockView: View {
     var cost: Int
     
     var body: some View {
-        VStack(spacing: -2) {
-            Text("\(ticket.text())")
-                .font(Font.system(.headline).smallCaps())
-                .foregroundColor(ticket.color())
-            
-            Text("\(String(cost))").font(.system(.title, design: .rounded))
-            
-            
-            Text("TWD").font(.caption2).foregroundColor(.secondary)
+        HStack(spacing: 5) {
+            Rectangle()
+                .fill(ticket.color())
+                .frame(width: 5)
+            VStack(alignment: .leading, spacing: -2) {
+                
+                Text("\(ticket.rawValue)")
+                        .font(Font.system(.body).smallCaps())
+                        .foregroundColor(ticket.color())
+                
+                
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text("\(String(cost))").font(Font.system(.title3, design: .rounded).monospacedDigit())
+                Text("TWD").font(.caption2).foregroundColor(.secondary)
+                }
+            }
         }
     }
 }

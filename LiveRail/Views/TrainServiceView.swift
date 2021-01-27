@@ -113,10 +113,10 @@ struct TrainServiceLineDrawingEntry: View {
                     HStack {
                         VStack {
                             if (stop.ArrivalTime != stop.DepartureTime) {
-                                Text("\(stop.ArrivalTime)").font(Font.system(.body).monospacedDigit())
+                                Text("\(stop.ArrivalTime)").font(Font.system(.body, design: .rounded).monospacedDigit())
                                     .foregroundColor(.secondary)
                             }
-                            Text("\(stop.DepartureTime)").font(Font.system(.body).monospacedDigit())
+                            Text("\(stop.DepartureTime)").font(Font.system(.body, design: .rounded).monospacedDigit())
                         }
                         Rectangle().fill(stopMarkColor.opacity(0.8))
                             .frame(width: 15, height: 7.5)
@@ -138,7 +138,7 @@ struct TrainServiceLineDrawingEntry: View {
                 if (stop.StationID != vm.train?.DailyTrainInfo.EndingStationID) {
                     
                     HStack(alignment: .top) {
-                        Text("00:00").font(Font.system(.body).monospacedDigit()).foregroundColor(.clear)
+                        Text("00:00").font(Font.system(.body, design: .rounded).monospacedDigit()).foregroundColor(.clear)
                         VStack(spacing: 0) {
                             Rectangle().fill(Color.clear)
                                 .frame(width: 7.5, height: 7.5)
@@ -194,5 +194,6 @@ struct TrainServiceLineDrawingEntry: View {
             
             
         }
+        
     }
 }

@@ -32,11 +32,11 @@ struct StationTimetable: Codable, Identifiable {
     }
     
     var willDepartAfterNow: Bool {
-        return Date.compareNowTo(otherTime: DepartureTime)
+        return Date.compare(to: DepartureTime)
     }
     
     var willArriveAfterNow: Bool {
-        return Date.compareNowTo(otherTime: ArrivalTime)
+        return Date.compare(to: ArrivalTime)
     }
     
     var isAtStation: Bool {

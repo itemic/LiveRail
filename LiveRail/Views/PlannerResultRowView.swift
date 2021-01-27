@@ -16,10 +16,6 @@ struct PlannerResultRowView: View {
     var origin: String
     var destination: String
     
-    var fare: FareSchedule {
-        data.fareSchedule[origin]![destination]!
-    }
-    
     var stations: [Station] {
         switch (entry.DailyTrainInfo.direction) {
         case .northbound: return data.stations.reversed()
@@ -36,7 +32,7 @@ struct PlannerResultRowView: View {
                 HStack {
                     Text("\(entry.DailyTrainInfo.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
                     Spacer()
-                    if (!entry.OriginStopTime.willDepartAfterNow) {
+                    if (!Date.compare(to: entry.OriginStopTime.DepartureTime)) {
                         Text("DEPARTED")
                             .font(Font.system(.subheadline, design: .rounded))
                             .foregroundColor(.red)
@@ -69,13 +65,8 @@ struct PlannerResultRowView: View {
                 .padding(.horizontal, 10)
                 
                 if (extended) {
-                    VStack {
-                        FareListingView(fareSchedule: fare)
-                    }
-                    .padding([.top, .horizontal], 10)
-                    
-                    
-                    
+//                    
+
                 }
                 
             }
