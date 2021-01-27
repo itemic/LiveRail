@@ -47,7 +47,7 @@ struct StationTimetableView: View {
         
 
         .sheet(item: $selectedTrain) {train in
-            TrainServiceView(train: train, scrollTo: station.StationID)
+            TrainServiceView(train: train)
         }
         
         

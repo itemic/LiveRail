@@ -9,15 +9,11 @@ import SwiftUI
 
 struct TrainServiceView: View {
     var train: StationTimetable
-    var scrollTo: String
     
-    @StateObject var vm =  HSRTrainViewModel()
+    
+    @StateObject var vm = HSRTrainViewModel()
     @Environment(\.presentationMode) var presentationMode
     
-//    init(train: StationTimetable) {
-//        self.train = train
-//        self.vm = HSRTrainViewModel(with: train.TrainNo)
-//    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -41,27 +37,28 @@ struct TrainServiceView: View {
                 .background(train.direction.color)
             }
             ScrollView {
-                ScrollViewReader { value in
-                ForEach(vm.train, id: \.self) { train in
+                Spacer()
+                    .frame(height: 20)
                 
                 
-                VStack(spacing: 0) {
                     
-                        ForEach(train.StopTimes, id: \.StopSequence) { stop in
+                    if let train = vm.train {
+                        VStack(spacing: 0) {
                             
-                            TrainServiceLineDrawingEntry(stop: stop, train: train).tag(stop.StationID)
-                            
-                            //MARK: End of FOREACH
-                        }
+                                ForEach(train.StopTimes, id: \.StopSequence) { stop in
+                                    
+                                    TrainServiceLineDrawingEntry(stop: stop, vm: vm)
+                                    
+                                    //MARK: End of FOREACH
+                                }
+                            }
+                            .padding()
                     }
-                    .padding()
-
+                Text("This view is not updated live.").font(.caption2).foregroundColor(.gray).padding()
+                    
                 
-            }
-                .onAppear {
-                    value.scrollTo(scrollTo, anchor: .top)
-                }
-            }
+                
+            
         }
         }
         
@@ -77,23 +74,35 @@ struct TrainServiceView: View {
 struct TrainServiceLineDrawingEntry: View {
     
     var stop: StopTime
-    var train: RailDailyTimetable
+    var vm: HSRTrainViewModel
     
-    func overlayValid(_ train: RailDailyTimetable, _ stop: StopTime) -> Bool {
-        if ( stop == train.getTrainProgress()?.0 ) {
+    let stationHeight: Double = 60.0
+    
+    func overlayValid() -> Bool {
+        if ( stop == vm.getTrainProgress?.0 ) {
             return true
         }
         return false
     }
     
-    func overlayCircleOffset(_ train: RailDailyTimetable, _ stop: StopTime) -> Double {
-        if (train.trainIsAtStation()) {return 0}
-        if (stop == train.getTrainProgress()?.0) {
-            let offset =  (train.getTrainProgress()?.1 ?? 1.0)
+    func overlayCircleOffset() -> Double {
+        if (vm.trainIsAtAnyStation) {return 0}
+        if (stop == vm.getTrainProgress?.0) {
+            let offset =  (vm.getTrainProgress?.1 ?? 1.0)
             return offset
         }
         return 0
     }
+    
+    var stopMarkColor: Color {
+        return vm.allDepartedStations.contains(stop) ? .gray : .orange
+    }
+    
+    var trainlineColor: Color {
+        return vm.allDepartedStations.contains(stop) ? .gray : .orange
+    }
+    
+    
     
     var stopMark: some View {
         HStack(alignment: .top) {
@@ -109,8 +118,9 @@ struct TrainServiceLineDrawingEntry: View {
                             }
                             Text("\(stop.DepartureTime)").font(Font.system(.body).monospacedDigit())
                         }
-                        Rectangle().fill(Color.orange.opacity(0.8))
+                        Rectangle().fill(stopMarkColor.opacity(0.8))
                             .frame(width: 15, height: 7.5)
+                            
                         
                         
                         Text("\(stop.StationName.En)")
@@ -125,28 +135,54 @@ struct TrainServiceLineDrawingEntry: View {
             ZStack(alignment: .top) {
                 stopMark
                 
-                if (stop.StationID != train.DailyTrainInfo.EndingStationID) {
+                if (stop.StationID != vm.train?.DailyTrainInfo.EndingStationID) {
                     
                     HStack(alignment: .top) {
                         Text("00:00").font(Font.system(.body).monospacedDigit()).foregroundColor(.clear)
                         VStack(spacing: 0) {
                             Rectangle().fill(Color.clear)
                                 .frame(width: 7.5, height: 7.5)
-                            Rectangle().fill(Color.orange.opacity(0.8))
-                                .frame(width: 7.5, height: 100)
+                            
+                            if (overlayValid()) {
+                                VStack(spacing: 0) {
+                                    Rectangle().fill(Color.gray.opacity(0.8))
+                                    .frame(width: 7.5, height: CGFloat(stationHeight * overlayCircleOffset()))
+                                    Rectangle().fill(Color.orange.opacity(0.8))
+                                        .frame(width: 7.5, height: CGFloat(stationHeight - (stationHeight * overlayCircleOffset())))
+                                }
                                 .overlay(
                                     ZStack {
                                         Circle()
-                                            .strokeBorder(overlayValid(train, stop) ? Color.primary : Color.clear , lineWidth: 2)
-                                            .background(Circle().foregroundColor(overlayValid(train, stop) ? train.DailyTrainInfo.direction.color : .clear))
-                                            .frame(width: 25, height: 25)
+                                            .strokeBorder(overlayValid() ? Color.primary : Color.clear , lineWidth: 2)
+                                            .background(Circle().foregroundColor(overlayValid() ? vm.train?.DailyTrainInfo.direction.color : .clear))
+                                            .frame(width: 25, height: 30)
                                         Image(systemName: "tram.fill")
-                                            .foregroundColor(overlayValid(train, stop) ? .black : .clear)
+                                            .foregroundColor(overlayValid() ? .black : .clear)
                                             .font(.system(size: 10))
                                     }
-                                    .offset(y: CGFloat(-50 + overlayCircleOffset(train, stop) * 100))
-                                    .frame(width: 20, height: 20)
+                                    .offset(y: CGFloat((stationHeight / -2) + overlayCircleOffset() * stationHeight))
+                                    .frame(width: 20)
+                                    .zIndex(1)
                                 )
+                            } else {
+                                Rectangle().fill(trainlineColor.opacity(0.8))
+                                    .frame(width: 7.5, height: CGFloat(stationHeight))
+                                    .overlay(
+                                        ZStack {
+                                            Circle()
+                                                .strokeBorder(overlayValid() ? Color.primary : Color.clear , lineWidth: 2)
+                                                .background(Circle().foregroundColor(overlayValid() ? vm.train?.DailyTrainInfo.direction.color : .clear))
+                                                .frame(width: 25, height: 30)
+                                            Image(systemName: "tram.fill")
+                                                .foregroundColor(overlayValid() ? .black : .clear)
+                                                .font(.system(size: 10))
+                                        }
+                                        .offset(y: CGFloat((stationHeight / -2) + overlayCircleOffset() * stationHeight))
+                                        .frame(width: 20)
+                                    )
+                            }
+                            
+                            
                         }
                     
                         Spacer()

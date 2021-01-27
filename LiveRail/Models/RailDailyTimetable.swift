@@ -47,67 +47,7 @@ struct RailDailyTimetable: Codable, Hashable, Identifiable {
     var OriginStopTime: StopTime?
     var DestinationStopTime: StopTime?
     
-    func isStarting(stop: StopTime) -> Bool {
-        return stop.StationID == DailyTrainInfo.StartingStationID
-    }
     
-    func isEnding(stop: StopTime) -> Bool {
-        return stop.StationID == DailyTrainInfo.EndingStationID
-    }
-    
-    func isTrainAtStation(stop: StopTime) -> Bool {
-        return !stop.willArriveAfterNow && stop.willDepartAfterNow
-    }
-    
-    func trainIsAtStation() -> Bool {
-        return StopTimes.contains {
-            isTrainAtStation(stop: $0)
-        }
-     }
-    
-    func currentTrainAtStation() -> StopTime? {
-        return StopTimes.first {
-            isTrainAtStation(stop: $0)
-        }
-    }
-    
-    func nextStation() -> StopTime? {
-        return StopTimes.first {
-            $0.willArriveAfterNow
-        }
-    }
-    
-    func prevStation() -> StopTime? {
-        return StopTimes.last {
-            !$0.willDepartAfterNow
-        }
-    }
-    
-    func getTrainProgress() -> (StopTime, Double)? {
-        
-        guard let prev = prevStation(), let next = nextStation() else { return nil }
-
-        let now = Date()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        
-        guard let nextArrivalTime = dateFormatter.date(from: next.ArrivalTime) else { return nil }
-        guard let prevDepartureTime = dateFormatter.date(from: prev.DepartureTime) else { return nil }
-        
-        let minutesBetweenStations = nextArrivalTime.time - prevDepartureTime.time
-        let minutesOfCurrentPosition = now.time - prevDepartureTime.time
-        
-        let proportion: Double = (Double(minutesOfCurrentPosition) / Double(minutesBetweenStations))
-//        print("mbs \(minutesBetweenStations) mocp \(minutesOfCurrentPosition) = p \(proportion)")
-        
-        if (trainIsAtStation()) {
-            return (currentTrainAtStation()!, 0)
-        }
-        
-        return (prev, proportion)
-        
-    }
     
 }
 
