@@ -118,11 +118,10 @@ struct TrainServiceLineDrawingEntry: View {
                             }
                             Text("\(stop.DepartureTime)").font(Font.system(.body, design: .rounded).monospacedDigit())
                         }
-                        Rectangle().fill(stopMarkColor.opacity(0.8))
-                            .frame(width: 15, height: 7.5)
-                            
                         
-                        
+                            Rectangle().fill(stopMarkColor.opacity(0.8))
+                                .frame(width: 15, height: 7.5)
+
                         Text("\(stop.StationName.En)")
                         Spacer()
                     }
@@ -155,14 +154,14 @@ struct TrainServiceLineDrawingEntry: View {
                                         Circle()
                                             .strokeBorder(overlayValid() ? Color.primary : Color.clear , lineWidth: 2)
                                             .background(Circle().foregroundColor(overlayValid() ? vm.train?.DailyTrainInfo.direction.color : .clear))
-                                            .frame(width: 25, height: 30)
+                                            .frame(width: 20, height: 20)
                                         Image(systemName: "tram.fill")
-                                            .foregroundColor(overlayValid() ? .black : .clear)
+                                            .foregroundColor(overlayValid() ? .white : .clear)
                                             .font(.system(size: 10))
                                     }
                                     .offset(y: CGFloat((stationHeight / -2) + overlayCircleOffset() * stationHeight))
-                                    .frame(width: 20)
-                                    .zIndex(1)
+                                    .frame(width: 15)
+                                    
                                 )
                             } else {
                                 Rectangle().fill(trainlineColor.opacity(0.8))
@@ -172,13 +171,14 @@ struct TrainServiceLineDrawingEntry: View {
                                             Circle()
                                                 .strokeBorder(overlayValid() ? Color.primary : Color.clear , lineWidth: 2)
                                                 .background(Circle().foregroundColor(overlayValid() ? vm.train?.DailyTrainInfo.direction.color : .clear))
-                                                .frame(width: 25, height: 30)
+                                                .frame(width: 20, height: 20)
                                             Image(systemName: "tram.fill")
-                                                .foregroundColor(overlayValid() ? .black : .clear)
+                                                .foregroundColor(overlayValid() ? .white : .clear)
                                                 .font(.system(size: 10))
                                         }
                                         .offset(y: CGFloat((stationHeight / -2) + overlayCircleOffset() * stationHeight))
-                                        .frame(width: 20)
+                                        .frame(width: 15)
+                                        
                                     )
                             }
                             

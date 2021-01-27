@@ -44,6 +44,12 @@ final class HSRDataStore: ObservableObject {
         
     }
     
+    func getStationTimetable(from station: Station, train: String) -> StationTimetable? {
+        return stationTimetableDict[station]?.first {
+            $0.TrainNo == train
+        }
+    }
+    
     func stationName(from id: String) -> String? {
         return stations.first {
             $0.StationID == id

@@ -37,6 +37,7 @@
 		45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */; };
 		45D1BC8025AC49F300D040CD /* StationTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */; };
 		45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
+		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
 		45D9480D25AEA733002FE73C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9480C25AEA733002FE73C /* SettingsView.swift */; };
 		45FB0B9C25BAA71000670396 /* EmptyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */; };
 		45FB0B9F25BAC83100670396 /* LiveBoardPickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9E25BAC83100670396 /* LiveBoardPickerButtonView.swift */; };
@@ -76,6 +77,7 @@
 		45D1BC7B25AC466300D040CD /* HSRQueryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRQueryViewModel.swift; sourceTree = "<group>"; };
 		45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetableView.swift; sourceTree = "<group>"; };
 		45D1BC8325AC4AA000D040CD /* StationTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetable.swift; sourceTree = "<group>"; };
+		45D5838F25C19A38003097F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45D9480C25AEA733002FE73C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenView.swift; sourceTree = "<group>"; };
 		45FB0B9E25BAC83100670396 /* LiveBoardPickerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBoardPickerButtonView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				4563E66325A9EF0E00E50C5F /* NetworkManager.swift */,
 				45A7808925B16ABF0078ECD2 /* LocationManager.swift */,
 				45D00A4825AC94F500DB518F /* Date+Time.swift */,
+				45D5838F25C19A38003097F6 /* Constants.swift */,
 				45A2542C25B2DCDB00CB2522 /* Utilities.swift */,
 				4563E65725A9EECD00E50C5F /* Assets.xcassets */,
 				4563E65C25A9EECD00E50C5F /* Info.plist */,
@@ -275,6 +278,7 @@
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
+				45D5839025C19A38003097F6 /* Constants.swift in Sources */,
 				45D9480D25AEA733002FE73C /* SettingsView.swift in Sources */,
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
 				45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */,

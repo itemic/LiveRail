@@ -19,6 +19,8 @@ struct PlanView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @State private var rotationAmount = 0.0
     
+    @State var selectedTimetable: StationTimetable? = nil
+    
     var body: some View {
         ZStack {
             //MARK: ONE
@@ -43,9 +45,15 @@ struct PlanView: View {
                         ) { entry in
                             HStack {
                                 PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStation, destination: endingStation)
+                                    .onTapGesture {
+                                        print("\(data.station(from: startingStation)?.StationName.En ?? "WAHOO")")
+                                        selectedTimetable = data.getStationTimetable(from: data.station(from: startingStation)!, train: entry.DailyTrainInfo.TrainNo)
+                                    }
                             }
                             
+                            
                         }
+                        
                         Spacer()
                             .frame(height: 110)
                     }
@@ -78,6 +86,9 @@ struct PlanView: View {
                 vm.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
                 sendHaptics()
             }
+        }
+        .sheet(item: $selectedTimetable) {
+            TrainServiceView(train: $0)
         }
         
     }

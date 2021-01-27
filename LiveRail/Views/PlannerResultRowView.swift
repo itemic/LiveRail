@@ -22,6 +22,7 @@ struct PlannerResultRowView: View {
         case .southbound: return data.stations
         }
     }
+    
     var body: some View {
         
         
@@ -78,11 +79,7 @@ struct PlannerResultRowView: View {
         .padding(.leading, 10)
         .background(Color.orange)
         .cornerRadius(5)
-        .onTapGesture {
-            withAnimation {
-                extended.toggle()
-            }
-        }
+
         
     }
     
