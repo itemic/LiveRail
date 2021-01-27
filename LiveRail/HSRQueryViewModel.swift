@@ -33,7 +33,6 @@ final class HSRQueryViewModel: ObservableObject {
         HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
             DispatchQueue.main.async {
                 self?.timetable.append(train[0])
-//                self?.train = train[0] // single element array
             }
         }
     }
