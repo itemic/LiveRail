@@ -145,6 +145,7 @@ struct SettingsView: View {
                 
                 VStack(alignment: .leading) {
                     Text("DEVELOPER").font(.caption).foregroundColor(.secondary)
+                    VStack(spacing: 20) {
                 HStack {
                     HStack {
                         RoundedRectangle(cornerRadius: 6, style: .continuous)
@@ -155,6 +156,30 @@ struct SettingsView: View {
                         Text("Data Fetch Time")
                         Spacer()
                         Text(data.lastUpdateDate, style: .relative)
+                    }
+                }
+                    HStack {
+                        HStack {
+                            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                .fill(Color(UIColor.systemTeal).opacity(0.2))
+                                .frame(width: 28, height: 28)
+                                .overlay(Image(systemName: "network").font(.callout).foregroundColor(Color(UIColor.systemTeal)))
+
+                            VStack(alignment: .leading) {
+                                Text("Fetch data")
+                                Text("Get updated data from PTX").font(.caption2).foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Button(action: {
+                                data.reload(client: .init())
+                            }) {
+                                Text("Fetch")
+                                    .foregroundColor(Color(UIColor.systemTeal))
+                                    .padding(8)
+                                    .background(Color(UIColor.systemTeal).opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                        }
                     }
                 }
                 .padding()

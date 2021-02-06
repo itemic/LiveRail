@@ -44,6 +44,33 @@ final class HSRDataStore: ObservableObject {
         
     }
     
+    func reload(client: NetworkManager) {
+        
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy HH:mm:ss (+z)"
+            lastUpdateDate = Date(timeIntervalSince1970: 0)
+            HSRService.getHSRStations(client: client) {[weak self] stations in
+                DispatchQueue.main.async {
+                    self?.stations = stations
+                    for station in stations {
+                        self!.fareSchedule[station.StationID] = [:]
+                        self!.stationTimetableDict[station] = []
+                        self?.fetchTimetable(for: station, client: client)
+                    }
+                }
+            }
+            
+            HSRService.getFares(client: client) { [weak self] fares in
+                DispatchQueue.main.async {
+                    for fare in fares {
+                        
+                        self!.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
+                    }
+                }
+                
+            }
+    }
+    
     func getStationTimetable(from station: Station, train: String) -> StationTimetable? {
         return stationTimetableDict[station]?.first {
             $0.TrainNo == train
