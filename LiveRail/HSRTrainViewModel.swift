@@ -7,6 +7,7 @@
 
 import Foundation
 
+import Combine
 final class HSRTrainViewModel: ObservableObject, Equatable {
     let df = SharedDateFormatter.shared
     
@@ -16,6 +17,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     
     @Published var train: RailDailyTimetable? = nil
+
     
     func fetchTrainDetails(for train: String, client: NetworkManager) {
         HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
@@ -82,6 +84,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var getTrainProgress: (StopTime, Double)? {
+        
         guard let prev = prevStation, let next = nextStation else {return nil}
         let now = Date()
         
@@ -101,5 +104,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
         
         return (prev, proportion)
     }
+    
+    
+    
     
 }

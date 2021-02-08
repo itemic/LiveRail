@@ -74,27 +74,34 @@ struct TrainServiceView: View {
 struct TrainServiceLineDrawingEntry: View {
     
     var stop: StopTime
-    var vm: HSRTrainViewModel
+    @StateObject var vm: HSRTrainViewModel
     
     let stationHeight: Double = 60.0
+    let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+
+    @State var offset: Double = 0.0
+    @State var stopMarkColor: Color = .gray
+    @State var trainlineColor: Color = .gray
+    @State var showOverlay: Bool = false
     
-    var showOverlay: Bool {
+    func calcShowOverlay() -> Bool {
         return stop == vm.getTrainProgress?.0
     }
     
-    var offset: Double {
+    func calcOffset() -> Double {
     if (vm.trainIsAtAnyStation) {return 0}
         if (stop == vm.getTrainProgress?.0) {
             return vm.getTrainProgress?.1 ?? 1.0
         }
         return 0
     }
+
     
-    var stopMarkColor: Color {
+    func calcStopMarkColor() -> Color {
         return vm.allDepartedStations.contains(stop) ? .gray : .orange
     }
     
-    var trainlineColor: Color {
+    func calcTrainlineColor() -> Color {
         return vm.allDepartedStations.contains(stop) ? .gray : .orange
     }
     
@@ -129,6 +136,7 @@ struct TrainServiceLineDrawingEntry: View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .top) {
                 stopMark
+                    
                 
                 if (stop.StationID != vm.train?.DailyTrainInfo.EndingStationID) {
                     
@@ -176,6 +184,7 @@ struct TrainServiceLineDrawingEntry: View {
                                         .frame(width: 15)
                                         
                                     )
+                                
                             }
                             
                             
@@ -183,14 +192,28 @@ struct TrainServiceLineDrawingEntry: View {
                     
                         Spacer()
                     }
+                    
                 }
                 
+            }
+            .onReceive(timer) {_ in
+                self.offset = calcOffset()
+                self.stopMarkColor = calcStopMarkColor()
+                self.trainlineColor = calcTrainlineColor()
+                self.showOverlay = calcShowOverlay()
+            }
+            .onAppear() {
+                self.offset = calcOffset()
+                self.stopMarkColor = calcStopMarkColor()
+                self.trainlineColor = calcTrainlineColor()
+                self.showOverlay = calcShowOverlay()
             }
             
             
             
-            
         }
+        
+        
         
         
     }
