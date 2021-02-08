@@ -8,6 +8,7 @@
 import Foundation
 
 public struct HSRService {
+    static let df = SharedDateFormatter.shared
     
     static func getHSRStations(client: NetworkManager, completion: (([Station]) -> Void)? = nil) {
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/Station?$top=30&$format=JSON"), on: client, completion: completion)
@@ -15,26 +16,20 @@ public struct HSRService {
     
     static func getTimetable(for station: Station, client: NetworkManager, completion: (([StationTimetable]) -> Void)? = nil) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
-        let now = dateFormatter.string(from: Date())
+        let now = df.taiwanTZString(from: Date())
         
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Station/\(station.StationID)/\(now)?$format=JSON"), on: client, completion: completion)
     }
     
     static func getTrainDetails(for train: String, client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil) {
-        print("getting train details for \(train)")
+//        print("getting train details for \(train)")
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today/TrainNo/\(train)?$format=JSON"), on: client, completion: completion)
         
     }
     
     static func getTimetable(from origin: Station, to destination: Station, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
-        let now = dateFormatter.string(from: Date())
+        let now = df.taiwanTZString(from: Date())
         
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin.StationID)/to/\(destination.StationID)/\(now)?$format=JSON"), on: client, completion: completion)
         
@@ -42,10 +37,7 @@ public struct HSRService {
     
     static func getTimetable(from origin: String, to destination: String, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
-        let now = dateFormatter.string(from: Date())
+        let now = df.taiwanTZString(from: Date())
         
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin)/to/\(destination)/\(now)?$format=JSON"), on: client, completion: completion)
         
@@ -66,11 +58,11 @@ public struct HSRService {
         client.executeRequest(request: request) { result in
             switch result {
             case .success(let data):
-                print("Run request success")
+//                print("Run request success")
                 let decoder = JSONDecoder()
                 do {
                     let res = try decoder.decode(T.self, from: data)
-                    print(res)
+//                    print(res)
                     completion?(res)
                 } catch {
                     print(error)

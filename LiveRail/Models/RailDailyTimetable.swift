@@ -61,10 +61,8 @@ struct DailyTrainInfo: Codable, Hashable {
 
 struct StopTime: Codable, Hashable {
     static func < (lhs: StopTime, rhs: StopTime) -> Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        let lhsD = dateFormatter.date(from: lhs.DepartureTime)!
-        let rhsD = dateFormatter.date(from: rhs.DepartureTime)!
+        let lhsD = SharedDateFormatter.shared.date(from: lhs.DepartureTime)!
+        let rhsD = SharedDateFormatter.shared.date(from: rhs.DepartureTime)!
         
         return lhsD < rhsD
     }

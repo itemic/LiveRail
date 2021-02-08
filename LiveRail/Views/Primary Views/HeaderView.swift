@@ -13,17 +13,43 @@ struct HeaderView: View {
     @Binding var currentView: RailViews
     @Binding var showingSettings: Bool
 //    @Binding var selectedView: Int
-    
+    @AppStorage("enableTimeWarp") var enableTimeWarp = false
     
     var body: some View {
         VStack {
             VStack {
-                Spacer()
-                    .frame(height: 55)
+                
+                ZStack {
+                    Spacer()
+                        .frame(height: 55)
+                        
+                            
+                            
+                    if (enableTimeWarp) {
+                            HStack {
+                                if (enableTimeWarp) {
+                            Image(systemName: "timelapse")
+                                    Text("TIME WARP")
+                            Text("∞").bold()
+                                }
+                        }
+                        .font(.system(.caption2, design: .monospaced))
+                        .fixedSize()
+                        .padding(.vertical, 2)
+                        .padding(.leading, 2)
+                        .padding(.trailing, 8)
+                        .background(Color(UIColor.systemIndigo))
+                        .cornerRadius(10.0)
+                        .foregroundColor(.white)
+                        .offset(y: 10)
+                        
+                    }
+                }
+                
+                
                 VStack {
                     HStack {
                         HStack {
-//                            HeaderIcon(text: "Home", icon: "house.fill", color: .red, index: 1, current: $selectedView)
                             HeaderIcon(text: "Departures", icon: "list.bullet.rectangle", color: .purple, view: .timetableView, current: $currentView)
                             HeaderIcon(text: "Trains", icon: "timer.square", color: .orange, view: .plannerView, current: $currentView)
                             Spacer()
@@ -44,17 +70,16 @@ struct HeaderView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                 .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.clear))
                                 .cornerRadius(10)
-                            
-//                            Image(systemName: "gearshape.fill").imageScale(.medium).foregroundColor(.gray)
-//                                .padding(5)
-//                                .background(Color.gray.opacity(0.2))
-//                                .clipShape(Circle())
+
                         }
+                        
                         .sheet(isPresented: $showingSettings) {
                             SettingsView()
                         }
                         
                     }
+                    
+                    
                 }
                 
             }

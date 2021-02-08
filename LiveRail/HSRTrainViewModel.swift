@@ -8,6 +8,8 @@
 import Foundation
 
 final class HSRTrainViewModel: ObservableObject, Equatable {
+    let df = SharedDateFormatter.shared
+    
     static func == (lhs: HSRTrainViewModel, rhs: HSRTrainViewModel) -> Bool {
         lhs.train == rhs.train
     }
@@ -19,7 +21,6 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
         HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
             DispatchQueue.main.async {
                 self?.train = train[0] // single element array
-                print("fetched train details")
             }
         }
     }
@@ -83,11 +84,9 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     var getTrainProgress: (StopTime, Double)? {
         guard let prev = prevStation, let next = nextStation else {return nil}
         let now = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
         
-        guard let nextArrivalTime = dateFormatter.date(from: next.ArrivalTime) else { return nil }
-        guard let prevDepartureTime = dateFormatter.date(from: prev.DepartureTime) else { return nil }
+        guard let nextArrivalTime = df.date(from: next.ArrivalTime) else { return nil }
+        guard let prevDepartureTime = df.date(from: prev.DepartureTime) else { return nil }
         
         let minutesBetweenStations = nextArrivalTime.time - prevDepartureTime.time
         let minutesOfCurrentPosition = now.time - prevDepartureTime.time

@@ -28,6 +28,7 @@
 		456A2D2025B93AC200DF4B33 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2D1F25B93AC200DF4B33 /* HeaderView.swift */; };
 		45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2542C25B2DCDB00CB2522 /* Utilities.swift */; };
 		45A2543225B31DA500CB2522 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2543125B31DA500CB2522 /* Enumerations.swift */; };
+		45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A64F0025D1135C00886460 /* SharedDateFormatter.swift */; };
 		45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808325B148500078ECD2 /* SeatAvailability.swift */; };
 		45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */; };
 		45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808925B16ABF0078ECD2 /* LocationManager.swift */; };
@@ -68,6 +69,7 @@
 		456A2D1F25B93AC200DF4B33 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		45A2542C25B2DCDB00CB2522 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		45A2543125B31DA500CB2522 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		45A64F0025D1135C00886460 /* SharedDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDateFormatter.swift; sourceTree = "<group>"; };
 		45A7808325B148500078ECD2 /* SeatAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatAvailability.swift; sourceTree = "<group>"; };
 		45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityIconView.swift; sourceTree = "<group>"; };
 		45A7808925B16ABF0078ECD2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = LiveRail/LocationManager.swift; sourceTree = SOURCE_ROOT; };
@@ -142,6 +144,7 @@
 				4563E65725A9EECD00E50C5F /* Assets.xcassets */,
 				4563E65C25A9EECD00E50C5F /* Info.plist */,
 				4563E65925A9EECD00E50C5F /* Preview Content */,
+				45A64F0025D1135C00886460 /* SharedDateFormatter.swift */,
 			);
 			path = LiveRail;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
+				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
 				45D5839025C19A38003097F6 /* Constants.swift in Sources */,
@@ -416,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveRail/Preview Content\"";
 				DEVELOPMENT_TEAM = 58QL7E6Z98;
 				ENABLE_PREVIEWS = YES;
@@ -440,7 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveRail/Preview Content\"";
 				DEVELOPMENT_TEAM = 58QL7E6Z98;
 				ENABLE_PREVIEWS = YES;

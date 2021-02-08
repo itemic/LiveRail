@@ -19,11 +19,8 @@ public final class NetworkManager {
     }
 
     func getServerTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ww zzz"
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        return dateFormatter.string(from: Date())
+        
+        return SharedDateFormatter.shared.serverDate(from: Date())
     }
     
     func authenticateRequest(url: String) -> URLRequest {

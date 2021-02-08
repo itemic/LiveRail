@@ -17,7 +17,6 @@ final class HSRQueryViewModel: ObservableObject {
         
         HSRService.getTimetable(from: origin, to: destination, client: client) {[weak self] timetables in
             DispatchQueue.main.async {
-                print("Fetching...")
                 self?.queryResultTimetable = timetables
 //                self?.fetchAvai
                 for item in timetables {

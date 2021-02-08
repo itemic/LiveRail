@@ -46,7 +46,6 @@ struct PlanView: View {
                             HStack {
                                 PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStation, destination: endingStation)
                                     .onTapGesture {
-                                        print("\(data.station(from: startingStation)?.StationName.En ?? "WAHOO")")
                                         selectedTimetable = data.getStationTimetable(from: data.station(from: startingStation)!, train: entry.DailyTrainInfo.TrainNo)
                                     }
                             }
