@@ -17,13 +17,14 @@ public struct HSRService {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
         let now = dateFormatter.string(from: Date())
         
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Station/\(station.StationID)/\(now)?$format=JSON"), on: client, completion: completion)
     }
     
     static func getTrainDetails(for train: String, client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil) {
-        
+        print("getting train details for \(train)")
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today/TrainNo/\(train)?$format=JSON"), on: client, completion: completion)
         
     }
@@ -32,6 +33,7 @@ public struct HSRService {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
         let now = dateFormatter.string(from: Date())
         
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin.StationID)/to/\(destination.StationID)/\(now)?$format=JSON"), on: client, completion: completion)
@@ -42,6 +44,7 @@ public struct HSRService {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Taipei")
         let now = dateFormatter.string(from: Date())
         
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin)/to/\(destination)/\(now)?$format=JSON"), on: client, completion: completion)
@@ -67,7 +70,7 @@ public struct HSRService {
                 let decoder = JSONDecoder()
                 do {
                     let res = try decoder.decode(T.self, from: data)
-//                    print(res)
+                    print(res)
                     completion?(res)
                 } catch {
                     print(error)
