@@ -78,18 +78,14 @@ struct TrainServiceLineDrawingEntry: View {
     
     let stationHeight: Double = 60.0
     
-    func overlayValid() -> Bool {
-        if ( stop == vm.getTrainProgress?.0 ) {
-            return true
-        }
-        return false
+    var showOverlay: Bool {
+        return stop == vm.getTrainProgress?.0
     }
     
-    func overlayCircleOffset() -> Double {
-        if (vm.trainIsAtAnyStation) {return 0}
+    var offset: Double {
+    if (vm.trainIsAtAnyStation) {return 0}
         if (stop == vm.getTrainProgress?.0) {
-            let offset =  (vm.getTrainProgress?.1 ?? 1.0)
-            return offset
+            return vm.getTrainProgress?.1 ?? 1.0
         }
         return 0
     }
@@ -142,24 +138,24 @@ struct TrainServiceLineDrawingEntry: View {
                             Rectangle().fill(Color.clear)
                                 .frame(width: 7.5, height: 7.5)
                             
-                            if (overlayValid()) {
+                            if (showOverlay) {
                                 VStack(spacing: 0) {
                                     Rectangle().fill(Color.gray.opacity(0.8))
-                                    .frame(width: 7.5, height: CGFloat(stationHeight * overlayCircleOffset()))
+                                    .frame(width: 7.5, height: CGFloat(stationHeight * offset))
                                     Rectangle().fill(Color.orange.opacity(0.8))
-                                        .frame(width: 7.5, height: CGFloat(stationHeight - (stationHeight * overlayCircleOffset())))
+                                        .frame(width: 7.5, height: CGFloat(stationHeight - (stationHeight * offset)))
                                 }
                                 .overlay(
                                     ZStack {
                                         Circle()
-                                            .strokeBorder(overlayValid() ? Color.primary : Color.clear , lineWidth: 2)
-                                            .background(Circle().foregroundColor(overlayValid() ? vm.train?.DailyTrainInfo.direction.color : .clear))
+                                            .strokeBorder(showOverlay ? Color.primary : Color.clear , lineWidth: 2)
+                                            .background(Circle().foregroundColor(showOverlay ? vm.train?.DailyTrainInfo.direction.color : .clear))
                                             .frame(width: 20, height: 20)
                                         Image(systemName: "tram.fill")
-                                            .foregroundColor(overlayValid() ? .white : .clear)
+                                            .foregroundColor(showOverlay ? .white : .clear)
                                             .font(.system(size: 10))
                                     }
-                                    .offset(y: CGFloat((stationHeight / -2) + overlayCircleOffset() * stationHeight))
+                                    .offset(y: CGFloat((stationHeight / -2) + offset * stationHeight))
                                     .frame(width: 15)
                                     
                                 )
@@ -169,14 +165,14 @@ struct TrainServiceLineDrawingEntry: View {
                                     .overlay(
                                         ZStack {
                                             Circle()
-                                                .strokeBorder(overlayValid() ? Color.primary : Color.clear , lineWidth: 2)
-                                                .background(Circle().foregroundColor(overlayValid() ? vm.train?.DailyTrainInfo.direction.color : .clear))
+                                                .strokeBorder(showOverlay ? Color.primary : Color.clear , lineWidth: 2)
+                                                .background(Circle().foregroundColor(showOverlay ? vm.train?.DailyTrainInfo.direction.color : .clear))
                                                 .frame(width: 20, height: 20)
                                             Image(systemName: "tram.fill")
-                                                .foregroundColor(overlayValid() ? .white : .clear)
+                                                .foregroundColor(showOverlay ? .white : .clear)
                                                 .font(.system(size: 10))
                                         }
-                                        .offset(y: CGFloat((stationHeight / -2) + overlayCircleOffset() * stationHeight))
+                                        .offset(y: CGFloat((stationHeight / -2) + offset * stationHeight))
                                         .frame(width: 15)
                                         
                                     )
@@ -193,7 +189,9 @@ struct TrainServiceLineDrawingEntry: View {
             
             
             
+            
         }
+        
         
     }
 }
