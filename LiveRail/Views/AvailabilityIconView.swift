@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AvailabilityIconView: View {
-    var text: String
+    var text: LocalizedStringKey
     var status: SeatAvailability
     var body: some View {
 //        VStack(alignment: .center) {
