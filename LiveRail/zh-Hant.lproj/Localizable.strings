@@ -23,6 +23,7 @@
 "Fetch" = "獲取";
 "DEVELOPER" = "開發者";
 "Visit location settings to enable location features" = "往設定開啟定位權限";
+"Enable" = "開啟";
 "Disclaimer: All times are in local time" = "時間為地方時間";
 "Data source: Taiwan PTX Transport API" = "資料來源：台灣交通部ＰＴＸ平臺";
 "%@ to %@" = "%@ 往 %@";
@@ -67,3 +68,4 @@
 
 "SELECT_STATION" = "下方選擇車站";
 "PICK_TO_VIEW_DEPARTURES" = "請選車站以便觀看離站資訊";
+
