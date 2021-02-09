@@ -20,7 +20,7 @@ struct TrainServiceView: View {
             VStack {
                 HStack {
                     VStack {
-                        Text("\(train.TrainNo) to \(train.EndingStationName.En)").font(.title).bold().foregroundColor(.white)
+                        Text("\(train.TrainNo) to \(train.EndingStationName.En.localized)").font(.title).bold().foregroundColor(.white)
                     }
                     Spacer()
                     Button(action: {
@@ -125,7 +125,7 @@ struct TrainServiceLineDrawingEntry: View {
                             Rectangle().fill(stopMarkColor.opacity(0.8))
                                 .frame(width: 15, height: 7.5)
 
-                        Text("\(stop.StationName.En)")
+                        Text(LocalizedStringKey(stop.StationName.En))
                         Spacer()
                     }
                 )

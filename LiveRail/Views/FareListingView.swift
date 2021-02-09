@@ -61,7 +61,7 @@ struct FareBlockView: View {
                 .frame(width: 5)
             VStack(alignment: .leading, spacing: -2) {
                 
-                Text("\(ticket.rawValue)")
+                Text(ticket.text())
                         .font(Font.system(.body).smallCaps())
                         .foregroundColor(ticket.color())
                 

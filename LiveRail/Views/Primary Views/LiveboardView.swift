@@ -30,12 +30,12 @@ struct LiveboardView: View {
                             .frame(height: 110)
                     }
                 } else {
-                        EmptyScreenView(icon: "questionmark.square.dashed", headline: "Select a station", description: "Pick a station to view its scheduled services", color: .purple)
+                        EmptyScreenView(icon: "questionmark.square.dashed", headline: "SELECT_STATION", description: "PICK_TO_VIEW_DEPARTURES", color: .purple)
                 }
                 
             }
             
-            LiveBoardPickerButtonView(station: data.stationName(from: timetableStation) ?? "Station", activeTimetable: $timetableIsActive)
+            LiveBoardPickerButtonView(station: LocalizedStringKey(data.stationName(from: timetableStation) ?? "Station"), activeTimetable: $timetableIsActive)
             
 
         }

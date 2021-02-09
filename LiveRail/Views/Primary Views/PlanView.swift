@@ -60,7 +60,7 @@ struct PlanView: View {
                 }
                 } else {
 
-                        EmptyScreenView(icon: "face.dashed", headline: "No trains found", description: "Try checking out different stations", color: .orange)
+                        EmptyScreenView(icon: "face.dashed", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .orange)
 
                 }
             }

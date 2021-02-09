@@ -16,7 +16,7 @@ struct TrainEntryListRowView: View {
             VStack(alignment: .leading, spacing: 5) {
                 HStack(spacing: 5) {
                     
-                    Text("\(train.direction.abbreviated)")
+                    Text(LocalizedStringKey(train.direction.abbreviated))
                         .font(Font.system(.subheadline, design: .rounded).bold())
                         .foregroundColor(train.direction.color)
                         .padding(4)
@@ -50,7 +50,7 @@ struct TrainEntryListRowView: View {
                     
                     VStack(alignment: .leading) {
                        
-                        Text("\(train.EndingStationName.En)").font(Font.system(.title, design: .rounded).weight(.semibold))
+                        Text(LocalizedStringKey(train.EndingStationName.En)).font(Font.system(.title, design: .rounded).weight(.semibold))
                     }
                     
                     Spacer()

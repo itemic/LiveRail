@@ -49,7 +49,7 @@ struct PlannerResultRowView: View {
                 .padding(.horizontal, 10)
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("\(entry.OriginStopTime.StationName.En)").foregroundColor(.secondary).font(Font.system(.caption))
+                        Text(LocalizedStringKey(entry.OriginStopTime.StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
                         Text("\(entry.OriginStopTime.DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
                     }
                     Spacer()
@@ -59,7 +59,7 @@ struct PlannerResultRowView: View {
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text("\(entry.DestinationStopTime.StationName.En)").foregroundColor(.secondary).font(Font.system(.caption))
+                        Text(LocalizedStringKey(entry.DestinationStopTime.StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
                         Text("\(entry.DestinationStopTime.ArrivalTime)").font(Font.system(.title, design: .rounded).monospacedDigit())
                     }
                 }

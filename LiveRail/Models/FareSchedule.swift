@@ -63,7 +63,7 @@ enum FareClass: String, CaseIterable {
         }
     }
     
-    func text() -> String {
+    func text() -> LocalizedStringKey {
         switch(self) {
         case .reserved: return "Standard"
         case .business: return "Business"

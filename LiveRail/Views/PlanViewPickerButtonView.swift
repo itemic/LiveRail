@@ -24,7 +24,7 @@ struct PlanViewPickerButtonView: View {
                         oActive = true
                     }
                 }) {
-                    Text(data.stationName(from:origin) ?? "Origin")
+                    Text(LocalizedStringKey(data.stationName(from:origin) ?? "Origin"))
                 }
                 .buttonStyle(OpacityChangingButton(.orange))
                 Button(action: {
@@ -44,7 +44,7 @@ struct PlanViewPickerButtonView: View {
                         dActive = true
                     }
                 }) {
-                    Text(data.stationName(from:destination) ?? "Destination")
+                    Text(LocalizedStringKey(data.stationName(from:destination) ?? "Destination"))
                 }
                 .buttonStyle(OpacityChangingButton(.orange))
             }

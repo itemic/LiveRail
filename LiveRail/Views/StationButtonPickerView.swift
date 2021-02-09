@@ -28,7 +28,7 @@ struct StationButtonPickerView: View {
         if (isActive) {
             GeometryReader { geo in
                 VStack {
-                    Text(title).font(.title).bold()
+                    Text(LocalizedStringKey(title)).font(.title).bold()
                     LazyVGrid(columns: columns, alignment: .center) {
                         ForEach(stations) {station in
                             
@@ -36,7 +36,7 @@ struct StationButtonPickerView: View {
                                 selectedStation = station.StationID
                                 isActive = false
                             }) {
-                                Text(station.StationName.En)
+                                Text(LocalizedStringKey(station.StationName.En))
                                     .font(.title3).bold()
                                     .padding(.vertical, 16)
                                     .foregroundColor(Color.primary)
@@ -65,7 +65,7 @@ struct StationButtonPickerView: View {
                         isActive = false
                     }) {
                         Label(
-                            title: { Text("\(nearest.StationName.En)").bold() },
+                            title: { Text(LocalizedStringKey(nearest.StationName.En)).bold() },
                             icon: { Image(systemName: "location.fill") }
                         )
                             

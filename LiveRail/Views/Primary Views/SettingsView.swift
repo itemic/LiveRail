@@ -181,21 +181,23 @@ struct SettingsView: View {
                         }
                         
                         
-                        VStack(alignment: .leading, spacing: 4) {
-                            Toggle(isOn: $enableTimeWarp, label: {
-                                HStack {
-                                    RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                        .fill(Color(UIColor.systemIndigo).opacity(0.2))
-                                        .frame(width: 28, height: 28)
-                                        .overlay(Image(systemName: "timelapse").font(.callout).foregroundColor(Color(UIColor.systemIndigo)))
-                                VStack(alignment: .leading) {
-                                    Text("Time Warp β")
-                                    Text("Look into the future...").font(.caption2).foregroundColor(.secondary)
-
-                                }
-                                }
-                            })
-                        }
+                        //TIME WARP
+                        
+//                        VStack(alignment: .leading, spacing: 4) {
+//                            Toggle(isOn: $enableTimeWarp, label: {
+//                                HStack {
+//                                    RoundedRectangle(cornerRadius: 6, style: .continuous)
+//                                        .fill(Color(UIColor.systemIndigo).opacity(0.2))
+//                                        .frame(width: 28, height: 28)
+//                                        .overlay(Image(systemName: "timelapse").font(.callout).foregroundColor(Color(UIColor.systemIndigo)))
+//                                VStack(alignment: .leading) {
+//                                    Text("Time Warp β")
+//                                    Text("Look into the future...").font(.caption2).foregroundColor(.secondary)
+//
+//                                }
+//                                }
+//                            })
+//                        }
                         
                     }
                     .padding()

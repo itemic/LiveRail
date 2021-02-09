@@ -40,3 +40,8 @@ struct BlurView: UIViewRepresentable {
     
 }
 
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+}

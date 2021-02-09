@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct LiveBoardPickerButtonView: View {
-    var station: String
+    var station: LocalizedStringKey
     @Binding var activeTimetable: Bool
     
     var body: some View {

@@ -6,3 +6,8 @@
   
 */
 
+"SELECT_STATION" = "Select a station.";
+"PICK_TO_VIEW_DEPARTURES" = "Pick a station to view its scheduled services.";
+
+"NO_TRAINS" = "No trains found.";
+"CHOOSE_OTHER" = "Try checking out different stations.";

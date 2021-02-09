@@ -17,7 +17,7 @@
 "Data update time" = "資料更新時間";
 "Fetch data" = "獲取資料";
 "Get updated data from PTX" = "從ＰＴＸ平台更新資料";
-"Terms of Service" = "使用者條款";
+"Terms of Service" = "使用者條款/免責聲明";
 " and " = "與";
 "Privacy Policy" = "隐私政策";
 "Fetch" = "獲取";
@@ -25,8 +25,45 @@
 "Visit location settings to enable location features" = "往設定開啟定位權限";
 "Disclaimer: All times are in local time" = "時間為地方時間";
 "Data source: Taiwan PTX Transport API" = "資料來源：台灣交通部ＰＴＸ平臺";
-"to" = "往";
+"%@ to %@" = "%@ 往 %@";
 "DEPARTED" = "已離站";
 "LEAVING SOON" = "準備發車";
 "TWD" = "新台幣";
 "Business" = "商務座";
+"Standard" = "對號座";
+"Nonrsrvd" = "自由座";
+
+"Improved date/time functionality coming soon" = "加強版日期功能敬請期待";
+"This little disclaimer courtesy of Austin" = "Austin建議的功能！";
+"Thanks Austin!" = "謝謝Austin!";
+
+"Departures" = "離站時刻表";
+"Trains" = "車次查詢";
+
+"Station" = "車站";
+"View Timetable" = "時刻表";
+
+// STATIONS
+"Zuoying" = "左營";
+"Tainan" = "台南";
+"Chiayi" = "嘉義";
+"Yunlin" = "雲林";
+"Changhua" = "彰化";
+"Taichung" = "台中";
+"Miaoli" = "苗栗";
+"Hsinchu" = "新竹";
+"Taoyuan" = "桃園";
+"Banqiao" = "板橋";
+"Taipei" = "台北";
+"Nangang" = "南港";
+
+"This view is not updated live." = "本頁非動態";
+
+"N" = "北上";
+"S" = "南下";
+
+"NO_TRAINS" = "沒有找到班次";
+"CHOOSE_OTHER" = "試試別的車站吧";
+
+"SELECT_STATION" = "下方選擇車站";
+"PICK_TO_VIEW_DEPARTURES" = "請選車站以便觀看離站資訊";

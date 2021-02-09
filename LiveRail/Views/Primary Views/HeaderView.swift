@@ -93,7 +93,7 @@ struct HeaderView: View {
 
 
 struct HeaderIcon: View {
-    var text: String
+    var text: LocalizedStringKey
     var icon: String
     var color: Color
     

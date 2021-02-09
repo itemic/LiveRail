@@ -18,9 +18,9 @@ struct EmptyScreenView: View {
             Image(systemName: icon).imageScale(.large)
                 .foregroundColor(color).font(.system(size: 64))
                 .fixedSize()
-            Text(headline)
+            Text(LocalizedStringKey(headline))
                 .font(.headline)
-            Text(description).font(.subheadline)
+            Text(LocalizedStringKey(description)).font(.subheadline)
                 .multilineTextAlignment(.center)
         }
         .padding()
