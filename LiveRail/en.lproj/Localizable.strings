@@ -11,3 +11,5 @@
 
 "NO_TRAINS" = "No trains found.";
 "CHOOSE_OTHER" = "Try checking out different stations.";
+
+"NOT_LIVE" = "This view is not a live representation of this service.";

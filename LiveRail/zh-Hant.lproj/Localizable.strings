@@ -58,7 +58,7 @@
 "Taipei" = "台北";
 "Nangang" = "南港";
 
-"This view is not updated live." = "本頁非動態";
+"NOT_LIVE" = "本頁非動態";
 
 "N" = "北上";
 "S" = "南下";

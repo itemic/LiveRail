@@ -23,6 +23,8 @@ struct TrainEntryListRowView: View {
                         .background(train.direction.color.opacity(0.15))
                         .cornerRadius(5)
                     
+                    
+                    
                     Text("\(train.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
                     
                     Spacer()

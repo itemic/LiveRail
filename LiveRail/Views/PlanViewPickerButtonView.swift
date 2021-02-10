@@ -33,7 +33,7 @@ struct PlanViewPickerButtonView: View {
                     VStack {
                         VStack {
                             Image(systemName: "arrow.triangle.2.circlepath")
-                                .font(.title)
+                                .font(.title2)
                                 .rotationEffect(Angle.degrees(rotation))
                                 .animation(.easeOut)
                         }
