@@ -75,3 +75,6 @@
 
 "Station dots" = "停靠站點";
 "Display stopping stations at a glance." = "快速觀看停靠站";
+
+"$S$" = "南";
+"$N$" = "北";

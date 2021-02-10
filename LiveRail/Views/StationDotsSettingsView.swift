@@ -18,6 +18,8 @@ struct StationDotsSettingsView: View {
     var sharedEdge: some View {
         VStack(spacing: 4) {
             HStack(spacing: 4) {
+                Text("$S$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
@@ -31,16 +33,14 @@ struct StationDotsSettingsView: View {
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
                 Circle()
-                    .fill(Color.orange)
-                    .frame(width: 7, height: 7)
-                Circle()
                     .fill(Color.blue)
                     .frame(width: 7, height: 7)
+                Text("$N$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
             }
             HStack(spacing: 4) {
-                Circle()
-                    .fill(Color.orange)
-                    .frame(width: 7, height: 7)
+                Text("$N$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
@@ -56,6 +56,8 @@ struct StationDotsSettingsView: View {
                 Circle()
                     .fill(Color.green)
                     .frame(width: 7, height: 7)
+                Text("$S$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
             }
             
 //            Text("Same Direction").font(.caption)
@@ -64,11 +66,10 @@ struct StationDotsSettingsView: View {
     var northSouth: some View {
         VStack(spacing: 4) {
             HStack(spacing: 4) {
+                Text("$N$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
                 Circle()
                     .fill(Color.blue)
-                    .frame(width: 7, height: 7)
-                Circle()
-                    .fill(Color.orange)
                     .frame(width: 7, height: 7)
                 Circle()
                     .fill(Color.orange)
@@ -82,11 +83,12 @@ struct StationDotsSettingsView: View {
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
+                Text("$S$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
             }
             HStack(spacing: 4) {
-                Circle()
-                    .fill(Color.orange)
-                    .frame(width: 7, height: 7)
+                Text("$N$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
@@ -102,6 +104,8 @@ struct StationDotsSettingsView: View {
                 Circle()
                     .fill(Color.green)
                     .frame(width: 7, height: 7)
+                Text("$S$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
             }
             
 //            Text("North-South").font(.caption)
@@ -111,6 +115,8 @@ struct StationDotsSettingsView: View {
     var southNorth: some View {
         VStack(spacing: 4) {
             HStack(spacing: 4) {
+                Text("$S$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
@@ -124,13 +130,14 @@ struct StationDotsSettingsView: View {
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
                 Circle()
-                    .fill(Color.orange)
-                    .frame(width: 7, height: 7)
-                Circle()
                     .fill(Color.blue)
                     .frame(width: 7, height: 7)
+                Text("$N$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
             }
             HStack(spacing: 4) {
+                Text("$S$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
                 Circle()
                     .fill(Color.green)
                     .frame(width: 7, height: 7)
@@ -146,9 +153,8 @@ struct StationDotsSettingsView: View {
                 Circle()
                     .fill(Color.orange)
                     .frame(width: 7, height: 7)
-                Circle()
-                    .fill(Color.orange)
-                    .frame(width: 7, height: 7)
+                Text("$N$")
+                    .font(.system(size: 10, weight: .semibold, design: .monospaced))
             }
             
 //            Text("South-North").font(.caption)
@@ -159,7 +165,7 @@ struct StationDotsSettingsView: View {
     var body: some View {
         VStack(alignment: .center) {
             HStack {
-                Spacer()
+                
                 sharedEdge
                     .padding(10)
                     .background(Color(UIColor.tertiarySystemFill))
@@ -189,7 +195,7 @@ struct StationDotsSettingsView: View {
                     .onTapGesture {
                         stationDotsChoice = SOUTH_NORTH
                     }
-                Spacer()
+                
             }
             
             switch (stationDotsChoice) {
