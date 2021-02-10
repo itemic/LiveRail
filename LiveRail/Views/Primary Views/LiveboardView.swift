@@ -22,7 +22,7 @@ struct LiveboardView: View {
                 if (!timetableStation.isEmpty) {
                     ScrollView {
                         Spacer()
-                            .frame(height: 150)
+                            .frame(height: 120)
                         if (data.station(from: timetableStation) != nil) {
                             StationTimetableView(station: data.station(from: timetableStation)!)
                         }

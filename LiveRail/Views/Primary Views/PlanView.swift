@@ -30,7 +30,7 @@ struct PlanView: View {
                 if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
                 ScrollView(showsIndicators: false) {
                     Spacer()
-                        .frame(height: 150)
+                        .frame(height: 120)
                     VStack {
                         
                         FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)

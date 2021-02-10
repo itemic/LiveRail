@@ -21,7 +21,7 @@ struct HeaderView: View {
                 
                 ZStack {
                     Spacer()
-                        .frame(height: 55)
+                        .frame(height: 20)
                         
                             
                             
@@ -51,7 +51,7 @@ struct HeaderView: View {
                     HStack {
                         HStack {
                             HeaderIcon(text: "Departures", icon: "list.bullet.rectangle", color: .purple, view: .timetableView, current: $currentView)
-                            HeaderIcon(text: "Trains", icon: "timer.square", color: .orange, view: .plannerView, current: $currentView)
+                            HeaderIcon(text: "Trains", icon: "arrow.left.and.right.square", color: .orange, view: .plannerView, current: $currentView)
                             Spacer()
                         }
                         
@@ -83,7 +83,7 @@ struct HeaderView: View {
                 }
                 
             }
-            .padding()
+            .padding(20)
             .background(BlurView(style: .systemThinMaterial))
             Spacer()
         }
