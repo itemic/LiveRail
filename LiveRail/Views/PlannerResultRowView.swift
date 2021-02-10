@@ -46,7 +46,7 @@ struct PlannerResultRowView: View {
                     }
                     
                 }
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 5)
                 HStack {
                     VStack(alignment: .leading) {
                         Text(LocalizedStringKey(entry.OriginStopTime.StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
@@ -63,7 +63,7 @@ struct PlannerResultRowView: View {
                         Text("\(entry.DestinationStopTime.ArrivalTime)").font(Font.system(.title, design: .rounded).monospacedDigit())
                     }
                 }
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 5)
                 
                 if (extended) {
 //                    
@@ -71,8 +71,8 @@ struct PlannerResultRowView: View {
                 }
                 
             }
-            //            .padding(.horizontal, 10)
-            .padding(.vertical, 10)
+            
+            .padding(.vertical, 5)
             .background(Color(UIColor.secondarySystemGroupedBackground))
             
         }

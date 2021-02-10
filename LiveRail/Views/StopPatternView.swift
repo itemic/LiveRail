@@ -10,12 +10,26 @@ import SwiftUI
 struct StopPatternView: View {
     @StateObject var data = HSRDataStore.shared
     var daily: RailDailyTimetable
+    @AppStorage("stationDotsChoice") var stationDotsChoice = 1
+
     var stations: [Station] {
-        data.stations // reverse would be confusing
-//        switch (daily.DailyTrainInfo.direction) {
-//        case .northbound: return data.stations.reversed()
-//        case .southbound: return data.stations
-//        }
+        
+        if stationDotsChoice == 1 {
+            switch (daily.DailyTrainInfo.direction) {
+            case .northbound: return data.stations.reversed()
+            case .southbound: return data.stations
+            }
+        } else if stationDotsChoice == 2 {
+            return data.stations
+        } else if stationDotsChoice == 3 {
+            return data.stations.reversed()
+        } else {
+            // default is (2)
+            return data.stations
+        }
+        
+        
+
     }
     var stoppingStations: [Station] {
         var result: [Station] = []
@@ -36,13 +50,13 @@ struct StopPatternView: View {
                     if (station.StationID == daily.DailyTrainInfo.EndingStationID) {
                         Circle()
                             .fill(daily.DailyTrainInfo.direction.color)
-                            .frame(width: 7)
+                            .frame(width: 7, height: 7)
   
                         
                     } else {
                     Circle()
                         .fill(Color.orange)
-                        .frame(width: 7)
+                        .frame(width: 7, height: 7)
                     }
                 } else {
                 
@@ -50,7 +64,7 @@ struct StopPatternView: View {
                 
                 Circle()
                     .fill(Color.secondary)
-                    .frame(width: 7)
+                    .frame(width: 7, height: 7)
                 }
             }
 

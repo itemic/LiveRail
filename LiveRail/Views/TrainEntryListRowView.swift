@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TrainEntryListRowView: View {
     @StateObject var data = HSRDataStore.shared
-    
+    @State var showPopover = false
+    @AppStorage("showStopDots") var showStopDots = true
+
     var train: StationTimetable
     
     var body: some View {
-        
+        ZStack(alignment: .bottomTrailing) {
         HStack {
             VStack(alignment: .leading, spacing: 5) {
                 HStack(spacing: 5) {
@@ -31,7 +33,7 @@ struct TrainEntryListRowView: View {
                     
                     
                     
-                    
+                    Spacer()
                     
                     if (!train.willDepartAfterNow) {
                         Text("DEPARTED")
@@ -48,12 +50,14 @@ struct TrainEntryListRowView: View {
                             .background(Color.orange.opacity(0.2))
                             .cornerRadius(5)
                     }
-                    Spacer()
-                    StopPatternView(daily: data.getDailyFromStation(stt: train)!)
+                    
+                    
+                        
+                        
 
                     
                 }
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 5)
                 
                 HStack {
                     
@@ -63,18 +67,36 @@ struct TrainEntryListRowView: View {
                     }
                    
                     Spacer()
+                    
                 Text("\(train.DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
-//                    Spacer()
+                    
                 }
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 5)
+                
+                
             }
-            .padding(.vertical, 10)
+            
+            .padding(.bottom, 10)
+            .padding(.top, 5)
             .background(Color(UIColor.secondarySystemGroupedBackground))
+            
+            
+               
+        
         }
         .padding(.leading, 10)
         .background(train.direction.color)
         .cornerRadius(5)
+            
+
+            if(showStopDots) {
+            VStack {
+                StopPatternView(daily: data.getDailyFromStation(stt: train)!)
+                    .padding([.bottom, .trailing], 5)
+            }
+            }
         
+    }//a
         
     
   

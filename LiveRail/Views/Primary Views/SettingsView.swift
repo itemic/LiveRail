@@ -12,7 +12,10 @@ struct SettingsView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showNearestStation") var showNearestStation = true
-    @AppStorage("nextDepartureEntries") var nextDepartureEntries = 1
+    
+    
+    @AppStorage("showStopDots") var showStopDots = true
+    @AppStorage("stationDotsChoice") var stationDotsChoice = 1
     
     @AppStorage("enableLocationFeatures") var enableLocationFeatures = false
     @AppStorage("enableTimeWarp") var enableTimeWarp = false
@@ -43,6 +46,7 @@ struct SettingsView: View {
                 }
                 .padding(.bottom, 20)
                 
+                // First bunch
                 VStack(spacing: 20) {
                     VStack(alignment: .leading, spacing: 4) {
                         Toggle(isOn: $showAvailable, label: {
@@ -83,6 +87,38 @@ struct SettingsView: View {
                 
                 Spacer()
                 
+                //MARK: Station dots
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Toggle(isOn: $showStopDots.animation(), label: {
+                            HStack {
+                                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                                    .fill(Color.green.opacity(0.2))
+                                    .frame(width: 28, height: 28)
+                                    .overlay(Image(systemName: "ellipsis").font(.callout).foregroundColor(.green))
+                                VStack(alignment: .leading) {
+                                    Text("Station dots")
+                                    Text("Display stopping stations at a glance.").font(.caption2).foregroundColor(.secondary)
+                                    
+                                }
+                            }
+                        })
+                    }
+                    
+                    if (showStopDots) {
+                    StationDotsSettingsView()
+                    
+                    }
+                    
+                }
+                .padding()
+                .background(Color(UIColor.secondarySystemGroupedBackground))
+                .cornerRadius(10)
+                
+                Spacer()
+                
+                
+                //MARK: location
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
                         HStack {
@@ -93,7 +129,7 @@ struct SettingsView: View {
                                     .overlay(Image(systemName: "location.fill").font(.callout).foregroundColor(.blue))
                                 
                                 VStack(alignment: .leading) {
-                                    Text("Location Features")
+                                    Text("Location features")
                                     Text("Nearby station shortcuts").font(.caption2).foregroundColor(.secondary)
                                 }
                                 Spacer()

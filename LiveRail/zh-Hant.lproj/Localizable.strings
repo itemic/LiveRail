@@ -12,7 +12,7 @@
 "Show trains that have departed." = "顯示已離站車次";
 "Arrivals" = "到達站";
 "Show arrivals at terminus stations." = "顯示終點站到達車次";
-"Location Features" = "定位服務";
+"Location features" = "定位服務";
 "Nearby station shortcuts" = "最近車站捷徑";
 "Data update time" = "資料更新時間";
 "Fetch data" = "獲取資料";
@@ -69,3 +69,9 @@
 "SELECT_STATION" = "下方選擇車站";
 "PICK_TO_VIEW_DEPARTURES" = "請選車站以便觀看離站資訊";
 
+"DESCRIPTION_EDGE_DESTINATION" = "終點站位於邊";
+"DESCRIPTION_NORTH_SOUTH" = "由北往南";
+"DESCRIPTION_SOUTH_NORTH" = "由南往北";
+
+"Station dots" = "停靠站點";
+"Display stopping stations at a glance." = "快速觀看停靠站";

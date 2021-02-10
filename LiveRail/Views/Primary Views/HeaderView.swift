@@ -83,7 +83,7 @@ struct HeaderView: View {
                 }
                 
             }
-            .padding(20)
+            .padding(15)
             .background(BlurView(style: .systemThinMaterial))
             Spacer()
         }

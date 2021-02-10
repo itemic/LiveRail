@@ -13,3 +13,7 @@
 "CHOOSE_OTHER" = "Try checking out different stations.";
 
 "NOT_LIVE" = "This view is not a live representation of this service.";
+
+"DESCRIPTION_EDGE_DESTINATION" = "Terminus stations shown at edge.";
+"DESCRIPTION_NORTH_SOUTH" = "Stations shown in same order, from north to south.";
+"DESCRIPTION_SOUTH_NORTH" = "Stations shown in same order, from south to north.";

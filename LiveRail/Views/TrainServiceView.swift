@@ -27,6 +27,7 @@ struct TrainServiceView: View {
                         .cornerRadius(5)
                     VStack(alignment: .leading) {
                         Text("\(train.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
+                            .foregroundColor(.white)
                         Text(train.EndingStationName.En.localized).font(.title2).bold().foregroundColor(.white)
 
                     }
