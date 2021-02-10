@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TrainEntryListRowView: View {
+    @StateObject var data = HSRDataStore.shared
+    
     var train: StationTimetable
     
     var body: some View {
@@ -27,7 +29,7 @@ struct TrainEntryListRowView: View {
                     
                     Text("\(train.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
                     
-                    Spacer()
+                    
                     
                     
                     
@@ -46,15 +48,20 @@ struct TrainEntryListRowView: View {
                             .background(Color.orange.opacity(0.2))
                             .cornerRadius(5)
                     }
+                    Spacer()
+                    StopPatternView(daily: data.getDailyFromStation(stt: train)!)
+
+                    
                 }
                 .padding(.horizontal, 10)
+                
                 HStack {
                     
                     VStack(alignment: .leading) {
                        
                         Text(LocalizedStringKey(train.EndingStationName.En)).font(Font.system(.title, design: .rounded).weight(.semibold))
                     }
-                    
+                   
                     Spacer()
                 Text("\(train.DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
 //                    Spacer()

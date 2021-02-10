@@ -14,6 +14,12 @@ public struct HSRService {
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/Station?$top=30&$format=JSON"), on: client, completion: completion)
     }
     
+    static func getRailDailyTimetable(client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil) {
+        
+        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today"), on: client, completion: completion)
+        
+    }
+    
     static func getTimetable(for station: Station, client: NetworkManager, completion: (([StationTimetable]) -> Void)? = nil) {
         
         let now = df.taiwanTZString(from: Date())

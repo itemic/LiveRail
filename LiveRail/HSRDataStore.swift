@@ -13,6 +13,7 @@ final class HSRDataStore: ObservableObject {
     
     @Published var stationTimetableDict: [Station: [StationTimetable]] = [:]
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
+    @Published var dailyTimetable: [RailDailyTimetable] = []
     
     public static let shared = HSRDataStore(client: .init())
     
@@ -24,8 +25,6 @@ final class HSRDataStore: ObservableObject {
     
     func reload(client: NetworkManager) {
         
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "MMM dd, yyyy HH:mm:ss (+z)"
             lastUpdateDate = Date(timeIntervalSince1970: 0)
             HSRService.getHSRStations(client: client) {[weak self] stations in
                 DispatchQueue.main.async {
@@ -47,6 +46,18 @@ final class HSRDataStore: ObservableObject {
                 }
                 
             }
+        
+        HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
+            DispatchQueue.main.async {
+                self?.dailyTimetable = dt
+            }
+        }
+    }
+    
+    func getDailyFromStation(stt: StationTimetable) -> RailDailyTimetable? {
+        return dailyTimetable.first {
+            $0.DailyTrainInfo.TrainNo == stt.TrainNo
+        }
     }
     
     func getStationTimetable(from station: Station, train: String) -> StationTimetable? {
