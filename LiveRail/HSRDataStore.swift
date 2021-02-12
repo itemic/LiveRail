@@ -18,6 +18,7 @@ final class HSRDataStore: ObservableObject {
     public static let shared = HSRDataStore(client: .init())
     
     // TODO: Save station list to local storage
+    // TODO: Crash after new day fix cache or something
     init(client: NetworkManager) {
         self.reload(client: client)
         
@@ -26,6 +27,12 @@ final class HSRDataStore: ObservableObject {
     func reload(client: NetworkManager) {
         
             lastUpdateDate = Date(timeIntervalSince1970: 0)
+        
+            HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
+                DispatchQueue.main.async {
+                    self?.dailyTimetable = dt
+                }
+            }
             HSRService.getHSRStations(client: client) {[weak self] stations in
                 DispatchQueue.main.async {
                     self?.stations = stations
@@ -47,11 +54,7 @@ final class HSRDataStore: ObservableObject {
                 
             }
         
-        HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
-            DispatchQueue.main.async {
-                self?.dailyTimetable = dt
-            }
-        }
+        
     }
     
     func getDailyFromStation(stt: StationTimetable) -> RailDailyTimetable? {

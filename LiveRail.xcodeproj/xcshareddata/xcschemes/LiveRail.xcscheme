@@ -50,18 +50,6 @@
             ReferencedContainer = "container:LiveRail.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "appKey"
-            value = "ZhZ6bBbNlRE1H3b1eL6muP59SOU"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "appID"
-            value = "256d110b46c84ddc933ffcda415e1f54"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

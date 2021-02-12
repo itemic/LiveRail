@@ -91,8 +91,10 @@ struct TrainEntryListRowView: View {
 
             if(showStopDots) {
             VStack {
+                if (data.getDailyFromStation(stt: train) != nil) {
                 StopPatternView(daily: data.getDailyFromStation(stt: train)!)
                     .padding([.bottom, .trailing], 5)
+                }
             }
             }
         
