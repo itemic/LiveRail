@@ -10,21 +10,27 @@ import SwiftUI
 
 
 struct LiveBoardPickerButtonView: View {
-    var station: LocalizedStringKey
-    @Binding var activeTimetable: Bool
+    @StateObject var data = HSRDataStore.shared
+    @Binding var stn: String
+    @State var active = false
+    
     
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Button(action: {
-                    withAnimation {
-                        activeTimetable = true
-                    }
+                    
+                        active = true
+                    
                 }) {
-                            Text(station)
+                            Text(LocalizedStringKey(data.stationName(from: stn) ?? "Station"))
                 }
                 .buttonStyle(OpacityChangingButton(.purple))
+                .sheet(isPresented: $active) {
+                                    StationListPickerSheetView(title: "View Timetable", stations: data.stations, selectedStation: $stn, color: .purple)
+
+                }
                                     
             }
             .padding()

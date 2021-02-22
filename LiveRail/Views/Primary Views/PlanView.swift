@@ -20,7 +20,7 @@ struct PlanView: View {
     @State private var rotationAmount = 0.0
     
     @State var selectedTimetable: StationTimetable? = nil
-    
+   
     var body: some View {
         ZStack {
             //MARK: ONE
@@ -57,10 +57,15 @@ struct PlanView: View {
                             .frame(height: 110)
                     }
                     .padding(.horizontal)
+                    .sheet(item: $selectedTimetable) {
+                        TrainServiceView(train: $0)
+                    }
+                    
                 }
                 } else {
 
-                        EmptyScreenView(icon: "face.dashed", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .orange)
+                    EmptyScreenView(icon: "face.dashed", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .orange)
+ 
 
                 }
             }
@@ -68,7 +73,7 @@ struct PlanView: View {
             
             
             //MARK: TWO
-            PlanViewPickerButtonView(origin: $startingStation, destination: $endingStation, oActive: $originIsActive, dActive: $destinationIsActive, rotation: rotationAmount)
+            PlanViewPickerButtonView(origin: $startingStation, destination: $endingStation, rotation: rotationAmount)
             
         }
         .background(Color(UIColor.systemGroupedBackground))
@@ -86,10 +91,7 @@ struct PlanView: View {
                 sendHaptics()
             }
         }
-        .sheet(item: $selectedTimetable) {
-            TrainServiceView(train: $0)
-        }
-        
+       
     }
     
     

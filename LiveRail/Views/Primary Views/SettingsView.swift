@@ -32,7 +32,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {
-                        Text("Settings").font(.title).bold()
+                        Text("Settings").font(Font.system(.title, design: .rounded)).bold()
                         Spacer()
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
@@ -45,16 +45,17 @@ struct SettingsView: View {
                     }
                 }
                 .padding(.bottom, 20)
+                .padding(4)
                 
                 // First bunch
                 VStack(spacing: 20) {
                     VStack(alignment: .leading, spacing: 4) {
                         Toggle(isOn: $showAvailable, label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Color.yellow.opacity(0.2))
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color.yellow)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "sparkles").font(.callout).foregroundColor(.yellow))
+                                    .overlay(Image(systemName: "sparkles").font(.callout).foregroundColor(.white))
                                 VStack(alignment: .leading) {
                                     Text("Departed services")
                                     Text("Show trains that have departed.").font(.caption2).foregroundColor(.secondary)
@@ -67,10 +68,10 @@ struct SettingsView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Toggle(isOn: $showArrivals, label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Color.purple.opacity(0.2))
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color.purple)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "checkerboard.rectangle").font(.callout).foregroundColor(.purple))
+                                    .overlay(Image(systemName: "checkerboard.rectangle").font(.callout).foregroundColor(.white))
                                 VStack(alignment: .leading) {
                                     Text("Arrivals")
                                     Text("Show arrivals at terminus stations.").font(.caption2).foregroundColor(.secondary)
@@ -92,10 +93,10 @@ struct SettingsView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Toggle(isOn: $showStopDots.animation(), label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Color.green.opacity(0.2))
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color.green)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "ellipsis").font(.callout).foregroundColor(.green))
+                                    .overlay(Image(systemName: "ellipsis").font(.callout).foregroundColor(.white))
                                 VStack(alignment: .leading) {
                                     Text("Station dots")
                                     Text("Display stopping stations at a glance.").font(.caption2).foregroundColor(.secondary)
@@ -123,10 +124,10 @@ struct SettingsView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             HStack {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Color.blue.opacity(0.2))
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color.blue)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "location.fill").font(.callout).foregroundColor(.blue))
+                                    .overlay(Image(systemName: "location.fill").font(.callout).foregroundColor(.white))
                                 
                                 VStack(alignment: .leading) {
                                     Text("Location features")
@@ -182,10 +183,10 @@ struct SettingsView: View {
                     VStack(spacing: 20) {
                         HStack {
                             HStack {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Color.red.opacity(0.2))
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color.red)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "calendar.badge.clock").font(.callout).foregroundColor(.red))
+                                    .overlay(Image(systemName: "calendar.badge.clock").font(.callout).foregroundColor(.white))
                                 
                                 Text("Data update time")
                                 Spacer()
@@ -194,10 +195,10 @@ struct SettingsView: View {
                         }
                         HStack {
                             HStack {
-                                RoundedRectangle(cornerRadius: 6, style: .continuous)
-                                    .fill(Color(UIColor.systemTeal).opacity(0.2))
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color(UIColor.systemTeal))
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "network").font(.callout).foregroundColor(Color(UIColor.systemTeal)))
+                                    .overlay(Image(systemName: "network").font(.callout).foregroundColor(.white))
                                 
                                 VStack(alignment: .leading) {
                                     Text("Fetch data")
@@ -222,7 +223,7 @@ struct SettingsView: View {
 //                        VStack(alignment: .leading, spacing: 4) {
 //                            Toggle(isOn: $enableTimeWarp, label: {
 //                                HStack {
-//                                    RoundedRectangle(cornerRadius: 6, style: .continuous)
+//                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
 //                                        .fill(Color(UIColor.systemIndigo).opacity(0.2))
 //                                        .frame(width: 28, height: 28)
 //                                        .overlay(Image(systemName: "timelapse").font(.callout).foregroundColor(Color(UIColor.systemIndigo)))

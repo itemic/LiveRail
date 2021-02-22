@@ -31,6 +31,7 @@ struct PrimaryView: View {
     @State private var currentView: RailViews = .plannerView
     
     @State private var showingTimetable: StationTimetable?
+    @State private var showTest = false
     @StateObject var lm = LocationManager.shared
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
@@ -48,6 +49,8 @@ struct PrimaryView: View {
             }
             
             HeaderView(currentView: $currentView, showingSettings: $showingSettings)
+            
+            
             
             
             //MARK: 2
@@ -108,7 +111,7 @@ public struct CustomButtonStyle: ButtonStyle {
             .foregroundColor(Color.white)
             .frame(maxWidth: .infinity)
             .background(
-                RoundedRectangle(cornerRadius: 14.0, style: .continuous)
+                RoundedRectangle(cornerRadius: 10.0, style: .continuous)
                     .fill(Color.accentColor)
             )
             .opacity(configuration.isPressed ? 0.4 : 1.0)
@@ -126,8 +129,8 @@ public struct OpacityChangingButton: ButtonStyle {
         configuration.label
             .foregroundColor(.white)
             .font(Font.system(.title2).bold())
-            .frame(maxWidth: .infinity, minHeight: 60)
-            .background(RoundedRectangle(cornerRadius: 25, style: .continuous)
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
                             .fill(color))
             .opacity(configuration.isPressed ? 0.4 : 1.0)
     }

@@ -35,7 +35,7 @@ struct LiveboardView: View {
                 
             }
             
-            LiveBoardPickerButtonView(station: LocalizedStringKey(data.stationName(from: timetableStation) ?? "Station"), activeTimetable: $timetableIsActive)
+            LiveBoardPickerButtonView(stn: $timetableStation)
             
 
         }

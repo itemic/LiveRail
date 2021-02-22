@@ -30,9 +30,9 @@
 "DEPARTED" = "已離站";
 "LEAVING SOON" = "準備發車";
 "TWD" = "新台幣";
-"Business" = "商務座";
+"Business" = "商務車廂";
 "Standard" = "對號座";
-"Nonrsrvd" = "自由座";
+"Nonreserved" = "自由座";
 
 "Improved date/time functionality coming soon" = "加強版日期功能敬請期待";
 "This little disclaimer courtesy of Austin" = "Austin建議的功能！";

@@ -11,42 +11,55 @@ struct PlanViewPickerButtonView: View {
     @StateObject var data = HSRDataStore.shared
     @Binding var origin: String
     @Binding var destination: String
-    @Binding var oActive: Bool
-    @Binding var dActive: Bool
+    
+    @State var ooActive = false
+    @State var ddActive = false
+    
     @State var rotation: Double
+    
+//    @State var startingStation = ""
+//    @State var endingStation = ""
     
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Button(action: {
-                    withAnimation {
-                        oActive = true
-                    }
+                    
+                        ooActive = true
                 }) {
                     Text(LocalizedStringKey(data.stationName(from:origin) ?? "Origin"))
+                        
                 }
                 .buttonStyle(OpacityChangingButton(.orange))
+                .sheet(isPresented: $ooActive) {
+                                    StationListPickerSheetView(title: "Origin", stations: data.stations, selectedStation: $origin, color: .orange)
+
+                }
+                
                 Button(action: {
                     flipStations()
                 }) {
                     VStack {
                         VStack {
-                            Image(systemName: "arrow.triangle.2.circlepath")
+                            Image(systemName: "arrow.left.arrow.right")
                                 .font(.title2)
-                                .rotationEffect(Angle.degrees(rotation))
-                                .animation(.easeOut)
+                                
                         }
                     }
                 }
                 Button(action: {
-                    withAnimation {
-                        dActive = true
-                    }
+                    
+                        ddActive = true
+                    
                 }) {
                     Text(LocalizedStringKey(data.stationName(from:destination) ?? "Destination"))
                 }
                 .buttonStyle(OpacityChangingButton(.orange))
+                .sheet(isPresented: $ddActive) {
+                                    StationListPickerSheetView(title: "Destination", stations: data.stations, selectedStation: $destination, color: .orange)
+
+                }
             }
             .padding()
             .padding(.bottom, 15)

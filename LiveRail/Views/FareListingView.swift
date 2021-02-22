@@ -61,15 +61,18 @@ struct FareBlockView: View {
                 .frame(width: 5)
             VStack(alignment: .leading, spacing: -2) {
                 
-                Text(ticket.text())
-                        .font(Font.system(.body).smallCaps())
-                        .foregroundColor(ticket.color())
+                
                 
                 
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
-                    Text("\(String(cost))").font(Font.system(.title3, design: .rounded).monospacedDigit())
+                    Text("\(String(cost))").font(Font.system(.title2, design: .rounded).monospacedDigit())
                 Text("TWD").font(.caption2).foregroundColor(.secondary)
+                    
+                    
                 }
+                Text(ticket.text())
+                        .font(Font.system(.footnote).smallCaps())
+                        .foregroundColor(ticket.color())
             }
         }
     }

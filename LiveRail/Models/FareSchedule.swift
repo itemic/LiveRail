@@ -67,7 +67,7 @@ enum FareClass: String, CaseIterable {
         switch(self) {
         case .reserved: return "Standard"
         case .business: return "Business"
-        case .nonreserved: return "Nonrsrvd"
+        case .nonreserved: return "Nonreserved"
         }
     }
 }

@@ -42,7 +42,7 @@ struct StationButtonPickerView: View {
                                     .foregroundColor(Color.primary)
                                     .frame(maxWidth: .infinity)
                                     .background(
-                                        RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
                                             .fill(station.StationID == selectedStation ? color : color.opacity(0.2))
                                     )
                             }
@@ -75,7 +75,7 @@ struct StationButtonPickerView: View {
                             .foregroundColor(Color.primary)
                             .frame(maxWidth: .infinity)
                             .background(
-                            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(nearest.StationID == selectedStation ? color : color.opacity(0.2))
                             )
                     }

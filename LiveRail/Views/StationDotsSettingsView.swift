@@ -170,7 +170,7 @@ struct StationDotsSettingsView: View {
                     .padding(10)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10, style: .circular)
+                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .stroke(stationDotsChoice == EDGE_DESTINATION ? Color.green : Color.clear))
                     .onTapGesture {
                         stationDotsChoice = EDGE_DESTINATION
@@ -180,7 +180,7 @@ struct StationDotsSettingsView: View {
                     .padding(10)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10, style: .circular)
+                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .stroke(stationDotsChoice == NORTH_SOUTH ? Color.green : Color.clear))
                     .onTapGesture {
                         stationDotsChoice = NORTH_SOUTH
@@ -190,7 +190,7 @@ struct StationDotsSettingsView: View {
                     .padding(10)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10, style: .circular)
+                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .stroke(stationDotsChoice == SOUTH_NORTH ? Color.green : Color.clear))
                     .onTapGesture {
                         stationDotsChoice = SOUTH_NORTH

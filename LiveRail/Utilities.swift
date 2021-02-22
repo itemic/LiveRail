@@ -18,6 +18,7 @@ extension Collection {
 
 // source: https://medium.com/dev-genius/blur-effect-with-vibrancy-in-swiftui-bada837fdf50
 struct BlurView: UIViewRepresentable {
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     @AppStorage("enableTimeWarp") var enableTimeWarp = false
     typealias UIViewType = UIVisualEffectView
     
@@ -33,7 +34,9 @@ struct BlurView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        if (!reduceTransparency) {
         uiView.effect = UIBlurEffect(style: self.style)
+        }
 //        uiView.backgroundColor = enableTimeWarp ? .systemIndigo : .clear
     }
     
