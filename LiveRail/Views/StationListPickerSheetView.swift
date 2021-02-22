@@ -24,12 +24,13 @@ struct StationListPickerSheetView: View {
     var lm = LocationManager.shared
     
     var body: some View {
-        ScrollView {
+        
             VStack(spacing: 0) {
-                // TITLE
+                
                 
                 HStack {
                     Text(LocalizedStringKey(title)).font(.title).bold()
+                        .foregroundColor(.white)
                         Spacer()
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
@@ -43,12 +44,11 @@ struct StationListPickerSheetView: View {
                 .padding()
                 .frame(height: 75)
                 .background(color)
-                Spacer()
-                VStack {
+                
+                ScrollView {
+                    VStack(spacing: 0) {
                    
-                    Text("Select a station")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    Spacer()
                     // GRID of stations
                     LazyVGrid(columns: columns, alignment: .center) {
                         ForEach(stations) {station in
@@ -59,9 +59,9 @@ struct StationListPickerSheetView: View {
                             }) {
                                 Text(LocalizedStringKey(station.StationName.En))
                                     .font(.title3).bold()
-                                    .padding(.vertical, 18)
+//                                    .padding(.vertical, 12)
                                     .foregroundColor(.primary)
-                                    .frame(maxWidth: .infinity)
+                                    .frame(maxWidth: .infinity, minHeight: 50)
                                     .background(
                                         RoundedRectangle(cornerRadius: 10, style: .continuous)
                                             .fill(station.StationID == selectedStation ? color : color.opacity(0.2))
@@ -88,7 +88,7 @@ struct StationListPickerSheetView: View {
                                     .font(.title3)
                                     .padding(.vertical, 16)
                                     .foregroundColor(.primary)
-                                    .frame(maxWidth: .infinity)
+                                    .frame(maxWidth: .infinity, minHeight: 50)
                                     .background(
                                         RoundedRectangle(cornerRadius: 10, style: .continuous)
                                             .fill(nearest.StationID == selectedStation ? color : color.opacity(0.2))
@@ -102,8 +102,9 @@ struct StationListPickerSheetView: View {
                         }
                     
                     
-                    }
-                .padding()
+                    }.padding()
+                    
+                
             }
         }
         }
