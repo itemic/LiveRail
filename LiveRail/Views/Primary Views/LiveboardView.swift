@@ -15,6 +15,8 @@ struct LiveboardView: View {
     @Binding var timetableStation: String
     @Binding var timetableIsActive: Bool
     
+    @State var selectedTimetable: StationTimetable?
+    @State var showingTimetable: Bool = false
     var body: some View {
         ZStack {
             VStack {
@@ -24,7 +26,7 @@ struct LiveboardView: View {
                         Spacer()
                             .frame(height: 120)
                         if (data.station(from: timetableStation) != nil) {
-                            StationTimetableView(station: data.station(from: timetableStation)!)
+                            StationTimetableView(station: data.station(from: timetableStation)!, selectedTrain: $selectedTimetable, isShow: $showingTimetable)
                         }
                         Spacer()
                             .frame(height: 110)
@@ -36,9 +38,16 @@ struct LiveboardView: View {
             }
             
             LiveBoardPickerButtonView(stn: $timetableStation)
-            
+
+            SlideoverSheetView(isOpen: $showingTimetable) {
+                if let selectedTimetable = selectedTimetable {
+                    TrainServiceSheetView(train: selectedTimetable, active: $showingTimetable)
+                } else { EmptyView() }
+            }
 
         }
+        
+       
        
         
         .background(Color(UIColor.systemGroupedBackground))

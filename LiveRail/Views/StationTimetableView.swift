@@ -16,13 +16,13 @@ struct StationTimetableView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     
-    @State private var selectedTrain: StationTimetable? = nil
-    @State private var isShow = false
+    @Binding var selectedTrain: StationTimetable?
+    @Binding var isShow: Bool
     
     
     
     var body: some View {
-
+        ZStack {
         VStack {
 
             ForEach(data.stationTimetableDict[station]!.filter {
@@ -34,6 +34,7 @@ struct StationTimetableView: View {
 //                    .padding(2)
                     .onTapGesture {
                         selectedTrain = train
+                        isShow = true
                     }
                 
                
@@ -46,11 +47,14 @@ struct StationTimetableView: View {
         .padding(.horizontal)
         
 
-        .sheet(item: $selectedTrain) {train in
-            TrainServiceView(train: train)
+//        .sheet(item: $selectedTrain) {train in
+//            TrainServiceView(train: train)
+//        }
+        
+            // stack it up here
+            
+            
         }
-        
-        
         
 
         

@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct StationTimetable: Codable, Identifiable {
-    
+struct StationTimetable: Codable, Identifiable, Equatable {
+    static func ==(lhs: StationTimetable, rhs: StationTimetable) -> Bool {
+        return lhs.id == rhs.id
+    }
     var id: String {
         TrainNo
     }

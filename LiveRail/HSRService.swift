@@ -28,7 +28,7 @@ public struct HSRService {
     }
     
     static func getTrainDetails(for train: String, client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil) {
-//        print("getting train details for \(train)")
+        print("getting train details for \(train)")
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today/TrainNo/\(train)?$format=JSON"), on: client, completion: completion)
         
     }

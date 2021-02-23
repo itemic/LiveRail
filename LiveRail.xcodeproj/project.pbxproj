@@ -44,6 +44,7 @@
 		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
 		45D9480D25AEA733002FE73C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9480C25AEA733002FE73C /* SettingsView.swift */; };
 		45F8518525E4FE7B0068CA83 /* SlideoverSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */; };
+		45F8518A25E53C050068CA83 /* TrainServiceSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */; };
 		45FB0B9C25BAA71000670396 /* EmptyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */; };
 		45FB0B9F25BAC83100670396 /* LiveBoardPickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9E25BAC83100670396 /* LiveBoardPickerButtonView.swift */; };
 		45FB0BA225BACAF900670396 /* PlanViewPickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0BA125BACAF900670396 /* PlanViewPickerButtonView.swift */; };
@@ -90,6 +91,7 @@
 		45D5838F25C19A38003097F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45D9480C25AEA733002FE73C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideoverSheetView.swift; sourceTree = "<group>"; };
+		45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainServiceSheetView.swift; sourceTree = "<group>"; };
 		45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenView.swift; sourceTree = "<group>"; };
 		45FB0B9E25BAC83100670396 /* LiveBoardPickerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBoardPickerButtonView.swift; sourceTree = "<group>"; };
 		45FB0BA125BACAF900670396 /* PlanViewPickerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewPickerButtonView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */,
 				45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */,
 				4553202325B476B90080DB48 /* TrainServiceView.swift */,
+				45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */,
 				45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */,
 				45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */,
 				45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */,
@@ -292,6 +295,7 @@
 				45D00A4625AC8F0E00DB518F /* TrainEntryListRowView.swift in Sources */,
 				456A2D2025B93AC200DF4B33 /* HeaderView.swift in Sources */,
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
+				45F8518A25E53C050068CA83 /* TrainServiceSheetView.swift in Sources */,
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,

@@ -20,6 +20,7 @@ struct PlanView: View {
     @State private var rotationAmount = 0.0
     
     @State var selectedTimetable: StationTimetable? = nil
+    @State var showingTimetable: Bool = false
    
     var body: some View {
         ZStack {
@@ -47,6 +48,7 @@ struct PlanView: View {
                                 PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStation, destination: endingStation)
                                     .onTapGesture {
                                         selectedTimetable = data.getStationTimetable(from: data.station(from: startingStation)!, train: entry.DailyTrainInfo.TrainNo)
+                                        showingTimetable = true
                                     }
                             }
                             
@@ -57,9 +59,9 @@ struct PlanView: View {
                             .frame(height: 110)
                     }
                     .padding(.horizontal)
-                    .sheet(item: $selectedTimetable) {
-                        TrainServiceView(train: $0)
-                    }
+//                    .sheet(item: $selectedTimetable) {
+//                        TrainServiceView(train: $0)
+//                    }
                     
                 }
                 } else {
@@ -75,6 +77,12 @@ struct PlanView: View {
             
             //MARK: TWO
             PlanViewPickerButtonView(origin: $startingStation, destination: $endingStation, rotation: rotationAmount)
+            
+            SlideoverSheetView(isOpen: $showingTimetable) {
+                if let selectedTimetable = selectedTimetable {
+                    TrainServiceSheetView(train: selectedTimetable, active: $showingTimetable)
+                } else { EmptyView() }
+            }
             
         }
         .background(Color(UIColor.systemGroupedBackground))

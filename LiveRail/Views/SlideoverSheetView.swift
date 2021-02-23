@@ -9,7 +9,6 @@ import SwiftUI
 
 
 
-
 struct SlideoverSheetView<Content: View>: View {
     @Binding var isOpen: Bool
     let content: Content
@@ -46,6 +45,7 @@ struct SlideoverSheetView<Content: View>: View {
                             .frame(height: UIScreen.main.bounds.height * 0.075)
                     }
                     .padding(.horizontal)
+                    .frame(maxHeight: UIScreen.main.bounds.height * 0.9)
                     .background(BlurView(style: .systemChromeMaterial))
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 }
@@ -54,6 +54,7 @@ struct SlideoverSheetView<Content: View>: View {
 //                .offset(y: self.offset.height)
                 .offset(y: (self.isOpen ? self.offset.height + self.gestureT.height + UIScreen.main.bounds.height * 0.075 : geo.size.height))
                 }
+                .onTapGesture {}
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
@@ -67,7 +68,6 @@ struct SlideoverSheetView<Content: View>: View {
                             if (self.gestureT.height > 100) {
                                
                             isOpen = false
-        //                        self.gestureT = .zero
                             }
                             self.gestureT = .zero
                         }
