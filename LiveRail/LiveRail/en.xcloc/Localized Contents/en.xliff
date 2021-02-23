@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="LiveRail/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>HSR</source>
+        <target>HSR</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>LiveRail</source>
+        <target>LiveRail</target>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NSLocationWhenInUseUsageDescription" xml:space="preserve">
+        <source>Your location will be used to find the nearest station.</source>
+        <target>Your location will be used to find the nearest station.</target>
+        <note>Privacy - Location When In Use Usage Description</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="LiveRail/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
+    </header>
+    <body>
+      <trans-unit id=" and " xml:space="preserve">
+        <source> and </source>
+        <target> and </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%@" xml:space="preserve">
+        <source>%@</source>
+        <target>%@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%@ to %@" xml:space="preserve">
+        <source>%1$@ to %2$@</source>
+        <target>%1$@ to %2$@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="00:00" xml:space="preserve">
+        <source>00:00</source>
+        <target>00:00</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Arrivals" xml:space="preserve">
+        <source>Arrivals</source>
+        <target>Arrivals</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="DEPARTED" xml:space="preserve">
+        <source>DEPARTED</source>
+        <target>DEPARTED</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="DEVELOPER" xml:space="preserve">
+        <source>DEVELOPER</source>
+        <target>DEVELOPER</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Data source: Taiwan PTX Transport API" xml:space="preserve">
+        <source>Data source: Taiwan PTX Transport API</source>
+        <target>Data source: Taiwan PTX Transport API</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Data update time" xml:space="preserve">
+        <source>Data update time</source>
+        <target>Data update time</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Departed services" xml:space="preserve">
+        <source>Departed services</source>
+        <target>Departed services</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Disclaimer: All times are in local time" xml:space="preserve">
+        <source>Disclaimer: All times are in local time</source>
+        <target>Disclaimer: All times are in local time</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Enable" xml:space="preserve">
+        <source>Enable</source>
+        <target>Enable</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fetch" xml:space="preserve">
+        <source>Fetch</source>
+        <target>Fetch</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Fetch data" xml:space="preserve">
+        <source>Fetch data</source>
+        <target>Fetch data</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Get updated data from PTX" xml:space="preserve">
+        <source>Get updated data from PTX</source>
+        <target>Get updated data from PTX</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Go to Settings" xml:space="preserve">
+        <source>Go to Settings</source>
+        <target>Go to Settings</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Hide" xml:space="preserve">
+        <source>Hide</source>
+        <target>Hide</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Improved date/time functionality coming soon" xml:space="preserve">
+        <source>Improved date/time functionality coming soon</source>
+        <target>Improved date/time functionality coming soon</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="LEAVING SOON" xml:space="preserve">
+        <source>LEAVING SOON</source>
+        <target>LEAVING SOON</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Location Features" xml:space="preserve">
+        <source>Location Features</source>
+        <target>Location Features</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Look into the future..." xml:space="preserve">
+        <source>Look into the future...</source>
+        <target>Look into the future...</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Nearby station shortcuts" xml:space="preserve">
+        <source>Nearby station shortcuts</source>
+        <target>Nearby station shortcuts</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Next Departure" xml:space="preserve">
+        <source>Next Departure</source>
+        <target>Next Departure</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Settings" xml:space="preserve">
+        <source>Settings</source>
+        <target>Settings</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show arrivals at terminus stations." xml:space="preserve">
+        <source>Show arrivals at terminus stations.</source>
+        <target>Show arrivals at terminus stations.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Show trains that have departed." xml:space="preserve">
+        <source>Show trains that have departed.</source>
+        <target>Show trains that have departed.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="TIME WARP" xml:space="preserve">
+        <source>TIME WARP</source>
+        <target>TIME WARP</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="TWD" xml:space="preserve">
+        <source>TWD</source>
+        <target>TWD</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Thanks Austin!" xml:space="preserve">
+        <source>Thanks Austin!</source>
+        <target>Thanks Austin!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="This little disclaimer courtesy of Austin" xml:space="preserve">
+        <source>This little disclaimer courtesy of Austin</source>
+        <target>This little disclaimer courtesy of Austin</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="This view is not updated live." xml:space="preserve">
+        <source>This view is not updated live.</source>
+        <target>This view is not updated live.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Time Warp β" xml:space="preserve">
+        <source>Time Warp β</source>
+        <target>Time Warp β</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="View upcoming departures from the station closest to you." xml:space="preserve">
+        <source>View upcoming departures from the station closest to you.</source>
+        <target>View upcoming departures from the station closest to you.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Visit location settings to enable location features" xml:space="preserve">
+        <source>Visit location settings to enable location features</source>
+        <target>Visit location settings to enable location features</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You'll need to enable Location Services in Settings." xml:space="preserve">
+        <source>You'll need to enable Location Services in Settings.</source>
+        <target>You'll need to enable Location Services in Settings.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="→" xml:space="preserve">
+        <source>→</source>
+        <target>→</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="∞" xml:space="preserve">
+        <source>∞</source>
+        <target>∞</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

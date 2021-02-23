@@ -1,0 +1,6 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "HSR";
+/* Bundle name */
+"CFBundleName" = "LiveRail";
+/* Privacy - Location When In Use Usage Description */
+"NSLocationWhenInUseUsageDescription" = "Your location will be used to find the nearest station.";
