@@ -50,7 +50,7 @@ struct HeaderView: View {
                 VStack {
                     HStack {
                         HStack {
-                            HeaderIcon(text: "Departures", icon: "list.bullet.rectangle", color: .purple, view: .timetableView, current: $currentView)
+                            HeaderIcon(text: "Departures", icon: "list.bullet.rectangle", color: Color(UIColor.systemIndigo), view: .timetableView, current: $currentView)
                             HeaderIcon(text: "Trains", icon: "arrow.left.and.right.square", color: .orange, view: .plannerView, current: $currentView)
                             Spacer()
                         }

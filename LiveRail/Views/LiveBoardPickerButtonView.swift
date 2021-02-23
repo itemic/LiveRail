@@ -16,6 +16,7 @@ struct LiveBoardPickerButtonView: View {
     
     
     var body: some View {
+        ZStack {
         VStack {
             Spacer()
             HStack {
@@ -26,11 +27,11 @@ struct LiveBoardPickerButtonView: View {
                 }) {
                             Text(LocalizedStringKey(data.stationName(from: stn) ?? "Station"))
                 }
-                .buttonStyle(OpacityChangingButton(.purple))
-                .sheet(isPresented: $active) {
-                                    StationListPickerSheetView(title: "View Timetable", stations: data.stations, selectedStation: $stn, color: .purple)
+                .buttonStyle(OpacityChangingButton(Color(UIColor.systemIndigo)))
+                
 
-                }
+                
+                
                                     
             }
             .padding()
@@ -38,6 +39,11 @@ struct LiveBoardPickerButtonView: View {
             .background(BlurView())
             
             
+            
+        }
+            SlideoverSheetView(isOpen: $active) {
+                StationSheetPickerView(title: "View Timetable", selectedStation: $stn, color: Color(UIColor.systemIndigo), active: $active, icon: "list.bullet.rectangle")
+            }
         }
         .edgesIgnoringSafeArea(.all)
     }

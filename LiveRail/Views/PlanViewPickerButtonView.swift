@@ -21,6 +21,7 @@ struct PlanViewPickerButtonView: View {
 //    @State var endingStation = ""
     
     var body: some View {
+        ZStack {
         VStack {
             Spacer()
             HStack {
@@ -32,10 +33,10 @@ struct PlanViewPickerButtonView: View {
                         
                 }
                 .buttonStyle(OpacityChangingButton(.orange))
-                .sheet(isPresented: $ooActive) {
-                                    StationListPickerSheetView(title: "Origin", stations: data.stations, selectedStation: $origin, color: .orange)
-
-                }
+//                .sheet(isPresented: $ooActive) {
+//                                    StationListPickerSheetView(title: "Origin", stations: data.stations, selectedStation: $origin, color: .orange)
+//
+//                }
                 
                 Button(action: {
                     flipStations()
@@ -56,15 +57,22 @@ struct PlanViewPickerButtonView: View {
                     Text(LocalizedStringKey(data.stationName(from:destination) ?? "Destination"))
                 }
                 .buttonStyle(OpacityChangingButton(.orange))
-                .sheet(isPresented: $ddActive) {
-                                    StationListPickerSheetView(title: "Destination", stations: data.stations, selectedStation: $destination, color: .orange)
-
-                }
+//                .sheet(isPresented: $ddActive) {
+//                                    StationListPickerSheetView(title: "Destination", stations: data.stations, selectedStation: $destination, color: .orange)
+//
+//                }
             }
             .padding()
             .padding(.bottom, 15)
             .background(BlurView())
         }
+            SlideoverSheetView(isOpen: $ooActive) {
+                StationSheetPickerView(title: "Origin", selectedStation: $origin, color: .orange, active: $ooActive, icon: "tram.fill")
+            }
+            SlideoverSheetView(isOpen: $ddActive) {
+                StationSheetPickerView(title: "Destination", selectedStation: $destination, color: .orange, active: $ddActive, icon: "tram.fill")
+            }
+    }
         .edgesIgnoringSafeArea(.all)
     }
     

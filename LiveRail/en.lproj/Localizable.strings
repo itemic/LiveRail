@@ -20,3 +20,5 @@
 
 "$S$" = "S";
 "$N$" = "N";
+
+"NO_SELECT" = "No selection";

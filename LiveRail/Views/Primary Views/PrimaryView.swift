@@ -49,19 +49,19 @@ struct PrimaryView: View {
             }
             
             HeaderView(currentView: $currentView, showingSettings: $showingSettings)
-            
-            
-            
+           
+           
             
             //MARK: 2
-            ZStack {
-                StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive, color: .orange)
-                    .edgesIgnoringSafeArea(.all)
-                StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive, color: .orange)
-                    .edgesIgnoringSafeArea(.all)
-                StationButtonPickerView(title: "View Timetable", stations: data.stations, selectedStation: $timetableStation, isActive: $timetableIsActive, color: .purple)
-                    .edgesIgnoringSafeArea(.all)
-            }
+//            ZStack {
+//                StationButtonPickerView(title: "Origin", stations: data.stations, selectedStation: $startingStation, isActive: $originIsActive, color: .orange)
+//                    .edgesIgnoringSafeArea(.all)
+//                StationButtonPickerView(title: "Destination", stations: data.stations, selectedStation: $endingStation, isActive: $destinationIsActive, color: .orange)
+//                    .edgesIgnoringSafeArea(.all)
+//                StationButtonPickerView(title: "View Timetable", stations: data.stations, selectedStation: $timetableStation, isActive: $timetableIsActive, color: .purple)
+//                    .edgesIgnoringSafeArea(.all)
+//            }
+            
             
             
         }

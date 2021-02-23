@@ -32,6 +32,6 @@ struct EmptyScreenView: View {
 
 struct EmptyScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyScreenView(icon: "magnifyingglass", headline: "This is a headline!", description: "Can we try a two-lined sub headline thing?", color: .purple)
+        EmptyScreenView(icon: "magnifyingglass", headline: "This is a headline!", description: "Can we try a two-lined sub headline thing?", color: Color(UIColor.systemIndigo))
     }
 }
