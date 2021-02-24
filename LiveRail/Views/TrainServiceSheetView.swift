@@ -112,6 +112,7 @@ struct ServiceLineStationEntry: View {
     var lineHeight: CGFloat = 50.0
     var lineWidth: CGFloat = 6.0
     var positionIndicatorHeight: CGFloat = 6.0
+    
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
     var isTerminalStation: Bool {

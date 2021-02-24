@@ -76,6 +76,7 @@ struct SlideoverSheetView<Content: View>: View {
             
             
         }
+        .zIndex(100)
         
         
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
