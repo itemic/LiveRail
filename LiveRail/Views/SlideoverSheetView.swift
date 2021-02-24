@@ -45,7 +45,7 @@ struct SlideoverSheetView<Content: View>: View {
                             .frame(height: UIScreen.main.bounds.height * 0.075)
                     }
                     .padding(.horizontal)
-                    .frame(maxHeight: UIScreen.main.bounds.height * 0.9)
+                    .frame(maxHeight: UIScreen.main.bounds.height * 0.85)
                     .background(BlurView(style: .systemChromeMaterial))
                     .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 }
