@@ -20,11 +20,17 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
 
     
     func fetchTrainDetails(for train: String, client: NetworkManager) {
+        // first clear train
+        self.train = nil
         HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
             DispatchQueue.main.async {
                 self?.train = train[0] // single element array
             }
         }
+    }
+    
+    func clearTrainDetails() {
+        self.train = nil
     }
     
     func stopsAt(_ station: Station) -> Bool {

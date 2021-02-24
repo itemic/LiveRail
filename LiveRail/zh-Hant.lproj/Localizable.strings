@@ -80,3 +80,6 @@
 "$N$" = "北";
 
 "NO_SELECT" = "沒有選取";
+
+"ARR_DEPT_TIMES_TITLE" = "進出站時間";
+"ARR_DEPT_TIMES_DESCRIPTION" = "路線圖顯示進站及出站時間";

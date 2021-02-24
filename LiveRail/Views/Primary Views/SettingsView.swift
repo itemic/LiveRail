@@ -12,6 +12,7 @@ struct SettingsView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showNearestStation") var showNearestStation = true
+    @AppStorage("showArrDeptTimes") var showArrDeptTimes = false
     
     
     @AppStorage("showStopDots") var showStopDots = true
@@ -55,7 +56,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(Color.yellow)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "sparkles").font(.callout).foregroundColor(.white))
+                                    .overlay(Image(systemName: "sparkles").font(.system(size: 16)).foregroundColor(.white))
                                 VStack(alignment: .leading) {
                                     Text("Departed services")
                                     Text("Show trains that have departed.").font(.caption2).foregroundColor(.secondary)
@@ -71,7 +72,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(Color.purple)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "checkerboard.rectangle").font(.callout).foregroundColor(.white))
+                                    .overlay(Image(systemName: "checkerboard.rectangle").font(.system(size: 16)).foregroundColor(.white))
                                 VStack(alignment: .leading) {
                                     Text("Arrivals")
                                     Text("Show arrivals at terminus stations.").font(.caption2).foregroundColor(.secondary)
@@ -80,6 +81,20 @@ struct SettingsView: View {
                         })
                     }
                     
+                    VStack(alignment: .leading, spacing: 4) {
+                        Toggle(isOn: $showArrDeptTimes, label: {
+                            HStack {
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(Color.pink)
+                                    .frame(width: 28, height: 28)
+                                    .overlay(Image(systemName: "deskclock").font(.system(size: 16)).foregroundColor(.white))
+                                VStack(alignment: .leading) {
+                                    Text("ARR_DEPT_TIMES_TITLE")
+                                    Text("ARR_DEPT_TIMES_DESCRIPTION").font(.caption2).foregroundColor(.secondary)
+                                }
+                            }
+                        })
+                    }
                     
                 }
                 .padding()
@@ -96,7 +111,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(Color.green)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "ellipsis").font(.callout).foregroundColor(.white))
+                                    .overlay(Image(systemName: "ellipsis").font(.system(size: 16)).foregroundColor(.white))
                                 VStack(alignment: .leading) {
                                     Text("Station dots")
                                     Text("Display stopping stations at a glance.").font(.caption2).foregroundColor(.secondary)
@@ -127,7 +142,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(Color.blue)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "location.fill").font(.callout).foregroundColor(.white))
+                                    .overlay(Image(systemName: "location.fill").font(.system(size: 16)).foregroundColor(.white))
                                 
                                 VStack(alignment: .leading) {
                                     Text("Location features")
@@ -186,7 +201,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(Color.red)
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "calendar.badge.clock").font(.callout).foregroundColor(.white))
+                                    .overlay(Image(systemName: "calendar.badge.clock").font(.system(size: 16)).foregroundColor(.white))
                                 
                                 Text("Data update time")
                                 Spacer()
@@ -198,7 +213,7 @@ struct SettingsView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(Color(UIColor.systemTeal))
                                     .frame(width: 28, height: 28)
-                                    .overlay(Image(systemName: "network").font(.callout).foregroundColor(.white))
+                                    .overlay(Image(systemName: "network").font(.system(size: 16)).foregroundColor(.white))
                                 
                                 VStack(alignment: .leading) {
                                     Text("Fetch data")
@@ -226,7 +241,7 @@ struct SettingsView: View {
 //                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
 //                                        .fill(Color(UIColor.systemIndigo).opacity(0.2))
 //                                        .frame(width: 28, height: 28)
-//                                        .overlay(Image(systemName: "timelapse").font(.callout).foregroundColor(Color(UIColor.systemIndigo)))
+//                                        .overlay(Image(systemName: "timelapse").font(.system(size: 16)).foregroundColor(Color(UIColor.systemIndigo)))
 //                                VStack(alignment: .leading) {
 //                                    Text("Time Warp β")
 //                                    Text("Look into the future...").font(.caption2).foregroundColor(.secondary)

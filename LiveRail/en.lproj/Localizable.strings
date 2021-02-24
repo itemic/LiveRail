@@ -22,3 +22,6 @@
 "$N$" = "N";
 
 "NO_SELECT" = "No selection";
+
+"ARR_DEPT_TIMES_TITLE" = "Arrival/Departure times";
+"ARR_DEPT_TIMES_DESCRIPTION" = "Show both arrival and departure times when viewing individual service.";
