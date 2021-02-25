@@ -83,3 +83,8 @@
 
 "ARR_DEPT_TIMES_TITLE" = "進出站時間";
 "ARR_DEPT_TIMES_DESCRIPTION" = "路線圖顯示進站及出站時間";
+
+"HOME_PAGE_SETTINGS_ENTRY" = "首頁";
+"HOME_PAGE_SETTINGS_DESCRIPTION" = "選擇開啟時顯示的首頁";
+
+"DEFAULTS" = "預設值";

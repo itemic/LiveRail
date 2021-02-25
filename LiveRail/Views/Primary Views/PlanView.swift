@@ -21,6 +21,8 @@ struct PlanView: View {
     
     @State var selectedTimetable: StationTimetable? = nil
     @State var showingTimetable: Bool = false
+    
+    
    
     var body: some View {
         ZStack {
@@ -91,23 +93,22 @@ struct PlanView: View {
         .onChange(of: startingStation) { newValue in
             if (!newValue.isEmpty && !endingStation.isEmpty) {
                 vm.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                sendHaptics()
+//                sendHaptics()
             }
         }
         .onChange(of: endingStation) { newValue in
             if (!newValue.isEmpty && !startingStation.isEmpty) {
                 vm.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-                sendHaptics()
+//                sendHaptics()
             }
-        }
-       
+        }       
     }
     
     
     
     func sendHaptics() {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
     }
 }
 

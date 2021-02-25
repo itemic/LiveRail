@@ -15,11 +15,17 @@ struct SlideoverSheetView<Content: View>: View {
     @State private var offset = CGSize.zero
     @State private var gestureT = CGSize.zero
 
+    
 
     init(isOpen: Binding<Bool>, @ViewBuilder content: () -> Content) {
 
         self.content = content()
                 self._isOpen = isOpen
+    }
+    
+    func sendHaptics() {
+        let generator = UIImpactFeedbackGenerator()
+        generator.impactOccurred(intensity: 0.5)
     }
 
     var body: some View {
@@ -51,7 +57,6 @@ struct SlideoverSheetView<Content: View>: View {
                 }
                 .animation(.easeInOut(duration: 0.25))
                 .transition(AnyTransition.move(edge: .bottom))
-//                .offset(y: self.offset.height)
                 .offset(y: (self.isOpen ? self.offset.height + self.gestureT.height + UIScreen.main.bounds.height * 0.075 : geo.size.height))
                 }
                 .onTapGesture {}
@@ -77,6 +82,11 @@ struct SlideoverSheetView<Content: View>: View {
             
         }
         .zIndex(100)
+        .onChange(of: isOpen) { value in
+            if (value) {
+            sendHaptics() // only on open
+            }
+        }
         
         
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)

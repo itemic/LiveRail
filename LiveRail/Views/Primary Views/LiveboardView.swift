@@ -47,11 +47,19 @@ struct LiveboardView: View {
 
         }
         
-       
+        .onChange(of: timetableStation) { _ in
+            sendHaptics()
+        }
        
         
         .background(Color(UIColor.systemGroupedBackground))
         .edgesIgnoringSafeArea(.all)
 
+    }
+    
+    
+    func sendHaptics() {
+        let generator = UISelectionFeedbackGenerator()
+        generator.selectionChanged()
     }
 }

@@ -20,7 +20,7 @@ struct PrimaryView: View {
     @State var endingStation = ""
     @State var timetableStation = ""
     @AppStorage("showAvailable") var showAvailable = false
-    
+    @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
     
     @State private var originIsActive = false
     @State private var destinationIsActive = false
@@ -39,6 +39,8 @@ struct PrimaryView: View {
 
     @State private var offset = CGSize.zero
 
+
+    
     var body: some View {
         
         ZStack {
@@ -79,6 +81,9 @@ struct PrimaryView: View {
             
                 }
         )
+        .onAppear {
+            currentView = homeScreen
+        }
 
         
         

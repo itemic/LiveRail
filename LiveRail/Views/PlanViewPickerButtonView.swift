@@ -35,6 +35,7 @@ struct PlanViewPickerButtonView: View {
                 .buttonStyle(OpacityChangingButton(.hsrColor))
 
                 Button(action: {
+                    sendHaptics()
                     flipStations()
                 }) {
                     VStack {
@@ -76,5 +77,10 @@ struct PlanViewPickerButtonView: View {
         destination = temp
         
         rotation += 180
+    }
+    
+    func sendHaptics() {
+        let generator = UIImpactFeedbackGenerator()
+        generator.impactOccurred(intensity: 1.0)
     }
 }

@@ -22,7 +22,10 @@ struct StationSheetPickerView: View {
     var icon: String
     
     var lm = LocationManager.shared
-    
+    func sendHaptics() {
+        let generator = UIImpactFeedbackGenerator()
+        generator.impactOccurred(intensity: 1.0)
+    }
     var body: some View {
         VStack {
             header
@@ -31,6 +34,7 @@ struct StationSheetPickerView: View {
             Spacer()
             Spacer().frame(height: UIScreen.main.bounds.height * 0.05)
         }
+      
         
     }
     
@@ -71,6 +75,7 @@ struct StationSheetPickerView: View {
             ForEach(data.stations) {station in
                 Button(action: {
                     selectedStation = station.StationID
+                    sendHaptics()
                     // dismiss
                     active = false
                 }) {
@@ -97,6 +102,7 @@ struct StationSheetPickerView: View {
                 if let nearest = lm.closestStation(stations: data.stations) {
                     Button(action: {
                         selectedStation = nearest.StationID
+                        sendHaptics()
                         // dismiss
                         active = false
                     }) {

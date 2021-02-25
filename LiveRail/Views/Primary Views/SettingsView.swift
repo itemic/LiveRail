@@ -13,7 +13,7 @@ struct SettingsView: View {
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showNearestStation") var showNearestStation = true
     @AppStorage("showArrDeptTimes") var showArrDeptTimes = false
-    
+    @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
     
     @AppStorage("showStopDots") var showStopDots = true
     @AppStorage("stationDotsChoice") var stationDotsChoice = 1
@@ -97,6 +97,58 @@ struct SettingsView: View {
                     }
                     
                 }
+                .padding()
+                .background(Color(UIColor.secondarySystemGroupedBackground))
+                .cornerRadius(10)
+                
+                Spacer()
+                
+                //MARK: Default View
+                VStack(alignment: .leading, spacing: 20) {
+                HStack {
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(Color(UIColor.systemIndigo))
+                        .frame(width: 28, height: 28)
+                        .overlay(Image(systemName: "house.fill").font(.system(size: 16)).foregroundColor(.white))
+                    
+                    VStack(alignment: .leading) {
+                        Text("HOME_PAGE_SETTINGS_ENTRY")
+                        Text("HOME_PAGE_SETTINGS_DESCRIPTION").font(.caption2).foregroundColor(.secondary)
+                    }
+                    Spacer()
+                    
+                }
+                    HStack(spacing: 12) {
+                        Text("Departures")
+                            .padding(10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color(UIColor.systemIndigo).opacity(0.15))
+                            .foregroundColor(Color(UIColor.systemIndigo))
+                            .font(homeScreen == .timetableView ? Font.body.bold() : .body)
+                            .cornerRadius(10)
+                            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .stroke(homeScreen == .timetableView ? Color(UIColor.systemIndigo) : Color.clear, lineWidth: 2)
+                            )
+                            .onTapGesture {
+                                homeScreen = .timetableView
+                            }
+                        Text("Trains")
+                            .padding(10)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.hsrColor.opacity(0.15))
+                            .foregroundColor(Color.hsrColor)
+                            .font(homeScreen == .plannerView ? Font.body.bold() : .body)
+                            .cornerRadius(10)
+                            .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .stroke(homeScreen == .plannerView ? Color.hsrColor : Color.clear, lineWidth: 2)
+                            )
+                            .onTapGesture {
+                                homeScreen = .plannerView
+                            }
+                    }
+                }
+                
+                
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
