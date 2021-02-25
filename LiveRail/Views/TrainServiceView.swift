@@ -100,7 +100,7 @@ struct TrainServiceLineDrawingEntry: View {
     }
     
     var dColor: Color {
-        vm.train?.DailyTrainInfo.direction.color ?? .orange
+        vm.train?.DailyTrainInfo.direction.color ?? .hsrColor
     }
     
     func calcShowOverlay() -> Bool {
@@ -121,7 +121,7 @@ struct TrainServiceLineDrawingEntry: View {
     }
     
     func calcTrainlineColor() -> Color {
-        return vm.allDepartedStations.contains(stop) ? .gray : .orange
+        return vm.allDepartedStations.contains(stop) ? .gray : .hsrColor
     }
     
     
@@ -220,7 +220,7 @@ struct TrainServiceLineDrawingEntry: View {
                                 VStack(spacing: 0) {
                                     Rectangle().fill(Color.gray.opacity(1))
                                         .frame(width: barWidth, height: CGFloat(stationHeight * offset))
-                                    Rectangle().fill(Color.orange.opacity(1))
+                                    Rectangle().fill(Color.hsrColor.opacity(1))
                                         .frame(width: barWidth, height: CGFloat(stationHeight - (stationHeight * offset)))
                                 }
                             }

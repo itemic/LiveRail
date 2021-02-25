@@ -32,7 +32,7 @@ struct LiveboardView: View {
                             .frame(height: 110)
                     }
                 } else {
-                    EmptyScreenView(icon: "questionmark.square.dashed", headline: "SELECT_STATION", description: "PICK_TO_VIEW_DEPARTURES", color: Color(UIColor.systemIndigo))
+                    EmptyScreenView(icon: "list.bullet.rectangle", headline: "SELECT_STATION", description: "PICK_TO_VIEW_DEPARTURES", color: Color(UIColor.systemIndigo))
                 }
                 
             }

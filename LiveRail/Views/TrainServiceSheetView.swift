@@ -25,7 +25,7 @@ struct TrainServiceSheetView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Text("\(train.TrainNo)")
                     .font(Font.system(.title2).monospacedDigit().weight(.bold))
-                Text(train.EndingStationName.En.localized)
+                Text("\(train.StartingStationName.En.localized) → \(train.EndingStationName.En.localized)")
                 .foregroundColor(.secondary)
                 .font(.headline).bold()
             }
@@ -128,11 +128,11 @@ struct ServiceLineStationEntry: View {
     }
     
     func calcTrainlineColor() -> Color {
-        return vm.allDepartedStations.contains(stop) ? Color(UIColor.systemGray2) : .orange
+        return vm.allDepartedStations.contains(stop) ? Color(UIColor.systemGray2) : .hsrColor
     }
     
     func calcTrainDotColor() -> Color {
-        return vm.allDepartedStations.contains(stop) ? Color(UIColor.systemGray2) : .orange
+        return vm.allDepartedStations.contains(stop) ? Color(UIColor.systemGray2) : .hsrColor
     }
     
     func stationTextColor() -> Color {
@@ -229,7 +229,7 @@ struct ServiceLineStationEntry: View {
                                             
                                     
                                     Rectangle()
-                                        .fill(Color.orange)
+                                        .fill(Color.hsrColor)
                                         .frame(width: lineWidth, height: lineHeight - (lineHeight * CGFloat(offset)))
                                     
                                     
@@ -342,7 +342,7 @@ struct TrainServiceLineDrawingEntryX: View {
     }
     
     var dColor: Color {
-        vm.train?.DailyTrainInfo.direction.color ?? .orange
+        vm.train?.DailyTrainInfo.direction.color ?? .hsrColor
     }
     
     func calcShowOverlay() -> Bool {
@@ -363,7 +363,7 @@ struct TrainServiceLineDrawingEntryX: View {
     }
     
     func calcTrainlineColor() -> Color {
-        return vm.allDepartedStations.contains(stop) ? .gray : .orange
+        return vm.allDepartedStations.contains(stop) ? .gray : .hsrColor
     }
     
     
@@ -462,7 +462,7 @@ struct TrainServiceLineDrawingEntryX: View {
                                 VStack(spacing: 0) {
                                     Rectangle().fill(Color.gray.opacity(1))
                                         .frame(width: barWidth, height: CGFloat(stationHeight * offset))
-                                    Rectangle().fill(Color.orange.opacity(1))
+                                    Rectangle().fill(Color.hsrColor.opacity(1))
                                         .frame(width: barWidth, height: CGFloat(stationHeight - (stationHeight * offset)))
                                 }
                             }

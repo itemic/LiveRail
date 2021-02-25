@@ -69,7 +69,7 @@ struct StopPatternView: View {
                         
                     } else {
                     Circle()
-                        .fill(Color.orange)
+                        .fill(Color.hsrColor)
                         .frame(width: 7, height: 7)
                     }
                 } else {

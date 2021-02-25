@@ -77,7 +77,7 @@ struct PlannerResultRowView: View {
             
         }
         .padding(.leading, 10)
-        .background(Color.orange)
+        .background(Color.hsrColor)
         .cornerRadius(5)
 
         

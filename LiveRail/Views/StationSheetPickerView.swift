@@ -28,6 +28,7 @@ struct StationSheetPickerView: View {
             header
             grid
             locations
+            Spacer()
             Spacer().frame(height: UIScreen.main.bounds.height * 0.05)
         }
         
@@ -84,7 +85,7 @@ struct StationSheetPickerView: View {
                         )
                 }
             }
-            .padding(.vertical, 8)
+            .padding(.vertical, 4)
             .padding(.horizontal, 8)
         }
     }
@@ -113,8 +114,8 @@ struct StationSheetPickerView: View {
                                 .fill(nearest.StationID == selectedStation ? color : color.opacity(0.3))
                         )
                             }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 20)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 10)
                         
                     }
                 }

@@ -260,7 +260,7 @@ struct SettingsView: View {
                             Link("Terms of Service", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                                 .foregroundColor(.secondary).font(.caption)
                             Text(" and ").foregroundColor(.secondary).font(.caption)
-                            Link("Privacy Policy", destination: URL(string: "https://itemic.github.io/puzzle/privacy.html")!)
+                            Link("Privacy Policy", destination: URL(string: "https://liverail.terrankroft.com/privacy")!)
                                 .foregroundColor(.secondary).font(.caption)
                         }
                         Text("Disclaimer: All times are in local time").foregroundColor(.secondary).font(.caption)

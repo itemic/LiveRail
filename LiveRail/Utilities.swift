@@ -77,3 +77,9 @@ extension View {
         ModifiedContent(content: self, modifier: CornerRadiusStyle(radius: radius, corners: corners))
     }
 }
+
+extension Color {
+    static let hsrColor = Color("hsrColor")
+    static let northColor = Color("northColor")
+    static let southColor = Color("southColor")
+}

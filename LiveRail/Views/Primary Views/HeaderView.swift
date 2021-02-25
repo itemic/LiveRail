@@ -51,7 +51,7 @@ struct HeaderView: View {
                     HStack {
                         HStack {
                             HeaderIcon(text: "Departures", icon: "list.bullet.rectangle", color: Color(UIColor.systemIndigo), view: .timetableView, current: $currentView)
-                            HeaderIcon(text: "Trains", icon: "arrow.left.and.right.square", color: .orange, view: .plannerView, current: $currentView)
+                            HeaderIcon(text: "Trains", icon: "tram.fill", color: .hsrColor, view: .plannerView, current: $currentView)
                             Spacer()
                         }
                         
@@ -114,6 +114,7 @@ struct HeaderIcon: View {
                 .imageScale(.medium)
                 .foregroundColor(isSelected ? color : .primary)
                 .font(.system(size: 24))
+                .frame(width: 30, height: 30)
             if isSelected {
                 Text(text)
                     .foregroundColor(color)

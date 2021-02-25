@@ -66,7 +66,7 @@ struct PlanView: View {
                 }
                 } else {
 
-                    EmptyScreenView(icon: "face.dashed", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .orange)
+                    EmptyScreenView(icon: "tram.fill", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .hsrColor)
  
 
                 }

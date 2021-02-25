@@ -32,8 +32,8 @@ enum TrainDirection: Int, CaseIterable {
     
     var color: Color {
         switch(self) {
-        case .southbound: return .green
-        case .northbound: return .blue
+        case .southbound: return .southColor
+        case .northbound: return .northColor
         }
     }
     

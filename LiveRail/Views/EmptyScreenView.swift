@@ -17,7 +17,6 @@ struct EmptyScreenView: View {
         VStack(spacing: 10) {
             Image(systemName: icon).imageScale(.large)
                 .foregroundColor(color).font(.system(size: 64))
-                .fixedSize()
             Text(LocalizedStringKey(headline))
                 .font(.headline)
             Text(LocalizedStringKey(description)).font(.subheadline)
@@ -25,7 +24,7 @@ struct EmptyScreenView: View {
         }
         .padding()
         .frame(width: 250, height: 250)
-        .background(color.opacity(0.2))
+        .background(color.opacity(0.6))
         .cornerRadius(10)
     }
 }

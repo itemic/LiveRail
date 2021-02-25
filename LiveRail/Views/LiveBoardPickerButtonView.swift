@@ -49,8 +49,4 @@ struct LiveBoardPickerButtonView: View {
     }
 }
 
-//struct LiveBoardPickerButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LiveBoardPickerButtonView()
-//    }
-//}
+

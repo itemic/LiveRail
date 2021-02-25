@@ -32,12 +32,8 @@ struct PlanViewPickerButtonView: View {
                     Text(LocalizedStringKey(data.stationName(from:origin) ?? "Origin"))
                         
                 }
-                .buttonStyle(OpacityChangingButton(.orange))
-//                .sheet(isPresented: $ooActive) {
-//                                    StationListPickerSheetView(title: "Origin", stations: data.stations, selectedStation: $origin, color: .orange)
-//
-//                }
-                
+                .buttonStyle(OpacityChangingButton(.hsrColor))
+
                 Button(action: {
                     flipStations()
                 }) {
@@ -45,6 +41,7 @@ struct PlanViewPickerButtonView: View {
                         VStack {
                             Image(systemName: "arrow.left.arrow.right")
                                 .font(.title2)
+                                .foregroundColor(.hsrColor)
                                 
                         }
                     }
@@ -56,21 +53,18 @@ struct PlanViewPickerButtonView: View {
                 }) {
                     Text(LocalizedStringKey(data.stationName(from:destination) ?? "Destination"))
                 }
-                .buttonStyle(OpacityChangingButton(.orange))
-//                .sheet(isPresented: $ddActive) {
-//                                    StationListPickerSheetView(title: "Destination", stations: data.stations, selectedStation: $destination, color: .orange)
-//
-//                }
+                .buttonStyle(OpacityChangingButton(.hsrColor))
+
             }
             .padding()
             .padding(.bottom, 15)
             .background(BlurView())
         }
             SlideoverSheetView(isOpen: $ooActive) {
-                StationSheetPickerView(title: "Origin", selectedStation: $origin, color: .orange, active: $ooActive, icon: "tram.fill")
+                StationSheetPickerView(title: "Origin", selectedStation: $origin, color: .hsrColor, active: $ooActive, icon: "tram.fill")
             }
             SlideoverSheetView(isOpen: $ddActive) {
-                StationSheetPickerView(title: "Destination", selectedStation: $destination, color: .orange, active: $ddActive, icon: "tram.fill")
+                StationSheetPickerView(title: "Destination", selectedStation: $destination, color: .hsrColor, active: $ddActive, icon: "tram.fill")
             }
     }
         .edgesIgnoringSafeArea(.all)
