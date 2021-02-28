@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4563E64F25A9EECC00E50C5F"
-               BuildableName = "LiveRail.app"
+               BuildableName = "HSR.app"
                BlueprintName = "LiveRail"
                ReferencedContainer = "container:LiveRail.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4563E64F25A9EECC00E50C5F"
-            BuildableName = "LiveRail.app"
+            BuildableName = "HSR.app"
             BlueprintName = "LiveRail"
             ReferencedContainer = "container:LiveRail.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4563E64F25A9EECC00E50C5F"
-            BuildableName = "LiveRail.app"
+            BuildableName = "HSR.app"
             BlueprintName = "LiveRail"
             ReferencedContainer = "container:LiveRail.xcodeproj">
          </BuildableReference>
