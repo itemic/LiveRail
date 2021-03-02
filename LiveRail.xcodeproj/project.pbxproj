@@ -41,12 +41,61 @@
 		45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
 		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
 		45D9480D25AEA733002FE73C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9480C25AEA733002FE73C /* SettingsView.swift */; };
+		45DCBC9A25EE5C0F0017AE1E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */; };
+		45DCBC9C25EE5C0F0017AE1E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */; };
+		45DCBC9F25EE5C0F0017AE1E /* HSRWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DCBC9E25EE5C0F0017AE1E /* HSRWidget.swift */; };
+		45DCBCA225EE5C100017AE1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45DCBCA125EE5C100017AE1E /* Assets.xcassets */; };
+		45DCBCA425EE5C100017AE1E /* HSRWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 45DCBCA025EE5C0F0017AE1E /* HSRWidget.intentdefinition */; };
+		45DCBCA525EE5C100017AE1E /* HSRWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 45DCBCA025EE5C0F0017AE1E /* HSRWidget.intentdefinition */; };
+		45DCBCA825EE5C100017AE1E /* HSRWidgetExtension-test.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45DCBC9725EE5C0F0017AE1E /* HSRWidgetExtension-test.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		45DCBCDC25EE5F0E0017AE1E /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
+		45DCBCDD25EE5F0E0017AE1E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2542C25B2DCDB00CB2522 /* Utilities.swift */; };
+		45DCBCDE25EE5F0E0017AE1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
+		45DCBCE525EE5F420017AE1E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66325A9EF0E00E50C5F /* NetworkManager.swift */; };
+		45DCBCE825EE5F480017AE1E /* SharedDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A64F0025D1135C00886460 /* SharedDateFormatter.swift */; };
+		45DCBCF325EE601E0017AE1E /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DCBCF225EE601E0017AE1E /* WidgetContent.swift */; };
+		45DCBCF425EE601E0017AE1E /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DCBCF225EE601E0017AE1E /* WidgetContent.swift */; };
+		45DCBCF825EE60670017AE1E /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DCBCF725EE60670017AE1E /* EntryView.swift */; };
+		45DCBCFB25EE64420017AE1E /* HSRDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5425ADBA920025BD09 /* HSRDataStore.swift */; };
+		45DCBCFE25EE65CF0017AE1E /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
+		45DCBCFF25EE65CF0017AE1E /* FareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3725AFFD2A002D376B /* FareSchedule.swift */; };
+		45DCBD0025EE65CF0017AE1E /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2543125B31DA500CB2522 /* Enumerations.swift */; };
+		45DCBD0125EE65CF0017AE1E /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66725A9EF3800E50C5F /* Station.swift */; };
+		45DCBD0225EE65CF0017AE1E /* SeatAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808325B148500078ECD2 /* SeatAvailability.swift */; };
+		45DCBD0325EE65CF0017AE1E /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
+		45DCBD0625EE65F20017AE1E /* HSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66A25A9F69F00E50C5F /* HSRService.swift */; };
+		45DCBD0725EE65F20017AE1E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808925B16ABF0078ECD2 /* LocationManager.swift */; };
+		45DCBD0A25EE67C80017AE1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65725A9EECD00E50C5F /* Assets.xcassets */; };
 		45F8518525E4FE7B0068CA83 /* SlideoverSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */; };
 		45F8518A25E53C050068CA83 /* TrainServiceSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */; };
 		45FB0B9C25BAA71000670396 /* EmptyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */; };
 		45FB0B9F25BAC83100670396 /* LiveBoardPickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9E25BAC83100670396 /* LiveBoardPickerButtonView.swift */; };
 		45FB0BA225BACAF900670396 /* PlanViewPickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0BA125BACAF900670396 /* PlanViewPickerButtonView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45DCBCA625EE5C100017AE1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4563E64825A9EECC00E50C5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45DCBC9625EE5C0F0017AE1E;
+			remoteInfo = HSRWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45DCBCA925EE5C100017AE1E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				45DCBCA825EE5C100017AE1E /* HSRWidgetExtension-test.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
@@ -86,6 +135,15 @@
 		45D1BC8325AC4AA000D040CD /* StationTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetable.swift; sourceTree = "<group>"; };
 		45D5838F25C19A38003097F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45D9480C25AEA733002FE73C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		45DCBC9725EE5C0F0017AE1E /* HSRWidgetExtension-test.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HSRWidgetExtension-test.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		45DCBC9E25EE5C0F0017AE1E /* HSRWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRWidget.swift; sourceTree = "<group>"; };
+		45DCBCA025EE5C0F0017AE1E /* HSRWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = HSRWidget.intentdefinition; sourceTree = "<group>"; };
+		45DCBCA125EE5C100017AE1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45DCBCA325EE5C100017AE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45DCBCF225EE601E0017AE1E /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
+		45DCBCF725EE60670017AE1E /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideoverSheetView.swift; sourceTree = "<group>"; };
 		45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainServiceSheetView.swift; sourceTree = "<group>"; };
 		45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenView.swift; sourceTree = "<group>"; };
@@ -98,6 +156,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45DCBC9425EE5C0F0017AE1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45DCBC9C25EE5C0F0017AE1E /* SwiftUI.framework in Frameworks */,
+				45DCBC9A25EE5C0F0017AE1E /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +187,10 @@
 		4563E64725A9EECC00E50C5F = {
 			isa = PBXGroup;
 			children = (
+				45DCBCEF25EE5FAF0017AE1E /* Shared */,
 				4563E65225A9EECC00E50C5F /* LiveRail */,
+				45DCBC9D25EE5C0F0017AE1E /* HSRWidget */,
+				45DCBC9825EE5C0F0017AE1E /* Frameworks */,
 				4563E65125A9EECC00E50C5F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				4563E65025A9EECC00E50C5F /* HSR Test.app */,
+				45DCBC9725EE5C0F0017AE1E /* HSRWidgetExtension-test.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,13 +214,10 @@
 				4563E66625A9EF2B00E50C5F /* Models */,
 				4563E65325A9EECC00E50C5F /* LiveRailApp.swift */,
 				45D1BC7E25AC49E400D040CD /* Views */,
-				45D00A4825AC94F500DB518F /* Date+Time.swift */,
-				45D5838F25C19A38003097F6 /* Constants.swift */,
-				45A2542C25B2DCDB00CB2522 /* Utilities.swift */,
+				45DCBCB325EE5D6D0017AE1E /* Utilities */,
 				4563E65725A9EECD00E50C5F /* Assets.xcassets */,
 				4563E65C25A9EECD00E50C5F /* Info.plist */,
 				4563E65925A9EECD00E50C5F /* Preview Content */,
-				45A64F0025D1135C00886460 /* SharedDateFormatter.swift */,
 			);
 			path = LiveRail;
 			sourceTree = "<group>";
@@ -247,6 +315,46 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		45DCBC9825EE5C0F0017AE1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */,
+				45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45DCBC9D25EE5C0F0017AE1E /* HSRWidget */ = {
+			isa = PBXGroup;
+			children = (
+				45DCBC9E25EE5C0F0017AE1E /* HSRWidget.swift */,
+				45DCBCA025EE5C0F0017AE1E /* HSRWidget.intentdefinition */,
+				45DCBCA125EE5C100017AE1E /* Assets.xcassets */,
+				45DCBCA325EE5C100017AE1E /* Info.plist */,
+				45DCBCF225EE601E0017AE1E /* WidgetContent.swift */,
+				45DCBCF725EE60670017AE1E /* EntryView.swift */,
+			);
+			path = HSRWidget;
+			sourceTree = "<group>";
+		};
+		45DCBCB325EE5D6D0017AE1E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		45DCBCEF25EE5FAF0017AE1E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				45A64F0025D1135C00886460 /* SharedDateFormatter.swift */,
+				45D00A4825AC94F500DB518F /* Date+Time.swift */,
+				45D5838F25C19A38003097F6 /* Constants.swift */,
+				45A2542C25B2DCDB00CB2522 /* Utilities.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,15 +365,34 @@
 				4563E64C25A9EECC00E50C5F /* Sources */,
 				4563E64D25A9EECC00E50C5F /* Frameworks */,
 				4563E64E25A9EECC00E50C5F /* Resources */,
+				45DCBCA925EE5C100017AE1E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				45DCBCA725EE5C100017AE1E /* PBXTargetDependency */,
 			);
 			name = LiveRail;
 			productName = LiveRail;
 			productReference = 4563E65025A9EECC00E50C5F /* HSR Test.app */;
 			productType = "com.apple.product-type.application";
+		};
+		45DCBC9625EE5C0F0017AE1E /* HSRWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45DCBCAC25EE5C100017AE1E /* Build configuration list for PBXNativeTarget "HSRWidgetExtension" */;
+			buildPhases = (
+				45DCBC9325EE5C0F0017AE1E /* Sources */,
+				45DCBC9425EE5C0F0017AE1E /* Frameworks */,
+				45DCBC9525EE5C0F0017AE1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HSRWidgetExtension;
+			productName = HSRWidgetExtension;
+			productReference = 45DCBC9725EE5C0F0017AE1E /* HSRWidgetExtension-test.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -273,11 +400,14 @@
 		4563E64825A9EECC00E50C5F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					4563E64F25A9EECC00E50C5F = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					45DCBC9625EE5C0F0017AE1E = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -296,6 +426,7 @@
 			projectRoot = "";
 			targets = (
 				4563E64F25A9EECC00E50C5F /* LiveRail */,
+				45DCBC9625EE5C0F0017AE1E /* HSRWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +439,15 @@
 				4563E65B25A9EECD00E50C5F /* Preview Assets.xcassets in Resources */,
 				4575703125D2505000032C9F /* Localizable.strings in Resources */,
 				4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45DCBC9525EE5C0F0017AE1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45DCBD0A25EE67C80017AE1E /* Assets.xcassets in Resources */,
+				45DCBCA225EE5C100017AE1E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +468,7 @@
 				45FB0B9F25BAC83100670396 /* LiveBoardPickerButtonView.swift in Sources */,
 				45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */,
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
+				45DCBCA525EE5C100017AE1E /* HSRWidget.intentdefinition in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
 				45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */,
 				45A2543225B31DA500CB2522 /* Enumerations.swift in Sources */,
@@ -340,6 +481,7 @@
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,
+				45DCBCF325EE601E0017AE1E /* WidgetContent.swift in Sources */,
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
@@ -357,7 +499,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45DCBC9325EE5C0F0017AE1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45DCBCFF25EE65CF0017AE1E /* FareSchedule.swift in Sources */,
+				45DCBCE525EE5F420017AE1E /* NetworkManager.swift in Sources */,
+				45DCBD0625EE65F20017AE1E /* HSRService.swift in Sources */,
+				45DCBCDE25EE5F0E0017AE1E /* Constants.swift in Sources */,
+				45DCBCA425EE5C100017AE1E /* HSRWidget.intentdefinition in Sources */,
+				45DCBCDC25EE5F0E0017AE1E /* Date+Time.swift in Sources */,
+				45DCBCE825EE5F480017AE1E /* SharedDateFormatter.swift in Sources */,
+				45DCBD0125EE65CF0017AE1E /* Station.swift in Sources */,
+				45DCBD0725EE65F20017AE1E /* LocationManager.swift in Sources */,
+				45DCBCFB25EE64420017AE1E /* HSRDataStore.swift in Sources */,
+				45DCBCF425EE601E0017AE1E /* WidgetContent.swift in Sources */,
+				45DCBCFE25EE65CF0017AE1E /* RailDailyTimetable.swift in Sources */,
+				45DCBD0325EE65CF0017AE1E /* StationTimetable.swift in Sources */,
+				45DCBD0225EE65CF0017AE1E /* SeatAvailability.swift in Sources */,
+				45DCBCDD25EE5F0E0017AE1E /* Utilities.swift in Sources */,
+				45DCBC9F25EE5C0F0017AE1E /* HSRWidget.swift in Sources */,
+				45DCBD0025EE65CF0017AE1E /* Enumerations.swift in Sources */,
+				45DCBCF825EE60670017AE1E /* EntryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45DCBCA725EE5C100017AE1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45DCBC9625EE5C0F0017AE1E /* HSRWidgetExtension */;
+			targetProxy = 45DCBCA625EE5C100017AE1E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4575703325D2505000032C9F /* Localizable.strings */ = {
@@ -493,6 +668,7 @@
 		4563E66025A9EECD00E50C5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Dev";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BUNDLE_ID = "itemic.LiveRail-test";
@@ -518,6 +694,7 @@
 		4563E66125A9EECD00E50C5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				BUNDLE_ID = itemic.LiveRail;
@@ -540,6 +717,54 @@
 			};
 			name = Release;
 		};
+		45DCBCAA25EE5C100017AE1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 58QL7E6Z98;
+				INFOPLIST_FILE = HSRWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.100;
+				PRODUCT_BUNDLE_IDENTIFIER = "itemic.LiveRail-test.HSRWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)-test";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		45DCBCAB25EE5C100017AE1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 58QL7E6Z98;
+				INFOPLIST_FILE = HSRWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.100;
+				PRODUCT_BUNDLE_IDENTIFIER = itemic.LiveRail.HSRWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -557,6 +782,15 @@
 			buildConfigurations = (
 				4563E66025A9EECD00E50C5F /* Debug */,
 				4563E66125A9EECD00E50C5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45DCBCAC25EE5C100017AE1E /* Build configuration list for PBXNativeTarget "HSRWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45DCBCAA25EE5C100017AE1E /* Debug */,
+				45DCBCAB25EE5C100017AE1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

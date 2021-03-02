@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HSRDataStore: ObservableObject {
+public final class HSRDataStore: ObservableObject {
     @Published var stations: [Station] = [] // all stations
     @Published var lastUpdateDate = Date(timeIntervalSince1970: 0)
     
