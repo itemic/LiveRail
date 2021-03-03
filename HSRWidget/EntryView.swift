@@ -10,37 +10,51 @@ import SwiftUI
 struct EntryView: View {
     let model: WidgetContent
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Tainan".uppercased())
-                .font(Font.system(.subheadline).bold())
-                .foregroundColor(.white)
+        VStack(alignment: .leading, spacing: 0) {
+            HStack {
+                Image(systemName: "tram.fill")
+            Text("Tainan").font(Font.system(.headline).bold())
+            }
+            
+            
+            HStack {
+                Circle()
+                    .fill(Color.northColor)
+                    .frame(width: 10, height: 10)
                 
-            Spacer()
-            
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Nangang")
-                    Text("12:12")
-                        .font(Font.system(.title).monospacedDigit())
-                    
-                }
+                Text("0831").font(Font.system(.body).monospacedDigit())
+                Text("Nangang").font(Font.system(.body))
+                
                 Spacer()
+                Text("13:39").font(Font.system(.body).monospacedDigit().weight(.light))
             }
-            .background(Color.northColor)
             HStack {
-                VStack(alignment: .leading) {
-                    Text("Zuoying")
-                    Text("12:03")
-                        .font(Font.system(.title).monospacedDigit())
-                    
-                }
+                Circle()
+                    .fill(Color.northColor)
+                    .frame(width: 10, height: 10)
+                
+                Text("0831").font(Font.system(.body).monospacedDigit())
+                Text("Nangang").font(Font.system(.body))
+                
                 Spacer()
+                Text("13:51").font(Font.system(.body).monospacedDigit().weight(.light))
             }
-            .background(Color.southColor)
+            HStack {
+                Circle()
+                    .fill(Color.southColor)
+                    .frame(width: 10, height: 10)
+                
+                Text("0838").font(Font.system(.body).monospacedDigit())
+                Text("Zuoying").font(Font.system(.body))
+                
+                Spacer()
+                Text("14:02").font(Font.system(.body).monospacedDigit().weight(.light))
+            }
+            
             
             
         }
-//        .padding()
+        .padding()
+        
     }
 }
