@@ -16,43 +16,37 @@ struct EntryView: View {
             Text("Tainan").font(Font.system(.headline).bold())
             }
             
+            Spacer()
             
             HStack {
-                Circle()
+                Capsule()
                     .fill(Color.northColor)
-                    .frame(width: 10, height: 10)
-                
-                Text("0831").font(Font.system(.body).monospacedDigit())
-                Text("Nangang").font(Font.system(.body))
-                
+                    .frame(width: 5)
+                    
+                VStack(alignment: .leading) {
+                    Text("Nangang").font(Font.system(.callout).weight(.semibold))
+                    Text("0883").font(Font.system(.caption).monospacedDigit().weight(.regular))
+                }
                 Spacer()
-                Text("13:39").font(Font.system(.body).monospacedDigit().weight(.light))
-            }
-            HStack {
-                Circle()
-                    .fill(Color.northColor)
-                    .frame(width: 10, height: 10)
                 
-                Text("0831").font(Font.system(.body).monospacedDigit())
-                Text("Nangang").font(Font.system(.body))
-                
-                Spacer()
-                Text("13:51").font(Font.system(.body).monospacedDigit().weight(.light))
+                Text("18:03").font(Font.system(.title3).monospacedDigit())
             }
+            Spacer()
             HStack {
-                Circle()
+                Capsule()
                     .fill(Color.southColor)
-                    .frame(width: 10, height: 10)
-                
-                Text("0838").font(Font.system(.body).monospacedDigit())
-                Text("Zuoying").font(Font.system(.body))
-                
+                    .frame(width: 5)
+                    
+                VStack(alignment: .leading) {
+                    Text("Zuoying").font(Font.system(.callout).weight(.semibold))
+                    Text("0836").font(Font.system(.caption).monospacedDigit().weight(.regular))
+                }
                 Spacer()
-                Text("14:02").font(Font.system(.body).monospacedDigit().weight(.light))
+                
+                Text("18:12").font(Font.system(.title3).monospacedDigit())
             }
-            
-            
-            
+            Spacer()
+            Text("Last updated 81 minutes ago").font(.caption).foregroundColor(.secondary)
         }
         .padding()
         

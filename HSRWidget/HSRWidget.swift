@@ -47,10 +47,12 @@ struct HSRWidget: Widget {
         provider: TrainUpdateEntry()
       ) { entry in
         EntryView(model: entry)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(LinearGradient(gradient: Gradient(colors: [.orange, .hsrColor]), startPoint: .top, endPoint: .bottom))
+        
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .background(LinearGradient(gradient: Gradient(colors: [.orange, .hsrColor]), startPoint: .top, endPoint: .bottom))
 
       }
+      .supportedFamilies([.systemMedium])
       .configurationDisplayName("Departures")
       .description("Get the next departures from a station.")
     }
