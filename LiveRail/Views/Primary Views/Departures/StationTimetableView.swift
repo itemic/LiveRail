@@ -12,6 +12,7 @@ struct StationTimetableView: View {
     
     var station: Station
     @StateObject var data = HSRDataStore.shared
+    @StateObject var data2 = HSRStore.shared
 
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
@@ -24,6 +25,12 @@ struct StationTimetableView: View {
     var body: some View {
         ZStack {
         VStack {
+            
+//            TEST MODE
+            ForEach(data2.getDepartures(from: station.StationID)) { departure in
+                Text(departure.DailyTrainInfo.TrainNo)
+            }
+//            END TEST MODE
 
             ForEach(data.stationTimetableDict[station]!.filter {
                 (showAvailable ? true : $0.willDepartAfterNow ) &&

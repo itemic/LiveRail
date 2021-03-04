@@ -20,6 +20,7 @@
 		4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66325A9EF0E00E50C5F /* NetworkManager.swift */; };
 		4563E66825A9EF3800E50C5F /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66725A9EF3800E50C5F /* Station.swift */; };
 		4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66A25A9F69F00E50C5F /* HSRService.swift */; };
+		4566399D25F0EDE0006B000D /* HSRStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4566399C25F0EDE0006B000D /* HSRStore.swift */; };
 		4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3725AFFD2A002D376B /* FareSchedule.swift */; };
 		4569AA3B25B00772002D376B /* FareListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3A25B00772002D376B /* FareListingView.swift */; };
 		456A2D1925B9332F00DF4B33 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2D1825B9332F00DF4B33 /* PlanView.swift */; };
@@ -77,6 +78,7 @@
 		4563E66325A9EF0E00E50C5F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		4563E66725A9EF3800E50C5F /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		4563E66A25A9F69F00E50C5F /* HSRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRService.swift; sourceTree = "<group>"; };
+		4566399C25F0EDE0006B000D /* HSRStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRStore.swift; sourceTree = "<group>"; };
 		4569AA3725AFFD2A002D376B /* FareSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareSchedule.swift; sourceTree = "<group>"; };
 		4569AA3A25B00772002D376B /* FareListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListingView.swift; sourceTree = "<group>"; };
 		456A2D1825B9332F00DF4B33 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				45BF394725EB85F1006437F7 /* Managers */,
 				4575703325D2505000032C9F /* Localizable.strings */,
 				45232F5425ADBA920025BD09 /* HSRDataStore.swift */,
+				4566399C25F0EDE0006B000D /* HSRStore.swift */,
 				45BF394625EB85D6006437F7 /* ViewModels */,
 				4563E66625A9EF2B00E50C5F /* Models */,
 				4563E65325A9EECC00E50C5F /* LiveRailApp.swift */,
@@ -392,6 +395,7 @@
 				45B893A325D413AA00FA05F7 /* StationDotsSettingsView.swift in Sources */,
 				45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */,
 				45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */,
+				4566399D25F0EDE0006B000D /* HSRStore.swift in Sources */,
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
 				45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */,
 				4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */,
