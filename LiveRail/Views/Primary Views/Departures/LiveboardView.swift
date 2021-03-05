@@ -15,8 +15,13 @@ struct LiveboardView: View {
     @Binding var timetableStation: String
     @Binding var timetableIsActive: Bool
     
-    @State var selectedTimetable: StationTimetable?
+    
+    
+//    TEST
     @State var showingTimetable: Bool = false
+    @State var selectedDailyTimetable: RailDailyTimetable?
+//    END TEST
+    
     var body: some View {
         ZStack {
             VStack {
@@ -26,7 +31,7 @@ struct LiveboardView: View {
                         Spacer()
                             .frame(height: 120)
                         if (data.station(from: timetableStation) != nil) {
-                            StationTimetableView(station: data.station(from: timetableStation)!, selectedTrain: $selectedTimetable, isShow: $showingTimetable)
+                            StationTimetableView(station: data.station(from: timetableStation)!, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
                         }
                         Spacer()
                             .frame(height: 110)
@@ -40,8 +45,8 @@ struct LiveboardView: View {
             LiveBoardPickerButtonView(stn: $timetableStation)
 
             SlideoverSheetView(isOpen: $showingTimetable) {
-                if let selectedTimetable = selectedTimetable {
-                    TrainServiceSheetView(train: selectedTimetable, active: $showingTimetable)
+                if let selectedDailyTimetable = selectedDailyTimetable {
+                    TrainServiceSheetView2(train: selectedDailyTimetable, active: $showingTimetable)
                 } else { EmptyView() }
             }
 

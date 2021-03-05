@@ -11,57 +11,35 @@ struct StationTimetableView: View {
     
     
     var station: Station
-    @StateObject var data = HSRDataStore.shared
-    @StateObject var data2 = HSRStore.shared
+    @StateObject var data = HSRStore.shared
 
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     
-    @Binding var selectedTrain: StationTimetable?
     @Binding var isShow: Bool
     
-    
+    @Binding var selectedTimetable: RailDailyTimetable?
     
     var body: some View {
-        ZStack {
+        
         VStack {
             
-//            TEST MODE
-            ForEach(data2.getDepartures(from: station.StationID)) { departure in
-                Text(departure.DailyTrainInfo.TrainNo)
-            }
-//            END TEST MODE
-
-            ForEach(data.stationTimetableDict[station]!.filter {
-                (showAvailable ? true : $0.willDepartAfterNow ) &&
-                    (showArrivals ? true : !$0.isTerminus)
-            }) { train in
-                
-                TrainEntryListRowView(train: train)
-//                    .padding(2)
+            ForEach(data.getDepartures(from: station.StationID).filter {
+                (showArrivals ? true : !data.isEndingTerminus(for: $0, at: station) &&
+                    (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: station)))
+            }) { departure in
+                TrainEntryListRowView(train: departure, station: station)
                     .onTapGesture {
-                        selectedTrain = train
+                        selectedTimetable = departure
                         isShow = true
+                        
                     }
-                
-               
-                
-                                
-                
             }
         }
         
         .padding(.horizontal)
-        
-
-//        .sheet(item: $selectedTrain) {train in
-//            TrainServiceView(train: train)
-//        }
-        
-            // stack it up here
             
-            
-        }
+        
         
 
         
