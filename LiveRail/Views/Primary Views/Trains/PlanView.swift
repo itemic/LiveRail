@@ -11,8 +11,11 @@ struct PlanView: View {
     
     @ObservedObject var vm: HSRQueryViewModel
     @StateObject var data = HSRDataStore.shared
-    @Binding var startingStation: String
-    @Binding var endingStation: String
+
+    
+    @Binding var startingStationObject: Station?
+    @Binding var endingStationObject: Station?
+    
     @Binding var originIsActive: Bool
     @Binding var destinationIsActive: Bool
     
@@ -30,13 +33,13 @@ struct PlanView: View {
             VStack {
                 
                 
-                if (!startingStation.isEmpty && !endingStation.isEmpty && startingStation != endingStation) {
+                if (startingStationObject != nil && endingStationObject != nil && startingStationObject != endingStationObject) {
                 ScrollView(showsIndicators: false) {
                     Spacer()
                         .frame(height: 120)
                     VStack {
                         
-                        FareListingView(fareSchedule: data.fareSchedule[startingStation]![endingStation]!)
+                        FareListingView(fareSchedule: data.fareSchedule[startingStationObject!.StationID]![endingStationObject!.StationID]!)
                             .padding(.bottom, 10)
                         ForEach(vm.queryResultTimetable
                                     .sorted {
@@ -47,11 +50,11 @@ struct PlanView: View {
                                     }
                         ) { entry in
                             HStack {
-                                PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStation, destination: endingStation)
-                                    .onTapGesture {
-                                        selectedTimetable = data.getStationTimetable(from: data.station(from: startingStation)!, train: entry.DailyTrainInfo.TrainNo)
-                                        showingTimetable = true
-                                    }
+                                PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStationObject, destination: endingStationObject)
+//                                    .onTapGesture {
+//                                        selectedTimetable = data.getStationTimetable(from: data.station(from: startingStation)!, train: entry.DailyTrainInfo.TrainNo)
+//                                        showingTimetable = true
+//                                    }
                             }
                             
                             
@@ -61,9 +64,6 @@ struct PlanView: View {
                             .frame(height: 110)
                     }
                     .padding(.horizontal)
-//                    .sheet(item: $selectedTimetable) {
-//                        TrainServiceView(train: $0)
-//                    }
                     
                 }
                 } else {
@@ -78,7 +78,7 @@ struct PlanView: View {
             
             
             //MARK: TWO
-            PlanViewPickerButtonView(origin: $startingStation, destination: $endingStation, rotation: rotationAmount)
+            PlanViewPickerButtonView(originObject: $startingStationObject, destinationObject: $endingStationObject, rotation: rotationAmount)
             
             SlideoverSheetView(isOpen: $showingTimetable) {
                 if let selectedTimetable = selectedTimetable {
@@ -90,16 +90,14 @@ struct PlanView: View {
         .background(Color(UIColor.systemGroupedBackground))
         .edgesIgnoringSafeArea(.all)
         
-        .onChange(of: startingStation) { newValue in
-            if (!newValue.isEmpty && !endingStation.isEmpty) {
-                vm.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-//                sendHaptics()
+        .onChange(of: startingStationObject) { newValue in
+            if (newValue != nil && endingStationObject != nil) {
+                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
             }
         }
-        .onChange(of: endingStation) { newValue in
-            if (!newValue.isEmpty && !startingStation.isEmpty) {
-                vm.fetchQueryTimetables(from: startingStation, to: endingStation, client: .init())
-//                sendHaptics()
+        .onChange(of: endingStationObject) { newValue in
+            if (newValue != nil  && startingStationObject != nil) {
+                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
             }
         }       
     }

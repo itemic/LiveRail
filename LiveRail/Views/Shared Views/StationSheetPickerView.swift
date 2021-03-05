@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct StationSheetPickerView: View {
-    @StateObject var data = HSRDataStore.shared
+    @StateObject var data = HSRStore.shared
     var title: String
 //    var stations: [Station] // can we use data // use data.stations
-    @Binding var selectedStation: String
+//    @Binding var selectedStation: String
+    @Binding var selectedStationObject: Station?
     @AppStorage("enableLocationFeatures") var enableLocationFeatures = false
     var color: Color
     @Binding var active: Bool
@@ -49,7 +50,7 @@ struct StationSheetPickerView: View {
             VStack(alignment: .leading, spacing: 0) {
             Text(LocalizedStringKey(title))
             .font(.title2).bold()
-            Text(LocalizedStringKey(data.stationName(from: selectedStation) ?? "NO_SELECT"))
+                Text(LocalizedStringKey(selectedStationObject?.StationName.En ?? "NO_SELECT"))
                 .foregroundColor(.secondary)
                 .font(.headline).bold()
             }
@@ -74,7 +75,8 @@ struct StationSheetPickerView: View {
         LazyVGrid(columns: columns, alignment: .center) {
             ForEach(data.stations) {station in
                 Button(action: {
-                    selectedStation = station.StationID
+//                    selectedStation = station.StationID
+                    selectedStationObject = station
                     sendHaptics()
                     // dismiss
                     active = false
@@ -82,11 +84,11 @@ struct StationSheetPickerView: View {
                     Text(LocalizedStringKey(station.StationName.En))
                         .font(.title3).bold()
 //                                    .padding(.vertical, 12)
-                        .foregroundColor(station.StationID == selectedStation ? .white : .primary)
+                        .foregroundColor(station == selectedStationObject ? .white : .primary)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(station.StationID == selectedStation ? color : color.opacity(0.3))
+                                .fill(station == selectedStationObject ? color : color.opacity(0.3))
                         )
                 }
             }
@@ -101,7 +103,8 @@ struct StationSheetPickerView: View {
             if ((status == .authorizedAlways || status == .authorizedWhenInUse) && enableLocationFeatures) {
                 if let nearest = lm.closestStation(stations: data.stations) {
                     Button(action: {
-                        selectedStation = nearest.StationID
+//                        selectedStation = nearest.StationID
+                        selectedStationObject = nearest
                         sendHaptics()
                         // dismiss
                         active = false
@@ -113,11 +116,11 @@ struct StationSheetPickerView: View {
                         )
                         .font(.title3)
                         .padding(.vertical, 16)
-                        .foregroundColor(nearest.StationID == selectedStation ? .white : .primary)
+                        .foregroundColor(nearest == selectedStationObject ? .white : .primary)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(nearest.StationID == selectedStation ? color : color.opacity(0.3))
+                                .fill(nearest == selectedStationObject ? color : color.opacity(0.3))
                         )
                             }
                     .padding(.horizontal, 8)

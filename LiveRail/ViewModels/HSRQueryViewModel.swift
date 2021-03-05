@@ -28,6 +28,20 @@ final class HSRQueryViewModel: ObservableObject {
         }
     }
     
+    func fetchQueryTimetables(from origin: Station, to destination: Station, client: NetworkManager) {
+        
+        HSRService.getTimetable(from: origin.StationID, to: destination.StationID, client: client) {[weak self] timetables in
+            DispatchQueue.main.async {
+                self?.queryResultTimetable = timetables
+                for item in timetables {
+                    self?.fetchAvailability(from: origin.StationID, on: item, client: client)
+                    self?.fetchTrainDetails(for: item.DailyTrainInfo.TrainNo, client: client)
+                }
+
+            }
+        }
+    }
+    
     func fetchTrainDetails(for train: String, client: NetworkManager) {
         HSRService.getTrainDetails(for: train, client: client) {[weak self] train in
             DispatchQueue.main.async {

@@ -13,8 +13,8 @@ struct PlannerResultRowView: View {
     var availability: AvailableSeat?
     @State var extended: Bool = false
     var timetable: RailDailyTimetable?
-    var origin: String
-    var destination: String
+    var origin: Station?
+    var destination: Station?
     
     var stations: [Station] {
         switch (entry.DailyTrainInfo.direction) {

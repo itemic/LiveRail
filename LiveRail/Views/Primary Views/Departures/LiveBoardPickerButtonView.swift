@@ -41,7 +41,7 @@ struct LiveBoardPickerButtonView: View {
             
         }
             SlideoverSheetView(isOpen: $active) {
-                StationSheetPickerView2(title: "View Timetable", selectedStationObject: $station, color: Color(UIColor.systemIndigo), active: $active, icon: "list.bullet.rectangle")
+                StationSheetPickerView(title: "View Timetable", selectedStationObject: $station, color: Color(UIColor.systemIndigo), active: $active, icon: "list.bullet.rectangle")
             }
         }
         .edgesIgnoringSafeArea(.all)

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct PlanViewPickerButtonView: View {
-    @StateObject var data = HSRDataStore.shared
-    @Binding var origin: String
-    @Binding var destination: String
+    @StateObject var data = HSRStore.shared
+    @Binding var originObject: Station?
+    @Binding var destinationObject: Station?
     
     @State var ooActive = false
     @State var ddActive = false
     
     @State var rotation: Double
-    
-//    @State var startingStation = ""
-//    @State var endingStation = ""
+
     
     var body: some View {
         ZStack {
@@ -29,7 +27,7 @@ struct PlanViewPickerButtonView: View {
                     
                         ooActive = true
                 }) {
-                    Text(LocalizedStringKey(data.stationName(from:origin) ?? "Origin"))
+                    Text(LocalizedStringKey(originObject?.StationName.En ?? "Origin"))
                         
                 }
                 .buttonStyle(OpacityChangingButton(.hsrColor))
@@ -52,7 +50,7 @@ struct PlanViewPickerButtonView: View {
                         ddActive = true
                     
                 }) {
-                    Text(LocalizedStringKey(data.stationName(from:destination) ?? "Destination"))
+                    Text(LocalizedStringKey(destinationObject?.StationName.En ?? "Destination"))
                 }
                 .buttonStyle(OpacityChangingButton(.hsrColor))
 
@@ -62,19 +60,19 @@ struct PlanViewPickerButtonView: View {
             .background(BlurView())
         }
             SlideoverSheetView(isOpen: $ooActive) {
-                StationSheetPickerView(title: "Origin", selectedStation: $origin, color: .hsrColor, active: $ooActive, icon: "tram.fill")
+                StationSheetPickerView(title: "Origin", selectedStationObject: $originObject, color: .hsrColor, active: $ooActive, icon: "tram.fill")
             }
             SlideoverSheetView(isOpen: $ddActive) {
-                StationSheetPickerView(title: "Destination", selectedStation: $destination, color: .hsrColor, active: $ddActive, icon: "tram.fill")
+                StationSheetPickerView(title: "Destination", selectedStationObject: $destinationObject, color: .hsrColor, active: $ddActive, icon: "tram.fill")
             }
     }
         .edgesIgnoringSafeArea(.all)
     }
     
     func flipStations() {
-        let temp = origin
-        origin = destination
-        destination = temp
+        let temp = originObject
+        originObject = destinationObject
+        destinationObject = temp
         
         rotation += 180
     }

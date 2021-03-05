@@ -18,6 +18,8 @@ struct PrimaryView: View {
     // stored as IDs 4-digit string
     @State var startingStation = ""
     @State var endingStation = ""
+    @State var startingStationObject: Station?
+    @State var endingStationObject: Station?
     @State var timetableStationObject: Station?
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
@@ -46,7 +48,7 @@ struct PrimaryView: View {
         ZStack {
             
             switch (currentView) {
-            case .plannerView:  PlanView(vm: queryVM, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
+            case .plannerView:  PlanView(vm: queryVM, startingStationObject: $startingStationObject, endingStationObject: $endingStationObject, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
             case .timetableView:  LiveboardView(timetableStationObject: $timetableStationObject)
             }
             
