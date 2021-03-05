@@ -25,6 +25,13 @@ public final class HSRStore: ObservableObject {
                 self?.dailyTimetable = dt
             }
         }
+        HSRService.getHSRStations(client: client) {[weak self] stations in
+            DispatchQueue.main.async {
+                self?.stations = stations
+            }
+        }
+    
+        //TODO: Fares and all the loop stuff
     }
     
     // get departures from provided station ID string

@@ -18,13 +18,13 @@ struct PrimaryView: View {
     // stored as IDs 4-digit string
     @State var startingStation = ""
     @State var endingStation = ""
-    @State var timetableStation = ""
+    @State var timetableStationObject: Station?
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
     
     @State private var originIsActive = false
     @State private var destinationIsActive = false
-    @State private var timetableIsActive = false
+    
     
     
     @State private var showingSettings = false
@@ -47,7 +47,7 @@ struct PrimaryView: View {
             
             switch (currentView) {
             case .plannerView:  PlanView(vm: queryVM, startingStation: $startingStation, endingStation: $endingStation, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
-            case .timetableView:  LiveboardView(timetableStation: $timetableStation, timetableIsActive: $timetableIsActive)
+            case .timetableView:  LiveboardView(timetableStationObject: $timetableStationObject)
             }
             
             HeaderView(currentView: $currentView, showingSettings: $showingSettings)

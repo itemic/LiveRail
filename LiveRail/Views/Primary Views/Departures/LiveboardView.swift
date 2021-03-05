@@ -9,12 +9,8 @@ import SwiftUI
 
 struct LiveboardView: View {
     
-    @StateObject var data = HSRDataStore.shared
-    @StateObject var lm = LocationManager.shared
     
-    @Binding var timetableStation: String
-    @Binding var timetableIsActive: Bool
-    
+    @Binding var timetableStationObject: Station?
     
     
 //    TEST
@@ -26,13 +22,11 @@ struct LiveboardView: View {
         ZStack {
             VStack {
                
-                if (!timetableStation.isEmpty) {
+                if let timetableStationObject = timetableStationObject {
                     ScrollView {
                         Spacer()
                             .frame(height: 120)
-                        if (data.station(from: timetableStation) != nil) {
-                            StationTimetableView(station: data.station(from: timetableStation)!, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
-                        }
+                            StationTimetableView(station: timetableStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
                         Spacer()
                             .frame(height: 110)
                     }
@@ -42,7 +36,7 @@ struct LiveboardView: View {
                 
             }
             
-            LiveBoardPickerButtonView(stn: $timetableStation)
+            LiveBoardPickerButtonView(station: $timetableStationObject)
 
             SlideoverSheetView(isOpen: $showingTimetable) {
                 if let selectedDailyTimetable = selectedDailyTimetable {
@@ -52,7 +46,7 @@ struct LiveboardView: View {
 
         }
         
-        .onChange(of: timetableStation) { _ in
+        .onChange(of: timetableStationObject) { _ in
             sendHaptics()
         }
        

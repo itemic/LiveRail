@@ -22,6 +22,7 @@
 		4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E66A25A9F69F00E50C5F /* HSRService.swift */; };
 		4566399D25F0EDE0006B000D /* HSRStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4566399C25F0EDE0006B000D /* HSRStore.swift */; };
 		456750E425F2385F0019244E /* TrainServiceSheetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456750E325F2385F0019244E /* TrainServiceSheetView2.swift */; };
+		456750E725F2429C0019244E /* StationSheetPickerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456750E625F2429C0019244E /* StationSheetPickerView2.swift */; };
 		4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3725AFFD2A002D376B /* FareSchedule.swift */; };
 		4569AA3B25B00772002D376B /* FareListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4569AA3A25B00772002D376B /* FareListingView.swift */; };
 		456A2D1925B9332F00DF4B33 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456A2D1825B9332F00DF4B33 /* PlanView.swift */; };
@@ -81,6 +82,7 @@
 		4563E66A25A9F69F00E50C5F /* HSRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRService.swift; sourceTree = "<group>"; };
 		4566399C25F0EDE0006B000D /* HSRStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRStore.swift; sourceTree = "<group>"; };
 		456750E325F2385F0019244E /* TrainServiceSheetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainServiceSheetView2.swift; sourceTree = "<group>"; };
+		456750E625F2429C0019244E /* StationSheetPickerView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSheetPickerView2.swift; sourceTree = "<group>"; };
 		4569AA3725AFFD2A002D376B /* FareSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareSchedule.swift; sourceTree = "<group>"; };
 		4569AA3A25B00772002D376B /* FareListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FareListingView.swift; sourceTree = "<group>"; };
 		456A2D1825B9332F00DF4B33 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */,
 				45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */,
 				453366AC25B435470025B42A /* StationSheetPickerView.swift */,
+				456750E625F2429C0019244E /* StationSheetPickerView2.swift */,
 				45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */,
 				456750E325F2385F0019244E /* TrainServiceSheetView2.swift */,
 				4569AA3A25B00772002D376B /* FareListingView.swift */,
@@ -380,6 +383,7 @@
 				45F8518A25E53C050068CA83 /* TrainServiceSheetView.swift in Sources */,
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
+				456750E725F2429C0019244E /* StationSheetPickerView2.swift in Sources */,
 				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,

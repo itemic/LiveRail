@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StopPatternView: View {
-    @StateObject var data = HSRDataStore.shared
+    @StateObject var data = HSRStore.shared
     var daily: RailDailyTimetable
     @AppStorage("stationDotsChoice") var stationDotsChoice = 1
 
@@ -44,19 +44,7 @@ struct StopPatternView: View {
     }
     var body: some View {
         HStack(spacing: 3) {
-//            if stationDotsChoice == 1 {
-//                switch(daily.DailyTrainInfo.direction) {
-//                case .northbound:
-//                    Text("$S$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//                case .southbound:
-//                    Text("$N$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//                }
-//
-//            } else if stationDotsChoice == 2 {
-//                Text("$N$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//            } else if stationDotsChoice == 3 {
-//                Text("$S$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//            }
+
             
             ForEach(stations) { station in
                 
@@ -78,18 +66,7 @@ struct StopPatternView: View {
                     .frame(width: 7, height: 7)
                 }
             }
-//            if stationDotsChoice == 1 {
-//                switch(daily.DailyTrainInfo.direction) {
-//                case .northbound:
-//                    Text("$N$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//                case .southbound:
-//                    Text("$S$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//                }
-//            } else if stationDotsChoice == 2 {
-//                Text("$S$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//            } else if stationDotsChoice == 3 {
-//                Text("$N$").font(.system(size: 8, weight: .semibold, design: .monospaced))
-//            }
+
 
         }
     }

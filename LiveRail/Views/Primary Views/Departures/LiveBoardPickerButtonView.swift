@@ -10,8 +10,7 @@ import SwiftUI
 
 
 struct LiveBoardPickerButtonView: View {
-    @StateObject var data = HSRDataStore.shared
-    @Binding var stn: String
+    @Binding var station: Station?
     @State var active = false
     
     
@@ -25,7 +24,7 @@ struct LiveBoardPickerButtonView: View {
                         active = true
                     
                 }) {
-                            Text(LocalizedStringKey(data.stationName(from: stn) ?? "Station"))
+                    Text(LocalizedStringKey(station?.StationName.En ?? "Station"))
                 }
                 .buttonStyle(OpacityChangingButton(Color(UIColor.systemIndigo)))
                 
@@ -42,7 +41,7 @@ struct LiveBoardPickerButtonView: View {
             
         }
             SlideoverSheetView(isOpen: $active) {
-                StationSheetPickerView(title: "View Timetable", selectedStation: $stn, color: Color(UIColor.systemIndigo), active: $active, icon: "list.bullet.rectangle")
+                StationSheetPickerView2(title: "View Timetable", selectedStationObject: $station, color: Color(UIColor.systemIndigo), active: $active, icon: "list.bullet.rectangle")
             }
         }
         .edgesIgnoringSafeArea(.all)
