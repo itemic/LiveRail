@@ -43,6 +43,7 @@
 		45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
 		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
 		45D9480D25AEA733002FE73C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D9480C25AEA733002FE73C /* SettingsView.swift */; };
+		45F47CB725F38F21001D8EE2 /* PlanTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F47CB625F38F21001D8EE2 /* PlanTimetableView.swift */; };
 		45F8518525E4FE7B0068CA83 /* SlideoverSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */; };
 		45F8518A25E53C050068CA83 /* TrainServiceSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */; };
 		45FB0B9C25BAA71000670396 /* EmptyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */; };
@@ -105,6 +106,7 @@
 		45D9480C25AEA733002FE73C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		45F47CB625F38F21001D8EE2 /* PlanTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTimetableView.swift; sourceTree = "<group>"; };
 		45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideoverSheetView.swift; sourceTree = "<group>"; };
 		45F8518925E53C050068CA83 /* TrainServiceSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainServiceSheetView.swift; sourceTree = "<group>"; };
 		45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				456A2D1825B9332F00DF4B33 /* PlanView.swift */,
 				45FB0BA125BACAF900670396 /* PlanViewPickerButtonView.swift */,
 				45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */,
+				45F47CB625F38F21001D8EE2 /* PlanTimetableView.swift */,
 			);
 			path = Trains;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				456A2D2025B93AC200DF4B33 /* HeaderView.swift in Sources */,
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
 				45F8518A25E53C050068CA83 /* TrainServiceSheetView.swift in Sources */,
+				45F47CB725F38F21001D8EE2 /* PlanTimetableView.swift in Sources */,
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				456750E725F2429C0019244E /* StationSheetPickerView.swift in Sources */,

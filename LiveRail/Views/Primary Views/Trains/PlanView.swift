@@ -11,7 +11,7 @@ struct PlanView: View {
     
     @ObservedObject var vm: HSRQueryViewModel
     @StateObject var data = HSRDataStore.shared
-
+    
     
     @Binding var startingStationObject: Station?
     @Binding var endingStationObject: Station?
@@ -22,11 +22,11 @@ struct PlanView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @State private var rotationAmount = 0.0
     
-    @State var selectedTimetable: StationTimetable? = nil
     @State var showingTimetable: Bool = false
+    @State var selectedDailyTimetable: RailDailyTimetable?
     
     
-   
+    
     var body: some View {
         ZStack {
             //MARK: ONE
@@ -34,43 +34,22 @@ struct PlanView: View {
                 
                 
                 if (startingStationObject != nil && endingStationObject != nil && startingStationObject != endingStationObject) {
-                ScrollView(showsIndicators: false) {
-                    Spacer()
-                        .frame(height: 120)
-                    VStack {
-                        
+                    ScrollView(showsIndicators: false) {
+                        Spacer()
+                            .frame(height: 120)
                         FareListingView(fareSchedule: data.fareSchedule[startingStationObject!.StationID]![endingStationObject!.StationID]!)
                             .padding(.bottom, 10)
-                        ForEach(vm.queryResultTimetable
-                                    .sorted {
-                                        $0.OriginStopTime < $1.OriginStopTime
-                                    }
-                                    .filter {
-                                        showAvailable ? true : Date.compare(to: $0.OriginStopTime.DepartureTime)
-                                    }
-                        ) { entry in
-                            HStack {
-                                PlannerResultRowView(entry: entry, availability: vm.availability[entry], timetable: vm.getTimetable(for: entry.DailyTrainInfo.TrainNo), origin: startingStationObject, destination: endingStationObject)
-//                                    .onTapGesture {
-//                                        selectedTimetable = data.getStationTimetable(from: data.station(from: startingStation)!, train: entry.DailyTrainInfo.TrainNo)
-//                                        showingTimetable = true
-//                                    }
-                            }
-                            
-                            
-                        }
-                        
+                        PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
                         Spacer()
                             .frame(height: 110)
+                        
+                        
                     }
-                    .padding(.horizontal)
-                    
-                }
                 } else {
-
+                    
                     EmptyScreenView(icon: "tram.fill", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .hsrColor)
- 
-
+                    
+                    
                 }
             }
             
@@ -81,8 +60,8 @@ struct PlanView: View {
             PlanViewPickerButtonView(originObject: $startingStationObject, destinationObject: $endingStationObject, rotation: rotationAmount)
             
             SlideoverSheetView(isOpen: $showingTimetable) {
-                if let selectedTimetable = selectedTimetable {
-                    TrainServiceSheetView(train: selectedTimetable, active: $showingTimetable)
+                if let selectedTimetable = selectedDailyTimetable {
+                    TrainServiceSheetView2(train: selectedTimetable, active: $showingTimetable)
                 } else { EmptyView() }
             }
             

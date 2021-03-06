@@ -97,4 +97,35 @@ public final class HSRStore: ObservableObject {
         return isEndingTerminus(for: train, at: station) || isStartingTerminus(for: train, at: station)
     }
     
+    
+    // following functions are for query timetables
+    func getDeparturesWith(from origin: Station, to destination: Station) -> [RailDailyTimetable] {
+        return dailyTimetable.filter({ dt in
+            dt.StopTimes.contains(where: {
+                $0.StationID == origin.StationID
+            }) &&
+            dt.StopTimes.contains(where: {
+                $0.StationID == destination.StationID
+            }) &&
+            dt.StopTimes.first(where: {
+                $0.StationID == origin.StationID
+            })!.DepartureTime < dt.StopTimes.first(where: {
+                $0.StationID == destination.StationID
+            })!.DepartureTime
+        })
+        .sorted {
+            $0.StopTimes.first(where: { (s1: StopTime) -> Bool in
+                s1.StationID == origin.StationID
+            })! < $1.StopTimes.first(where: { (s1: StopTime) -> Bool in
+                s1.StationID == origin.StationID
+            })!
+        }
+    }
+    
+    func getStopTime(for station: Station, on train: RailDailyTimetable) -> StopTime{
+        return train.StopTimes.first(where: {
+            $0.StationID == station.StationID
+        })!
+    }
+    
 }

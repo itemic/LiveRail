@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PlannerResultRowView: View {
-    @StateObject var data = HSRDataStore.shared
-    var entry: RailODDailyTimetable
+    @StateObject var data = HSRStore.shared
+//    var entry: RailODDailyTimetable
+    var entry: RailDailyTimetable
     var availability: AvailableSeat?
-    @State var extended: Bool = false
-    var timetable: RailDailyTimetable?
-    var origin: Station?
-    var destination: Station?
+    
+//    var timetable: RailDailyTimetable?
+    var origin: Station
+    var destination: Station
     
     var stations: [Station] {
         switch (entry.DailyTrainInfo.direction) {
@@ -33,24 +34,25 @@ struct PlannerResultRowView: View {
                 HStack {
                     Text("\(entry.DailyTrainInfo.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
                     Spacer()
-                    if (!Date.compare(to: entry.OriginStopTime.DepartureTime)) {
+                    if (!data.getTrainWillDepartAfterNow(for: entry, at: origin)) {
                         Text("DEPARTED")
                             .font(Font.system(.subheadline, design: .rounded))
                             .foregroundColor(.red)
                             .padding(4)
                             .background(Color.red.opacity(0.2))
                             .cornerRadius(5)
-                    } else {
-                        AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
-                        AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
                     }
+//                    else {
+//                        AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+//                        AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
+//                    }
                     
                 }
                 .padding(.horizontal, 5)
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(LocalizedStringKey(entry.OriginStopTime.StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
-                        Text("\(entry.OriginStopTime.DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
+                        Text(LocalizedStringKey(data.getStopTime(for: origin, on: entry).StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
+                        Text("\(data.getStopTime(for: origin, on: entry).DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
                     }
                     Spacer()
                     VStack(alignment: .leading) {
@@ -59,16 +61,13 @@ struct PlannerResultRowView: View {
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text(LocalizedStringKey(entry.DestinationStopTime.StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
-                        Text("\(entry.DestinationStopTime.ArrivalTime)").font(Font.system(.title, design: .rounded).monospacedDigit())
+                        Text(LocalizedStringKey(data.getStopTime(for: destination, on: entry).StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
+                        Text("\(data.getStopTime(for: destination, on: entry).ArrivalTime)").font(Font.system(.title, design: .rounded).monospacedDigit())
                     }
                 }
                 .padding(.horizontal, 5)
                 
-                if (extended) {
-//                    
 
-                }
                 
             }
             
