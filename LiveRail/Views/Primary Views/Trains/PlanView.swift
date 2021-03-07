@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlanView: View {
     
-    @ObservedObject var vm: HSRQueryViewModel
+//    @ObservedObject var vm: HSRQueryViewModel
     @StateObject var data = HSRDataStore.shared
     
     
@@ -71,12 +71,12 @@ struct PlanView: View {
         
         .onChange(of: startingStationObject) { newValue in
             if (newValue != nil && endingStationObject != nil) {
-                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
+//                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
             }
         }
         .onChange(of: endingStationObject) { newValue in
             if (newValue != nil  && startingStationObject != nil) {
-                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
+//                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
             }
         }       
     }

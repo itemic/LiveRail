@@ -55,6 +55,10 @@ public struct HSRService {
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList/\(origin)"), on: client, completion: completion)
     }
     
+    static func getAllAvailability(client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil) {
+        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList"), on: client, completion: completion)
+    }
+    
     static func getFares(client: NetworkManager, completion: (([FareSchedule]) -> Void)? = nil) {
         runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/ODFare"), on: client, completion: completion)
     }

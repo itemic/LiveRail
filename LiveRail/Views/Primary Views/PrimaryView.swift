@@ -48,7 +48,7 @@ struct PrimaryView: View {
         ZStack {
             
             switch (currentView) {
-            case .plannerView:  PlanView(vm: queryVM, startingStationObject: $startingStationObject, endingStationObject: $endingStationObject, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
+            case .plannerView:  PlanView(startingStationObject: $startingStationObject, endingStationObject: $endingStationObject, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
             case .timetableView:  LiveboardView(timetableStationObject: $timetableStationObject)
             }
             

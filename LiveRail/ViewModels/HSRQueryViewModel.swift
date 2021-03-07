@@ -60,6 +60,7 @@ final class HSRQueryViewModel: ObservableObject {
                 }
                 
                  self?.availability[timetable] = seat
+                
             }
             
             

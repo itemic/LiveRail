@@ -37,7 +37,7 @@ struct AvailableSeat: Codable {
     func businessAvailability(to station: String) -> SeatAvailability {
         return StopStations.first {
             $0.StationID == station
-        }?.standardAvailability ?? .unknown
+        }?.businessAvailability ?? .unknown
         
         
     }

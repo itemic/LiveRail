@@ -14,6 +14,7 @@ public final class HSRStore: ObservableObject {
     @Published var stations: [Station] = []
     @Published var lastUpdateDate: Date = Date(timeIntervalSince1970: 0) // initialize from zero
     @Published var dailyTimetable: [RailDailyTimetable] = []
+    @Published var availableSeats: [Station: [AvailableSeat]] = [:]
     
     public static let shared = HSRStore(client: .init())
     
@@ -28,10 +29,23 @@ public final class HSRStore: ObservableObject {
         HSRService.getHSRStations(client: client) {[weak self] stations in
             DispatchQueue.main.async {
                 self?.stations = stations
+                for station in stations {
+                    self!.fetchAvailability(station: station, client: client)
+                }
             }
         }
+        
+        
     
         //TODO: Fares and all the loop stuff
+    }
+    
+    func fetchAvailability(station: Station, client: NetworkManager) {
+        HSRService.getAvailability(from: station.StationID, client: client) { [weak self] availability in
+            DispatchQueue.main.async {
+                self?.availableSeats[station] = availability.AvailableSeats
+            }
+        }
     }
     
     // get departures from provided station ID string
@@ -126,6 +140,15 @@ public final class HSRStore: ObservableObject {
         return train.StopTimes.first(where: {
             $0.StationID == station.StationID
         })!
+    }
+    
+    // for availability; TODO need to poll frequently
+    func getAvailability(for train: String, from station: Station) -> AvailableSeat? {
+
+        let avail = availableSeats[station]!.first(where: {
+            $0.TrainNo == train
+        })
+        return avail
     }
     
 }

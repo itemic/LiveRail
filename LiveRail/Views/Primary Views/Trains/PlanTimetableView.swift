@@ -24,7 +24,7 @@ struct PlanTimetableView: View {
                         .filter {
                             (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: origin!))
                         }) { entry in
-                PlannerResultRowView(entry: entry, availability: nil, origin: origin!, destination: destination!)
+                PlannerResultRowView(entry: entry, availability: data.getAvailability(for: entry.DailyTrainInfo.TrainNo, from: origin!), origin: origin!, destination: destination!)
                     .onTapGesture {
                         selectedTimetable = entry
                         isShow = true
