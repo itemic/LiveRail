@@ -7,6 +7,12 @@
 
 import Foundation
 
+/*
+THIS CLASS IS DEPRECATED AND REPLACED WITH HSRSTORE
+ THIS IS STILL KEPT FOR NOW AS THERE IS USEFUL CODE THAT
+ I MAY NEED TO USE IN THE FUTURE
+*/
+/*
 public final class HSRDataStore: ObservableObject {
     @Published var stations: [Station] = [] // all stations
     @Published var lastUpdateDate = Date(timeIntervalSince1970: 0)
@@ -47,11 +53,9 @@ public final class HSRDataStore: ObservableObject {
             HSRService.getFares(client: client) { [weak self] fares in
                 DispatchQueue.main.async {
                     for fare in fares {
-                        
                         self!.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
                     }
                 }
-                
             }
         
         
@@ -113,3 +117,4 @@ public final class HSRDataStore: ObservableObject {
     
     
 }
+*/

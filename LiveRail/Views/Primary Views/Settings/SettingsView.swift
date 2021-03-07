@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject var data = HSRDataStore.shared
+    @StateObject var data = HSRStore.shared
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showNearestStation") var showNearestStation = true

@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct LiveRailApp: App {
-    @StateObject var data = HSRDataStore.shared
+    @StateObject var data = HSRStore.shared
     var body: some Scene {
         WindowGroup {
             MainView()

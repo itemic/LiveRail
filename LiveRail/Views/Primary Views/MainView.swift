@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-//    @StateObject var data = HSRDataStore.shared
     @StateObject var data = HSRStore.shared
     var body: some View {
 

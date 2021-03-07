@@ -12,7 +12,7 @@ enum StationButtonType: CaseIterable {
 }
 
 struct PrimaryView: View {
-    @StateObject var data = HSRDataStore.shared
+    @StateObject var data = HSRStore.shared
     @StateObject var queryVM = HSRQueryViewModel()
     
     // stored as IDs 4-digit string

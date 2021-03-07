@@ -15,12 +15,19 @@ public final class HSRStore: ObservableObject {
     @Published var lastUpdateDate: Date = Date(timeIntervalSince1970: 0) // initialize from zero
     @Published var dailyTimetable: [RailDailyTimetable] = []
     @Published var availableSeats: [Station: [AvailableSeat]] = [:]
+    @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
+
     
     public static let shared = HSRStore(client: .init())
     
     init(client: NetworkManager) {
-        // reset last update time (for now)
-        lastUpdateDate = Date(timeIntervalSince1970: 0)
+        self.reload(client: client)
+    }
+    
+    func reload(client: NetworkManager) {
+        
+        
+        
         HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
             DispatchQueue.main.async {
                 self?.dailyTimetable = dt
@@ -30,14 +37,25 @@ public final class HSRStore: ObservableObject {
             DispatchQueue.main.async {
                 self?.stations = stations
                 for station in stations {
+                    self!.fareSchedule[station.StationID] = [:]
                     self!.fetchAvailability(station: station, client: client)
                 }
             }
         }
         
+        HSRService.getFares(client: client) { [weak self] fares in
+            DispatchQueue.main.async {
+                for fare in fares {
+                    
+                    self!.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
+                }
+            }
+            
+        }
         
-    
-        //TODO: Fares and all the loop stuff
+        // reset last update time (for now)
+        // in future, use this to debounce
+        lastUpdateDate = Date()
     }
     
     func fetchAvailability(station: Station, client: NetworkManager) {

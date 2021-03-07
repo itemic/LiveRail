@@ -10,7 +10,7 @@ import SwiftUI
 struct PlanView: View {
     
 //    @ObservedObject var vm: HSRQueryViewModel
-    @StateObject var data = HSRDataStore.shared
+    @StateObject var data = HSRStore.shared
     
     
     @Binding var startingStationObject: Station?

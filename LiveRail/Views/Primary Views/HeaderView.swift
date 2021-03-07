@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HeaderView: View {
     
-    @StateObject var data = HSRDataStore.shared
     @Binding var currentView: RailViews
     @Binding var showingSettings: Bool
 //    @Binding var selectedView: Int
