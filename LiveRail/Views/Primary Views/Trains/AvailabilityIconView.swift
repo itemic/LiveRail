@@ -13,12 +13,11 @@ struct AvailabilityIconView: View {
     var body: some View {
 //        VStack(alignment: .center) {
             Text(status.icon())
-                
-                .font(Font.system(.body, design: .monospaced))
+                .font(Font.system(size: 16, design: .monospaced))
                 .foregroundColor(status.color())
-                .imageScale(.small)
+//                .imageScale(.small)
 //        }
-//        .frame(width: 20)
+                .frame(width: 20, height: 20)
     }
 }
 

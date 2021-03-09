@@ -24,7 +24,7 @@
 "DEVELOPER" = "開發者";
 "Visit location settings to enable location features" = "往設定開啟定位權限";
 "Enable" = "開啟";
-"Disclaimer: All times are in local time" = "時間為地方時間";
+"TIME_ZONE_DISCLAIMER" = "時間應為台灣時間";
 "Data source: Taiwan PTX Transport API" = "資料來源：台灣交通部ＰＴＸ平臺";
 "%@ to %@" = "%@ 往 %@";
 "DEPARTED" = "已離站";
@@ -88,3 +88,8 @@
 "HOME_PAGE_SETTINGS_DESCRIPTION" = "選擇開啟時顯示的首頁";
 
 "DEFAULTS" = "預設值";
+
+"FETCH_DATA_AVAILABILITY_TITLE" = "更新座位資料";
+"FETCH_DATA_AVAILABILITY_DESC" = "避免過多使用數據，需手動更新";
+
+"Update" = "更新";

@@ -30,3 +30,9 @@
 "HOME_PAGE_SETTINGS_DESCRIPTION" = "Choose view to display on fresh start";
 
 "DEFAULTS" = "Defaults";
+
+"FETCH_DATA_AVAILABILITY_TITLE" = "Update seat availability";
+"FETCH_DATA_AVAILABILITY_DESC" = "To reduce data usage, seat availability data is requested on demand.";
+
+
+"TIME_ZONE_DISCLAIMER" = "Times displayed are times in Taiwan regardless of your system time.";

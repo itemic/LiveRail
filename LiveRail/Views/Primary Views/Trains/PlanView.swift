@@ -37,8 +37,7 @@ struct PlanView: View {
                     ScrollView(showsIndicators: false) {
                         Spacer()
                             .frame(height: 120)
-                        FareListingView(fareSchedule: data.fareSchedule[startingStationObject!.StationID]![endingStationObject!.StationID]!)
-                            .padding(.bottom, 10)
+                        
                         PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
                         Spacer()
                             .frame(height: 110)

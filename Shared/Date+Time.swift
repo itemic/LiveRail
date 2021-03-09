@@ -105,7 +105,7 @@ extension Date {
     }
     
     static func compare(now: Date = Date(), to otherTime: String) -> Bool {
-    
+        
         guard let other = SharedDateFormatter.shared.date(from: otherTime) else {return false}
         return now.time < other.time
     }

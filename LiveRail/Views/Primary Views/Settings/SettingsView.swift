@@ -240,6 +240,31 @@ struct SettingsView: View {
                             }
                         }
                     }
+                    
+                    HStack {
+                        HStack {
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(Color(UIColor.systemYellow))
+                                .frame(width: 28, height: 28)
+                                .overlay(Image(systemName: "triangle.fill").font(.system(size: 16)).foregroundColor(.white))
+                            
+                            VStack(alignment: .leading) {
+                                Text("FETCH_DATA_AVAILABILITY_TITLE")
+                                Text("FETCH_DATA_AVAILABILITY_DESC").font(.caption2).foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Button(action: {
+                                data.fetchAllAvailability(client: .init())
+                            }) {
+                                Text("Update")
+                                    .foregroundColor(Color(UIColor.systemOrange))
+                                    .padding(8)
+                                    .background(Color(UIColor.systemYellow).opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }
+                    
                 }.padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
@@ -285,23 +310,7 @@ struct SettingsView: View {
                         }
                         
                         
-                        //TIME WARP
                         
-//                        VStack(alignment: .leading, spacing: 4) {
-//                            Toggle(isOn: $enableTimeWarp, label: {
-//                                HStack {
-//                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-//                                        .fill(Color(UIColor.systemIndigo).opacity(0.2))
-//                                        .frame(width: 28, height: 28)
-//                                        .overlay(Image(systemName: "timelapse").font(.system(size: 16)).foregroundColor(Color(UIColor.systemIndigo)))
-//                                VStack(alignment: .leading) {
-//                                    Text("Time Warp β")
-//                                    Text("Look into the future...").font(.caption2).foregroundColor(.secondary)
-//
-//                                }
-//                                }
-//                            })
-//                        }
                         
                     }
                     .padding()
@@ -315,7 +324,7 @@ struct SettingsView: View {
                             Link("Privacy Policy", destination: URL(string: "https://liverail.terrankroft.com/privacy")!)
                                 .foregroundColor(.secondary).font(.caption)
                         }
-                        Text("Disclaimer: All times are in local time").foregroundColor(.secondary).font(.caption)
+                        Text("TIME_ZONE_DISCLAIMER").foregroundColor(.secondary).font(.caption)
                             .onTapGesture {
                                 showEasterEggAlert = true
                             }

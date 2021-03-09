@@ -43,10 +43,11 @@ public final class HSRStore: ObservableObject {
             }
         }
         
+        // TODO Fix this 
         HSRService.getFares(client: client) { [weak self] fares in
             DispatchQueue.main.async {
                 for fare in fares {
-                    
+//                    print (fare)
                     self!.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
                 }
             }
@@ -56,6 +57,12 @@ public final class HSRStore: ObservableObject {
         // reset last update time (for now)
         // in future, use this to debounce
         lastUpdateDate = Date()
+    }
+    
+    func fetchAllAvailability(client: NetworkManager) {
+        for station in stations {
+            fetchAvailability(station: station, client: client)
+        }
     }
     
     func fetchAvailability(station: Station, client: NetworkManager) {
@@ -167,6 +174,10 @@ public final class HSRStore: ObservableObject {
             $0.TrainNo == train
         })
         return avail
+    }
+    
+    func getAvailability(from station: Station) -> [AvailableSeat] {
+        return availableSeats[station] ?? []
     }
     
 }

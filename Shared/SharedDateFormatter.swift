@@ -20,6 +20,8 @@ class SharedDateFormatter {
     private let hourFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
+        df.timeZone = TimeZone(identifier: "Asia/Taipei")
+
         return df
     }()
     

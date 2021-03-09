@@ -13,18 +13,20 @@ struct PlanTimetableView: View {
     var origin: Station?
     var destination: Station?
     @Binding var isShow: Bool
+    @State var availableSeats: [AvailableSeat] = [] // goes in a vm i think
 
     @Binding var selectedTimetable: RailDailyTimetable?
     
     
     var body: some View {
         VStack {
-            
+            FareListingView(fareSchedule: data.fareSchedule[origin!.StationID]![destination!.StationID]!)
+                .padding(.bottom, 10)
             ForEach(data.getDeparturesWith(from: origin!, to: destination!)
                         .filter {
                             (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: origin!))
                         }) { entry in
-                PlannerResultRowView(entry: entry, availability: data.getAvailability(for: entry.DailyTrainInfo.TrainNo, from: origin!), origin: origin!, destination: destination!)
+                PlannerResultRowView(entry: entry, availability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo}), origin: origin!, destination: destination!)
                     .onTapGesture {
                         selectedTimetable = entry
                         isShow = true
@@ -33,6 +35,30 @@ struct PlanTimetableView: View {
             
         }
         .padding(.horizontal)
+        .onAppear {
+            reload()
+        }
+        .onChange(of: origin) {newOrigin in
+            reload(origin: newOrigin!)
+        }
+
+        
     }
+    
+    func reload() {
+        reload(origin: origin!)
+    }
+    
+    private func reload(origin: Station) {
+        
+//            data.fetchAvailability(station: origin, client: .init())
+            availableSeats = data.availableSeats[origin]!
+//                ?? []
+        
+        
+        
+    }
+    
+    
 }
 

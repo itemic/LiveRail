@@ -9,11 +9,9 @@ import SwiftUI
 
 struct PlannerResultRowView: View {
     @StateObject var data = HSRStore.shared
-//    var entry: RailODDailyTimetable
     var entry: RailDailyTimetable
     var availability: AvailableSeat?
     
-//    var timetable: RailDailyTimetable?
     var origin: Station
     var destination: Station
     
