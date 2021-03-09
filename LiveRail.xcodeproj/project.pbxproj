@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450FEDE025F7A46100A87AA0 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F4F25AD9B260025BD09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F4E25AD9B260025BD09 /* MainView.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F4E25AD9B260025BD09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			children = (
 				45BF394125EB84E9006437F7 /* Shared Views */,
 				4503475B25B2D9E900BE7112 /* Primary Views */,
+				450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				45B893A325D413AA00FA05F7 /* StationDotsSettingsView.swift in Sources */,
 				45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */,
 				45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */,
+				450FEDE025F7A46100A87AA0 /* WhatsNewView.swift in Sources */,
 				4566399D25F0EDE0006B000D /* HSRStore.swift in Sources */,
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
 				45D1BC7C25AC466300D040CD /* HSRQueryViewModel.swift in Sources */,

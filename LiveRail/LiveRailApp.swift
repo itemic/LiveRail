@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct LiveRailApp: App {
     @StateObject var data = HSRStore.shared
+//    @AppStorage("whatsNew2-0b") var whatsNew = true
+    @State private var whatsNew = true
     
     init() {
         print("WAHOO")
@@ -23,6 +25,9 @@ struct LiveRailApp: App {
                     data.reload(client: .init())
                     
                 }
+//                .sheet(isPresented: $whatsNew, content: {
+//                    WhatsNewView()
+//                })
         }
     }
 }

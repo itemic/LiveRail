@@ -11,15 +11,14 @@ struct SettingsView: View {
     @StateObject var data = HSRStore.shared
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
-    @AppStorage("showNearestStation") var showNearestStation = true
-    @AppStorage("showArrDeptTimes") var showArrDeptTimes = false
+    @AppStorage("showArrDeptTimes") var showArrDeptTimes = true
     @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
     
     @AppStorage("showStopDots") var showStopDots = true
     @AppStorage("stationDotsChoice") var stationDotsChoice = 1
     
-    @AppStorage("enableLocationFeatures") var enableLocationFeatures = false
-    @AppStorage("enableTimeWarp") var enableTimeWarp = false
+    @AppStorage("enableLocationFeatures") var enableLocationFeatures = true
+    
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject var lm = LocationManager.shared
