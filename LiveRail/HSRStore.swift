@@ -163,7 +163,7 @@ public final class HSRStore: ObservableObject {
     // for availability; TODO need to poll frequently
     func getAvailability(for train: String, from station: Station) -> AvailableSeat? {
 
-        let avail = availableSeats[station]!.first(where: {
+        let avail = availableSeats[station]?.first(where: {
             $0.TrainNo == train
         })
         return avail

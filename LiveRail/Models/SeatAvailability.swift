@@ -8,7 +8,7 @@ import SwiftUI
 import Foundation
 
 struct AvailabilityWrapper: Codable {
-    var UpdateTime: String
+    var UpdateTime: String?
     var Count: Int?
     var AvailableSeats: [AvailableSeat]
 }
