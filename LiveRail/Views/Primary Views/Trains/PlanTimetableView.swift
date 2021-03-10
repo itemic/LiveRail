@@ -41,7 +41,7 @@ struct PlanTimetableView: View {
         }
         .onChange(of: network.connected) {status in
             if (status == true) {
-                print("TFETC")
+
                 data.fetchAvailability(station: origin!, client: .init())
                 availableSeats = []
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

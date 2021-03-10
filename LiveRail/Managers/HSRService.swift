@@ -20,6 +20,12 @@ public struct HSRService {
         
     }
     
+    static func getRailDailyTimetable2(client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil, failure: (() -> Void)? = nil) {
+        runRequest2(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today"), on: client, completion: completion, failure: {
+            print("ASDFE")
+        })
+    }
+    
     static func getTimetable(for station: Station, client: NetworkManager, completion: (([StationTimetable]) -> Void)? = nil) {
         
         let now = df.taiwanTZString(from: Date())
@@ -79,13 +85,13 @@ public struct HSRService {
                 }
             case .failure(let error):
                 print(error)
-                print("FAILURE -- most likely network")
+//                print("FAILURE -- most likely network")
                 // TODO add something to handle here
             }
         }
     }
     
-    static func runRequest<T: Codable>(_ request: URLRequest, on client: NetworkManager, completion: ((T) -> Void)? = nil, failure: (() -> Void)? = nil) {
+    static func runRequest2<T: Codable>(_ request: URLRequest, on client: NetworkManager, completion: ((T) -> Void)? = nil, failure: (() -> Void)? = nil) {
         client.executeRequest(request: request) { result in
             switch result {
             case .success(let data):
@@ -94,13 +100,16 @@ public struct HSRService {
                 do {
                     let res = try decoder.decode(T.self, from: data)
 //                    print(res)
+//                    print("HERE")
                     completion?(res)
                 } catch {
                     print(error)
+//                    print("CATCH")
+                    failure?()
                 }
             case .failure(let error):
-                print(error)
-                print("FAILURE -- most likely network")
+//                print(error)
+//                print("FAILURE -- most likely network")
                 failure?()
             }
         }

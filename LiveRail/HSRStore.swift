@@ -44,6 +44,16 @@ public final class HSRStore: ObservableObject {
                 self?.dailyTimetable = dt
             }
         }
+        
+        HSRService.getRailDailyTimetable2(client: client, completion: { [weak self] dt in
+            DispatchQueue.main.async {
+                self?.dailyTimetable = dt
+            }
+            
+        }, failure: {
+            print("FAILE")
+        })
+        
         HSRService.getHSRStations(client: client) {[weak self] stations in
             DispatchQueue.main.async {
                 self?.stations = stations
