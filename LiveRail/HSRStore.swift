@@ -21,12 +21,23 @@ public final class HSRStore: ObservableObject {
     public static let shared = HSRStore(client: .init())
     
     init(client: NetworkManager) {
+        self.localBundleData()
         self.reload(client: client)
     }
     
+    func localBundleData() {
+        // code to decode from bundle
+        self.stations = Bundle.main.decode([Station].self, from: "stations.json")
+        for station in stations {
+            self.fareSchedule[station.StationID] = [:]
+        }
+        let fares = Bundle.main.decode([FareSchedule].self, from: "odfare.json")
+        for fare in fares {
+            self.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
+        }
+    }
+    
     func reload(client: NetworkManager) {
-        
-        
         
         HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
             DispatchQueue.main.async {
@@ -37,7 +48,6 @@ public final class HSRStore: ObservableObject {
             DispatchQueue.main.async {
                 self?.stations = stations
                 for station in stations {
-                    self!.fareSchedule[station.StationID] = [:]
                     self!.fetchAvailability(station: station, client: client)
                 }
             }

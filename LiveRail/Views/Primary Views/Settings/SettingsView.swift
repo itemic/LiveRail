@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @StateObject var data = HSRStore.shared
+    @EnvironmentObject var network: NetworkStatus
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showArrDeptTimes") var showArrDeptTimes = true
@@ -29,10 +30,13 @@ struct SettingsView: View {
         
         
         ScrollView {
+            
+            
+            
             VStack(alignment: .leading, spacing: 10) {
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {
-                        Text("Settings").font(Font.system(.title, design: .rounded)).bold()
+                        Text("Settings").font(Font.system(.title)).bold()
                         Spacer()
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
@@ -43,9 +47,26 @@ struct SettingsView: View {
                                 .clipShape(Circle())
                         }
                     }
+                    
+                    
                 }
-                .padding(.bottom, 20)
-                .padding(4)
+                .padding(.horizontal)
+                .padding(.top, 20)
+                
+                if (!network.connected) {
+                    HStack {
+                    VStack(alignment: .leading) {
+                        Text("NO_NETWORK_DETECTED").font(.title3).bold()
+                        Text("NO_NETWORK_DESCRIPTION")
+                    }
+                    Spacer()
+                    }
+                    .padding()
+                    .background(Color.red.opacity(0.3))
+                    .padding(.vertical)
+                } else {
+                    Spacer()
+                }
                 
                 // First bunch
                 VStack(spacing: 20) {
@@ -99,8 +120,7 @@ struct SettingsView: View {
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
-                
-                Spacer()
+                .padding(.horizontal)
                 
                 //MARK: Default View
                 VStack(alignment: .leading, spacing: 20) {
@@ -151,8 +171,7 @@ struct SettingsView: View {
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
-                
-                Spacer()
+                .padding(.horizontal)
                 
                 //MARK: Station dots
                 VStack(alignment: .leading, spacing: 20) {
@@ -181,8 +200,9 @@ struct SettingsView: View {
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
+                .padding(.horizontal)
                 
-                Spacer()
+
                 
                 
                 //MARK: location
@@ -264,9 +284,11 @@ struct SettingsView: View {
                         }
                     }
                     
-                }.padding()
+                }
+                .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(10)
+                .padding(.horizontal)
                 
                 
                 VStack(alignment: .leading) {
@@ -315,6 +337,7 @@ struct SettingsView: View {
                     .padding()
                     .background(Color(UIColor.secondarySystemGroupedBackground))
                     .cornerRadius(10)
+                    
                     VStack(alignment: .leading) {
                         HStack(spacing: 0) {
                             Link("Terms of Service", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
@@ -333,12 +356,12 @@ struct SettingsView: View {
                         Text("Data source: Taiwan PTX Transport API").foregroundColor(.secondary).font(.caption)
                     }
                 }
-                
+                .padding(.horizontal)
                 
                 Spacer()
                 
-                
-            }.padding()
+            }
+            
         }.background(Color(UIColor.tertiarySystemFill))
         .edgesIgnoringSafeArea(.vertical)
         

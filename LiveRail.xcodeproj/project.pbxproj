@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		450FEDE025F7A46100A87AA0 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
-		45232F4F25AD9B260025BD09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F4E25AD9B260025BD09 /* MainView.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
 		45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5425ADBA920025BD09 /* HSRDataStore.swift */; };
 		45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */; };
 		45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */; };
+		45304BD825F8B5AF0005F40D /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 45304BD725F8B5AF0005F40D /* stations.json */; };
+		45304BDB25F8B7550005F40D /* odfare.json in Resources */ = {isa = PBXBuildFile; fileRef = 45304BDA25F8B7550005F40D /* odfare.json */; };
+		45304BDE25F8BB510005F40D /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45304BDD25F8BB510005F40D /* NetworkStatus.swift */; };
 		4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4563E65325A9EECC00E50C5F /* LiveRailApp.swift */; };
 		4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65725A9EECD00E50C5F /* Assets.xcassets */; };
 		4563E65B25A9EECD00E50C5F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4563E65A25A9EECD00E50C5F /* Preview Assets.xcassets */; };
@@ -68,11 +70,13 @@
 /* Begin PBXFileReference section */
 		450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
-		45232F4E25AD9B260025BD09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
 		45232F5425ADBA920025BD09 /* HSRDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRDataStore.swift; sourceTree = "<group>"; };
 		45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRTrainViewModel.swift; sourceTree = "<group>"; };
 		45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerResultRowView.swift; sourceTree = "<group>"; };
+		45304BD725F8B5AF0005F40D /* stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stations.json; sourceTree = "<group>"; };
+		45304BDA25F8B7550005F40D /* odfare.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = odfare.json; sourceTree = "<group>"; };
+		45304BDD25F8BB510005F40D /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		4563E65025A9EECC00E50C5F /* HSR Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSR Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4563E65325A9EECC00E50C5F /* LiveRailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveRailApp.swift; sourceTree = "<group>"; };
 		4563E65725A9EECD00E50C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,11 +138,19 @@
 				45BF394525EB85BA006437F7 /* Settings */,
 				45BF394025EB83B3006437F7 /* Departures */,
 				45BF393F25EB83A1006437F7 /* Trains */,
-				45232F4E25AD9B260025BD09 /* MainView.swift */,
 				45232F5125AD9C770025BD09 /* PrimaryView.swift */,
 				456A2D1F25B93AC200DF4B33 /* HeaderView.swift */,
 			);
 			path = "Primary Views";
+			sourceTree = "<group>";
+		};
+		45304BD625F8B5A40005F40D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				45304BDA25F8B7550005F40D /* odfare.json */,
+				45304BD725F8B5AF0005F40D /* stations.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4563E64725A9EECC00E50C5F = {
@@ -162,6 +174,7 @@
 		4563E65225A9EECC00E50C5F /* LiveRail */ = {
 			isa = PBXGroup;
 			children = (
+				45304BD625F8B5A40005F40D /* Resources */,
 				4585608225F70A8C00B2698B /* HSR Test.entitlements */,
 				45BF394725EB85F1006437F7 /* Managers */,
 				4575703325D2505000032C9F /* Localizable.strings */,
@@ -260,6 +273,7 @@
 				4563E66325A9EF0E00E50C5F /* NetworkManager.swift */,
 				45A7808925B16ABF0078ECD2 /* LocationManager.swift */,
 				4563E66A25A9F69F00E50C5F /* HSRService.swift */,
+				45304BDD25F8BB510005F40D /* NetworkStatus.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -355,6 +369,8 @@
 			files = (
 				4563E65B25A9EECD00E50C5F /* Preview Assets.xcassets in Resources */,
 				4575703125D2505000032C9F /* Localizable.strings in Resources */,
+				45304BDB25F8B7550005F40D /* odfare.json in Resources */,
+				45304BD825F8B5AF0005F40D /* stations.json in Resources */,
 				4563E65825A9EECD00E50C5F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,11 +385,11 @@
 				45FB0B9C25BAA71000670396 /* EmptyScreenView.swift in Sources */,
 				4563E66425A9EF0E00E50C5F /* NetworkManager.swift in Sources */,
 				456A2D1C25B9397F00DF4B33 /* LiveboardView.swift in Sources */,
-				45232F4F25AD9B260025BD09 /* MainView.swift in Sources */,
 				45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */,
 				45FB0BA225BACAF900670396 /* PlanViewPickerButtonView.swift in Sources */,
 				45FB0B9F25BAC83100670396 /* LiveBoardPickerButtonView.swift in Sources */,
 				45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */,
+				45304BDE25F8BB510005F40D /* NetworkStatus.swift in Sources */,
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
 				45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */,

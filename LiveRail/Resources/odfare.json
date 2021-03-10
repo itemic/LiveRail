@@ -1,0 +1,3962 @@
+[
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 260
+      },
+      {
+        "TicketType": "標準",
+        "Price": 40
+      },
+      {
+        "TicketType": "自由",
+        "Price": 35
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 310
+      },
+      {
+        "TicketType": "標準",
+        "Price": 70
+      },
+      {
+        "TicketType": "自由",
+        "Price": 65
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 500
+      },
+      {
+        "TicketType": "標準",
+        "Price": 200
+      },
+      {
+        "TicketType": "自由",
+        "Price": 190
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 700
+      },
+      {
+        "TicketType": "標準",
+        "Price": 330
+      },
+      {
+        "TicketType": "自由",
+        "Price": 320
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 920
+      },
+      {
+        "TicketType": "標準",
+        "Price": 480
+      },
+      {
+        "TicketType": "自由",
+        "Price": 465
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1330
+      },
+      {
+        "TicketType": "標準",
+        "Price": 750
+      },
+      {
+        "TicketType": "自由",
+        "Price": 725
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1510
+      },
+      {
+        "TicketType": "標準",
+        "Price": 870
+      },
+      {
+        "TicketType": "自由",
+        "Price": 840
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1660
+      },
+      {
+        "TicketType": "標準",
+        "Price": 970
+      },
+      {
+        "TicketType": "自由",
+        "Price": 940
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1880
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1120
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1085
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2290
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1390
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1345
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "0990",
+    "OriginStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2500
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1530
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1480
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 260
+      },
+      {
+        "TicketType": "標準",
+        "Price": 40
+      },
+      {
+        "TicketType": "自由",
+        "Price": 35
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 260
+      },
+      {
+        "TicketType": "標準",
+        "Price": 40
+      },
+      {
+        "TicketType": "自由",
+        "Price": 35
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 440
+      },
+      {
+        "TicketType": "標準",
+        "Price": 160
+      },
+      {
+        "TicketType": "自由",
+        "Price": 155
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 640
+      },
+      {
+        "TicketType": "標準",
+        "Price": 290
+      },
+      {
+        "TicketType": "自由",
+        "Price": 280
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 850
+      },
+      {
+        "TicketType": "標準",
+        "Price": 430
+      },
+      {
+        "TicketType": "自由",
+        "Price": 415
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1250
+      },
+      {
+        "TicketType": "標準",
+        "Price": 700
+      },
+      {
+        "TicketType": "自由",
+        "Price": 675
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1430
+      },
+      {
+        "TicketType": "標準",
+        "Price": 820
+      },
+      {
+        "TicketType": "自由",
+        "Price": 795
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1600
+      },
+      {
+        "TicketType": "標準",
+        "Price": 930
+      },
+      {
+        "TicketType": "自由",
+        "Price": 900
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1820
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1080
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1045
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2230
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1350
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1305
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1000",
+    "OriginStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2440
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1490
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1445
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 310
+      },
+      {
+        "TicketType": "標準",
+        "Price": 70
+      },
+      {
+        "TicketType": "自由",
+        "Price": 65
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 260
+      },
+      {
+        "TicketType": "標準",
+        "Price": 40
+      },
+      {
+        "TicketType": "自由",
+        "Price": 35
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 400
+      },
+      {
+        "TicketType": "標準",
+        "Price": 130
+      },
+      {
+        "TicketType": "自由",
+        "Price": 125
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 590
+      },
+      {
+        "TicketType": "標準",
+        "Price": 260
+      },
+      {
+        "TicketType": "自由",
+        "Price": 250
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 800
+      },
+      {
+        "TicketType": "標準",
+        "Price": 400
+      },
+      {
+        "TicketType": "自由",
+        "Price": 385
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1210
+      },
+      {
+        "TicketType": "標準",
+        "Price": 670
+      },
+      {
+        "TicketType": "自由",
+        "Price": 645
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 790
+      },
+      {
+        "TicketType": "自由",
+        "Price": 765
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1550
+      },
+      {
+        "TicketType": "標準",
+        "Price": 900
+      },
+      {
+        "TicketType": "自由",
+        "Price": 870
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1780
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1050
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1015
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2180
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1320
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1280
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1010",
+    "OriginStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1460
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1415
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 500
+      },
+      {
+        "TicketType": "標準",
+        "Price": 200
+      },
+      {
+        "TicketType": "自由",
+        "Price": 190
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 440
+      },
+      {
+        "TicketType": "標準",
+        "Price": 160
+      },
+      {
+        "TicketType": "自由",
+        "Price": 155
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 400
+      },
+      {
+        "TicketType": "標準",
+        "Price": 130
+      },
+      {
+        "TicketType": "自由",
+        "Price": 125
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 400
+      },
+      {
+        "TicketType": "標準",
+        "Price": 130
+      },
+      {
+        "TicketType": "自由",
+        "Price": 125
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 620
+      },
+      {
+        "TicketType": "標準",
+        "Price": 280
+      },
+      {
+        "TicketType": "自由",
+        "Price": 270
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1010
+      },
+      {
+        "TicketType": "標準",
+        "Price": 540
+      },
+      {
+        "TicketType": "自由",
+        "Price": 520
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1210
+      },
+      {
+        "TicketType": "標準",
+        "Price": 670
+      },
+      {
+        "TicketType": "自由",
+        "Price": 645
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1370
+      },
+      {
+        "TicketType": "標準",
+        "Price": 780
+      },
+      {
+        "TicketType": "自由",
+        "Price": 755
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1580
+      },
+      {
+        "TicketType": "標準",
+        "Price": 920
+      },
+      {
+        "TicketType": "自由",
+        "Price": 890
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1990
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1190
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1150
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1020",
+    "OriginStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2200
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1330
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1290
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 700
+      },
+      {
+        "TicketType": "標準",
+        "Price": 330
+      },
+      {
+        "TicketType": "自由",
+        "Price": 320
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 640
+      },
+      {
+        "TicketType": "標準",
+        "Price": 290
+      },
+      {
+        "TicketType": "自由",
+        "Price": 280
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 590
+      },
+      {
+        "TicketType": "標準",
+        "Price": 260
+      },
+      {
+        "TicketType": "自由",
+        "Price": 250
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 400
+      },
+      {
+        "TicketType": "標準",
+        "Price": 130
+      },
+      {
+        "TicketType": "自由",
+        "Price": 125
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 410
+      },
+      {
+        "TicketType": "標準",
+        "Price": 140
+      },
+      {
+        "TicketType": "自由",
+        "Price": 135
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 820
+      },
+      {
+        "TicketType": "標準",
+        "Price": 410
+      },
+      {
+        "TicketType": "自由",
+        "Price": 395
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1010
+      },
+      {
+        "TicketType": "標準",
+        "Price": 540
+      },
+      {
+        "TicketType": "自由",
+        "Price": 520
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1160
+      },
+      {
+        "TicketType": "標準",
+        "Price": 640
+      },
+      {
+        "TicketType": "自由",
+        "Price": 620
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 790
+      },
+      {
+        "TicketType": "自由",
+        "Price": 765
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1790
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1060
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1025
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1030",
+    "OriginStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2000
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1200
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1160
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 920
+      },
+      {
+        "TicketType": "標準",
+        "Price": 480
+      },
+      {
+        "TicketType": "自由",
+        "Price": 465
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 850
+      },
+      {
+        "TicketType": "標準",
+        "Price": 430
+      },
+      {
+        "TicketType": "自由",
+        "Price": 415
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 800
+      },
+      {
+        "TicketType": "標準",
+        "Price": 400
+      },
+      {
+        "TicketType": "自由",
+        "Price": 385
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 620
+      },
+      {
+        "TicketType": "標準",
+        "Price": 280
+      },
+      {
+        "TicketType": "自由",
+        "Price": 270
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 410
+      },
+      {
+        "TicketType": "標準",
+        "Price": 140
+      },
+      {
+        "TicketType": "自由",
+        "Price": 135
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 610
+      },
+      {
+        "TicketType": "標準",
+        "Price": 270
+      },
+      {
+        "TicketType": "自由",
+        "Price": 260
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 790
+      },
+      {
+        "TicketType": "標準",
+        "Price": 390
+      },
+      {
+        "TicketType": "自由",
+        "Price": 375
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 950
+      },
+      {
+        "TicketType": "標準",
+        "Price": 500
+      },
+      {
+        "TicketType": "自由",
+        "Price": 485
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1160
+      },
+      {
+        "TicketType": "標準",
+        "Price": 640
+      },
+      {
+        "TicketType": "自由",
+        "Price": 620
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1580
+      },
+      {
+        "TicketType": "標準",
+        "Price": 920
+      },
+      {
+        "TicketType": "自由",
+        "Price": 890
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1035",
+    "OriginStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1790
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1060
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1025
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1330
+      },
+      {
+        "TicketType": "標準",
+        "Price": 750
+      },
+      {
+        "TicketType": "自由",
+        "Price": 725
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1250
+      },
+      {
+        "TicketType": "標準",
+        "Price": 700
+      },
+      {
+        "TicketType": "自由",
+        "Price": 675
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1210
+      },
+      {
+        "TicketType": "標準",
+        "Price": 670
+      },
+      {
+        "TicketType": "自由",
+        "Price": 645
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1010
+      },
+      {
+        "TicketType": "標準",
+        "Price": 540
+      },
+      {
+        "TicketType": "自由",
+        "Price": 520
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 820
+      },
+      {
+        "TicketType": "標準",
+        "Price": 410
+      },
+      {
+        "TicketType": "自由",
+        "Price": 395
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 610
+      },
+      {
+        "TicketType": "標準",
+        "Price": 270
+      },
+      {
+        "TicketType": "自由",
+        "Price": 260
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 400
+      },
+      {
+        "TicketType": "標準",
+        "Price": 130
+      },
+      {
+        "TicketType": "自由",
+        "Price": 125
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 550
+      },
+      {
+        "TicketType": "標準",
+        "Price": 230
+      },
+      {
+        "TicketType": "自由",
+        "Price": 220
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 770
+      },
+      {
+        "TicketType": "標準",
+        "Price": 380
+      },
+      {
+        "TicketType": "自由",
+        "Price": 365
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1180
+      },
+      {
+        "TicketType": "標準",
+        "Price": 650
+      },
+      {
+        "TicketType": "自由",
+        "Price": 630
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1040",
+    "OriginStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 790
+      },
+      {
+        "TicketType": "自由",
+        "Price": 765
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1510
+      },
+      {
+        "TicketType": "標準",
+        "Price": 870
+      },
+      {
+        "TicketType": "自由",
+        "Price": 840
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1430
+      },
+      {
+        "TicketType": "標準",
+        "Price": 820
+      },
+      {
+        "TicketType": "自由",
+        "Price": 795
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 790
+      },
+      {
+        "TicketType": "自由",
+        "Price": 765
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1210
+      },
+      {
+        "TicketType": "標準",
+        "Price": 670
+      },
+      {
+        "TicketType": "自由",
+        "Price": 645
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1010
+      },
+      {
+        "TicketType": "標準",
+        "Price": 540
+      },
+      {
+        "TicketType": "自由",
+        "Price": 520
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 790
+      },
+      {
+        "TicketType": "標準",
+        "Price": 390
+      },
+      {
+        "TicketType": "自由",
+        "Price": 375
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 400
+      },
+      {
+        "TicketType": "標準",
+        "Price": 130
+      },
+      {
+        "TicketType": "自由",
+        "Price": 125
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 370
+      },
+      {
+        "TicketType": "標準",
+        "Price": 110
+      },
+      {
+        "TicketType": "自由",
+        "Price": 105
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 580
+      },
+      {
+        "TicketType": "標準",
+        "Price": 250
+      },
+      {
+        "TicketType": "自由",
+        "Price": 240
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1000
+      },
+      {
+        "TicketType": "標準",
+        "Price": 530
+      },
+      {
+        "TicketType": "自由",
+        "Price": 510
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1043",
+    "OriginStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1210
+      },
+      {
+        "TicketType": "標準",
+        "Price": 670
+      },
+      {
+        "TicketType": "自由",
+        "Price": 645
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1660
+      },
+      {
+        "TicketType": "標準",
+        "Price": 970
+      },
+      {
+        "TicketType": "自由",
+        "Price": 940
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1600
+      },
+      {
+        "TicketType": "標準",
+        "Price": 930
+      },
+      {
+        "TicketType": "自由",
+        "Price": 900
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1550
+      },
+      {
+        "TicketType": "標準",
+        "Price": 900
+      },
+      {
+        "TicketType": "自由",
+        "Price": 870
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1370
+      },
+      {
+        "TicketType": "標準",
+        "Price": 780
+      },
+      {
+        "TicketType": "自由",
+        "Price": 755
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1160
+      },
+      {
+        "TicketType": "標準",
+        "Price": 640
+      },
+      {
+        "TicketType": "自由",
+        "Price": 620
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 950
+      },
+      {
+        "TicketType": "標準",
+        "Price": 500
+      },
+      {
+        "TicketType": "自由",
+        "Price": 485
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 550
+      },
+      {
+        "TicketType": "標準",
+        "Price": 230
+      },
+      {
+        "TicketType": "自由",
+        "Price": 220
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 370
+      },
+      {
+        "TicketType": "標準",
+        "Price": 110
+      },
+      {
+        "TicketType": "自由",
+        "Price": 105
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 430
+      },
+      {
+        "TicketType": "標準",
+        "Price": 150
+      },
+      {
+        "TicketType": "自由",
+        "Price": 145
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 830
+      },
+      {
+        "TicketType": "標準",
+        "Price": 420
+      },
+      {
+        "TicketType": "自由",
+        "Price": 405
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1047",
+    "OriginStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1040
+      },
+      {
+        "TicketType": "標準",
+        "Price": 560
+      },
+      {
+        "TicketType": "自由",
+        "Price": 540
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1880
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1120
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1085
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1820
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1080
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1045
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1780
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1050
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1015
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1580
+      },
+      {
+        "TicketType": "標準",
+        "Price": 920
+      },
+      {
+        "TicketType": "自由",
+        "Price": 890
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 790
+      },
+      {
+        "TicketType": "自由",
+        "Price": 765
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1160
+      },
+      {
+        "TicketType": "標準",
+        "Price": 640
+      },
+      {
+        "TicketType": "自由",
+        "Price": 620
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 770
+      },
+      {
+        "TicketType": "標準",
+        "Price": 380
+      },
+      {
+        "TicketType": "自由",
+        "Price": 365
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 580
+      },
+      {
+        "TicketType": "標準",
+        "Price": 250
+      },
+      {
+        "TicketType": "自由",
+        "Price": 240
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 430
+      },
+      {
+        "TicketType": "標準",
+        "Price": 150
+      },
+      {
+        "TicketType": "自由",
+        "Price": 145
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 620
+      },
+      {
+        "TicketType": "標準",
+        "Price": 280
+      },
+      {
+        "TicketType": "自由",
+        "Price": 270
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1050",
+    "OriginStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 820
+      },
+      {
+        "TicketType": "標準",
+        "Price": 410
+      },
+      {
+        "TicketType": "自由",
+        "Price": 395
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2290
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1390
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1345
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2230
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1350
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1305
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2180
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1320
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1280
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1990
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1190
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1150
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1790
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1060
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1025
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1580
+      },
+      {
+        "TicketType": "標準",
+        "Price": 920
+      },
+      {
+        "TicketType": "自由",
+        "Price": 890
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1180
+      },
+      {
+        "TicketType": "標準",
+        "Price": 650
+      },
+      {
+        "TicketType": "自由",
+        "Price": 630
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1000
+      },
+      {
+        "TicketType": "標準",
+        "Price": 530
+      },
+      {
+        "TicketType": "自由",
+        "Price": 510
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 830
+      },
+      {
+        "TicketType": "標準",
+        "Price": 420
+      },
+      {
+        "TicketType": "自由",
+        "Price": 405
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 620
+      },
+      {
+        "TicketType": "標準",
+        "Price": 280
+      },
+      {
+        "TicketType": "自由",
+        "Price": 270
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1060",
+    "OriginStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "DestinationStationID": "1070",
+    "DestinationStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "Direction": 0,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 410
+      },
+      {
+        "TicketType": "標準",
+        "Price": 140
+      },
+      {
+        "TicketType": "自由",
+        "Price": 135
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "0990",
+    "DestinationStationName": {
+      "Zh_tw": "南港",
+      "En": "Nangang"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2500
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1530
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1480
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1000",
+    "DestinationStationName": {
+      "Zh_tw": "台北",
+      "En": "Taipei"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2440
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1490
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1445
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1010",
+    "DestinationStationName": {
+      "Zh_tw": "板橋",
+      "En": "Banqiao"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1460
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1415
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1020",
+    "DestinationStationName": {
+      "Zh_tw": "桃園",
+      "En": "Taoyuan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2200
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1330
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1290
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1030",
+    "DestinationStationName": {
+      "Zh_tw": "新竹",
+      "En": "Hsinchu"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 2000
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1200
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1160
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1035",
+    "DestinationStationName": {
+      "Zh_tw": "苗栗",
+      "En": "Miaoli"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1790
+      },
+      {
+        "TicketType": "標準",
+        "Price": 1060
+      },
+      {
+        "TicketType": "自由",
+        "Price": 1025
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1040",
+    "DestinationStationName": {
+      "Zh_tw": "台中",
+      "En": "Taichung"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1390
+      },
+      {
+        "TicketType": "標準",
+        "Price": 790
+      },
+      {
+        "TicketType": "自由",
+        "Price": 765
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1043",
+    "DestinationStationName": {
+      "Zh_tw": "彰化",
+      "En": "Changhua"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1210
+      },
+      {
+        "TicketType": "標準",
+        "Price": 670
+      },
+      {
+        "TicketType": "自由",
+        "Price": 645
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1047",
+    "DestinationStationName": {
+      "Zh_tw": "雲林",
+      "En": "Yunlin"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 1040
+      },
+      {
+        "TicketType": "標準",
+        "Price": 560
+      },
+      {
+        "TicketType": "自由",
+        "Price": 540
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1050",
+    "DestinationStationName": {
+      "Zh_tw": "嘉義",
+      "En": "Chiayi"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 820
+      },
+      {
+        "TicketType": "標準",
+        "Price": 410
+      },
+      {
+        "TicketType": "自由",
+        "Price": 395
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  },
+  {
+    "OriginStationID": "1070",
+    "OriginStationName": {
+      "Zh_tw": "左營",
+      "En": "Zuoying"
+    },
+    "DestinationStationID": "1060",
+    "DestinationStationName": {
+      "Zh_tw": "台南",
+      "En": "Tainan"
+    },
+    "Direction": 1,
+    "Fares": [
+      {
+        "TicketType": "商務",
+        "Price": 410
+      },
+      {
+        "TicketType": "標準",
+        "Price": 140
+      },
+      {
+        "TicketType": "自由",
+        "Price": 135
+      }
+    ],
+    "SrcUpdateTime": "2020-07-23T09:13:41+08:00",
+    "UpdateTime": "2020-07-24T06:49:13+08:00",
+    "VersionID": 5
+  }
+]

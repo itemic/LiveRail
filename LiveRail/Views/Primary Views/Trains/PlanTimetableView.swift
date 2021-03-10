@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlanTimetableView: View {
     @StateObject var data = HSRStore.shared
+    @EnvironmentObject var network: NetworkStatus
     @AppStorage("showAvailable") var showAvailable = false
     var origin: Station?
     var destination: Station?
@@ -38,9 +39,21 @@ struct PlanTimetableView: View {
         .onAppear {
             reload()
         }
+        .onChange(of: network.connected) {status in
+            if (status == true) {
+                print("TFETC")
+                data.fetchAvailability(station: origin!, client: .init())
+                availableSeats = []
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    reload()
+                }
+            }
+            
+        }
         .onChange(of: origin) {newOrigin in
             reload(origin: newOrigin!)
         }
+        
 
         
     }
@@ -52,7 +65,7 @@ struct PlanTimetableView: View {
     private func reload(origin: Station) {
         
 //            data.fetchAvailability(station: origin, client: .init())
-            availableSeats = data.availableSeats[origin]!
+            availableSeats = data.availableSeats[origin] ?? []
 //                ?? []
         
         

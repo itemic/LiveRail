@@ -85,4 +85,25 @@ public struct HSRService {
         }
     }
     
+    static func runRequest<T: Codable>(_ request: URLRequest, on client: NetworkManager, completion: ((T) -> Void)? = nil, failure: (() -> Void)? = nil) {
+        client.executeRequest(request: request) { result in
+            switch result {
+            case .success(let data):
+//                print("Run request success")
+                let decoder = JSONDecoder()
+                do {
+                    let res = try decoder.decode(T.self, from: data)
+//                    print(res)
+                    completion?(res)
+                } catch {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+                print("FAILURE -- most likely network")
+                failure?()
+            }
+        }
+    }
+    
 }

@@ -11,8 +11,7 @@ struct HeaderView: View {
     
     @Binding var currentView: RailViews
     @Binding var showingSettings: Bool
-//    @Binding var selectedView: Int
-    @AppStorage("enableTimeWarp") var enableTimeWarp = false
+    @EnvironmentObject var network: NetworkStatus
     
     var body: some View {
         VStack {
@@ -21,28 +20,11 @@ struct HeaderView: View {
                 ZStack {
                     Spacer()
                         .frame(height: 20)
-                        
-                            
-                            
-                    if (enableTimeWarp) {
-                            HStack {
-                                if (enableTimeWarp) {
-                            Image(systemName: "timelapse")
-                                    Text("TIME WARP")
-                            Text("∞").bold()
-                                }
-                        }
-                        .font(.system(.caption2, design: .monospaced))
-                        .fixedSize()
                         .padding(.vertical, 2)
                         .padding(.leading, 2)
                         .padding(.trailing, 8)
-                        .background(Color(UIColor.systemIndigo))
-                        .cornerRadius(10.0)
-                        .foregroundColor(.white)
-                        .offset(y: 10)
-                        
-                    }
+                    
+                   
                 }
                 
                 
@@ -68,12 +50,23 @@ struct HeaderView: View {
                                 .background(BlurView(style: .systemUltraThinMaterial))
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                 .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.clear))
+                                .overlay(
+                                    ZStack(alignment: .topTrailing) {
+                                        Color.clear
+                                        Image(systemName: network.connected ? "wifi" : "wifi.exclamationmark")
+                                            .font(.system(size: 12))
+                                            .padding(2)
+                                            .foregroundColor(network.connected ? .clear : .red)
+                                }
+                                    
+                                )
                                 .cornerRadius(10)
 
                         }
                         
                         .sheet(isPresented: $showingSettings) {
                             SettingsView()
+                                .environmentObject(network)
                         }
                         
                         

@@ -6,24 +6,33 @@
 //
 
 import SwiftUI
+import Network
 
 @main
 struct LiveRailApp: App {
     @StateObject var data = HSRStore.shared
 //    @AppStorage("whatsNew2-0b") var whatsNew = true
     @State private var whatsNew = true
+    @StateObject var network = NetworkStatus.shared
     
     init() {
         print("WAHOO")
         NSTimeZone.default = TimeZone(identifier: "Asia/Taipei") ?? TimeZone.current
+        
     }
     var body: some Scene {
         WindowGroup {
-            MainView()
+            PrimaryView()
+                .environmentObject(network)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
                     NSTimeZone.default = TimeZone(identifier: "Asia/Taipei") ?? TimeZone.current
                     data.reload(client: .init())
                     
+                }
+                .onChange(of: network.connected) { status in
+                    if (status == true) {
+                        data.reload(client: .init())
+                    }
                 }
 //                .sheet(isPresented: $whatsNew, content: {
 //                    WhatsNewView()

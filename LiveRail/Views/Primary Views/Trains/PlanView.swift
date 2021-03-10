@@ -11,7 +11,7 @@ struct PlanView: View {
     
 //    @ObservedObject var vm: HSRQueryViewModel
     @StateObject var data = HSRStore.shared
-    
+    @EnvironmentObject var network: NetworkStatus
     
     @Binding var startingStationObject: Station?
     @Binding var endingStationObject: Station?
@@ -38,7 +38,7 @@ struct PlanView: View {
                         Spacer()
                             .frame(height: 120)
                         
-                        PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
+                        PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable).environmentObject(network)
                         Spacer()
                             .frame(height: 110)
                         

@@ -36,3 +36,6 @@
 
 
 "TIME_ZONE_DISCLAIMER" = "Times displayed are times in Taiwan regardless of your system time.";
+
+"NO_NETWORK_DETECTED" = "No network detected";
+"NO_NETWORK_DESCRIPTION" = "Train data may be outdated or incomplete. We will attempt to update data once you are reconnected";

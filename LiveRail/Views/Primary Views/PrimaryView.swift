@@ -14,6 +14,7 @@ enum StationButtonType: CaseIterable {
 struct PrimaryView: View {
     @StateObject var data = HSRStore.shared
     @StateObject var queryVM = HSRQueryViewModel()
+    @EnvironmentObject var network: NetworkStatus
     
     // stored as IDs 4-digit string
     @State var startingStation = ""
@@ -48,12 +49,13 @@ struct PrimaryView: View {
         ZStack {
             
             switch (currentView) {
-            case .plannerView:  PlanView(startingStationObject: $startingStationObject, endingStationObject: $endingStationObject, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive)
-            case .timetableView:  LiveboardView(timetableStationObject: $timetableStationObject)
+            case .plannerView:  PlanView(startingStationObject: $startingStationObject, endingStationObject: $endingStationObject, originIsActive: $originIsActive, destinationIsActive: $destinationIsActive).environmentObject(network)
+            case .timetableView:  LiveboardView(timetableStationObject: $timetableStationObject).environmentObject(network)
             }
             
             HeaderView(currentView: $currentView, showingSettings: $showingSettings)
-           
+                .environmentObject(network)
+            
            
             
             
