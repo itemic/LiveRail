@@ -16,11 +16,13 @@ public final class HSRStore: ObservableObject {
     @Published var dailyTimetable: [RailDailyTimetable] = []
     @Published var availableSeats: [Station: [AvailableSeat]] = [:]
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
+    @Published var initSuccess: Bool = true
 
     
     public static let shared = HSRStore(client: .init())
     
     init(client: NetworkManager) {
+        
         self.localBundleData()
         self.reload(client: client)
     }
@@ -39,20 +41,18 @@ public final class HSRStore: ObservableObject {
     
     func reload(client: NetworkManager) {
         
+        self.initSuccess = true
+        
         HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
             DispatchQueue.main.async {
                 self?.dailyTimetable = dt
             }
+        } failure: {
+            print("rail daily")
+            self.initSuccess = false
         }
         
-        HSRService.getRailDailyTimetable2(client: client, completion: { [weak self] dt in
-            DispatchQueue.main.async {
-                self?.dailyTimetable = dt
-            }
-            
-        }, failure: {
-            print("FAILE")
-        })
+    
         
         HSRService.getHSRStations(client: client) {[weak self] stations in
             DispatchQueue.main.async {
@@ -61,6 +61,9 @@ public final class HSRStore: ObservableObject {
                     self!.fetchAvailability(station: station, client: client)
                 }
             }
+        } failure: {
+            print("stations")
+            self.initSuccess = false
         }
         
         // TODO Fix this 
@@ -72,6 +75,9 @@ public final class HSRStore: ObservableObject {
                 }
             }
             
+        } failure: {
+            print("fares")
+            self.initSuccess = false
         }
         
         // reset last update time (for now)
@@ -90,6 +96,8 @@ public final class HSRStore: ObservableObject {
             DispatchQueue.main.async {
                 self?.availableSeats[station] = availability.AvailableSeats
             }
+        } failure: {
+            // do someti
         }
     }
     

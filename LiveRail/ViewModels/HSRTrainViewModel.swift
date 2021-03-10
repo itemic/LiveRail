@@ -26,6 +26,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
             DispatchQueue.main.async {
                 self?.train = train[0] // single element array
             }
+        } failure: {
+            
         }
     }
     

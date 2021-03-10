@@ -567,7 +567,7 @@
 				BUNDLE_ID = "itemic.LiveRail-test";
 				CODE_SIGN_ENTITLEMENTS = "LiveRail/HSR Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveRail/Preview Content\"";
 				DEVELOPMENT_TEAM = 58QL7E6Z98;
 				ENABLE_PREVIEWS = YES;
@@ -577,7 +577,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.100;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "HSR Test";
 				SUPPORTS_MACCATALYST = YES;
@@ -595,7 +595,7 @@
 				BUNDLE_ID = itemic.LiveRail;
 				CODE_SIGN_ENTITLEMENTS = "LiveRail/HSR Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LiveRail/Preview Content\"";
 				DEVELOPMENT_TEAM = 58QL7E6Z98;
 				ENABLE_PREVIEWS = YES;
@@ -605,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.100;
+				MARKETING_VERSION = 2;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = HSR;
 				SUPPORTS_MACCATALYST = YES;

@@ -318,6 +318,8 @@ struct SettingsView: View {
                                     Text("Get updated data from PTX").font(.caption2).foregroundColor(.secondary)
                                 }
                                 Spacer()
+                                Image(systemName: "circlebadge.fill")
+                                    .foregroundColor(data.initSuccess ? .green : .red)
                                 Button(action: {
                                     data.reload(client: .init())
                                 }) {

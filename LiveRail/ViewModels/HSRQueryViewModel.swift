@@ -25,6 +25,8 @@ final class HSRQueryViewModel: ObservableObject {
                 }
 
             }
+        } failure: {
+            
         }
     }
     
@@ -39,6 +41,8 @@ final class HSRQueryViewModel: ObservableObject {
                 }
 
             }
+        } failure: {
+            
         }
     }
     
@@ -47,6 +51,8 @@ final class HSRQueryViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.timetable.append(train[0])
             }
+        } failure: {
+            
         }
     }
     
@@ -63,6 +69,8 @@ final class HSRQueryViewModel: ObservableObject {
                 
             }
             
+            
+        } failure: {
             
         }
     }
