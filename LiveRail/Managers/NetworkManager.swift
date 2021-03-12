@@ -45,6 +45,8 @@ public final class NetworkManager {
         
     }
     
+ 
+    
     func executeRequest(request: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

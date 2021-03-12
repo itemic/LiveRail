@@ -49,7 +49,10 @@ public final class HSRStore: ObservableObject {
             }
         } failure: {
             print("rail daily")
-            self.initSuccess = false
+            OperationQueue.main.addOperation {
+                self.initSuccess = false
+            }
+            
         }
         
     
@@ -63,7 +66,9 @@ public final class HSRStore: ObservableObject {
             }
         } failure: {
             print("stations")
-            self.initSuccess = false
+            OperationQueue.main.addOperation {
+                self.initSuccess = false
+            }
         }
         
         // TODO Fix this 
@@ -77,7 +82,9 @@ public final class HSRStore: ObservableObject {
             
         } failure: {
             print("fares")
-            self.initSuccess = false
+            OperationQueue.main.addOperation {
+                self.initSuccess = false
+            }
         }
         
         // reset last update time (for now)

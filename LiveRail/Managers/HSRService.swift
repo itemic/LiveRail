@@ -52,12 +52,20 @@ public struct HSRService {
  
 
     static func getAvailability(from origin: String, client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil, failure: FailAction) {
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList/\(origin)"), on: client, completion: completion, failure: failure)
+        
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList/\(origin)"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = .reloadIgnoringLocalCacheData
+        
+        runRequest(request, on: client, completion: completion, failure: failure)
     }
     
     
     static func getAllAvailability(client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil, failure: FailAction) {
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList"), on: client, completion: completion, failure: failure)
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = .reloadIgnoringLocalCacheData
+        runRequest(request, on: client, completion: completion, failure: failure)
     }
     
     static func getFares(client: NetworkManager, completion: (([FareSchedule]) -> Void)? = nil, failure: FailAction) {
@@ -76,11 +84,11 @@ public struct HSRService {
                 do {
                     let res = try decoder.decode(T.self, from: data)
 //                    print(res)
-                    print("HERE")
+//                    print("HERE")
                     completion?(res)
                 } catch {
                     print(error)
-                    print("CATCH")
+//                    print("CATCH")
                     failure?()
                 }
             case .failure(let error):
