@@ -65,7 +65,8 @@ struct HeaderView: View {
                         }
                         
                         .sheet(isPresented: $showingSettings) {
-                            SettingsView()
+//                            SettingsView()
+                            NewSettingsView()
                                 .environmentObject(network)
                         }
                         

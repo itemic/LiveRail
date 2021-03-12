@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		450FEDE025F7A46100A87AA0 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */; };
+		4510975125FB793900D8BBEF /* NewSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510975025FB793900D8BBEF /* NewSettingsView.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
 		45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5425ADBA920025BD09 /* HSRDataStore.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		4510975025FB793900D8BBEF /* NewSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsView.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
 		45232F5425ADBA920025BD09 /* HSRDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRDataStore.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				45D9480C25AEA733002FE73C /* SettingsView.swift */,
+				4510975025FB793900D8BBEF /* NewSettingsView.swift */,
 				45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */,
 			);
 			path = Settings;
@@ -405,6 +408,7 @@
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				456750E725F2429C0019244E /* StationSheetPickerView.swift in Sources */,
+				4510975125FB793900D8BBEF /* NewSettingsView.swift in Sources */,
 				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
@@ -582,7 +586,7 @@
 				PRODUCT_NAME = "HSR Test";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -610,7 +614,7 @@
 				PRODUCT_NAME = HSR;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

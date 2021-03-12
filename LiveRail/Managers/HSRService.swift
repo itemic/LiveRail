@@ -92,8 +92,8 @@ public struct HSRService {
                     failure?()
                 }
             case .failure(let error):
-//                print(error)
-                print("FAILURE -- most likely network")
+                print(error)
+//                print("FAILURE -- most likely network")
                 failure?()
             }
         }
