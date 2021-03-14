@@ -71,6 +71,9 @@ public final class HSRStore: ObservableObject {
             }
         }
         
+        self.fetchAllAvailability(client: client)
+        
+        
         // TODO Fix this 
         HSRService.getFares(client: client) { [weak self] fares in
             DispatchQueue.main.async {

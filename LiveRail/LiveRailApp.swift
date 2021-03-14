@@ -16,8 +16,8 @@ struct LiveRailApp: App {
     @StateObject var network = NetworkStatus.shared
     
     init() {
-        print("WAHOO")
         NSTimeZone.default = TimeZone(identifier: "Asia/Taipei") ?? TimeZone.current
+        data.reload(client: .init())
         
     }
     var body: some Scene {
@@ -33,6 +33,14 @@ struct LiveRailApp: App {
                     if (status == true) {
                         data.reload(client: .init())
                     }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                    print("foreground")
+                    data.fetchAllAvailability(client: .init())
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                    print("foreground")
+                    data.fetchAllAvailability(client: .init())
                 }
 //                .sheet(isPresented: $whatsNew, content: {
 //                    WhatsNewView()

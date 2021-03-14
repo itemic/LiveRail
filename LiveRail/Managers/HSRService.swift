@@ -56,6 +56,7 @@ public struct HSRService {
         let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList/\(origin)"
         var request = client.authenticateRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalCacheData
+        print("REQUEST")
         
         runRequest(request, on: client, completion: completion, failure: failure)
     }
@@ -65,6 +66,7 @@ public struct HSRService {
         let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList"
         var request = client.authenticateRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalCacheData
+        print("requesting")
         runRequest(request, on: client, completion: completion, failure: failure)
     }
     
