@@ -11,67 +11,95 @@ public struct HSRService {
     typealias FailAction = (() -> Void)?
     static let df = SharedDateFormatter.shared
     
-    static func getHSRStations(client: NetworkManager, completion: (([Station]) -> Void)? = nil, failure: FailAction) {
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/Station?$top=30&$format=JSON"), on: client, completion: completion, failure: failure)
+    static func getHSRStations(client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([Station]) -> Void)? = nil, failure: FailAction) {
+        
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/Station?$top=30&$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
+        
+        
+        runRequest(request, on: client, completion: completion, failure: failure)
     }
     
     
-    static func getRailDailyTimetable(client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil, failure: FailAction) {
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today"), on: client, completion: completion, failure: failure)
+    static func getRailDailyTimetable(client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([RailDailyTimetable]) -> Void)? = nil, failure: FailAction) {
+        
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
+        
+        runRequest(request, on: client, completion: completion, failure: failure)
     }
     
-    static func getTimetable(for station: Station, client: NetworkManager, completion: (([StationTimetable]) -> Void)? = nil, failure: FailAction) {
+    static func getTimetable(for station: Station, client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([StationTimetable]) -> Void)? = nil, failure: FailAction) {
         
         let now = df.taiwanTZString(from: Date())
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Station/\(station.StationID)/\(now)?$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
         
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Station/\(station.StationID)/\(now)?$format=JSON"), on: client, completion: completion, failure: failure)
+        runRequest(request, on: client, completion: completion, failure: failure)
     }
     
-    static func getTrainDetails(for train: String, client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil, failure: FailAction) {
-        print("getting train details for \(train)")
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today/TrainNo/\(train)?$format=JSON"), on: client, completion: completion, failure: failure)
+    static func getTrainDetails(for train: String, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil, failure: FailAction) {
+
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Today/TrainNo/\(train)?$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
+        
+        
+        runRequest(request, on: client, completion: completion, failure: failure)
         
     }
     
-    static func getTimetable(from origin: Station, to destination: Station, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil, failure: FailAction) {
+    static func getTimetable(from origin: Station, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, to destination: Station, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil, failure: FailAction) {
         
         let now = df.taiwanTZString(from: Date())
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin.StationID)/to/\(destination.StationID)/\(now)?$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
         
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin.StationID)/to/\(destination.StationID)/\(now)?$format=JSON"), on: client, completion: completion, failure: failure)
+        runRequest(request, on: client, completion: completion, failure: failure)
         
     }
     
-    static func getTimetable(from origin: String, to destination: String, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil, failure: FailAction) {
+    static func getTimetable(from origin: String, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, to destination: String, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil, failure: FailAction) {
         
         let now = df.taiwanTZString(from: Date())
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin)/to/\(destination)/\(now)?$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
         
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin)/to/\(destination)/\(now)?$format=JSON"), on: client, completion: completion, failure: failure)
+        runRequest(request, on: client, completion: completion, failure: failure)
         
     }
     
  
 
-    static func getAvailability(from origin: String, client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil, failure: FailAction) {
+    static func getAvailability(from origin: String, policy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData, client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil, failure: FailAction) {
         
         let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList/\(origin)"
         var request = client.authenticateRequest(url: url)
-        request.cachePolicy = .reloadIgnoringLocalCacheData
-        print("REQUEST")
+        request.cachePolicy = policy
+        
         
         runRequest(request, on: client, completion: completion, failure: failure)
     }
     
     
-    static func getAllAvailability(client: NetworkManager, completion: ((AvailabilityWrapper) -> Void)? = nil, failure: FailAction) {
+    static func getAllAvailability(client: NetworkManager, policy: URLRequest.CachePolicy = .reloadIgnoringCacheData, completion: ((AvailabilityWrapper) -> Void)? = nil, failure: FailAction) {
         let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AvailableSeatStatusList"
         var request = client.authenticateRequest(url: url)
-        request.cachePolicy = .reloadIgnoringLocalCacheData
-        print("requesting")
+        request.cachePolicy = policy
+        
         runRequest(request, on: client, completion: completion, failure: failure)
     }
     
-    static func getFares(client: NetworkManager, completion: (([FareSchedule]) -> Void)? = nil, failure: FailAction) {
-        runRequest(client.authenticateRequest(url: "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/ODFare"), on: client, completion: completion, failure: failure)
+    static func getFares(client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([FareSchedule]) -> Void)? = nil, failure: FailAction) {
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/ODFare"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
+        runRequest(request, on: client, completion: completion, failure: failure)
     }
     
     

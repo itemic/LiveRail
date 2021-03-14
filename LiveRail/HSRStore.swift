@@ -24,7 +24,7 @@ public final class HSRStore: ObservableObject {
     init(client: NetworkManager) {
         
         self.localBundleData()
-        self.reload(client: client)
+        self.reload(client: client, force: true)
     }
     
     func localBundleData() {
@@ -39,11 +39,11 @@ public final class HSRStore: ObservableObject {
         }
     }
     
-    func reload(client: NetworkManager) {
+    func reload(client: NetworkManager, force: Bool = false) {
         
         self.initSuccess = true
         
-        HSRService.getRailDailyTimetable(client: client) { [weak self] dt in
+        HSRService.getRailDailyTimetable(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy) { [weak self] dt in
             DispatchQueue.main.async {
                 self?.dailyTimetable = dt
             }
@@ -57,7 +57,7 @@ public final class HSRStore: ObservableObject {
         
     
         
-        HSRService.getHSRStations(client: client) {[weak self] stations in
+        HSRService.getHSRStations(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy) {[weak self] stations in
             DispatchQueue.main.async {
                 self?.stations = stations
                 for station in stations {
@@ -75,7 +75,7 @@ public final class HSRStore: ObservableObject {
         
         
         // TODO Fix this 
-        HSRService.getFares(client: client) { [weak self] fares in
+        HSRService.getFares(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy) { [weak self] fares in
             DispatchQueue.main.async {
                 for fare in fares {
 //                    print (fare)
@@ -94,6 +94,10 @@ public final class HSRStore: ObservableObject {
         // in future, use this to debounce
         lastUpdateDate = Date()
     }
+    
+    
+    
+    
     
     func fetchAllAvailability(client: NetworkManager) {
         for station in stations {

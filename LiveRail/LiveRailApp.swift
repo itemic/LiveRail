@@ -25,7 +25,7 @@ struct LiveRailApp: App {
                 .environmentObject(network)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
                     NSTimeZone.default = TimeZone(identifier: "Asia/Taipei") ?? TimeZone.current
-                    data.reload(client: .init())
+                    data.reload(client: .init(), force: true)
                     
                 }
                 .onChange(of: network.connected) { status in

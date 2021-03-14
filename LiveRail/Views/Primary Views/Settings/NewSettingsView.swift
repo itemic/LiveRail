@@ -47,7 +47,7 @@ struct NewSettingsView: View {
                         Toggle(isOn: $showAvailable, label: {
                             HStack {
                                 Circle()
-                                    .fill(Color.orange)
+                                    .fill(Color.hsrColor)
                                     .frame(width: 32, height: 32)
                                     .padding(.vertical, 5)
                                     .overlay(Image(systemName: "tram").font(.system(size: 18)).foregroundColor(.white))
@@ -61,7 +61,7 @@ struct NewSettingsView: View {
                         Toggle(isOn: $showArrivals, label: {
                             HStack {
                                 Circle()
-                                    .fill(Color.orange)
+                                    .fill(Color.hsrColor)
                                     .frame(width: 32, height: 32)
                                     .padding(.vertical, 5)
                                     .overlay(Image(systemName: "checkerboard.rectangle").font(.system(size: 18)).foregroundColor(.white))
@@ -75,7 +75,7 @@ struct NewSettingsView: View {
                         Toggle(isOn: $showArrDeptTimes, label: {
                             HStack {
                                 Circle()
-                                    .fill(Color.orange)
+                                    .fill(Color.hsrColor)
                                     .frame(width: 32, height: 32)
                                     .padding(.vertical, 5)
                                     .overlay(Image(systemName: "deskclock").font(.system(size: 18)).foregroundColor(.white))
@@ -263,7 +263,7 @@ struct NewSettingsView: View {
                             Text("Fetch data")
                             Spacer()
                             Button(action: {
-                                data.reload(client: .init())
+                                data.reload(client: .init(), force: true)
                             }) {
                                 Text("Fetch")
                                     .foregroundColor(Color(UIColor.systemTeal))
@@ -318,8 +318,8 @@ struct NewSettingsView: View {
             
             
         
-            .listStyle(GroupedListStyle())
-            //                        .listStyle(SidebarListStyle())
+            .listStyle(InsetGroupedListStyle())
+//                                    .listStyle(SidebarListStyle())
             .navigationTitle("Settings")
             .toolbar(content: {
                 ToolbarItem(placement: .confirmationAction) {
