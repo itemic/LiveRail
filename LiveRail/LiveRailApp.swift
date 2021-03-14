@@ -33,14 +33,14 @@ struct LiveRailApp: App {
                         data.reload(client: .init())
                     }
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                    print("foreground")
-                    data.fetchAllAvailability(client: .init())
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                    print("foreground")
-                    data.fetchAllAvailability(client: .init())
-                }
+//                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+//                    print("foreground")
+//                    data.fetchAllAvailability(client: .init())
+//                }
+//                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+//                    print("foreground")
+//                    data.fetchAllAvailability(client: .init())
+//                }
 //                .sheet(isPresented: $whatsNew, content: {
 //                    WhatsNewView()
 //                })
