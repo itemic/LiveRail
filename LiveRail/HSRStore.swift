@@ -92,7 +92,9 @@ public final class HSRStore: ObservableObject {
         
         // reset last update time (for now)
         // in future, use this to debounce
+        if (self.initSuccess) {
         lastUpdateDate = Date()
+        }
     }
     
     
