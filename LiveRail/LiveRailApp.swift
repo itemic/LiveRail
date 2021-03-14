@@ -17,7 +17,6 @@ struct LiveRailApp: App {
     
     init() {
         NSTimeZone.default = TimeZone(identifier: "Asia/Taipei") ?? TimeZone.current
-        data.reload(client: .init())
         
     }
     var body: some Scene {

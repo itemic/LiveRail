@@ -20,8 +20,6 @@ struct NewSettingsView: View {
     @AppStorage("stationDotsChoice") var stationDotsChoice = 1
     
     @AppStorage("enableLocationFeatures") var enableLocationFeatures = true
-    
-    
     @Environment(\.presentationMode) var presentationMode
     @StateObject var lm = LocationManager.shared
     var body: some View {
@@ -29,83 +27,89 @@ struct NewSettingsView: View {
             List {
                 
                 if (!network.connected) {
-                    HStack {
+                    Group {
+                        HStack {
+                            Image(systemName: "wifi.exclamationmark")
                         VStack(alignment: .leading) {
-                            Text("NO_NETWORK_DETECTED").font(.title3).bold()
-                            Text("NO_NETWORK_DESCRIPTION")
+                            
+                            Text("NO_NETWORK_DETECTED").font(.headline).bold()
+                            
+                            Text("NO_NETWORK_DESCRIPTION").font(.subheadline).foregroundColor(.secondary)
                         }
-                        Spacer()
+                        }
+                        
                     }
-                    .padding()
-                    .background(Color.red.opacity(0.3))
-                    .padding(.vertical)
                 }
                 
-                Section {
+                Section(header: Text("Interface")) {
                     
                     VStack(alignment: .leading) {
                         Toggle(isOn: $showAvailable, label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color.yellow)
-                                    .frame(width: 30, height: 30)
-                                    .overlay(Image(systemName: "sparkles").font(.system(size: 16)).foregroundColor(.white))
-                                Text("Departed services")
+                                Circle()
+                                    .fill(Color.orange)
+                                    .frame(width: 32, height: 32)
+                                    .padding(.vertical, 5)
+                                    .overlay(Image(systemName: "tram").font(.system(size: 18)).foregroundColor(.white))
+                                Text("Departed trains")
                             }
+                            
                         })
-                        Text("Show trains that have departed.").font(.subheadline).foregroundColor(.secondary)
                     }
                     
                     VStack(alignment: .leading) {
                         Toggle(isOn: $showArrivals, label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color.purple)
-                                    .frame(width: 30, height: 30)
-                                    .overlay(Image(systemName: "checkerboard.rectangle").font(.system(size: 16)).foregroundColor(.white))
+                                Circle()
+                                    .fill(Color.orange)
+                                    .frame(width: 32, height: 32)
+                                    .padding(.vertical, 5)
+                                    .overlay(Image(systemName: "checkerboard.rectangle").font(.system(size: 18)).foregroundColor(.white))
                                 Text("Arrivals")
                             }
+                            
                         })
-                        Text("Show arrivals at terminus stations.").font(.subheadline).foregroundColor(.secondary)
                     }
                     
                     VStack(alignment: .leading) {
                         Toggle(isOn: $showArrDeptTimes, label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color.pink)
-                                    .frame(width: 30, height: 30)
-                                    .overlay(Image(systemName: "deskclock").font(.system(size: 16)).foregroundColor(.white))
+                                Circle()
+                                    .fill(Color.orange)
+                                    .frame(width: 32, height: 32)
+                                    .padding(.vertical, 5)
+                                    .overlay(Image(systemName: "deskclock").font(.system(size: 18)).foregroundColor(.white))
                                 Text("ARR_DEPT_TIMES_TITLE")
                             }
+                            
                         })
-                        Text("ARR_DEPT_TIMES_DESCRIPTION").font(.subheadline).foregroundColor(.secondary)
                     }
                     
+                    
                 }
+                
+                
                 
                 
                 Section {
                     VStack(alignment: .leading) {
                         HStack {
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            Circle()
                                 .fill(Color(UIColor.systemIndigo))
-                                .frame(width: 30, height: 30)
-                                .overlay(Image(systemName: "house.fill").font(.system(size: 16)).foregroundColor(.white))
-                            
-                            VStack(alignment: .leading) {
-                                Text("HOME_PAGE_SETTINGS_ENTRY")
-                            }
+                                .frame(width: 32, height: 32)
+                                .padding(.vertical, 5)
+                                .overlay(Image(systemName: "house.fill").font(.system(size: 18)).foregroundColor(.white))
+                            Text("HOME_PAGE_SETTINGS_ENTRY")
                             Spacer()
+                            
                         }
-                        Text("HOME_PAGE_SETTINGS_DESCRIPTION").font(.subheadline).foregroundColor(.secondary)
-                        HStack(spacing: 12) {
+                        HStack {
                             Text("Departures")
                                 .padding(10)
                                 .frame(maxWidth: .infinity)
                                 .background(Color(UIColor.systemIndigo).opacity(0.15))
                                 .foregroundColor(Color(UIColor.systemIndigo))
-                                .font(homeScreen == .timetableView ? Font.body.bold() : .body)
+                                .font(homeScreen == .timetableView ? Font.subheadline.bold() : .subheadline)
                                 .cornerRadius(10)
                                 .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                             .stroke(homeScreen == .timetableView ? Color(UIColor.systemIndigo) : Color.clear, lineWidth: 2)
@@ -118,7 +122,7 @@ struct NewSettingsView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(Color.hsrColor.opacity(0.15))
                                 .foregroundColor(Color.hsrColor)
-                                .font(homeScreen == .plannerView ? Font.body.bold() : .body)
+                                .font(homeScreen == .plannerView ? Font.subheadline.bold() : .subheadline)
                                 .cornerRadius(10)
                                 .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                             .stroke(homeScreen == .plannerView ? Color.hsrColor : Color.clear, lineWidth: 2)
@@ -127,7 +131,8 @@ struct NewSettingsView: View {
                                     homeScreen = .plannerView
                                 }
                         }
-                        .padding(.vertical)
+                        .padding(.bottom, 5)
+                        
                     }
                 }
                 
@@ -135,85 +140,186 @@ struct NewSettingsView: View {
                     VStack(alignment: .leading) {
                         Toggle(isOn: $showStopDots, label: {
                             HStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                Circle()
                                     .fill(Color.green)
-                                    .frame(width: 30, height: 30)
-                                    .overlay(Image(systemName: "ellipsis").font(.system(size: 16)).foregroundColor(.white))
+                                    .frame(width: 32, height: 32)
+                                    .padding(.vertical, 5)
+                                    .overlay(Image(systemName: "ellipsis").font(.system(size: 18)).foregroundColor(.white))
                                 Text("Station dots")
                             }
+                            
+
                         })
-                        Text("Display stopping stations at a glance.").font(.subheadline).foregroundColor(.secondary)
                         if (showStopDots) {
                             StationDotsSettingsView()
+//                                .disabled(true)
                         }
+                        
                     }
-                    
                 }
                 
-                Section {
+                Section(footer: Text("Location is only used to determine nearest station.")) {
                     VStack(alignment: .leading) {
-                        HStack {
-                            HStack {
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color.blue)
-                                    .frame(width: 30, height: 30)
-                                    .overlay(Image(systemName: "location.fill").font(.system(size: 16)).foregroundColor(.white))
+                        if let status = lm.status {
+                            if (status == .authorizedAlways || status == .authorizedWhenInUse) {
                                 
                                 VStack(alignment: .leading) {
-                                    Text("Location features")
-                                }
-                                Spacer()
-                                if let status = lm.status {
-                                    if (status == .authorizedAlways || status == .authorizedWhenInUse) {
-                                        Toggle("Location-based features", isOn: $enableLocationFeatures)
-                                            .labelsHidden()
-                                    } else if (status == .notDetermined) {
-                                        Button(action: {
-                                            lm.requestPermission()
-                                        }) {
-                                            Text("Enable")
-                                                .padding(8)
-                                                .background(Color.accentColor.opacity(0.2))
-                                                .cornerRadius(10)
+                                    Toggle(isOn: $enableLocationFeatures, label: {
+                                        HStack {
+                                            Circle()
+                                                .fill(Color.blue)
+                                                .frame(width: 32, height: 32)
+                                                .padding(.vertical, 5)
+                                                .overlay(Image(systemName: "location.fill").font(.system(size: 18)).foregroundColor(.white))
+                                            Text("Enable location")
                                         }
                                         
-                                    } else {
-                                        // declined
-                                        Button(action: {
-                                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                                            
-                                        }) {
-                                            Text("Settings")
-                                                .padding(8)
-                                                .background(Color.accentColor.opacity(0.2))
-                                                .cornerRadius(10)
-                                        }
+                                    })
+                                }
+                                
+                            } else if (status == .notDetermined) {
+                                
+                                HStack {
+                                    Circle()
+                                        .fill(Color.blue)
+                                        .frame(width: 32, height: 32)
+                                        .padding(.vertical, 5)
+                                        .overlay(Image(systemName: "location.fill").font(.system(size: 18)).foregroundColor(.white))
+                                    Text("Enable location")
+                                    Spacer()
+                                    
+                                    
+                                    Button(action: {
+                                        lm.requestPermission()
+                                    }) {
+                                        Text("Enable")
+                                            .padding(8)
+                                            .foregroundColor(.blue)
+                                            .background(Color.blue.opacity(0.2))
+                                            .cornerRadius(10)
                                     }
+                                    .buttonStyle(BorderlessButtonStyle())
+                                }
+                                
+                                
+                            } else {
+                                // disabled
+                                
+                                HStack {
+                                    Circle()
+                                        .fill(Color.blue)
+                                        .frame(width: 32, height: 32)
+                                        .padding(.vertical, 5)
+                                        .overlay(Image(systemName: "location.fill").font(.system(size: 18)).foregroundColor(.white))
+                                    VStack(alignment: .leading, spacing: 0) {
+                                    Text("Request location")
+                                        Text("Go to location settings").font(.caption)
+                                    }
+                                    Spacer()
+                                    
+                                    
+                                    Button(action: {
+                                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                                    }) {
+                                        Text("Settings")
+                                            .padding(8)
+                                            .foregroundColor(.blue)
+                                            .background(Color.blue.opacity(0.2))
+                                            .cornerRadius(10)
+                                    }
+                                    .buttonStyle(BorderlessButtonStyle())
                                 }
                                 
                             }
                         }
-                        if let status = lm.status {
-                            if (status == .denied || status == .restricted) {
-                                
-                                Text("Visit location settings to enable location features").font(.caption)
-                                    .padding(.top, 4)
-                                
-                            }
+                    }
+                }
+                
+                
+                
+                Section(header: Text("Troubleshooting")) {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Circle()
+                                .fill(Color(UIColor.systemTeal))
+                                .frame(width: 32, height: 32)
+                                .padding(.vertical, 5)
+                                .overlay(Image(systemName: "square.and.arrow.down").font(.system(size: 18)).foregroundColor(.white))
+                            Text("Last update")
+                            Spacer()
+                            Image(systemName: "circlebadge.fill")
+                                .foregroundColor(data.initSuccess ? .green : .red)
+                            Text(data.lastUpdateDate, style: .date)
                         }
-                        Text("Nearby station shortcuts").font(.subheadline).foregroundColor(.secondary)
-
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Circle()
+                                .fill(Color(UIColor.systemTeal))
+                                .frame(width: 32, height: 32)
+                                .padding(.vertical, 5)
+                                .overlay(Image(systemName: "network").font(.system(size: 18)).foregroundColor(.white))
+                            Text("Fetch data")
+                            Spacer()
+                            Button(action: {
+                                data.reload(client: .init())
+                            }) {
+                                Text("Fetch")
+                                    .foregroundColor(Color(UIColor.systemTeal))
+                                    .padding(8)
+                                    .background(Color(UIColor.systemTeal).opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+                        }
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Circle()
+                                .fill(Color(UIColor.systemTeal))
+                                .frame(width: 32, height: 32)
+                                .padding(.vertical, 5)
+                                .overlay(Image(systemName: "studentdesk").font(.system(size: 18)).foregroundColor(.white))
+                            
+                            VStack(alignment: .leading) {
+                                Text("FETCH_DATA_AVAILABILITY_TITLE")
+                                Text("FETCH_DATA_AVAILABILITY_DESC").font(.caption2).foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Button(action: {
+                                data.fetchAllAvailability(client: .init())
+                            }) {
+                                Text("Update")
+                                    .foregroundColor(Color(UIColor.systemTeal))
+                                    .padding(8)
+                                    .background(Color(UIColor.systemTeal).opacity(0.2))
+                                    .cornerRadius(10)
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+                        }
                     }
                     
                 }
-                Group {
-                    Text("$")
-                    Text("bb")
+                
+                Section(header: Text("Miscellaneous")) {
+                    Link("Terms of Service", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                    Link("Privacy Policy", destination: URL(string: "https://liverail.terrankroft.com/privacy")!)
+                    NavigationLink(destination: DataDisclaimerView()) {
+                        Text("About")
+                    }
                 }
                 
+                
+                
+                
             }
+            
+            
+        
             .listStyle(GroupedListStyle())
-            //            .listStyle(InsetGroupedListStyle())
+            //                        .listStyle(SidebarListStyle())
             .navigationTitle("Settings")
             .toolbar(content: {
                 ToolbarItem(placement: .confirmationAction) {
@@ -228,8 +334,3 @@ struct NewSettingsView: View {
     }
 }
 
-//struct NewSettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewSettingsView()
-//    }
-//}

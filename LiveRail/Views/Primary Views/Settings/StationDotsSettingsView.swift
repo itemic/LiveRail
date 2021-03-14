@@ -164,30 +164,35 @@ struct StationDotsSettingsView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            HStack {
+            HStack(spacing: 6) {
                 
                 sharedEdge
                     .padding(10)
+                    .frame(maxWidth: .infinity)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(10)
                     .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .stroke(stationDotsChoice == EDGE_DESTINATION ? Color.hsrColor : Color.clear))
+                    
                     .onTapGesture {
                         stationDotsChoice = EDGE_DESTINATION
                     }
-                Spacer()
+//                Spacer()
                 northSouth
                     .padding(10)
+                    .frame(maxWidth: .infinity)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(10)
                     .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .stroke(stationDotsChoice == NORTH_SOUTH ? Color.hsrColor : Color.clear))
+                    
                     .onTapGesture {
                         stationDotsChoice = NORTH_SOUTH
                     }
-                Spacer()
+//                Spacer()
                 southNorth
                     .padding(10)
+                    .frame(maxWidth: .infinity)
                     .background(Color(UIColor.tertiarySystemFill))
                     .cornerRadius(10)
                     .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)

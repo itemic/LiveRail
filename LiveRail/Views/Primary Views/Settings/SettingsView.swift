@@ -332,9 +332,6 @@ struct SettingsView: View {
                             }
                         }
                         
-                        
-                        
-                        
                     }
                     .padding()
                     .background(Color(UIColor.secondarySystemGroupedBackground))

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		450FEDE025F7A46100A87AA0 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */; };
+		4510456025FE101B00232C78 /* DataDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510455F25FE101B00232C78 /* DataDisclaimerView.swift */; };
 		4510975125FB793900D8BBEF /* NewSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510975025FB793900D8BBEF /* NewSettingsView.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		450FEDDF25F7A46100A87AA0 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		4510455F25FE101B00232C78 /* DataDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDisclaimerView.swift; sourceTree = "<group>"; };
 		4510975025FB793900D8BBEF /* NewSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsView.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				45D9480C25AEA733002FE73C /* SettingsView.swift */,
 				4510975025FB793900D8BBEF /* NewSettingsView.swift */,
 				45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */,
+				4510455F25FE101B00232C78 /* DataDisclaimerView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
+				4510456025FE101B00232C78 /* DataDisclaimerView.swift in Sources */,
 				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
 				45D5839025C19A38003097F6 /* Constants.swift in Sources */,
 				45D9480D25AEA733002FE73C /* SettingsView.swift in Sources */,
@@ -500,6 +504,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = HSR;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
