@@ -34,13 +34,13 @@ struct DataDisclaimerView: View {
             .padding(5)
             }
             
-            Section(header: Text("Acknowledgements")) {
+            Section {
                 VStack {
                     Image("ptxlogo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
-                Text("Transit data is provided by the PTX Transport API. 資料介接「交通部PTX平臺」")
+                Text("Transit data is provided by the PTX Transport API. 資料介接「交通部PTX平臺」。")
                     
                 }
                 .padding()

@@ -158,7 +158,7 @@ struct NewSettingsView: View {
                     }
                 }
                 
-                Section(footer: Text("Location is only used to determine nearest station.")) {
+                Section {
                     VStack(alignment: .leading) {
                         if let status = lm.status {
                             if (status == .authorizedAlways || status == .authorizedWhenInUse) {
@@ -171,7 +171,7 @@ struct NewSettingsView: View {
                                                 .frame(width: 32, height: 32)
                                                 .padding(.vertical, 5)
                                                 .overlay(Image(systemName: "location.fill").font(.system(size: 18)).foregroundColor(.white))
-                                            Text("Enable location")
+                                            Text("Nearest station")
                                         }
                                         
                                     })
@@ -185,7 +185,7 @@ struct NewSettingsView: View {
                                         .frame(width: 32, height: 32)
                                         .padding(.vertical, 5)
                                         .overlay(Image(systemName: "location.fill").font(.system(size: 18)).foregroundColor(.white))
-                                    Text("Enable location")
+                                    Text("Nearest station")
                                     Spacer()
                                     
                                     
@@ -237,7 +237,7 @@ struct NewSettingsView: View {
                 
                 
                 
-                Section(header: Text("Troubleshooting")) {
+                Section {
                     VStack(alignment: .leading) {
                         HStack {
                             Circle()

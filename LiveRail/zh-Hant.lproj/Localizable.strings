@@ -8,20 +8,18 @@
 "Settings" = "設定";
 "Origin" = "出發站";
 "Destination" = "終點站";
-"Departed services" = "已離站車次";
+"Departed trains" = "已離站車次";
 "Show trains that have departed." = "顯示已離站車次";
 "Arrivals" = "到達站";
 "Show arrivals at terminus stations." = "顯示終點站到達車次";
-"Location features" = "定位服務";
-"Nearby station shortcuts" = "最近車站捷徑";
-"Data update time" = "資料更新時間";
-"Fetch data" = "獲取資料";
+"Nearest station" = "最近車站";
+"Last update" = "資料更新時間";
+"Fetch data" = "更新資料";
 "Get updated data from PTX" = "從ＰＴＸ平台更新資料";
 "Terms of Service" = "使用者條款/免責聲明";
-" and " = "與";
 "Privacy Policy" = "隐私政策";
 "Fetch" = "獲取";
-"DEVELOPER" = "開發者";
+"Request location" = "定位";
 "Go to location settings" = "往設定開啟定位權限";
 "Enable" = "開啟";
 "TIME_ZONE_DISCLAIMER" = "時間應為台灣時間";
@@ -33,6 +31,9 @@
 "Business" = "商務車廂";
 "Standard" = "對號座";
 "Nonreserved" = "自由座";
+"About" = "關於";
+"Interface" = "介面";
+"Done" = "完成";
 
 "Improved date/time functionality coming soon" = "加強版日期功能敬請期待";
 "This little disclaimer courtesy of Austin" = "Austin建議的功能！";
