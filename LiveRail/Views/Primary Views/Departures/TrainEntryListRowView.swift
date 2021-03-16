@@ -22,7 +22,7 @@ struct TrainEntryListRowView: View {
                 HStack(spacing: 5) {
                     
                     Text(LocalizedStringKey(train.DailyTrainInfo.direction.abbreviated))
-                        .font(Font.system(.subheadline, design: .rounded).bold())
+                        .font(Font.system(.subheadline).bold())
                         .foregroundColor(train.DailyTrainInfo.direction.color)
                         .padding(4)
                         .background(train.DailyTrainInfo.direction.color.opacity(0.15))
@@ -30,7 +30,7 @@ struct TrainEntryListRowView: View {
                     
                     
                     
-                    Text("\(train.DailyTrainInfo.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
+                    Text("\(train.DailyTrainInfo.TrainNo)").font(Font.system(.headline).monospacedDigit().weight(.semibold))
                     
                     
                     
@@ -38,14 +38,14 @@ struct TrainEntryListRowView: View {
                     
                     if (!data2.getTrainWillDepartAfterNow(for: train, at: station)) {
                         Text("DEPARTED")
-                            .font(Font.system(.subheadline, design: .rounded))
+                            .font(Font.system(.subheadline))
                             .foregroundColor(.red)
                             .padding(4)
                             .background(Color.red.opacity(0.2))
                             .cornerRadius(5)
                     } else if (data2.getTrainIsAtStation(for: train, at: station)) {
                         Text("LEAVING SOON")
-                            .font(Font.system(.subheadline, design: .rounded))
+                            .font(Font.system(.subheadline))
                             .foregroundColor(.orange)
                             .padding(4)
                             .background(Color.orange.opacity(0.2))
@@ -64,12 +64,12 @@ struct TrainEntryListRowView: View {
                     
                     VStack(alignment: .leading) {
                        
-                        Text(LocalizedStringKey(train.DailyTrainInfo.EndingStationName.En)).font(Font.system(.title, design: .rounded).weight(.semibold))
+                        Text(LocalizedStringKey(train.DailyTrainInfo.EndingStationName.En)).font(Font.system(.title).weight(.semibold))
                     }
                    
                     Spacer()
                     
-                    Text("\(data2.getDepartureTime(for: train, at: station))").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
+                    Text("\(data2.getDepartureTime(for: train, at: station))").font(Font.system(.title).monospacedDigit().weight(.semibold))
                     
                 }
                 .padding(.horizontal, 5)

@@ -30,11 +30,11 @@ struct PlannerResultRowView: View {
             //            Spacer()
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
-                    Text("\(entry.DailyTrainInfo.TrainNo)").font(Font.system(.headline, design: .rounded).monospacedDigit().weight(.semibold))
+                    Text("\(entry.DailyTrainInfo.TrainNo)").font(Font.system(.headline).monospacedDigit().weight(.semibold))
                     Spacer()
                     if (!data.getTrainWillDepartAfterNow(for: entry, at: origin)) {
                         Text("DEPARTED")
-                            .font(Font.system(.subheadline, design: .rounded))
+                            .font(Font.system(.subheadline))
                             .foregroundColor(.red)
                             .padding(4)
                             .background(Color.red.opacity(0.2))
@@ -50,17 +50,17 @@ struct PlannerResultRowView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text(LocalizedStringKey(data.getStopTime(for: origin, on: entry).StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
-                        Text("\(data.getStopTime(for: origin, on: entry).DepartureTime)").font(Font.system(.title, design: .rounded).monospacedDigit().weight(.semibold))
+                        Text("\(data.getStopTime(for: origin, on: entry).DepartureTime)").font(Font.system(.title).monospacedDigit().weight(.semibold))
                     }
                     Spacer()
                     VStack(alignment: .leading) {
                         Text("").foregroundColor(.secondary).font(Font.system(.caption))
-                        Text("→").font(Font.system(.title, design: .rounded).monospacedDigit())
+                        Text("→").font(Font.system(.title).monospacedDigit())
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
                         Text(LocalizedStringKey(data.getStopTime(for: destination, on: entry).StationName.En)).foregroundColor(.secondary).font(Font.system(.caption))
-                        Text("\(data.getStopTime(for: destination, on: entry).ArrivalTime)").font(Font.system(.title, design: .rounded).monospacedDigit())
+                        Text("\(data.getStopTime(for: destination, on: entry).ArrivalTime)").font(Font.system(.title).monospacedDigit())
                     }
                 }
                 .padding(.horizontal, 5)
