@@ -9,9 +9,7 @@
 "Origin" = "出發站";
 "Destination" = "終點站";
 "Departed trains" = "已離站車次";
-"Show trains that have departed." = "顯示已離站車次";
 "Arrivals" = "到達站";
-"Show arrivals at terminus stations." = "顯示終點站到達車次";
 "Nearest station" = "最近車站";
 "Last update" = "資料更新時間";
 "Fetch data" = "更新資料";
@@ -35,9 +33,6 @@
 "Interface" = "介面";
 "Done" = "完成";
 
-"Improved date/time functionality coming soon" = "加強版日期功能敬請期待";
-"This little disclaimer courtesy of Austin" = "Austin建議的功能！";
-"Thanks Austin!" = "謝謝Austin!";
 
 "Departures" = "離站時刻表";
 "Trains" = "車次查詢";
@@ -75,7 +70,6 @@
 "DESCRIPTION_SOUTH_NORTH" = "由南往北";
 
 "Station dots" = "停靠站點";
-"Display stopping stations at a glance." = "快速觀看停靠站";
 
 "$S$" = "南";
 "$N$" = "北";
@@ -83,10 +77,8 @@
 "NO_SELECT" = "沒有選取";
 
 "ARR_DEPT_TIMES_TITLE" = "進出站時間";
-"ARR_DEPT_TIMES_DESCRIPTION" = "路線圖顯示進站及出站時間";
 
 "HOME_PAGE_SETTINGS_ENTRY" = "首頁";
-"HOME_PAGE_SETTINGS_DESCRIPTION" = "選擇開啟時顯示的首頁";
 
 "DEFAULTS" = "預設值";
 
