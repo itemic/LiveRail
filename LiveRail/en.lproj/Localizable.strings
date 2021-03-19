@@ -24,10 +24,8 @@
 "NO_SELECT" = "No selection";
 
 "ARR_DEPT_TIMES_TITLE" = "Arrival times";
-"ARR_DEPT_TIMES_DESCRIPTION" = "Show both arrival and departure times when viewing individual service.";
 
 "HOME_PAGE_SETTINGS_ENTRY" = "Home Page";
-"HOME_PAGE_SETTINGS_DESCRIPTION" = "Choose view to display on fresh start";
 
 "DEFAULTS" = "Defaults";
 
