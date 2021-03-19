@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PlanView: View {
     
-//    @ObservedObject var vm: HSRQueryViewModel
     @StateObject var data = HSRStore.shared
     @EnvironmentObject var network: NetworkStatus
     
@@ -41,14 +40,9 @@ struct PlanView: View {
                         PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable).environmentObject(network)
                         Spacer()
                             .frame(height: 110)
-                        
-                        
                     }
                 } else {
-                    
                     EmptyScreenView(icon: "tram.fill", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .hsrColor)
-                    
-                    
                 }
             }
             
@@ -60,7 +54,7 @@ struct PlanView: View {
             
             SlideoverSheetView(isOpen: $showingTimetable) {
                 if let selectedTimetable = selectedDailyTimetable {
-                    TrainServiceSheetView2(train: selectedTimetable, active: $showingTimetable)
+                    TrainServiceSheetView(train: selectedTimetable, active: $showingTimetable)
                 } else { EmptyView() }
             }
             
@@ -68,16 +62,7 @@ struct PlanView: View {
         .background(Color(UIColor.systemGroupedBackground))
         .edgesIgnoringSafeArea(.all)
         
-        .onChange(of: startingStationObject) { newValue in
-            if (newValue != nil && endingStationObject != nil) {
-//                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
-            }
-        }
-        .onChange(of: endingStationObject) { newValue in
-            if (newValue != nil  && startingStationObject != nil) {
-//                vm.fetchQueryTimetables(from: startingStationObject!, to: endingStationObject!, client: .init())
-            }
-        }       
+             
     }
     
     

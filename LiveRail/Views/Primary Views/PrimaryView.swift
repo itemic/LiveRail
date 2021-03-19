@@ -13,7 +13,6 @@ enum StationButtonType: CaseIterable {
 
 struct PrimaryView: View {
     @StateObject var data = HSRStore.shared
-    @StateObject var queryVM = HSRQueryViewModel()
     @EnvironmentObject var network: NetworkStatus
     
     // stored as IDs 4-digit string

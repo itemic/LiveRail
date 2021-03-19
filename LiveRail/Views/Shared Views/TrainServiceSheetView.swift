@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrainServiceSheetView2: View {
+struct TrainServiceSheetView: View {
     var train: RailDailyTimetable
     
     @Binding var active: Bool
@@ -25,10 +25,11 @@ struct TrainServiceSheetView2: View {
                 )
             VStack(alignment: .leading, spacing: 0) {
                 Text("\(train.DailyTrainInfo.TrainNo)")
-                    .font(Font.system(.title2).monospacedDigit().weight(.bold))
+                    .font(Font.system(.subheadline).monospacedDigit().weight(.bold)).foregroundColor(.secondary)
                 Text("\(train.DailyTrainInfo.StartingStationName.En.localized) → \(train.DailyTrainInfo.EndingStationName.En.localized)")
-                .foregroundColor(.secondary)
-                .font(.headline).bold()
+                    .foregroundColor(.primary)
+                    .font(.title3).bold()
+                
             }
             .padding(.leading, 5)
             Spacer()
@@ -42,7 +43,7 @@ struct TrainServiceSheetView2: View {
                     active = false
                 }
             
-                
+            
         }
         .padding(.vertical)
         
@@ -50,37 +51,17 @@ struct TrainServiceSheetView2: View {
     
     var body: some View {
         VStack(spacing: 0) {
-                
-
-                header
-            
-            
+            header
             ScrollView(showsIndicators: false) {
-                
-                
-                    VStack(spacing: 0) {
-                        
-                        
-                        
-                        ForEach(train.StopTimes, id: \.StopSequence) { stop in
-                            
-                            ServiceLineStationEntry2(stop: stop, vm: vm)
-                            
-                            //MARK: End of FOREACH
-                        }
+                VStack(spacing: 0) {
+                    ForEach(train.StopTimes, id: \.StopSequence) { stop in
+                        ServiceLineStationEntry2(stop: stop, vm: vm)
+                        //MARK: End of FOREACH
                     }
-                    .padding()
-                
+                }
+                .padding()
                 Text("NOT_LIVE").font(.caption2).foregroundColor(.gray).padding()
-                
-                
-                
-                
             }
-            
-            
-            
-            
         }
         .onAppear {
             vm.train = train
@@ -88,11 +69,6 @@ struct TrainServiceSheetView2: View {
         .onChange(of: train) { newTrain in
             vm.train = newTrain
         }
-        
-        
-        
-        
-        
         
     }
 }
@@ -165,23 +141,23 @@ struct ServiceLineStationEntry2: View {
             .overlay(
                 ZStack {
                     if (trainAtThisStation) {
-                Circle()
-                    .fill(calcTrainDotColor())
-                    
-                    .frame(width: 14, height: 14)
-                    .scaleEffect(pulseAnimation ? 2 : 1)
-                    .opacity(pulseAnimation ? 0.5 : 1)
-                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).speed(1.5))
-                    .onAppear {
-                        pulseAnimation.toggle()
+                        Circle()
+                            .fill(calcTrainDotColor())
+                            
+                            .frame(width: 14, height: 14)
+                            .scaleEffect(pulseAnimation ? 2 : 1)
+                            .opacity(pulseAnimation ? 0.5 : 1)
+                            .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true).speed(1.5))
+                            .onAppear {
+                                pulseAnimation.toggle()
+                            }
                     }
-                    }
-                Circle()
-                    .stroke(calcTrainDotColor(), lineWidth: 4)
-                    .background(Circle().fill(Color(UIColor.systemGray5)))
-                    .frame(width: 14, height: 14)
+                    Circle()
+                        .stroke(calcTrainDotColor(), lineWidth: 4)
+                        .background(Circle().fill(Color(UIColor.systemGray5)))
+                        .frame(width: 14, height: 14)
                 }
-                    )
+            )
         
     }
     
@@ -190,9 +166,9 @@ struct ServiceLineStationEntry2: View {
             .fill(Color.clear)
             .frame(width: 20, height: 20)
             .overlay(Circle()
-            .strokeBorder(calcTrainDotColor(), lineWidth: 4)
-            .background(Circle().fill(calcTrainDotColor()))
-            .frame(width: 18, height: 18))
+                        .strokeBorder(calcTrainDotColor(), lineWidth: 4)
+                        .background(Circle().fill(calcTrainDotColor()))
+                        .frame(width: 18, height: 18))
     }
     
     
@@ -210,48 +186,33 @@ struct ServiceLineStationEntry2: View {
                         .frame(width: 20, height: lineHeight)
                         .overlay(
                             ZStack {
-                            VStack(spacing: 0) {
-                                if (showOverlay) {
-                                    Rectangle()
+                                VStack(spacing: 0) {
+                                    if (showOverlay) {
+                                        Rectangle()
+                                            
+                                            .fill(Color(UIColor.systemGray2))
+                                            
+                                            .frame(width: lineWidth, height: lineHeight * CGFloat(offset))
                                         
-                                        .fill(Color(UIColor.systemGray2))
                                         
-                                        .frame(width: lineWidth, height: lineHeight * CGFloat(offset))
-                                    
-
                                         Rectangle()
                                             .fill(trainAtThisStation ? Color(UIColor.systemGray2) : vm.train?.DailyTrainInfo.direction.color ?? Color.white )
                                             .frame(width: lineWidth, height: positionIndicatorHeight)
-                                            
-                                            
-
-                                            
-                                    
-                                    Rectangle()
-                                        .fill(Color.hsrColor)
-                                        .frame(width: lineWidth, height: lineHeight - (lineHeight * CGFloat(offset)))
-                                    
-                                    
-                                } else {
-                                    Rectangle()
-                                        .fill(calcTrainlineColor())
-                                        .frame(width: lineWidth, height: lineHeight + positionIndicatorHeight)
+                                        Rectangle()
+                                            .fill(Color.hsrColor)
+                                            .frame(width: lineWidth, height: lineHeight - (lineHeight * CGFloat(offset)))
+                                           
+                                    } else {
+                                        Rectangle()
+                                            .fill(calcTrainlineColor())
+                                            .frame(width: lineWidth, height: lineHeight + positionIndicatorHeight)
+                                    }
                                 }
-                                
-                            
                             }
-
-                        }
-                           
                         )
                 }
-                
                 Spacer()
             }
-            
-            
-            
-            
             HStack {
                 Rectangle()
                     .fill(Color.clear)
@@ -291,22 +252,10 @@ struct ServiceLineStationEntry2: View {
                                     Text(stop.DepartureTime).font(Font.system(.headline).monospacedDigit()).bold().foregroundColor(stationTextColor())
                                 }
                             }
-                           
-                            
-                            
-                            
-                                    
                         }
-//                        .background(Color.yellow.opacity(0.2))
-                        
                     )
-
-            
-                
-            
-            }
-            
-    }
+                }
+        }
         .onAppear() {
             self.offset = calcOffset()
             self.showOverlay = calcShowOverlay()
@@ -316,9 +265,9 @@ struct ServiceLineStationEntry2: View {
             self.offset = calcOffset()
             self.showOverlay = calcShowOverlay()
             self.trainAtThisStation = calcTrainAtThisStation()
-//            self.lineAnimation.toggle()
+            //            self.lineAnimation.toggle()
         }
-}
-
-
+    }
+    
+    
 }

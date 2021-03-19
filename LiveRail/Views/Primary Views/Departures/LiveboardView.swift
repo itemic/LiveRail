@@ -40,7 +40,7 @@ struct LiveboardView: View {
 
             SlideoverSheetView(isOpen: $showingTimetable) {
                 if let selectedDailyTimetable = selectedDailyTimetable {
-                    TrainServiceSheetView2(train: selectedDailyTimetable, active: $showingTimetable)
+                    TrainServiceSheetView(train: selectedDailyTimetable, active: $showingTimetable)
                 } else { EmptyView() }
             }
 
