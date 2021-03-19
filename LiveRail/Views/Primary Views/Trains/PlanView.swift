@@ -46,9 +46,6 @@ struct PlanView: View {
                 }
             }
             
-            
-            
-            
             //MARK: TWO
             PlanViewPickerButtonView(originObject: $startingStationObject, destinationObject: $endingStationObject, rotation: rotationAmount)
             

@@ -11,7 +11,6 @@
 		4510975125FB793900D8BBEF /* NewSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510975025FB793900D8BBEF /* NewSettingsView.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
-		45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5425ADBA920025BD09 /* HSRDataStore.swift */; };
 		45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */; };
 		45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */; };
 		45304BD825F8B5AF0005F40D /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 45304BD725F8B5AF0005F40D /* stations.json */; };
@@ -70,7 +69,6 @@
 		4510975025FB793900D8BBEF /* NewSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsView.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
-		45232F5425ADBA920025BD09 /* HSRDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRDataStore.swift; sourceTree = "<group>"; };
 		45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRTrainViewModel.swift; sourceTree = "<group>"; };
 		45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerResultRowView.swift; sourceTree = "<group>"; };
 		45304BD725F8B5AF0005F40D /* stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stations.json; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				4585608225F70A8C00B2698B /* HSR Test.entitlements */,
 				45BF394725EB85F1006437F7 /* Managers */,
 				4575703325D2505000032C9F /* Localizable.strings */,
-				45232F5425ADBA920025BD09 /* HSRDataStore.swift */,
 				4566399C25F0EDE0006B000D /* HSRStore.swift */,
 				45BF394625EB85D6006437F7 /* ViewModels */,
 				4563E66625A9EF2B00E50C5F /* Models */,
@@ -403,7 +400,6 @@
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
 				4510456025FE101B00232C78 /* DataDisclaimerView.swift in Sources */,
-				45232F5525ADBA920025BD09 /* HSRDataStore.swift in Sources */,
 				45D5839025C19A38003097F6 /* Constants.swift in Sources */,
 				45F8518525E4FE7B0068CA83 /* SlideoverSheetView.swift in Sources */,
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
@@ -564,6 +560,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LiveRail/Preview Content\"";
 				DEVELOPMENT_TEAM = 58QL7E6Z98;
 				ENABLE_PREVIEWS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = LiveRail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -576,6 +574,11 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = Debug;
 		};
@@ -592,6 +595,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LiveRail/Preview Content\"";
 				DEVELOPMENT_TEAM = 58QL7E6Z98;
 				ENABLE_PREVIEWS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = LiveRail/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -604,6 +609,11 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+				);
 			};
 			name = Release;
 		};
