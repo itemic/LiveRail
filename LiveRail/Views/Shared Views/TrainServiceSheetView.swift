@@ -53,6 +53,24 @@ struct TrainServiceSheetView: View {
         VStack(spacing: 0) {
             header
             ScrollView(showsIndicators: false) {
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(vm.infoBoxText).font(.headline)
+                        if (vm.infoBoxSubText != "") {
+                            Text(vm.infoBoxSubText).font(.subheadline)
+                        }
+                    }
+                    Spacer()
+                }
+                .padding()
+                
+                .background(BlurView(style: .systemUltraThinMaterial))
+                .background(vm.infoBoxColor.opacity(0.2))
+                .cornerRadius(10)
+                .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(vm.infoBoxColor))
+
+                
                 VStack(spacing: 0) {
                     ForEach(train.StopTimes, id: \.StopSequence) { stop in
                         ServiceLineStationEntry2(stop: stop, vm: vm)
@@ -62,6 +80,7 @@ struct TrainServiceSheetView: View {
                 .padding()
                 Text("NOT_LIVE").font(.caption2).foregroundColor(.gray).padding()
             }
+            
         }
         .onAppear {
             vm.train = train

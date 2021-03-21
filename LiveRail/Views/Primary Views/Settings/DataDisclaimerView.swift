@@ -49,6 +49,8 @@ struct DataDisclaimerView: View {
             
             Text("TIME_ZONE_DISCLAIMER")
                 .padding()
+            
+            
         }
         .navigationTitle("About")
         .navigationBarTitleDisplayMode(.inline)

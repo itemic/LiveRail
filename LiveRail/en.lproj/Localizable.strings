@@ -37,3 +37,6 @@
 
 "NO_NETWORK_DETECTED" = "No network detected";
 "NO_NETWORK_DESCRIPTION" = "Train data may be outdated or incomplete. We will attempt to update data once you are reconnected";
+
+"AV_DATA_LAST_UPDATED" = "Availability data last updated";
+"SEAT_AVAIL_DESC" = "The data source for seat availability is not live data and may not be accurate at all times.";

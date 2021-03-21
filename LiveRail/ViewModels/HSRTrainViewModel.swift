@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 import Combine
 final class HSRTrainViewModel: ObservableObject, Equatable {
     let df = SharedDateFormatter.shared
@@ -24,6 +24,20 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
         return train.StopTimes.contains {
             $0.StationID == station.StationID
         }
+    }
+    
+    var startingStation: StopTime? {
+        guard let train = train else {return nil}
+        return train.StopTimes.first(where: {
+            $0.StationID == train.DailyTrainInfo.StartingStationID
+        })
+    }
+    
+    var endingStation: StopTime? {
+        guard let train = train else {return nil}
+        return train.StopTimes.first(where: {
+            $0.StationID == train.DailyTrainInfo.EndingStationID
+        })
     }
     
     func isStarting(_ stop: StopTime) -> Bool {
@@ -51,6 +65,61 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
         guard let train = train else {return nil}
         return train.StopTimes.first {
             isTrainAtStation($0)
+        }
+    }
+    
+    var infoBoxText: String {
+        guard let train = train, let starting = startingStation, let ending = endingStation else {return "NO DATA"}
+        
+        let now = Date().time
+        guard let origin = df.date(from: starting.DepartureTime) else {return "NO DATA"}
+        guard let destination = df.date(from: ending.ArrivalTime) else {return "NO DATA"}
+        
+        if (now < origin.time) {
+            let minutes = origin.time - now
+            return "Departs \(starting.StationName.En) in \(minutes) min." // have yet to depart
+        } else if (now > destination.time) {
+            return "Arrived at \(ending.StationName.En)."
+        } else {
+            return "Enroute to \(ending.StationName.En)."
+        }
+    }
+    
+    var infoBoxSubText: String {
+        guard let train = train, let starting = startingStation, let ending = endingStation else {return "NO DATA"}
+        
+        let now = Date().time
+        guard let origin = df.date(from: starting.DepartureTime) else {return "NO DATA"}
+        guard let destination = df.date(from: ending.ArrivalTime) else {return "NO DATA"}
+        
+        if (now < origin.time) {
+            return ""
+        } else if (now > destination.time) {
+            return ""
+        } else {
+            if (trainIsAtAnyStation) {
+                return "Currently at \(currentTrainAtStation!.StationName.En)"
+            } else {
+                guard let nextArrivalTime = df.date(from: nextStation!.ArrivalTime) else { return "ERROR" }
+                let minutes = nextArrivalTime.time - now
+                return "Next station: \(nextStation!.StationName.En) in \(minutes) min."
+            }
+        }
+    }
+    
+    var infoBoxColor: Color {
+        guard let train = train, let starting = startingStation, let ending = endingStation else {return .red}
+        
+        let now = Date().time
+        guard let origin = df.date(from: starting.DepartureTime) else {return .red}
+        guard let destination = df.date(from: ending.ArrivalTime) else {return .red}
+        
+        if (now < origin.time) {
+            return .orange // have yet to depart
+        } else if (now > destination.time) {
+            return .secondary
+        } else {
+            return .green
         }
     }
     

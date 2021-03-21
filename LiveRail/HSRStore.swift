@@ -15,6 +15,7 @@ public final class HSRStore: ObservableObject {
     @Published var lastUpdateDate: Date = Date(timeIntervalSince1970: 0) // initialize from zero
     @Published var dailyTimetable: [RailDailyTimetable] = []
     @Published var availableSeats: [Station: [AvailableSeat]] = [:]
+    @Published var availabilityUpdateTime: String = ""
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
     @Published var initSuccess: Bool = true
 
@@ -71,7 +72,7 @@ public final class HSRStore: ObservableObject {
             }
         }
         
-        self.fetchAllAvailability(client: client)
+//        self.fetchAllAvailability(client: client)
         
         
         // TODO Fix this 
@@ -110,6 +111,7 @@ public final class HSRStore: ObservableObject {
     func fetchAvailability(station: Station, client: NetworkManager) {
         HSRService.getAvailability(from: station.StationID, client: client) { [weak self] availability in
             DispatchQueue.main.async {
+                self?.availabilityUpdateTime = availability.UpdateTime ?? ""
                 self?.availableSeats[station] = availability.AvailableSeats
             }
         } failure: {

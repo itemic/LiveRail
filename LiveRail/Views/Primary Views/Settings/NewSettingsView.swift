@@ -237,7 +237,7 @@ struct NewSettingsView: View {
                 
                 
                 
-                Section {
+                Section(footer: Text("SEAT_AVAIL_DESC")) {
                     VStack(alignment: .leading) {
                         HStack {
                             Circle()

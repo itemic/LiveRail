@@ -24,6 +24,9 @@ struct PlanView: View {
     @State var showingTimetable: Bool = false
     @State var selectedDailyTimetable: RailDailyTimetable?
     
+    var lastUpdate: Date {
+        SharedDateFormatter.shared.isoDate(from: data.availabilityUpdateTime) ?? Date(timeIntervalSince1970: 0)
+    }
     
     
     var body: some View {
@@ -37,9 +40,19 @@ struct PlanView: View {
                         Spacer()
                             .frame(height: 120)
                         
+                        
                         PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable).environmentObject(network)
+                        HStack {
+                            Text("AV_DATA_LAST_UPDATED")
+                            Spacer()
+                            Text(lastUpdate, style: .date)
+                            Text(lastUpdate, style: .time)
+                        }
+                        .padding(.horizontal)
+                            .font(.caption).foregroundColor(.secondary)
                         Spacer()
                             .frame(height: 110)
+                        
                     }
                 } else {
                     EmptyScreenView(icon: "tram.fill", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .hsrColor)

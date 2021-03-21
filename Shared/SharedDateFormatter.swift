@@ -33,6 +33,16 @@ class SharedDateFormatter {
         return df
     }()
     
+    private let availabilityFormatter: ISO8601DateFormatter = {
+        let df = ISO8601DateFormatter()
+        df.timeZone = TimeZone(identifier: "Asia/Taipei")
+        return df
+    }()
+    
+    func isoDate(from dateString: String) -> Date? {
+        return availabilityFormatter.date(from: dateString)
+    }
+    
     func taiwanTZString(from date: Date) -> String {
         return taipeiFormatter.string(from: date)
     }
