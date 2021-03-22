@@ -41,7 +41,7 @@ struct StationSheetPickerView: View {
     
     var header: some View {
         HStack {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
                 
                 .fill(color)
                 .frame(width: 48, height: 48)

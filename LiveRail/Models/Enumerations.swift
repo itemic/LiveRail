@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+enum TrainServiceState: CaseIterable {
+    case predeparture, enroute, station, ended, unknown
+}
+
 enum TrainDirection: Int, CaseIterable {
     case southbound = 0
     case northbound = 1

@@ -49,27 +49,53 @@ struct TrainServiceSheetView: View {
         
     }
     
+    var infobox: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(spacing: 0) {
+                    Text(vm.infoBoxDescription.uppercased()).font(.caption)
+                }
+
+                if (vm.trainStatus == .unknown) {
+                    
+                } else if (vm.trainStatus == .ended) {
+                    Text("Train service ended.").font(.title2)
+                } else {
+                    HStack {
+                        Text(vm.infoBoxText).font(Font.system(.title).weight(.semibold))
+                        Spacer()
+                        HStack(alignment: .lastTextBaseline, spacing: 0) {
+                            Text("in ")
+                            Text("\(vm.bannerTime)").font(Font.system(.title).monospacedDigit().weight(.semibold))
+                            Text(" min")
+                        }
+                    }
+                }
+                
+                
+                
+                
+            }
+            Spacer()
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal)
+        .background(BlurView(style: .systemUltraThinMaterial))
+        .background(vm.infoBoxColor.opacity(0.2))
+        .cornerRadius(10)
+        .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(vm.infoBoxColor.opacity(0.5)))
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             header
             ScrollView(showsIndicators: false) {
                 
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(vm.infoBoxText).font(.headline)
-                        if (vm.infoBoxSubText != "") {
-                            Text(vm.infoBoxSubText).font(.subheadline)
-                        }
-                    }
-                    Spacer()
-                }
-                .padding()
+                infobox
                 
-                .background(BlurView(style: .systemUltraThinMaterial))
-                .background(vm.infoBoxColor.opacity(0.2))
-                .cornerRadius(10)
-                .overlay(RoundedRectangle(cornerRadius: 10, style: .circular).strokeBorder(vm.infoBoxColor))
-
+                
+                
+                
                 
                 VStack(spacing: 0) {
                     ForEach(train.StopTimes, id: \.StopSequence) { stop in
@@ -220,7 +246,7 @@ struct ServiceLineStationEntry2: View {
                                         Rectangle()
                                             .fill(Color.hsrColor)
                                             .frame(width: lineWidth, height: lineHeight - (lineHeight * CGFloat(offset)))
-                                           
+                                        
                                     } else {
                                         Rectangle()
                                             .fill(calcTrainlineColor())
@@ -273,7 +299,7 @@ struct ServiceLineStationEntry2: View {
                             }
                         }
                     )
-                }
+            }
         }
         .onAppear() {
             self.offset = calcOffset()
