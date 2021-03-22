@@ -13,7 +13,6 @@ struct TrainServiceSheetView: View {
     @Binding var active: Bool
     
     @StateObject var vm = HSRTrainViewModel()
-    @Environment(\.presentationMode) var presentationMode
     
     var header: some View {
         HStack {
