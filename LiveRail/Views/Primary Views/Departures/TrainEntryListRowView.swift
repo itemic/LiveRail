@@ -38,18 +38,20 @@ struct TrainEntryListRowView: View {
                     
                     if (!data2.getTrainWillDepartAfterNow(for: train, at: station)) {
                         Text("DEPARTED")
-                            .font(Font.system(.subheadline))
-                            .foregroundColor(.red)
-                            .padding(4)
-                            .background(Color.red.opacity(0.2))
-                            .cornerRadius(5)
-                    } else if (data2.getTrainIsAtStation(for: train, at: station)) {
+                            .font(Font.system(.caption))
+                            .foregroundColor(.white)
+                            .padding(2)
+                            .padding(.horizontal, 4)
+                            .background(Color.red)
+                            .cornerRadius(10)
+                    } else if (data2.getTrainIsDepartingSoon(for: train, at: station)) {
                         Text("LEAVING SOON")
-                            .font(Font.system(.subheadline))
-                            .foregroundColor(.orange)
-                            .padding(4)
-                            .background(Color.orange.opacity(0.2))
-                            .cornerRadius(5)
+                            .font(Font.system(.caption))
+                            .foregroundColor(.black)
+                            .padding(2)
+                            .padding(.horizontal, 4)
+                            .background(Color.hsrColor)
+                            .cornerRadius(10)
                     }
                     
                     

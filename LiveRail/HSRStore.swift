@@ -18,7 +18,7 @@ public final class HSRStore: ObservableObject {
     @Published var availabilityUpdateTime: String = ""
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
     @Published var initSuccess: Bool = true
-
+    
     
     public static let shared = HSRStore(client: .init())
     
@@ -166,7 +166,10 @@ public final class HSRStore: ObservableObject {
         return Date.compare(to: getArrivalTime(for: train, at: station))
     }
     
-    func getTrainIsAtStation(for train: RailDailyTimetable, at station: Station) -> Bool {
+    func getTrainIsDepartingSoon(for train: RailDailyTimetable, at station: Station) -> Bool {
+        //TODO update to show train departing within 5 minutes
+        // move out of model here
+        
         return getTrainWillDepartAfterNow(for: train, at: station) && !getTrainWillArriveAfterNow(for: train, at: station)
     }
     

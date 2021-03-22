@@ -25,8 +25,8 @@ struct StationTimetableView: View {
         VStack {
             
             ForEach(data.getDepartures(from: station.StationID).filter {
-                (showArrivals ? true : !data.isEndingTerminus(for: $0, at: station) &&
-                    (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: station)))
+                (showArrivals ? true : !data.isEndingTerminus(for: $0, at: station)) &&
+                    (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: station))
             }) { departure in
                 TrainEntryListRowView(train: departure, station: station)
                     .onTapGesture {

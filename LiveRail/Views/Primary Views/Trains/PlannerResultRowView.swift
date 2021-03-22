@@ -34,16 +34,17 @@ struct PlannerResultRowView: View {
                     Spacer()
                     if (!data.getTrainWillDepartAfterNow(for: entry, at: origin)) {
                         Text("DEPARTED")
-                            .font(Font.system(.subheadline))
-                            .foregroundColor(.red)
-                            .padding(4)
-                            .background(Color.red.opacity(0.2))
-                            .cornerRadius(5)
+                            .font(Font.system(.caption))
+                            .foregroundColor(.white)
+                            .padding(2)
+                            .padding(.horizontal, 4)
+                            .background(Color.red)
+                            .cornerRadius(10)
                     }
-//                    else {
+                    else {
                         AvailabilityIconView(text: "Standard", status: availability?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
                         AvailabilityIconView(text: "Business", status: availability?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown)
-//                    }
+                    }
                     
                 }
                 .padding(.horizontal, 5)
