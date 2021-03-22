@@ -53,7 +53,9 @@ struct TrainServiceSheetView: View {
         HStack {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
-                    Text(vm.infoBoxDescription.uppercased()).font(.caption)
+                    if (vm.trainStatus != .ended) {
+                    Text(vm.infoBoxDescription.uppercased()).tracking(1).font(.caption)
+                    }
                 }
 
                 if (vm.trainStatus == .unknown) {
@@ -93,10 +95,6 @@ struct TrainServiceSheetView: View {
                 
                 infobox
                 
-                
-                
-                
-                
                 VStack(spacing: 0) {
                     ForEach(train.StopTimes, id: \.StopSequence) { stop in
                         ServiceLineStationEntry2(stop: stop, vm: vm)
@@ -129,7 +127,7 @@ struct ServiceLineStationEntry2: View {
     @State var lineAnimation = true
     @AppStorage("showArrDeptTimes") var showArrDeptTimes = false
     
-    var lineHeight: CGFloat = 50.0
+    var lineHeight: CGFloat = 60.0
     var lineWidth: CGFloat = 6.0
     var positionIndicatorHeight: CGFloat = 6.0
     
@@ -272,29 +270,29 @@ struct ServiceLineStationEntry2: View {
                                 regularStationCircle
                             }
                             
-                            Text(LocalizedStringKey(stop.StationName.En)).font(.headline).bold().foregroundColor(stationTextColor())
+                            Text(LocalizedStringKey(stop.StationName.En)).font(.title3).bold().foregroundColor(stationTextColor())
                             Spacer()
                             
                             
                             if (showArrDeptTimes) {
                                 if (isStartingStation) {
                                     
-                                    Text(stop.DepartureTime).font(Font.system(.headline).monospacedDigit()).bold().foregroundColor(stationTextColor())
+                                    Text(stop.DepartureTime).font(Font.system(.title3).monospacedDigit()).bold().foregroundColor(stationTextColor())
                                 } else if (isEndingStation) {
-                                    Text(stop.ArrivalTime).font(Font.system(.headline).monospacedDigit()).foregroundColor(stationTextColor())
-                                    Text(stop.DepartureTime).font(Font.system(.headline).monospacedDigit()).bold().foregroundColor(.clear)
+                                    Text(stop.ArrivalTime).font(Font.system(.title3).monospacedDigit()).foregroundColor(stationTextColor())
+                                    Text(stop.DepartureTime).font(Font.system(.title3).monospacedDigit()).bold().foregroundColor(.clear)
                                 } else {
-                                    Text(stop.ArrivalTime).font(Font.system(.headline).monospacedDigit()).foregroundColor(stationSecondaryTextColor())
-                                    Text(stop.DepartureTime).font(Font.system(.headline).monospacedDigit()).bold().foregroundColor(stationTextColor())
+                                    Text(stop.ArrivalTime).font(Font.system(.title3).monospacedDigit()).foregroundColor(stationSecondaryTextColor())
+                                    Text(stop.DepartureTime).font(Font.system(.title3).monospacedDigit()).bold().foregroundColor(stationTextColor())
                                 }
                             } else {
                                 if (isStartingStation) {
                                     
-                                    Text(stop.DepartureTime).font(Font.system(.headline).monospacedDigit()).bold().foregroundColor(stationTextColor())
+                                    Text(stop.DepartureTime).font(Font.system(.title3).monospacedDigit()).bold().foregroundColor(stationTextColor())
                                 } else if (isEndingStation) {
-                                    Text(stop.ArrivalTime).font(Font.system(.headline).monospacedDigit()).foregroundColor(stationTextColor())
+                                    Text(stop.ArrivalTime).font(Font.system(.title3).monospacedDigit()).foregroundColor(stationTextColor())
                                 } else {
-                                    Text(stop.DepartureTime).font(Font.system(.headline).monospacedDigit()).bold().foregroundColor(stationTextColor())
+                                    Text(stop.DepartureTime).font(Font.system(.title3).monospacedDigit()).bold().foregroundColor(stationTextColor())
                                 }
                             }
                         }
