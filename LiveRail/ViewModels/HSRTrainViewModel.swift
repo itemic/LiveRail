@@ -69,6 +69,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var trainStatus: TrainServiceState {
+        guard let _ = train else {return .unknown}
         guard let starting = startingStation, let ending = endingStation else {return .unknown}
         let now = Date().time
         guard let origin = df.date(from: starting.DepartureTime) else {return .unknown}
@@ -86,6 +87,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var timeUntilNextArri: Int {
+        guard let _ = train else {return 0}
+
         guard let nextStation = nextStation else {return 0}
         guard let nextArrivalTime = df.date(from: nextStation.ArrivalTime) else {return 0}
         let now = Date().time
@@ -94,6 +97,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var timeUntilTrainAtStationDeparts: Int {
+        guard let _ = train else {return 0}
+
         guard let currentStation = currentTrainAtStation else {return -1}
         guard let departureTime = df.date(from: currentStation.DepartureTime) else {return -1}
         let now = Date().time
@@ -102,6 +107,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var timeUntilNextDept: Int {
+        guard let _ = train else {return 0}
+
         guard let nextStation = nextStation else {return 0}
         guard let nextDepartureTime = df.date(from: nextStation.DepartureTime) else {return 0}
         let now = Date().time
@@ -110,6 +117,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var bannerTime: Int {
+        guard let _ = train else {return 0}
+
         switch(trainStatus) {
         case .predeparture: return timeUntilNextDept
         case .enroute: return timeUntilNextArri
@@ -119,6 +128,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var infoBoxText: String {
+        guard let _ = train else {return "Error"}
+
         guard let starting = startingStation else {return "Error"}
         switch(trainStatus) {
         case .predeparture: return starting.StationName.En
@@ -130,6 +141,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     }
     
     var infoBoxDescription: String {
+        guard let _ = train else {return "Error"}
+
         switch(trainStatus) {
         case .predeparture: return "Departing"
         case .enroute: return "Arriving at"
@@ -141,6 +154,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     
     var infoBoxColor: Color {
+
         guard let train = train else {return .red}
         switch(trainStatus) {
         case .predeparture: return .hsrColor

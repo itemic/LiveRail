@@ -118,7 +118,7 @@ struct TrainServiceSheetView: View {
 
 struct ServiceLineStationEntry2: View {
     var stop: StopTime
-    @StateObject var vm: HSRTrainViewModel
+    @ObservedObject var vm: HSRTrainViewModel
     @State var offset: Double = 0.0
     @State var showOverlay: Bool = false
     @State var trainAtThisStation: Bool = false
