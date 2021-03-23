@@ -67,7 +67,7 @@ struct FareBlockView: View {
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
                     Text("\(String(cost))").font(Font.system(.title2).monospacedDigit())
                 Text("TWD").font(.caption2).foregroundColor(.secondary)
-                    
+                    Spacer()
                     
                 }
                 Text(ticket.text())

@@ -10,7 +10,7 @@ import SwiftUI
 struct TrainEntryListRowView: View {
     @AppStorage("showStopDots") var showStopDots = true
     
-    @StateObject var data2 = HSRStore.shared
+    @StateObject var data = HSRStore.shared
     
     var train: RailDailyTimetable
     var station: Station
@@ -36,7 +36,7 @@ struct TrainEntryListRowView: View {
                     
                     Spacer()
                     
-                    if (!data2.getTrainWillDepartAfterNow(for: train, at: station)) {
+                    if (!data.getTrainWillDepartAfterNow(for: train, at: station)) {
                         Text("DEPARTED")
                             .font(Font.system(.caption))
                             .foregroundColor(.white)
@@ -44,7 +44,7 @@ struct TrainEntryListRowView: View {
                             .padding(.horizontal, 4)
                             .background(Color.red)
                             .cornerRadius(10)
-                    } else if (data2.getTrainIsDepartingSoon(for: train, at: station)) {
+                    } else if (data.getTrainIsDepartingSoon(for: train, at: station)) {
                         Text("LEAVING SOON")
                             .font(Font.system(.caption))
                             .foregroundColor(.black)
@@ -71,7 +71,7 @@ struct TrainEntryListRowView: View {
                    
                     Spacer()
                     
-                    Text("\(data2.getDepartureTime(for: train, at: station))").font(Font.system(.title).monospacedDigit().weight(.semibold))
+                    Text("\(data.getDepartureTime(for: train, at: station))").font(Font.system(.title).monospacedDigit().weight(.semibold))
                     
                 }
                 .padding(.horizontal, 5)

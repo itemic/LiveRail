@@ -96,7 +96,7 @@ struct TrainServiceSheetView: View {
                 
                 VStack(spacing: 0) {
                     ForEach(train.StopTimes, id: \.StopSequence) { stop in
-                        ServiceLineStationEntry2(stop: stop, vm: vm)
+                        ServiceLineStationEntry(stop: stop, vm: vm)
                         //MARK: End of FOREACH
                     }
                 }
@@ -116,7 +116,7 @@ struct TrainServiceSheetView: View {
 }
 
 
-struct ServiceLineStationEntry2: View {
+struct ServiceLineStationEntry: View {
     var stop: StopTime
     @ObservedObject var vm: HSRTrainViewModel
     @State var offset: Double = 0.0
@@ -125,6 +125,7 @@ struct ServiceLineStationEntry2: View {
     @State var pulseAnimation = false
     @State var lineAnimation = true
     @AppStorage("showArrDeptTimes") var showArrDeptTimes = false
+    @State var availability: AvailableSeat?
     
     var lineHeight: CGFloat = 60.0
     var lineWidth: CGFloat = 6.0
@@ -228,6 +229,7 @@ struct ServiceLineStationEntry2: View {
                         .frame(width: 20, height: lineHeight)
                         .overlay(
                             ZStack {
+                                HStack(spacing: 0){
                                 VStack(spacing: 0) {
                                     if (showOverlay) {
                                         Rectangle()
@@ -250,6 +252,9 @@ struct ServiceLineStationEntry2: View {
                                             .frame(width: lineWidth, height: lineHeight + positionIndicatorHeight)
                                     }
                                 }
+                                    
+                                    // availability slice can go here
+                            }
                             }
                         )
                 }

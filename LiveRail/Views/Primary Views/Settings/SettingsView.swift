@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewSettingsView: View {
+struct SettingsView: View {
     
     @StateObject var data = HSRStore.shared
     @EnvironmentObject var network: NetworkStatus

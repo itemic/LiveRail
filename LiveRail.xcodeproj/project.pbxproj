@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4510456025FE101B00232C78 /* DataDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510455F25FE101B00232C78 /* DataDisclaimerView.swift */; };
-		4510975125FB793900D8BBEF /* NewSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510975025FB793900D8BBEF /* NewSettingsView.swift */; };
+		4510975125FB793900D8BBEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510975025FB793900D8BBEF /* SettingsView.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
 		45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */; };
@@ -66,7 +66,7 @@
 
 /* Begin PBXFileReference section */
 		4510455F25FE101B00232C78 /* DataDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDisclaimerView.swift; sourceTree = "<group>"; };
-		4510975025FB793900D8BBEF /* NewSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsView.swift; sourceTree = "<group>"; };
+		4510975025FB793900D8BBEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
 		45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRTrainViewModel.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		45BF394525EB85BA006437F7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				4510975025FB793900D8BBEF /* NewSettingsView.swift */,
+				4510975025FB793900D8BBEF /* SettingsView.swift */,
 				45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */,
 				4510455F25FE101B00232C78 /* DataDisclaimerView.swift */,
 			);
@@ -395,7 +395,7 @@
 				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				456750E725F2429C0019244E /* StationSheetPickerView.swift in Sources */,
-				4510975125FB793900D8BBEF /* NewSettingsView.swift in Sources */,
+				4510975125FB793900D8BBEF /* SettingsView.swift in Sources */,
 				45A64F0125D1135C00886460 /* SharedDateFormatter.swift in Sources */,
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,

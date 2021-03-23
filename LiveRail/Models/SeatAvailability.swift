@@ -1,5 +1,5 @@
 //
-//  SeatAvailability2.swift
+//  SeatAvailability.swift
 //  LiveRail
 //
 //  Created by Terran Kroft on 1/15/21.
