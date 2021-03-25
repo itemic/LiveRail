@@ -53,12 +53,7 @@ struct TrainEntryListRowView: View {
                             .background(Color.hsrColor)
                             .cornerRadius(10)
                     }
-                    
-                    
-                        
-                        
-
-                    
+   
                 }
                 .padding(.horizontal, 5)
                 
