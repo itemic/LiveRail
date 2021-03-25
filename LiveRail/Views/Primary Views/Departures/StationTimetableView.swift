@@ -44,7 +44,6 @@ struct StationTimetableView: View {
                         isShow = true
                         
                     }
-                //                TrainEntryListRowView(train: departure, station: station)
             }
         }
         

@@ -56,7 +56,7 @@ struct DeparturesRowView: View {
                             .font(Font.system(.largeTitle).weight(.medium))
                         Spacer()
                         Text(departureTime)
-                            .font(Font.system(.title, design: .monospaced).weight(.medium))
+                            .font(Font.system(.title).weight(.medium))
                             
                     }
                 }

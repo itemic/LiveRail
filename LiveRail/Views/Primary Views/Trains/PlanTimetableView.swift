@@ -27,11 +27,27 @@ struct PlanTimetableView: View {
                         .filter {
                             (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: origin!))
                         }) { entry in
-                PlannerResultRowView(entry: entry, availability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo}), origin: origin!, destination: destination!)
-                    .onTapGesture {
-                        selectedTimetable = entry
-                        isShow = true
-                    }
+                
+                if let origin = origin, let destination = destination  {
+                    TrainsRowView(
+                        trainNo: entry.DailyTrainInfo.TrainNo,
+                        origin: data.getStopTime(for: origin, on: entry).StationName.En,
+                        originTime: data.getStopTime(for: origin, on: entry).DepartureTime,
+                        destination: data.getStopTime(for: destination, on: entry).StationName.En,
+                        destinationTime: data.getStopTime(for: destination, on: entry).ArrivalTime,
+                        standardAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
+                        businessAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
+                        departed: !data.getTrainWillDepartAfterNow(for: entry, at: origin))
+                        .onTapGesture {
+                            selectedTimetable = entry
+                            isShow = true
+                        }
+                }
+                
+                
+                
+//                PlannerResultRowView(entry: entry, availability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo}), origin: origin!, destination: destination!)
+                    
             }
             
         }
