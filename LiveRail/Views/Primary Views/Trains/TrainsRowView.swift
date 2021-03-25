@@ -43,7 +43,7 @@ struct TrainsRowView: View {
                 }
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(origin)
+                        Text(LocalizedStringKey(origin))
                             .font(.callout).foregroundColor(.secondary)
                         Text(originTime)
                             .font(Font.system(.title).monospacedDigit().weight(.semibold))
@@ -57,7 +57,7 @@ struct TrainsRowView: View {
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text(destination)
+                        Text(LocalizedStringKey(destination))
                             .font(.callout).foregroundColor(.secondary)
                         Text(destinationTime)
                             .font(Font.system(.title).monospacedDigit().weight(.regular))

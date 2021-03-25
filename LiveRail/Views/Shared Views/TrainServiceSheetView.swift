@@ -53,7 +53,7 @@ struct TrainServiceSheetView: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
                     if (vm.trainStatus != .ended) {
-                    Text(vm.infoBoxDescription.uppercased()).tracking(1).font(.caption)
+                    Text(LocalizedStringKey(vm.infoBoxDescription.uppercased())).tracking(1).font(.caption)
                     }
                 }
 
@@ -63,7 +63,7 @@ struct TrainServiceSheetView: View {
                     Text("Train service ended.").font(.title2)
                 } else {
                     HStack {
-                        Text(vm.infoBoxText).font(Font.system(.title).weight(.semibold))
+                        Text(LocalizedStringKey(vm.infoBoxText)).font(Font.system(.title).weight(.semibold))
                         Spacer()
                         HStack(alignment: .lastTextBaseline, spacing: 0) {
                             Text("in ")

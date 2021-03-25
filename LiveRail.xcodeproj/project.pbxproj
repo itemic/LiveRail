@@ -12,7 +12,6 @@
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
 		45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */; };
-		45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */; };
 		45304BD825F8B5AF0005F40D /* stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 45304BD725F8B5AF0005F40D /* stations.json */; };
 		45304BDB25F8B7550005F40D /* odfare.json in Resources */ = {isa = PBXBuildFile; fileRef = 45304BDA25F8B7550005F40D /* odfare.json */; };
 		45304BDE25F8BB510005F40D /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45304BDD25F8BB510005F40D /* NetworkStatus.swift */; };
@@ -71,7 +70,6 @@
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
 		45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRTrainViewModel.swift; sourceTree = "<group>"; };
-		45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerResultRowView.swift; sourceTree = "<group>"; };
 		45304BD725F8B5AF0005F40D /* stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stations.json; sourceTree = "<group>"; };
 		45304BDA25F8B7550005F40D /* odfare.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = odfare.json; sourceTree = "<group>"; };
 		45304BDD25F8BB510005F40D /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */,
 				456A2D1825B9332F00DF4B33 /* PlanView.swift */,
 				45FB0BA125BACAF900670396 /* PlanViewPickerButtonView.swift */,
-				45232F5C25ADC48C0025BD09 /* PlannerResultRowView.swift */,
 				45F47CB625F38F21001D8EE2 /* PlanTimetableView.swift */,
 				45BFA8ED260C7B7E00EF1489 /* TrainsRowView.swift */,
 			);
@@ -395,7 +392,6 @@
 				45BFA8EE260C7B7E00EF1489 /* TrainsRowView.swift in Sources */,
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
 				45F47CB725F38F21001D8EE2 /* PlanTimetableView.swift in Sources */,
-				45232F5D25ADC48C0025BD09 /* PlannerResultRowView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				456750E725F2429C0019244E /* StationSheetPickerView.swift in Sources */,
 				4510975125FB793900D8BBEF /* SettingsView.swift in Sources */,

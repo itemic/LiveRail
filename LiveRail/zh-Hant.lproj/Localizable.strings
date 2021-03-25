@@ -92,3 +92,12 @@
 
 "AV_DATA_LAST_UPDATED" = "剩餘座位更新時間";
 "SEAT_AVAIL_DESC" = "剩餘座位不定期更新。實際資料請參考高鐵各車站現場對號座剩餘座位資訊看板。";
+
+"in " = "在";
+" min" = "分";
+
+"DEPARTING" = "將離開";
+"ARRIVING AT" = "下一站";
+"ERROR" = "錯誤";
+"Train service ended." = "已抵達終點";
+"Error" = "錯誤";

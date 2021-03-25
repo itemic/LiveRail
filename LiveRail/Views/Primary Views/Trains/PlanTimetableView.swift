@@ -43,11 +43,6 @@ struct PlanTimetableView: View {
                             isShow = true
                         }
                 }
-                
-                
-                
-//                PlannerResultRowView(entry: entry, availability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo}), origin: origin!, destination: destination!)
-                    
             }
             
         }
