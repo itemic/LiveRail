@@ -19,6 +19,7 @@
 "Fetch" = "獲取";
 "Request location" = "定位";
 "Go to location settings" = "往設定開啟定位權限";
+"Preselect nearest station" = "預設最近車站";
 "Enable" = "開啟";
 "TIME_ZONE_DISCLAIMER" = "時間應為台灣時間";
 "Data source: Taiwan PTX Transport API" = "資料來源：台灣交通部ＰＴＸ平臺";

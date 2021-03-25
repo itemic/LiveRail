@@ -20,9 +20,9 @@ struct PlanTimetableView: View {
     
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             FareListingView(fareSchedule: data.fareSchedule[origin!.StationID]![destination!.StationID]!)
-                .padding(.bottom, 10)
+                
             ForEach(data.getDeparturesWith(from: origin!, to: destination!)
                         .filter {
                             (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: origin!))
@@ -31,6 +31,8 @@ struct PlanTimetableView: View {
                 if let origin = origin, let destination = destination  {
                     TrainsRowView(
                         trainNo: entry.DailyTrainInfo.TrainNo,
+                        direction: entry.DailyTrainInfo.direction.abbreviated,
+                        color: entry.DailyTrainInfo.direction.color,
                         origin: data.getStopTime(for: origin, on: entry).StationName.En,
                         originTime: data.getStopTime(for: origin, on: entry).DepartureTime,
                         destination: data.getStopTime(for: destination, on: entry).StationName.En,
@@ -46,7 +48,7 @@ struct PlanTimetableView: View {
             }
             
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 10)
         .onAppear {
             reload()
         }

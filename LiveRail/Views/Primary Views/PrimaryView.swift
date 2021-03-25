@@ -16,13 +16,15 @@ struct PrimaryView: View {
     @EnvironmentObject var network: NetworkStatus
     
     // stored as IDs 4-digit string
-    @State var startingStation = ""
-    @State var endingStation = ""
     @State var startingStationObject: Station?
     @State var endingStationObject: Station?
     @State var timetableStationObject: Station?
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
+    @AppStorage("preselectLocation") var preselect = true
+    @AppStorage("enableLocationFeatures") var enableLocationFeatures = true
+
+
     
     @State private var originIsActive = false
     @State private var destinationIsActive = false
@@ -34,7 +36,7 @@ struct PrimaryView: View {
     
     @State private var showingTimetable: StationTimetable?
     @State private var showTest = false
-    @StateObject var lm = LocationManager.shared
+    var lm = LocationManager.shared
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"
     }
@@ -86,7 +88,35 @@ struct PrimaryView: View {
         )
         .onAppear {
             currentView = homeScreen
+            
+            if let status = lm.status {
+            
+                if ((status == .authorizedAlways || status == .authorizedWhenInUse) && enableLocationFeatures && preselect) {
+                    if (startingStationObject == nil) {
+                    startingStationObject = lm.closestStation(stations: data.stations)
+                    }
+                    if (timetableStationObject == nil) {
+                    timetableStationObject = lm.closestStation(stations: data.stations)
+                    }
+                    
+                }
+            }
         }
+        .onChange(of: preselect) { new in
+            if let status = lm.status {
+            
+                if ((status == .authorizedAlways || status == .authorizedWhenInUse) && enableLocationFeatures && preselect) {
+                    if (startingStationObject == nil) {
+                    startingStationObject = lm.closestStation(stations: data.stations)
+                    }
+                    if (timetableStationObject == nil) {
+                    timetableStationObject = lm.closestStation(stations: data.stations)
+                    }
+                    
+                }
+            }
+        }
+        
 
         
         

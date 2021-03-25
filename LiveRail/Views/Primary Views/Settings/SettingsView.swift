@@ -20,6 +20,7 @@ struct SettingsView: View {
     @AppStorage("stationDotsChoice") var stationDotsChoice = 1
     
     @AppStorage("enableLocationFeatures") var enableLocationFeatures = true
+    @AppStorage("preselectLocation") var preselect = true
     @Environment(\.presentationMode) var presentationMode
     @StateObject var lm = LocationManager.shared
     var body: some View {
@@ -231,6 +232,22 @@ struct SettingsView: View {
                                 }
                                 
                             }
+                        }
+                    }
+                    
+                    if (enableLocationFeatures) {
+                        VStack(alignment: .leading) {
+                            Toggle(isOn: $preselect, label: {
+                                HStack {
+                                    Circle()
+                                        .fill(Color.blue)
+                                        .frame(width: 32, height: 32)
+                                        .padding(.vertical, 5)
+                                        .overlay(Image(systemName: "location.viewfinder").font(.system(size: 18)).foregroundColor(.white))
+                                    Text("Preselect nearest station")
+                                }
+                                
+                            })
                         }
                     }
                 }

@@ -22,7 +22,8 @@ struct FareListingView: View {
             
             
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 5)
 //        .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(5)
         .overlay(RoundedRectangle(cornerRadius: 5).strokeBorder(Color(UIColor.systemGray4), lineWidth: 1.5))

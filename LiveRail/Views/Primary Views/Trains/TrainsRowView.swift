@@ -10,6 +10,8 @@ import SwiftUI
 struct TrainsRowView: View {
     
     var trainNo: String
+    var direction: String
+    var color: Color
     var origin: String
     var originTime: String
     var destination: String
@@ -22,8 +24,14 @@ struct TrainsRowView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 0) {
                 HStack {
+                    Circle()
+                        .fill(color.opacity(0.1))
+                        .frame(width: 18, height: 18)
+                        .overlay(
+                            Image(systemName: "\(direction.lowercased()).circle").font(Font.system(size: 18).weight(.medium)).foregroundColor(color)
+                        )
                     Text(trainNo)
                         .font(Font.system(.headline).weight(.semibold).monospacedDigit())
                         .font(Font.system(.headline).monospacedDigit().weight(.semibold))
@@ -78,7 +86,7 @@ struct TrainsRowView: View {
 struct TrainsRowView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            TrainsRowView(trainNo: "0123", origin: "Zuoying", originTime: "15:41", destination: "Yunlin", destinationTime: "16:25", standardAvailability: .available, businessAvailability: .available, departed: true).preferredColorScheme($0)
+            TrainsRowView(trainNo: "0123", direction: "N", color: .northColor, origin: "Zuoying", originTime: "15:41", destination: "Yunlin", destinationTime: "16:25", standardAvailability: .available, businessAvailability: .available, departed: true).preferredColorScheme($0)
                 .padding(.horizontal, 10)
         }
     }
