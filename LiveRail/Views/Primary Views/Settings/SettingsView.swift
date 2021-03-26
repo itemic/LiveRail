@@ -335,8 +335,7 @@ struct SettingsView: View {
             
             
         
-            .listStyle(InsetGroupedListStyle())
-//                                    .listStyle(SidebarListStyle())
+            .listStyle(GroupedListStyle())
             .navigationTitle("Settings")
             .toolbar(content: {
                 ToolbarItem(placement: .confirmationAction) {

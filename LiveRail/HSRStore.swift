@@ -72,7 +72,7 @@ public final class HSRStore: ObservableObject {
             }
         }
         
-//        self.fetchAllAvailability(client: client)
+        self.fetchAllAvailability(client: client)
         
         
         // TODO Fix this 

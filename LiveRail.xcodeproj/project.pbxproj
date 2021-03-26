@@ -39,6 +39,7 @@
 		45B893A325D413AA00FA05F7 /* StationDotsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */; };
 		45BFA8EA260C45AA00EF1489 /* DeparturesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFA8E9260C45AA00EF1489 /* DeparturesRowView.swift */; };
 		45BFA8EE260C7B7E00EF1489 /* TrainsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFA8ED260C7B7E00EF1489 /* TrainsRowView.swift */; };
+		45BFA8F2260DD27C00EF1489 /* ServiceEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFA8F1260DD27C00EF1489 /* ServiceEntryViewModel.swift */; };
 		45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */; };
 		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
 		45D1BC8025AC49F300D040CD /* StationTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */; };
@@ -101,6 +102,7 @@
 		45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDotsSettingsView.swift; sourceTree = "<group>"; };
 		45BFA8E9260C45AA00EF1489 /* DeparturesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesRowView.swift; sourceTree = "<group>"; };
 		45BFA8ED260C7B7E00EF1489 /* TrainsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainsRowView.swift; sourceTree = "<group>"; };
+		45BFA8F1260DD27C00EF1489 /* ServiceEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEntryViewModel.swift; sourceTree = "<group>"; };
 		45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPatternView.swift; sourceTree = "<group>"; };
 		45D00A4825AC94F500DB518F /* Date+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
 		45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetableView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */,
+				45BFA8F1260DD27C00EF1489 /* ServiceEntryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
 				4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */,
 				456A2D1925B9332F00DF4B33 /* PlanView.swift in Sources */,
+				45BFA8F2260DD27C00EF1489 /* ServiceEntryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
