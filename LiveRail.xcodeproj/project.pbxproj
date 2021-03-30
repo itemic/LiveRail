@@ -36,6 +36,7 @@
 		45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808325B148500078ECD2 /* SeatAvailability.swift */; };
 		45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */; };
 		45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7808925B16ABF0078ECD2 /* LocationManager.swift */; };
+		45B3B65526132ED30000C8A8 /* StationTimetableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3B65426132ED30000C8A8 /* StationTimetableViewModel.swift */; };
 		45B893A325D413AA00FA05F7 /* StationDotsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */; };
 		45BFA8EA260C45AA00EF1489 /* DeparturesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFA8E9260C45AA00EF1489 /* DeparturesRowView.swift */; };
 		45BFA8EE260C7B7E00EF1489 /* TrainsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFA8ED260C7B7E00EF1489 /* TrainsRowView.swift */; };
@@ -99,6 +100,7 @@
 		45A7808325B148500078ECD2 /* SeatAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatAvailability.swift; sourceTree = "<group>"; };
 		45A7808625B158EE0078ECD2 /* AvailabilityIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityIconView.swift; sourceTree = "<group>"; };
 		45A7808925B16ABF0078ECD2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = LiveRail/Managers/LocationManager.swift; sourceTree = SOURCE_ROOT; };
+		45B3B65426132ED30000C8A8 /* StationTimetableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetableViewModel.swift; sourceTree = "<group>"; };
 		45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDotsSettingsView.swift; sourceTree = "<group>"; };
 		45BFA8E9260C45AA00EF1489 /* DeparturesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesRowView.swift; sourceTree = "<group>"; };
 		45BFA8ED260C7B7E00EF1489 /* TrainsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainsRowView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */,
 				45BFA8F1260DD27C00EF1489 /* ServiceEntryViewModel.swift */,
+				45B3B65426132ED30000C8A8 /* StationTimetableViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
 				45BFA8EA260C45AA00EF1489 /* DeparturesRowView.swift in Sources */,
 				45B893A325D413AA00FA05F7 /* StationDotsSettingsView.swift in Sources */,
+				45B3B65526132ED30000C8A8 /* StationTimetableViewModel.swift in Sources */,
 				45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */,
 				45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */,
 				4566399D25F0EDE0006B000D /* HSRStore.swift in Sources */,

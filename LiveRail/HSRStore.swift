@@ -153,7 +153,7 @@ public final class HSRStore: ObservableObject {
     func getDepartureTime(for train: RailDailyTimetable, at station: Station) -> String {
         return train.StopTimes.first(where: {
             $0.StationID == station.StationID
-        })!.DepartureTime
+        })?.DepartureTime ?? "--:--"
     }
     
     // train has not departed

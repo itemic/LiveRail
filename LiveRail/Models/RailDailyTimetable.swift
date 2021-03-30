@@ -9,24 +9,6 @@ import Foundation
 
 
 
-struct RailODDailyTimetable: Codable, Identifiable, Hashable {
-    static func == (lhs: RailODDailyTimetable, rhs: RailODDailyTimetable) -> Bool {
-        return lhs.DailyTrainInfo.TrainNo == rhs.DailyTrainInfo.TrainNo
-    }
-    
-    
-    
-    var id: String {
-        DailyTrainInfo.TrainNo
-    }
-    var TrainDate: String
-    var DailyTrainInfo: DailyTrainInfo
-    
-    var OriginStopTime: StopTime
-    var DestinationStopTime: StopTime
-    
-}
-
 struct RailDailyTimetable: Codable, Hashable, Identifiable {
     
     var id: String {
@@ -36,10 +18,7 @@ struct RailDailyTimetable: Codable, Hashable, Identifiable {
     var TrainDate: String
     var DailyTrainInfo: DailyTrainInfo
     var StopTimes: [StopTime]
-        
-    // For OD transformation
-    var OriginStopTime: StopTime?
-    var DestinationStopTime: StopTime?
+
     
     
     
@@ -71,6 +50,7 @@ struct StopTime: Codable, Hashable {
     var StationName: NameType
     var ArrivalTime: String
     var DepartureTime: String
+
 
     
 }

@@ -31,15 +31,15 @@ public struct HSRService {
         runRequest(request, on: client, completion: completion, failure: failure)
     }
     
-    static func getTimetable(for station: Station, client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([StationTimetable]) -> Void)? = nil, failure: FailAction) {
-        
-        let now = df.taiwanTZString(from: Date())
-        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Station/\(station.StationID)/\(now)?$format=JSON"
-        var request = client.authenticateRequest(url: url)
-        request.cachePolicy = policy
-        
-        runRequest(request, on: client, completion: completion, failure: failure)
-    }
+//    static func getTimetable(for station: Station, client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([StationTimetable]) -> Void)? = nil, failure: FailAction) {
+//        
+//        let now = df.taiwanTZString(from: Date())
+//        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/Station/\(station.StationID)/\(now)?$format=JSON"
+//        var request = client.authenticateRequest(url: url)
+//        request.cachePolicy = policy
+//        
+//        runRequest(request, on: client, completion: completion, failure: failure)
+//    }
     
     static func getTrainDetails(for train: String, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, client: NetworkManager, completion: (([RailDailyTimetable]) -> Void)? = nil, failure: FailAction) {
 
@@ -52,27 +52,7 @@ public struct HSRService {
         
     }
     
-    static func getTimetable(from origin: Station, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, to destination: Station, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil, failure: FailAction) {
-        
-        let now = df.taiwanTZString(from: Date())
-        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin.StationID)/to/\(destination.StationID)/\(now)?$format=JSON"
-        var request = client.authenticateRequest(url: url)
-        request.cachePolicy = policy
-        
-        runRequest(request, on: client, completion: completion, failure: failure)
-        
-    }
-    
-    static func getTimetable(from origin: String, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, to destination: String, client: NetworkManager, completion: (([RailODDailyTimetable]) -> Void)? = nil, failure: FailAction) {
-        
-        let now = df.taiwanTZString(from: Date())
-        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/DailyTimetable/OD/\(origin)/to/\(destination)/\(now)?$format=JSON"
-        var request = client.authenticateRequest(url: url)
-        request.cachePolicy = policy
-        
-        runRequest(request, on: client, completion: completion, failure: failure)
-        
-    }
+   
     
  
 

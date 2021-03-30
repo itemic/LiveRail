@@ -12,6 +12,7 @@ struct StationTimetableView: View {
     
     var station: Station
     @StateObject var data = HSRStore.shared
+//    @StateObject var vm = StationTimetableViewModel()
     
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
@@ -29,13 +30,23 @@ struct StationTimetableView: View {
         }
     }
     
+    
+    
+    
+    
     var body: some View {
         
         VStack(spacing: 10) {
             
             ForEach(filteredDepartures) { departure in
                 ZStack(alignment: .bottomTrailing) {
-                    DeparturesRowView(trainNo: departure.DailyTrainInfo.TrainNo, destination: departure.DailyTrainInfo.EndingStationName.En, direction: departure.DailyTrainInfo.direction.abbreviated, departureTime: data.getDepartureTime(for: departure, at: station), color: departure.DailyTrainInfo.direction.color, departed: !data.getTrainWillDepartAfterNow(for: departure, at: station), departing: data.getTrainIsDepartingSoon(for: departure, at: station))
+                    DeparturesRowView(trainNo: departure.DailyTrainInfo.TrainNo,
+                                      destination: departure.DailyTrainInfo.EndingStationName.En,
+                                      direction: departure.DailyTrainInfo.direction.abbreviated,
+                                      departureTime: data.getDepartureTime(for: departure, at: station),
+                                      color: departure.DailyTrainInfo.direction.color,
+                                      departed: !data.getTrainWillDepartAfterNow(for: departure, at: station),
+                                      departing: data.getTrainIsDepartingSoon(for: departure, at: station))
                     
                     if(showStopDots) {
                         StopPatternView(daily: departure)
@@ -50,6 +61,14 @@ struct StationTimetableView: View {
             }
         }
         .padding(.horizontal, 10)
+        
+//        .onAppear {
+//            print("APPEAR \(station.StationCode)")
+//            vm.station = station
+//        }
+//        .onChange(of: station) {newStation in
+//            vm.station = newStation
+//        }
     }
 }
 

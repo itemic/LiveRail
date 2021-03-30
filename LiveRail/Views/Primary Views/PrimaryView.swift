@@ -34,8 +34,6 @@ struct PrimaryView: View {
     @State private var showingSettings = false
     @State private var currentView: RailViews = .plannerView
     
-    @State private var showingTimetable: StationTimetable?
-    @State private var showTest = false
     var lm = LocationManager.shared
     var nextUp: String {
         return lm.closestStation(stations: data.stations)?.StationName.En ?? "N/A"

@@ -187,27 +187,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
         }
     }
     
-    var getTrainProgress: (StopTime, Double)? {
-        
-        guard let prev = prevStation, let next = nextStation else {return nil}
-        let now = Date()
-        
-        guard let nextArrivalTime = df.date(from: next.ArrivalTime) else { return nil }
-        guard let prevDepartureTime = df.date(from: prev.DepartureTime) else { return nil }
-        
-        let minutesBetweenStations = nextArrivalTime.time - prevDepartureTime.time
-        let minutesOfCurrentPosition = now.time - prevDepartureTime.time
-        
-        let proportion: Double = (Double(minutesOfCurrentPosition) / Double(minutesBetweenStations))
-        
-        
-        if let trainAtStation = currentTrainAtStation {
-            return (trainAtStation, 0)
-        }
-
-        
-        return (prev, proportion)
-    }
+    
     
     func getTrainProgress2() -> (StopTime, Double)? {
         
