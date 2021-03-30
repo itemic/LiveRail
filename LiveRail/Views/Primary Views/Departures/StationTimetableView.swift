@@ -14,7 +14,7 @@ struct StationTimetableView: View {
     @StateObject var data = HSRStore.shared
 //    @StateObject var vm = StationTimetableViewModel()
     @State var currentDate = Date()
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, tolerance: 0.5, on: .main, in: .common).autoconnect()
 
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
@@ -30,7 +30,9 @@ struct StationTimetableView: View {
         var _ = print("AAA")
         return data.getDepartures(from: station.StationID).filter {
             (showArrivals ? true : !data.isEndingTerminus(for: $0, at: station)) &&
-                (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: station))
+//                (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: station))
+                (showAvailable ? true : Date.compare(now: Date(), to: data.getDepartureTime(for: $0, at: station)))
+            
         }
         
     }
@@ -63,6 +65,10 @@ struct StationTimetableView: View {
             }
         }
         .padding(.horizontal, 10)
+//        .onReceive(timer) {_ in
+//
+//            currentDate = Date()
+//        }
 
         
 //        .onAppear {
