@@ -232,24 +232,26 @@ struct SettingsView: View {
                                 }
                                 
                             }
+                            //
+                            if (enableLocationFeatures && (status == .authorizedAlways || status == .authorizedWhenInUse) ) {
+                                VStack(alignment: .leading) {
+                                    Toggle(isOn: $preselect, label: {
+                                        HStack {
+                                            Circle()
+                                                .fill(Color.blue)
+                                                .frame(width: 32, height: 32)
+                                                .padding(.vertical, 5)
+                                                .overlay(Image(systemName: "location.viewfinder").font(.system(size: 18)).foregroundColor(.white))
+                                            Text("Preselect nearest station")
+                                        }
+                                        
+                                    })
+                                }
+                            }
                         }
                     }
                     
-                    if (enableLocationFeatures) {
-                        VStack(alignment: .leading) {
-                            Toggle(isOn: $preselect, label: {
-                                HStack {
-                                    Circle()
-                                        .fill(Color.blue)
-                                        .frame(width: 32, height: 32)
-                                        .padding(.vertical, 5)
-                                        .overlay(Image(systemName: "location.viewfinder").font(.system(size: 18)).foregroundColor(.white))
-                                    Text("Preselect nearest station")
-                                }
-                                
-                            })
-                        }
-                    }
+                    
                 }
                 
                 
