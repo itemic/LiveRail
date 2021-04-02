@@ -233,7 +233,7 @@ struct NewServiceEntryView: View {
                 Text("00:00").font(Font.system(.title3).monospacedDigit().bold()).foregroundColor(.clear)
                 
                 Text(departureTime).font(Font.system(.title3).monospacedDigit().bold())
-                    .foregroundColor(isEnd ? .clear : textColor)
+                    .foregroundColor((isEnd && showArrDeptTimes) ? .clear : textColor)
             }
         }
     }
