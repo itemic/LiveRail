@@ -14,6 +14,7 @@ struct SettingsView: View {
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showArrDeptTimes") var showArrDeptTimes = true
+    @AppStorage("showAvailabilityLines") var showAvailabilityLines = true
     @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
     
     @AppStorage("showStopDots") var showStopDots = true
@@ -81,6 +82,20 @@ struct SettingsView: View {
                                     .padding(.vertical, 5)
                                     .overlay(Image(systemName: "deskclock").font(.system(size: 18)).foregroundColor(.white))
                                 Text("ARR_DEPT_TIMES_TITLE")
+                            }
+                            
+                        })
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Toggle(isOn: $showAvailabilityLines, label: {
+                            HStack {
+                                Circle()
+                                    .fill(Color.hsrColor)
+                                    .frame(width: 32, height: 32)
+                                    .padding(.vertical, 5)
+                                    .overlay(Image(systemName: "rectangle.split.2x1.fill").font(.system(size: 18)).foregroundColor(.white))
+                                Text("AVAILABILITY_LINES_SETTINGS")
                             }
                             
                         })

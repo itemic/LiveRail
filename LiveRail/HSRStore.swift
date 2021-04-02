@@ -229,4 +229,6 @@ public final class HSRStore: ObservableObject {
         return availableSeats[station] ?? []
     }
     
+    
+    
 }

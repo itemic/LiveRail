@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 final class HSRTrainViewModel: ObservableObject, Equatable {
     let df = SharedDateFormatter.shared
+    let data = HSRStore.shared
     
     static func == (lhs: HSRTrainViewModel, rhs: HSRTrainViewModel) -> Bool {
         lhs.train == rhs.train
@@ -17,7 +18,40 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     
     @Published var train: RailDailyTimetable? = nil
-
+    
+    var lastUpdate: Date {
+        SharedDateFormatter.shared.isoDate(from: data.availabilityUpdateTime) ?? Date(timeIntervalSince1970: 0)
+    }
+    
+    func nextStop(stop: StopTime) -> StopTime? {
+        if let index = train?.StopTimes.firstIndex(of: stop), index + 1 < train?.StopTimes.count ?? 0 {
+            return train?.StopTimes[index+1]
+        }
+        return nil
+    }
+    
+    func standardSegmentAvailability(from stop: StopTime) -> SeatAvailability {
+        if let train = train {
+            let currentStation = data.getStation(from: stop.StationID)
+            guard let next = nextStop(stop: stop) else {return .unknown}
+            let nextStation = data.getStation(from: next.StationID)
+            let availability = data.getAvailability(for: train.DailyTrainInfo.TrainNo, from: currentStation)
+            return availability?.standardAvailability(to: nextStation.StationID) ?? .unknown
+        }
+        return .unknown
+    }
+    
+    func businessSegmentAvailability(from stop: StopTime) -> SeatAvailability {
+        if let train = train {
+            let currentStation = data.getStation(from: stop.StationID)
+            guard let next = nextStop(stop: stop) else {return .unknown}
+            let nextStation = data.getStation(from: next.StationID)
+            let availability = data.getAvailability(for: train.DailyTrainInfo.TrainNo, from: currentStation)
+            return availability?.businessAvailability(to: nextStation.StationID) ?? .unknown
+        }
+        return .unknown
+    }
+    
     
     func stopsAt(_ station: Station) -> Bool {
         guard let train = train else {return false}
@@ -88,7 +122,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     var timeUntilNextArri: Int {
         guard let _ = train else {return 0}
-
+        
         guard let nextStation = nextStation else {return 0}
         guard let nextArrivalTime = df.date(from: nextStation.ArrivalTime) else {return 0}
         let now = Date().time
@@ -98,7 +132,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     var timeUntilTrainAtStationDeparts: Int {
         guard let _ = train else {return 0}
-
+        
         guard let currentStation = currentTrainAtStation else {return -1}
         guard let departureTime = df.date(from: currentStation.DepartureTime) else {return -1}
         let now = Date().time
@@ -108,7 +142,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     var timeUntilNextDept: Int {
         guard let _ = train else {return 0}
-
+        
         guard let nextStation = nextStation else {return 0}
         guard let nextDepartureTime = df.date(from: nextStation.DepartureTime) else {return 0}
         let now = Date().time
@@ -118,7 +152,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     var bannerTime: Int {
         guard let _ = train else {return 0}
-
+        
         switch(trainStatus) {
         case .predeparture: return timeUntilNextDept
         case .enroute: return timeUntilNextArri
@@ -129,7 +163,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     var infoBoxText: String {
         guard let _ = train else {return "Error"}
-
+        
         guard let starting = startingStation else {return "Error"}
         switch(trainStatus) {
         case .predeparture: return starting.StationName.En
@@ -142,7 +176,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     var infoBoxDescription: String {
         guard let _ = train else {return "Error"}
-
+        
         switch(trainStatus) {
         case .predeparture: return "Departing"
         case .enroute: return "Arriving at"
@@ -154,7 +188,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     
     var infoBoxColor: Color {
-
+        
         guard let train = train else {return .red}
         switch(trainStatus) {
         case .predeparture: return .hsrColor
@@ -189,6 +223,8 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
     
     
     
+    
+    
     func getTrainProgress2() -> (StopTime, Double)? {
         
         guard let prev = prevStation, let next = nextStation else {return nil}
@@ -206,7 +242,7 @@ final class HSRTrainViewModel: ObservableObject, Equatable {
         if let trainAtStation = currentTrainAtStation {
             return (trainAtStation, 0)
         }
-
+        
         
         return (prev, proportion)
     }

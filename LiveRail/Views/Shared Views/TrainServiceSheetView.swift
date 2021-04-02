@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct TrainServiceSheetView: View {
+    
     var train: RailDailyTimetable
     
     @Binding var active: Bool
     
     @StateObject var vm = HSRTrainViewModel()
+    @AppStorage("showAvailabilityLines") var showAvailabilityLines = true
+    
     
     var header: some View {
         HStack {
@@ -71,7 +74,7 @@ struct TrainServiceSheetView: View {
                         }
                     }
                 }
-
+                
             }
             Spacer()
         }
@@ -106,14 +109,26 @@ struct TrainServiceSheetView: View {
                             hasLeft: vm.allDepartedStations.contains(stop),
                             offset: (stop == progress?.0) ? progress?.1 ?? 1.0 : 0.0,
                             currentOverride: stop == progress?.0,
-                            trainAtStation: vm.isTrainAtStation(stop)
+                            trainAtStation: vm.isTrainAtStation(stop),
+                            standardAvailability: vm.standardSegmentAvailability(from: stop),
+                            businessAvailability: vm.businessSegmentAvailability(from: stop)
                         )
                         
                         
                         //MARK: End of FOREACH
                     }
                 }
-                Text("NOT_LIVE").font(.caption2).foregroundColor(.gray).padding()
+                
+                VStack {
+                    Text("NOT_LIVE")
+                    if (showAvailabilityLines) {
+                    HStack {
+                        Text("AV_DATA_LAST_UPDATED")
+                        Text(vm.lastUpdate, style: .date)
+                        Text(vm.lastUpdate, style: .time)
+                    }
+                    }
+                }.font(.caption2).foregroundColor(.gray).padding()
             }
             
         }
@@ -145,9 +160,13 @@ struct NewServiceEntryView: View {
     var offset: Double
     var currentOverride: Bool
     var trainAtStation: Bool
+    var standardAvailability: SeatAvailability
+    var businessAvailability: SeatAvailability
+    @AppStorage("showAvailabilityLines") var showAvailabilityLines = true
+
     
     var lineHeight: CGFloat = 60.0
-    var lineWidth: CGFloat = 6.0
+    var lineWidth: CGFloat = 8.0
     var positionIndicatorHeight: CGFloat = 6.0
     
     var circleColor: Color {
@@ -170,6 +189,20 @@ struct NewServiceEntryView: View {
         }
     }
     
+    var standardAvailabilitySectorColor: Color {
+        if (currentOverride) {
+            return standardAvailability.color()
+        } else {
+            return hasLeft ? .gray2 : standardAvailability.color()
+        }
+    }
+    var businessAvailabilitySectorColor: Color {
+        if (currentOverride) {
+            return standardAvailability.color()
+        } else {
+            return hasLeft ? .gray2 : businessAvailability.color()
+        }
+    }
     
     
     var body: some View {
@@ -183,10 +216,28 @@ struct NewServiceEntryView: View {
                         .fill(isEnd ? Color.clear : Color.gray2)
                         .frame(width: lineWidth, height: lineHeight * CGFloat(offset))
                         .offset(y: lineHeight/2)
-                    Rectangle()
-                        .fill(isEnd ? Color.clear : sectorColor)
-                        .frame(width: lineWidth, height: lineHeight * CGFloat(1.0-offset))
-                        .offset(y: lineHeight/2)
+                    HStack(spacing: 0) {
+                        if (showAvailabilityLines) {
+                            Rectangle()
+                                .fill(isEnd ? Color.clear : standardAvailabilitySectorColor)
+                                .frame(width: 3, height: lineHeight * CGFloat(1.0-offset))
+                                .offset(y: lineHeight/2)
+                            Rectangle()
+                                .fill(Color.clear)
+                                .frame(width: 2, height: lineHeight * CGFloat(1.0-offset))
+                                .offset(y: lineHeight/2)
+                            Rectangle()
+                                .fill(isEnd ? Color.clear : businessAvailabilitySectorColor)
+                                .frame(width: 3, height: lineHeight * CGFloat(1.0-offset))
+                                .offset(y: lineHeight/2)
+                        } else {
+                            Rectangle()
+                                .fill(isEnd ? Color.clear : sectorColor)
+                                .frame(width: lineWidth, height: lineHeight * CGFloat(1.0-offset))
+                                .offset(y: lineHeight/2)
+                        }
+                    }
+                    
                 }
                 Circle()
                     .fill(Color.clear)

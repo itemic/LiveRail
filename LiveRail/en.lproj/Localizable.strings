@@ -40,3 +40,4 @@
 
 "AV_DATA_LAST_UPDATED" = "Availability data last updated";
 "SEAT_AVAIL_DESC" = "The data source for seat availability is not live data and may not be accurate at all times.";
+"AVAILABILITY_LINES_SETTINGS" = "Detailed seat availability";

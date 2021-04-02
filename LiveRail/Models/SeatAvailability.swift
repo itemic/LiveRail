@@ -104,7 +104,7 @@ enum SeatAvailability: String, CaseIterable {
     func color() -> Color {
         switch self {
         case .available: return .green
-        case .limited: return .orange
+        case .limited: return .yellow
         case .unavailable: return .red
         case .unknown: return .gray
         }

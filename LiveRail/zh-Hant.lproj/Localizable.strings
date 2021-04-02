@@ -102,3 +102,5 @@
 "ERROR" = "錯誤";
 "Train service ended." = "已抵達終點";
 "Error" = "錯誤";
+
+"AVAILABILITY_LINES_SETTINGS" = "路線圖剩餘座位";
