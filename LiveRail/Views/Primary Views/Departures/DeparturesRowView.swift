@@ -18,7 +18,7 @@ struct DeparturesRowView: View {
     var departing: Bool
     
     
-    var body: some View {
+    var row: some View {
             HStack{
                 VStack(alignment: .leading, spacing: 0) {
                     HStack {
@@ -68,6 +68,17 @@ struct DeparturesRowView: View {
             .padding(.leading, 10)
             .background(color)
             .cornerRadius(5)
+    }
+    
+    var body: some View {
+        row
+//            .contextMenu {
+//                Button("Share") {
+//                    let image = row.snapshot()
+//                    let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+//                    UIApplication.shared.windows.first?.rootViewController?.present(vc, animated: true)
+//                }
+//            }
     }
 }
 
