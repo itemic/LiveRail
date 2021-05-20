@@ -38,6 +38,7 @@ class SharedDateFormatter {
         df.timeZone = TimeZone(identifier: "Asia/Taipei")
         return df
     }()
+
     
     func isoDate(from dateString: String) -> Date? {
         return availabilityFormatter.date(from: dateString)

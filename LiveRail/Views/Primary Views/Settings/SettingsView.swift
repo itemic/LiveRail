@@ -343,6 +343,9 @@ struct SettingsView: View {
                     NavigationLink(destination: DataDisclaimerView()) {
                         Text("About")
                     }
+                    NavigationLink(destination: NewsView()) {
+                        Text("HSR News/Updates")
+                    }
                 }
                 
                 

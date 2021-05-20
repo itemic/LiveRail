@@ -82,6 +82,12 @@ public struct HSRService {
         runRequest(request, on: client, completion: completion, failure: failure)
     }
     
+    static func getNews(client: NetworkManager, policy: URLRequest.CachePolicy = .useProtocolCachePolicy, completion: (([NewsPost]) -> Void)? = nil, failure: FailAction) {
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/News?$top=30&$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
+        runRequest(request, on: client, completion: completion, failure: failure)
+    }
     
     
     

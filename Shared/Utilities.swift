@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import WebKit
 
 // https://www.vadimbulavin.com/handling-out-of-bounds-exception/
 extension Collection {
@@ -143,5 +144,18 @@ struct ActivityViewController: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {
         
+    }
+}
+
+
+struct HTMLView: UIViewRepresentable {
+    let htmlContent: String
+    
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.loadHTMLString(htmlContent, baseURL: nil)
     }
 }

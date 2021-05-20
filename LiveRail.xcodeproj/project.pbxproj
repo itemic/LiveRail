@@ -44,8 +44,10 @@
 		45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */; };
 		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
 		45D1BC8025AC49F300D040CD /* StationTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */; };
-		45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC8325AC4AA000D040CD /* StationTimetable.swift */; };
 		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
+		45ED0903265627B30029AE84 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED0902265627B30029AE84 /* News.swift */; };
+		45ED090526562A740029AE84 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED090426562A740029AE84 /* NewsView.swift */; };
+		45ED090726562B540029AE84 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED090626562B540029AE84 /* NewsStore.swift */; };
 		45F47CB725F38F21001D8EE2 /* PlanTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F47CB625F38F21001D8EE2 /* PlanTimetableView.swift */; };
 		45F8518525E4FE7B0068CA83 /* SlideoverSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */; };
 		45FB0B9C25BAA71000670396 /* EmptyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */; };
@@ -108,10 +110,12 @@
 		45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPatternView.swift; sourceTree = "<group>"; };
 		45D00A4825AC94F500DB518F /* Date+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
 		45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetableView.swift; sourceTree = "<group>"; };
-		45D1BC8325AC4AA000D040CD /* StationTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetable.swift; sourceTree = "<group>"; };
 		45D5838F25C19A38003097F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		45ED0902265627B30029AE84 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		45ED090426562A740029AE84 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		45ED090626562B540029AE84 /* NewsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStore.swift; sourceTree = "<group>"; };
 		45F47CB625F38F21001D8EE2 /* PlanTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTimetableView.swift; sourceTree = "<group>"; };
 		45F8518425E4FE7B0068CA83 /* SlideoverSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideoverSheetView.swift; sourceTree = "<group>"; };
 		45FB0B9B25BAA71000670396 /* EmptyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenView.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				45BF394725EB85F1006437F7 /* Managers */,
 				4575703325D2505000032C9F /* Localizable.strings */,
 				4566399C25F0EDE0006B000D /* HSRStore.swift */,
+				45ED090626562B540029AE84 /* NewsStore.swift */,
 				45BF394625EB85D6006437F7 /* ViewModels */,
 				4563E66625A9EF2B00E50C5F /* Models */,
 				4563E65325A9EECC00E50C5F /* LiveRailApp.swift */,
@@ -201,10 +206,10 @@
 			children = (
 				4563E66725A9EF3800E50C5F /* Station.swift */,
 				45A7808325B148500078ECD2 /* SeatAvailability.swift */,
-				45D1BC8325AC4AA000D040CD /* StationTimetable.swift */,
 				451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */,
 				4569AA3725AFFD2A002D376B /* FareSchedule.swift */,
 				45A2543125B31DA500CB2522 /* Enumerations.swift */,
+				45ED0902265627B30029AE84 /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				4510975025FB793900D8BBEF /* SettingsView.swift */,
 				45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */,
 				4510455F25FE101B00232C78 /* DataDisclaimerView.swift */,
+				45ED090426562A740029AE84 /* NewsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -385,9 +391,9 @@
 				45A7808725B158EE0078ECD2 /* AvailabilityIconView.swift in Sources */,
 				45FB0BA225BACAF900670396 /* PlanViewPickerButtonView.swift in Sources */,
 				45FB0B9F25BAC83100670396 /* LiveBoardPickerButtonView.swift in Sources */,
-				45D1BC8425AC4AA000D040CD /* StationTimetable.swift in Sources */,
 				45304BDE25F8BB510005F40D /* NetworkStatus.swift in Sources */,
 				4563E66825A9EF3800E50C5F /* Station.swift in Sources */,
+				45ED090726562B540029AE84 /* NewsStore.swift in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
 				45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */,
 				45A2543225B31DA500CB2522 /* Enumerations.swift in Sources */,
@@ -397,6 +403,7 @@
 				456A2D2025B93AC200DF4B33 /* HeaderView.swift in Sources */,
 				45BFA8EE260C7B7E00EF1489 /* TrainsRowView.swift in Sources */,
 				45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */,
+				45ED0903265627B30029AE84 /* News.swift in Sources */,
 				45F47CB725F38F21001D8EE2 /* PlanTimetableView.swift in Sources */,
 				4569AA3825AFFD2A002D376B /* FareSchedule.swift in Sources */,
 				456750E725F2429C0019244E /* StationSheetPickerView.swift in Sources */,
@@ -412,6 +419,7 @@
 				45B893A325D413AA00FA05F7 /* StationDotsSettingsView.swift in Sources */,
 				45B3B65526132ED30000C8A8 /* StationTimetableViewModel.swift in Sources */,
 				45A7808425B148500078ECD2 /* SeatAvailability.swift in Sources */,
+				45ED090526562A740029AE84 /* NewsView.swift in Sources */,
 				45A7808A25B16ABF0078ECD2 /* LocationManager.swift in Sources */,
 				4566399D25F0EDE0006B000D /* HSRStore.swift in Sources */,
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
@@ -576,7 +584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "HSR Test";
 				SUPPORTS_MACCATALYST = NO;
@@ -611,7 +619,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = HSR;
 				SUPPORTS_MACCATALYST = NO;
