@@ -11,6 +11,7 @@ import Network
 @main
 struct LiveRailApp: App {
     @StateObject var data = HSRStore.shared
+    @StateObject var store = AlertStore.shared
 //    @AppStorage("whatsNew2-0b") var whatsNew = true
     @State private var whatsNew = true
     @StateObject var network = NetworkStatus.shared

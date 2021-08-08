@@ -11,7 +11,9 @@ struct HeaderView: View {
     
     @Binding var currentView: RailViews
     @Binding var showingSettings: Bool
+//    @StateObject var store = AlertStore.shared
     @EnvironmentObject var network: NetworkStatus
+//    @AppStorage("showServiceAlert") var showServiceAlert = true
     
     var body: some View {
         VStack {
@@ -36,20 +38,43 @@ struct HeaderView: View {
                             Spacer()
                         }
                         
-
+                        
+//                        if (!store.alertData.isEmpty && showServiceAlert) {
+//                            let alert = store.alertData[0]
+//
+//                            Button(action: {}) {
+//                                Image(systemName: alert.alertStatus.icon)
+//                                    .imageScale(.medium)
+//                                    .foregroundColor(alert.alertStatus.color)
+//                                    .font(.system(size: 18))
+//                                    .padding(.vertical, 8)
+//                                    .padding(.horizontal, 8)
+//                                    .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+////                                    .background(BlurView(style: .systemUltraThinMaterial))
+//                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+////                                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(alert.alertStatus.color.opacity(0.1)))
+//
+//
+//
+//                                    .cornerRadius(10)
+//
+//                            }
+//                        }
+                        
+                        
                         Button(action: {
                             showingSettings = true
                         }) {
                             Image(systemName: "gearshape.fill")
                                 .imageScale(.medium)
                                 .foregroundColor(.gray)
-                                .font(.system(size: 24))
+                                .font(.system(size: 18))
                                 .padding(.vertical, 8)
-                                .padding(.horizontal)
+                                .padding(.horizontal, 8)
                                 .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                                .background(BlurView(style: .systemUltraThinMaterial))
+//                                .background(BlurView(style: .systemUltraThinMaterial))
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.clear))
+//                                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.clear))
                                 .overlay(
                                     ZStack(alignment: .topTrailing) {
                                         Color.clear

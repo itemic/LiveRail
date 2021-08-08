@@ -45,6 +45,7 @@
 		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
 		45D1BC8025AC49F300D040CD /* StationTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */; };
 		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
+		45E0611326BF9D0000210BEC /* AlertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E0611226BF9D0000210BEC /* AlertDetailView.swift */; };
 		45ED0903265627B30029AE84 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED0902265627B30029AE84 /* News.swift */; };
 		45ED090526562A740029AE84 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED090426562A740029AE84 /* NewsView.swift */; };
 		45ED090726562B540029AE84 /* NewsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED090626562B540029AE84 /* NewsStore.swift */; };
@@ -113,6 +114,7 @@
 		45D5838F25C19A38003097F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		45E0611226BF9D0000210BEC /* AlertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailView.swift; sourceTree = "<group>"; };
 		45ED0902265627B30029AE84 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		45ED090426562A740029AE84 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		45ED090626562B540029AE84 /* NewsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStore.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				45B893A225D413AA00FA05F7 /* StationDotsSettingsView.swift */,
 				4510455F25FE101B00232C78 /* DataDisclaimerView.swift */,
 				45ED090426562A740029AE84 /* NewsView.swift */,
+				45E0611226BF9D0000210BEC /* AlertDetailView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */,
 				4563E65425A9EECC00E50C5F /* LiveRailApp.swift in Sources */,
 				456A2D1925B9332F00DF4B33 /* PlanView.swift in Sources */,
+				45E0611326BF9D0000210BEC /* AlertDetailView.swift in Sources */,
 				45BFA8F2260DD27C00EF1489 /* ServiceEntryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

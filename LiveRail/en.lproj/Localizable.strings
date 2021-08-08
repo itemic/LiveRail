@@ -42,3 +42,11 @@
 "SEAT_AVAIL_DESC" = "The data source for seat availability is not live data and may not be accurate at all times.";
 "AVAILABILITY_LINES_SETTINGS" = "Sector seat availability";
 "NEWS_DESCRIPTOR_HEADER" = "Latest news from THSR Corporation. Each entry links to the organization's website.";
+"NETWORK_ALERT_SETTINGS" = "Network alerts";
+
+"NORMAL_STATUS" = "Good service";
+"ALERT_STATUS" = "Service alert";
+"SUSPENDED_STATUS" = "Service suspended";
+
+"SERVICE_STATUS" = "Service Status";
+"部份列車延誤" = "Partial delay";

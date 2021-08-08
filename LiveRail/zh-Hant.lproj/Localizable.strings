@@ -106,3 +106,14 @@
 "AVAILABILITY_LINES_SETTINGS" = "路線圖剩餘座位";
 "HSR News/Updates" = "高鐵最新消息";
 "NEWS_DESCRIPTOR_HEADER" = "高鐵公司最新消息連結";
+"NETWORK_ALERT_SETTINGS" = "營運狀態";
+
+"NORMAL_STATUS" = "正常運行";
+"ALERT_STATUS" = "異常狀況";
+"SUSPENDED_STATUS" = "停止運行";
+
+"SERVICE_STATUS" ="營運狀態";
+
+"Alert details are currently only fully available in Chinese." = "";
+"Affected lines" = "運行方向";
+"Affected sections" = "影響區間";

@@ -89,6 +89,13 @@ public struct HSRService {
         runRequest(request, on: client, completion: completion, failure: failure)
     }
     
+    static func getAlertInfo(client: NetworkManager, policy: URLRequest.CachePolicy = .reloadIgnoringCacheData, completion: (([AlertInfo]) -> Void)? = nil, failure: FailAction) {
+        let url = "https://ptx.transportdata.tw/MOTC/v2/Rail/THSR/AlertInfo?$top=30&$format=JSON"
+        var request = client.authenticateRequest(url: url)
+        request.cachePolicy = policy
+        runRequest(request, on: client, completion: completion, failure: failure)
+    }
+    
     
     
     static func runRequest<T: Codable>(_ request: URLRequest, on client: NetworkManager, completion: ((T) -> Void)? = nil, failure: FailAction) {

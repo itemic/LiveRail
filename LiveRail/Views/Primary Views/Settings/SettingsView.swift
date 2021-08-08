@@ -10,11 +10,13 @@ import SwiftUI
 struct SettingsView: View {
     
     @StateObject var data = HSRStore.shared
+    @StateObject var alertStore = AlertStore.shared
     @EnvironmentObject var network: NetworkStatus
     @AppStorage("showAvailable") var showAvailable = false
     @AppStorage("showArrivals") var showArrivals = false
     @AppStorage("showArrDeptTimes") var showArrDeptTimes = true
     @AppStorage("showAvailabilityLines") var showAvailabilityLines = true
+    @AppStorage("showServiceAlert") var showServiceAlert = true
     @AppStorage("homeScreen") var homeScreen: RailViews = .plannerView
     
     @AppStorage("showStopDots") var showStopDots = true
@@ -40,6 +42,26 @@ struct SettingsView: View {
                         }
                         }
                         
+                    }
+                }
+                
+                if (!alertStore.alertData.isEmpty) {
+                    ForEach(alertStore.alertData, id: \.self) { alert in
+                        if (alert.alertStatus != .normal) {
+                            
+                            NavigationLink(destination: AlertDetailView(alert: alert)) {
+                            HStack {
+                                Image(systemName: alert.alertStatus.icon)
+                                    .foregroundColor(alert.alertStatus.color)
+                                Text(LocalizedStringKey(alert.alertStatus.text))
+                                    .bold()
+                                    .foregroundColor(alert.alertStatus.color).brightness(-0.3)
+                                Spacer()
+                            }
+                            }
+                            
+                            
+                        }
                     }
                 }
                 
@@ -100,6 +122,20 @@ struct SettingsView: View {
                             
                         })
                     }
+                    
+//                    VStack(alignment: .leading) {
+//                        Toggle(isOn: $showServiceAlert, label: {
+//                            HStack {
+//                                Circle()
+//                                    .fill(Color.hsrColor)
+//                                    .frame(width: 32, height: 32)
+//                                    .padding(.vertical, 5)
+//                                    .overlay(Image(systemName: "exclamationmark.shield").font(.system(size: 18)).foregroundColor(.white))
+//                                Text("NETWORK_ALERT_SETTINGS")
+//                            }
+//                            
+//                        })
+//                    }
                     
                     
                 }
@@ -355,7 +391,7 @@ struct SettingsView: View {
             
             
         
-            .listStyle(GroupedListStyle())
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Settings")
             .toolbar(content: {
                 ToolbarItem(placement: .confirmationAction) {
