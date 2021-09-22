@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Network
 
 struct PlanTimetableView: View {
     @ObservedObject var data = HSRStore.shared
@@ -21,6 +22,10 @@ struct PlanTimetableView: View {
         } else {return []}
     }
     
+    var lastUpdate: Date {
+        SharedDateFormatter.shared.isoDate(from: data.availabilityUpdateTime) ?? Date(timeIntervalSince1970: 0)
+    }
+    
     
     @Binding var selectedTimetable: RailDailyTimetable?
     
@@ -32,31 +37,88 @@ struct PlanTimetableView: View {
     }
     
     var body: some View {
-        VStack(spacing: 10) {
-            FareListingView(fareSchedule: data.fareSchedule[origin!.StationID]![destination!.StationID]!)
-            
-            ForEach(filteredDepartures) { entry in
+        
+        
+        if #available(iOS 15, *) {
+            List {
+                FareListingView(fareSchedule: data.fareSchedule[origin!.StationID]![destination!.StationID]!)
+                    .listRowInsets(.none)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                 
-                if let origin = origin, let destination = destination  {
-                    TrainsRowView(
-                        trainNo: entry.DailyTrainInfo.TrainNo,
-                        direction: entry.DailyTrainInfo.direction.abbreviated,
-                        color: entry.DailyTrainInfo.direction.color,
-                        origin: data.getStopTime(for: origin, on: entry).StationName.En,
-                        originTime: data.getStopTime(for: origin, on: entry).DepartureTime,
-                        destination: data.getStopTime(for: destination, on: entry).StationName.En,
-                        destinationTime: data.getStopTime(for: destination, on: entry).ArrivalTime,
-                        standardAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
-                        businessAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
-                        departed: !data.getTrainWillDepartAfterNow(for: entry, at: origin))
-                        .onTapGesture {
-                            selectedTimetable = entry
-                            isShow = true
-                        }
+                ForEach(filteredDepartures) { entry in
+
+                    if let origin = origin, let destination = destination  {
+                        TrainsRowView(
+                            trainNo: entry.DailyTrainInfo.TrainNo,
+                            direction: entry.DailyTrainInfo.direction.abbreviated,
+                            color: entry.DailyTrainInfo.direction.color,
+                            origin: data.getStopTime(for: origin, on: entry).StationName.En,
+                            originTime: data.getStopTime(for: origin, on: entry).DepartureTime,
+                            destination: data.getStopTime(for: destination, on: entry).StationName.En,
+                            destinationTime: data.getStopTime(for: destination, on: entry).ArrivalTime,
+                            standardAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
+                            businessAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
+                            departed: !data.getTrainWillDepartAfterNow(for: entry, at: origin))
+                            .onTapGesture {
+                                selectedTimetable = entry
+                                isShow = true
+                            }
+                    }
                 }
+                
+                .listRowInsets(.none)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                
+                HStack {
+                    Text("AV_DATA_LAST_UPDATED")
+                    Spacer()
+                    Text(lastUpdate, style: .date)
+                    Text(lastUpdate, style: .time)
+                }
+                .listRowInsets(.none)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                
+                .padding(.horizontal)
+                    .font(.caption).foregroundColor(.secondary)
             }
+            .padding(0)
+            .listStyle(.plain)
+           
+
+        } else {
+            VStack(spacing: 10) {
+                FareListingView(fareSchedule: data.fareSchedule[origin!.StationID]![destination!.StationID]!)
+                ForEach(filteredDepartures) { entry in
+
+                    if let origin = origin, let destination = destination  {
+                        TrainsRowView(
+                            trainNo: entry.DailyTrainInfo.TrainNo,
+                            direction: entry.DailyTrainInfo.direction.abbreviated,
+                            color: entry.DailyTrainInfo.direction.color,
+                            origin: data.getStopTime(for: origin, on: entry).StationName.En,
+                            originTime: data.getStopTime(for: origin, on: entry).DepartureTime,
+                            destination: data.getStopTime(for: destination, on: entry).StationName.En,
+                            destinationTime: data.getStopTime(for: destination, on: entry).ArrivalTime,
+                            standardAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.standardAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
+                            businessAvailability: availableSeats.first(where: {$0.TrainNo == entry.DailyTrainInfo.TrainNo})?.businessAvailability(to: entry.DailyTrainInfo.EndingStationID) ?? .unknown,
+                            departed: !data.getTrainWillDepartAfterNow(for: entry, at: origin))
+                            .onTapGesture {
+                                selectedTimetable = entry
+                                isShow = true
+                            }
+                    }
+                }
+                
+            }
+            .padding(.horizontal, 10)
         }
-        .padding(.horizontal, 10)
+        
+        
+        
+        
     }
     
 }

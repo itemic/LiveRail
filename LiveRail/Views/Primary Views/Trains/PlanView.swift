@@ -35,25 +35,22 @@ struct PlanView: View {
             VStack {
                 
                 
+                
                 if (startingStationObject != nil && endingStationObject != nil && startingStationObject != endingStationObject) {
-                    ScrollView(showsIndicators: false) {
-                        Spacer()
-                            .frame(height: 120)
-                        
-                        
-                        PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable).environmentObject(network)
-                        HStack {
-                            Text("AV_DATA_LAST_UPDATED")
-                            Spacer()
-                            Text(lastUpdate, style: .date)
-                            Text(lastUpdate, style: .time)
-                        }
-                        .padding(.horizontal)
-                            .font(.caption).foregroundColor(.secondary)
+                    
+                    
+                    
+                    
+//                    ScrollView(showsIndicators: false) {
                         Spacer()
                             .frame(height: 110)
                         
-                    }
+                        PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable).environmentObject(network)
+                        
+                        Spacer()
+                            .frame(height: 110)
+                        
+//                    }
                 } else {
                     EmptyScreenView(icon: "tram.fill", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .hsrColor)
                 }

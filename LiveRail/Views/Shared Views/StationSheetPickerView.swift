@@ -32,7 +32,7 @@ struct StationSheetPickerView: View {
             header
             grid
             locations
-            Spacer()
+//            Spacer()
             Spacer().frame(height: UIScreen.main.bounds.height * 0.05)
         }
       
@@ -82,15 +82,19 @@ struct StationSheetPickerView: View {
                     active = false
                 }) {
                     Text(LocalizedStringKey(station.StationName.En))
+                    
                         .font(.title3).bold()
 //                                    .padding(.vertical, 12)
                         .foregroundColor(station == selectedStationObject ? .white : .primary)
                         .frame(maxWidth: .infinity, minHeight: 50)
+                    
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(station == selectedStationObject ? color : color.opacity(0.3))
                         )
+                        
                 }
+                
             }
             .padding(.vertical, 4)
             .padding(.horizontal, 8)

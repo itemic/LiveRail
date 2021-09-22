@@ -51,13 +51,13 @@ struct SlideoverSheetView<Content: View>: View {
                             .frame(height: UIScreen.main.bounds.height * 0.075)
                     }
                     .padding(.horizontal)
-                    .frame(maxHeight: UIScreen.main.bounds.height * 0.85)
+                    .frame(idealHeight: UIScreen.main.bounds.height * 0.85, maxHeight: UIScreen.main.bounds.height * 0.85)
                     .background(BlurView(style: .systemChromeMaterial))
                     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 }
                 .animation(.easeInOut(duration: 0.25))
                 .transition(AnyTransition.move(edge: .bottom))
-                .offset(y: (self.isOpen ? self.offset.height + self.gestureT.height + UIScreen.main.bounds.height * 0.075 : geo.size.height))
+                .offset(y: (self.isOpen ? self.gestureT.height + UIScreen.main.bounds.height * 0.075 : geo.size.height))
                 }
                 .onTapGesture {}
                 .gesture(

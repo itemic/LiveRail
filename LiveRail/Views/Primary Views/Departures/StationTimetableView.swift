@@ -26,19 +26,17 @@ struct StationTimetableView: View {
     @Binding var selectedTimetable: RailDailyTimetable?
     
     var filteredDepartures: [RailDailyTimetable] {
-//        var _ = currentDate
-//        var _ = print("AAA")r
+
         return data.getDepartures(from: station.StationID).filter {
             (showArrivals ? true : !data.isEndingTerminus(for: $0, at: station)) &&
-//                (showAvailable ? true : data.getTrainWillDepartAfterNow(for: $0, at: station))
                 (showAvailable ? true : Date.compare(now: Date(), to: data.getDepartureTime(for: $0, at: station)))
-            
         }
-        
     }
        
 
     var body: some View {
+        
+        
         
         VStack(spacing: 10) {
             
@@ -51,7 +49,7 @@ struct StationTimetableView: View {
                                       color: departure.DailyTrainInfo.direction.color,
                                       departed: !data.getTrainWillDepartAfterNow(for: departure, at: station),
                                       departing: data.getTrainIsDepartingSoon(for: departure, at: station))
-                    
+
                     if(showStopDots) {
                         StopPatternView(daily: departure)
                             .padding([.bottom, .trailing], 5)
@@ -60,24 +58,20 @@ struct StationTimetableView: View {
                 .onTapGesture {
                     selectedTimetable = departure
                     isShow = true
-                    
+
                 }
             }
-        }
-        .padding(.horizontal, 10)
-//        .onReceive(timer) {_ in
-//
-//            currentDate = Date()
-//        }
+            
 
         
-//        .onAppear {
-//            print("APPEAR \(station.StationCode)")
-//            vm.station = station
-//        }
-//        .onChange(of: station) {newStation in
-//            vm.station = newStation
-//        }
+        
+            
+            
+            
+            
+        }
+        .padding(.horizontal, 10)
+
     }
 }
 
