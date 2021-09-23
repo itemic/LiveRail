@@ -24,8 +24,9 @@ struct PlanViewPickerButtonView: View {
             Spacer()
             HStack {
                 Button(action: {
-                    
+                    withAnimation {
                         ooActive = true
+                    }
                 }) {
                     Text(LocalizedStringKey(originObject?.StationName.En ?? "Origin"))
                         
@@ -46,9 +47,9 @@ struct PlanViewPickerButtonView: View {
                     }
                 }
                 Button(action: {
-                    
+                    withAnimation{
                         ddActive = true
-                    
+                    }
                 }) {
                     Text(LocalizedStringKey(destinationObject?.StationName.En ?? "Destination"))
                 }

@@ -38,7 +38,13 @@ struct StationTimetableView: View {
         
         
         
-        VStack(spacing: 10) {
+        List {
+            
+            Spacer()
+                .frame(height: 80)
+                .listRowInsets(.none)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
             
             ForEach(filteredDepartures) { departure in
                 ZStack(alignment: .bottomTrailing) {
@@ -57,20 +63,28 @@ struct StationTimetableView: View {
                 }
                 .onTapGesture {
                     selectedTimetable = departure
-                    isShow = true
+                    
+                    withAnimation {isShow = true}
 
                 }
             }
-            
+            .listRowInsets(.none)
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
 
         
-        
+            Spacer()
+                .frame(height: 70)
+                .listRowInsets(.none)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
             
             
             
             
         }
-        .padding(.horizontal, 10)
+        .listStyle(.plain)
+        .padding(0)
 
     }
 }

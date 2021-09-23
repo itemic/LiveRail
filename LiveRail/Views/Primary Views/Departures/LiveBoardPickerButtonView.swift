@@ -20,8 +20,9 @@ struct LiveBoardPickerButtonView: View {
             Spacer()
             HStack {
                 Button(action: {
-                    
+                    withAnimation {
                         active = true
+                    }
                     
                 }) {
                     Text(LocalizedStringKey(station?.StationName.En ?? "Station"))

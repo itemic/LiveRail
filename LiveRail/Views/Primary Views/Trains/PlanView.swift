@@ -41,16 +41,12 @@ struct PlanView: View {
                     
                     
                     
-//                    ScrollView(showsIndicators: false) {
-                        Spacer()
-                            .frame(height: 110)
+
                         
                         PlanTimetableView(origin: startingStationObject, destination: endingStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable).environmentObject(network)
+                 
                         
-                        Spacer()
-                            .frame(height: 110)
-                        
-//                    }
+
                 } else {
                     EmptyScreenView(icon: "tram.fill", headline: "NO_TRAINS", description: "CHOOSE_OTHER", color: .hsrColor)
                 }

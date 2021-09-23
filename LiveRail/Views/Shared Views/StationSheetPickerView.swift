@@ -63,7 +63,9 @@ struct StationSheetPickerView: View {
                 .frame(width: 38, height: 38)
                 .overlay(Image(systemName: "xmark.circle").font(.system(size: 24)).foregroundColor(.secondary)
                 ).onTapGesture {
+                    withAnimation {
                     active = false
+                    }
                 }
             
                 
@@ -79,7 +81,9 @@ struct StationSheetPickerView: View {
                     selectedStationObject = station
                     sendHaptics()
                     // dismiss
+                    withAnimation {
                     active = false
+                    }
                 }) {
                     Text(LocalizedStringKey(station.StationName.En))
                     
@@ -111,7 +115,9 @@ struct StationSheetPickerView: View {
                         selectedStationObject = nearest
                         sendHaptics()
                         // dismiss
+                        withAnimation {
                         active = false
+                        }
                     }) {
                         Label(
                             title: {

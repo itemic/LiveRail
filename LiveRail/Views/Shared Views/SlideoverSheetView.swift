@@ -30,10 +30,15 @@ struct SlideoverSheetView<Content: View>: View {
 
     var body: some View {
         
-        ZStack {
+        ZStack(alignment: .center) {
+            
+            
             
                 if (isOpen) {
-                    Color.white.opacity(0.0)
+                    Rectangle()
+//                        .fill(.white.opacity(isOpen ? 0.1 : 0))
+                        .background(.ultraThinMaterial)
+//                    Color.white.opacity(0.5)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation {
@@ -43,7 +48,7 @@ struct SlideoverSheetView<Content: View>: View {
                 }
 
                 GeometryReader { geo in
-                VStack(spacing: 0) {
+                    VStack(spacing: 0) {
                     Spacer()
                     VStack {
                         self.content
@@ -52,11 +57,13 @@ struct SlideoverSheetView<Content: View>: View {
                     }
                     .padding(.horizontal)
 //                    .frame(idealHeight: UIScreen.main.bounds.height * 0.85, maxHeight: UIScreen.main.bounds.height * 0.85)
-                    .frame(maxWidth: UIScreen.main.bounds.width)
+                    
                     .background(BlurView(style: .systemChromeMaterial))
                     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 }
-                .animation(.easeInOut(duration: 0.25))
+                    
+                .animation(.easeInOut(duration: 0.25), value: isOpen)
+                
                 .transition(AnyTransition.move(edge: .bottom))
                 .offset(y: (self.isOpen ? self.gestureT.height + UIScreen.main.bounds.height * 0.075 : geo.size.height))
                 }
@@ -72,8 +79,9 @@ struct SlideoverSheetView<Content: View>: View {
                         .onEnded { _ in
                             
                             if (self.gestureT.height > 100) {
-                               
+                                withAnimation {
                             isOpen = false
+                                }
                             }
                             self.gestureT = .zero
                         }

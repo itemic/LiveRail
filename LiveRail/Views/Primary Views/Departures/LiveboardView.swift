@@ -17,19 +17,18 @@ struct LiveboardView: View {
     @State var showingTimetable: Bool = false
     @State var selectedDailyTimetable: RailDailyTimetable?
 //    END TEST
+    @State private var lbsize: CGFloat?
     
     var body: some View {
         ZStack {
             VStack {
                
                 if let timetableStationObject = timetableStationObject {
-                    ScrollView {
-                        Spacer()
-                            .frame(height: 120)
+
                             StationTimetableView(station: timetableStationObject, isShow: $showingTimetable, selectedTimetable: $selectedDailyTimetable)
-                        Spacer()
-                            .frame(height: 110)
-                    }
+                        .padding(0)
+
+                    
                 } else {
                     EmptyScreenView(icon: "list.bullet.rectangle", headline: "SELECT_STATION", description: "PICK_TO_VIEW_DEPARTURES", color: Color(UIColor.systemIndigo))
                 }
@@ -37,6 +36,8 @@ struct LiveboardView: View {
             }
             
             LiveBoardPickerButtonView(station: $timetableStationObject)
+
+               
 
             SlideoverSheetView(isOpen: $showingTimetable) {
                 if let selectedDailyTimetable = selectedDailyTimetable {
@@ -49,6 +50,7 @@ struct LiveboardView: View {
         .onChange(of: timetableStationObject) { _ in
             sendHaptics()
         }
+ 
        
         
         .background(Color(UIColor.systemGroupedBackground))
@@ -62,3 +64,5 @@ struct LiveboardView: View {
         generator.selectionChanged()
     }
 }
+
+

@@ -39,27 +39,7 @@ struct HeaderView: View {
                         }
                         
                         
-//                        if (!store.alertData.isEmpty && showServiceAlert) {
-//                            let alert = store.alertData[0]
-//
-//                            Button(action: {}) {
-//                                Image(systemName: alert.alertStatus.icon)
-//                                    .imageScale(.medium)
-//                                    .foregroundColor(alert.alertStatus.color)
-//                                    .font(.system(size: 18))
-//                                    .padding(.vertical, 8)
-//                                    .padding(.horizontal, 8)
-//                                    .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-////                                    .background(BlurView(style: .systemUltraThinMaterial))
-//                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-////                                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(alert.alertStatus.color.opacity(0.1)))
-//
-//
-//
-//                                    .cornerRadius(10)
-//
-//                            }
-//                        }
+
                         
                         
                         Button(action: {
