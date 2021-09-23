@@ -49,6 +49,8 @@ struct TrainServiceSheetView: View {
         }
         .padding(.vertical)
         
+
+        
     }
     var infobox: some View {
         HStack {
@@ -130,8 +132,10 @@ struct TrainServiceSheetView: View {
                     }
                 }.font(.caption2).foregroundColor(.gray).padding()
             }
+            .frame(maxHeight: UIScreen.main.bounds.height * 0.6)
             
         }
+        
         .onAppear {
             vm.train = train
             self.progress = vm.getTrainProgress2()

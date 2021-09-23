@@ -108,6 +108,7 @@ struct PlanTimetableView: View {
                             .onTapGesture {
                                 selectedTimetable = entry
                                 isShow = true
+                                
                             }
                     }
                 }
