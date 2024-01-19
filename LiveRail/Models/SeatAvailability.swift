@@ -16,9 +16,9 @@ struct AvailabilityWrapper: Codable {
 struct AvailableSeat: Codable {
     var TrainNo: String
     var Direction: Int
-    var StationID: String
-    var StationName: NameType
-    var DepartureTime: String
+    var StartingStationID: String
+    var StartingStationName: NameType
+//    var DepartureTime: String
     var EndingStationID: String
     var EndingStationName: NameType
     var StopStations: [AvailabilityStopStation]

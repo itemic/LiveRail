@@ -11,8 +11,9 @@ import CryptoKit
 public final class NetworkManager {
 
     //Create a Constants.swift and set these values separately!
-    private let appID =  APPLICATION_ID
-    private let appKey = APPLICATION_KEY
+    private let appID =  CLIENT_ID
+    private let appKey = CLIENT_SECRET
+    private var token: String? = nil
     
     enum NetworkError: Error {
         case noData
@@ -23,23 +24,68 @@ public final class NetworkManager {
         return SharedDateFormatter.shared.serverDate(from: Date())
     }
     
-    func authenticateRequest(url: String) -> URLRequest {
+    func acquireToken() -> String {
+        guard let url = URL(string: "https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token") else {
+            preconditionFailure("URL is broken")
+        }
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let params: [String: String] = [
+            "grant_type": "client_credentials",
+            "client_id": appID,
+            "client_secret": appKey
+        ]
+        let encoder = JSONEncoder()
+        
+        let postData: Data = "client_id=\(appID)&client_secret=\(appKey)&grant_type=client_credentials".data(using: .utf8)!
+        
+        request.httpBody = postData
+        var responseToken = ""
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data, let response = response as? HTTPURLResponse, error == nil
+            else {
+            print("ERROR")
+            return
+        }
+            let decoder = JSONDecoder()
+            do {
+                let jsonResponse = try? decoder.decode(Token.self, from: data)
+                
+                responseToken = jsonResponse!.access_token
+                return
+            } catch {
+                print("not workin")
+            }
+            return
+            
+            
+            
+        }
+            task.resume()
+            return responseToken
+        }
+    
+
+    
+    func authenticateRequest(url: String, token: String) -> URLRequest {
         guard let url = URL(string: url) else {
             preconditionFailure("Invalid URL")
         }
+
         let xDate = getServerTime()
         let signDate = "x-date: \(xDate)"
         
-        let key = SymmetricKey(data: Data(appKey.utf8))
-        let hmac = HMAC<SHA256>.authenticationCode(for: Data(signDate.utf8), using: key)
-        let base64HmacString = Data(hmac).base64EncodedString()
         
-        let authorization = "hmac username=\"\(appID)\", algorithm=\"hmac-sha256\", headers=\"x-date\", signature=\"\(base64HmacString)\""
-        
+//        let authorization = "hmac username=\"\(appID)\", algorithm=\"hmac-sha256\", headers=\"x-date\", signature=\"\(base64HmacString)\""
+        let authorization = "Bearer \(token)"
         var request = URLRequest(url: url)
-        request.setValue(xDate, forHTTPHeaderField: "x-date")
+//        request.setValue(xDate, forHTTPHeaderField: "x-date")
         request.setValue(authorization, forHTTPHeaderField: "Authorization")
-        request.setValue("gzip", forHTTPHeaderField: "Accept-Encoding")
+        request.setValue("br,gzip", forHTTPHeaderField: "Accept-Encoding")
+        
+        // Testing New Bit
+        
         
         return request
         

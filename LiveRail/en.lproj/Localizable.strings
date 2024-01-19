@@ -39,7 +39,7 @@
 "NO_NETWORK_DESCRIPTION" = "Train data may be outdated or incomplete. We will attempt to update data once you are reconnected";
 
 "AV_DATA_LAST_UPDATED" = "Availability data last updated";
-"SEAT_AVAIL_DESC" = "The data source for seat availability is not live data and may not be accurate at all times.";
+"SEAT_AVAIL_DESC" = "Availability data is temporarily disabled.";
 "AVAILABILITY_LINES_SETTINGS" = "Sector seat availability";
 "NEWS_DESCRIPTOR_HEADER" = "Latest news from THSR Corporation. Each entry links to the organization's website.";
 "NETWORK_ALERT_SETTINGS" = "Network alerts";

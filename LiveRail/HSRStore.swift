@@ -19,13 +19,15 @@ public final class HSRStore: ObservableObject {
     @Published var fareSchedule: [String: [String: FareSchedule]] = [:]
     @Published var initSuccess: Bool = true
     
+    @Published var token: String = ""
+    
     
     public static let shared = HSRStore(client: .init())
     
     init(client: NetworkManager) {
         
         self.localBundleData()
-        self.reload(client: client, force: true)
+        self.superReload(client: client, force: true)
     }
     
     func localBundleData() {
@@ -40,11 +42,27 @@ public final class HSRStore: ObservableObject {
         }
     }
     
+    func superReload(client: NetworkManager, force: Bool = false) {
+        HSRService.getAuthToken(client: client) {[weak self] token in
+            DispatchQueue.main.async {
+                self?.token = token.access_token
+                self?.reload(client: client, force: force)
+            }
+        } failure: {
+            print("stations")
+            OperationQueue.main.addOperation {
+                self.initSuccess = false
+            }
+        }
+    }
+    
     func reload(client: NetworkManager, force: Bool = false) {
+        
         
         self.initSuccess = true
         
-        HSRService.getRailDailyTimetable(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy) { [weak self] dt in
+        
+        HSRService.getRailDailyTimetable(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy, token: token) { [weak self] dt in
             DispatchQueue.main.async {
                 self?.dailyTimetable = dt
             }
@@ -58,12 +76,12 @@ public final class HSRStore: ObservableObject {
         
     
         
-        HSRService.getHSRStations(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy) {[weak self] stations in
+        HSRService.getHSRStations(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy, token: token) {[weak self] stations in
             DispatchQueue.main.async {
                 self?.stations = stations
-                for station in stations {
-                    self!.fetchAvailability(station: station, client: client)
-                }
+//                for station in stations {
+//                    self!.fetchAvailability(station: station, client: client)
+//                }
             }
         } failure: {
             print("stations")
@@ -76,20 +94,20 @@ public final class HSRStore: ObservableObject {
         
         
         // TODO Fix this 
-        HSRService.getFares(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy) { [weak self] fares in
-            DispatchQueue.main.async {
-                for fare in fares {
-//                    print (fare)
-                    self!.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
-                }
-            }
-            
-        } failure: {
-            print("fares")
-            OperationQueue.main.addOperation {
-                self.initSuccess = false
-            }
-        }
+//        HSRService.getFares(client: client, policy: force ? .reloadIgnoringLocalCacheData : .useProtocolCachePolicy, token: token) { [weak self] fares in
+//            DispatchQueue.main.async {
+//                for fare in fares {
+////                    print (fare)
+//                    self!.fareSchedule[fare.OriginStationID]![fare.DestinationStationID] = fare
+//                }
+//            }
+//            
+//        } failure: {
+//            print("fares")
+//            OperationQueue.main.addOperation {
+//                self.initSuccess = false
+//            }
+//        }
         
         // reset last update time (for now)
         // in future, use this to debounce
@@ -103,15 +121,43 @@ public final class HSRStore: ObservableObject {
     
     
     func fetchAllAvailability(client: NetworkManager) {
-        for station in stations {
-            fetchAvailability(station: station, client: client)
+//        for station in stations {
+//            fetchAvailability(station: station, client: client)
+//        }
+        print("fetching all")
+        HSRService.getAllAvailability(client: client, token: token) { [weak self] availability in
+            DispatchQueue.main.async {
+                self?.availabilityUpdateTime = availability.UpdateTime ?? ""
+//                print(availability.AvailableSeats)
+                var tempAvailableSeats: [Station: [AvailableSeat]] = [:]
+                for seat in availability.AvailableSeats {
+                    print(seat)
+                    let stn = self!.getStation(from: seat.StartingStationID)
+                    if (tempAvailableSeats.keys.contains(stn)) {
+                        tempAvailableSeats[stn]?.append(seat)
+                    } else {
+                        tempAvailableSeats[stn] = []
+                        tempAvailableSeats[stn]?.append(seat)
+                    }
+                    
+//                    tempAvailableSeats.availableSeats[stn!]?.append(seat)
+                }
+                self?.availableSeats = tempAvailableSeats
+//                self?.availableSeats[station] = availability.AvailableSeats
+            }
+        } failure: {
+            // do someti
+            
         }
+        
+        
     }
     
     func fetchAvailability(station: Station, client: NetworkManager) {
-        HSRService.getAvailability(from: station.StationID, client: client) { [weak self] availability in
+        HSRService.getAvailability(from: station.StationID, client: client, token: token) { [weak self] availability in
             DispatchQueue.main.async {
                 self?.availabilityUpdateTime = availability.UpdateTime ?? ""
+//                print(availability.AvailableSeats)
                 self?.availableSeats[station] = availability.AvailableSeats
             }
         } failure: {

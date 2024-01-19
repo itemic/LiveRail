@@ -95,33 +95,25 @@ struct SettingsView: View {
                         })
                     }
                     
-                    VStack(alignment: .leading) {
-                        Toggle(isOn: $showArrDeptTimes, label: {
-                            HStack {
-                                Circle()
-                                    .fill(Color.hsrColor)
-                                    .frame(width: 32, height: 32)
-                                    .padding(.vertical, 5)
-                                    .overlay(Image(systemName: "deskclock").font(.system(size: 18)).foregroundColor(.white))
-                                Text("ARR_DEPT_TIMES_TITLE")
-                            }
-                            
-                        })
-                    }
                     
                     VStack(alignment: .leading) {
-                        Toggle(isOn: $showAvailabilityLines, label: {
+                        Toggle(isOn: .constant(false), label: {
                             HStack {
                                 Circle()
                                     .fill(Color.hsrColor)
                                     .frame(width: 32, height: 32)
                                     .padding(.vertical, 5)
                                     .overlay(Image(systemName: "rectangle.split.2x1.fill").font(.system(size: 18)).foregroundColor(.white))
-                                Text("AVAILABILITY_LINES_SETTINGS")
+                                
+                                VStack(alignment: .leading) {
+                                    Text("AVAILABILITY_LINES_SETTINGS")
+                                    Text("Temporarily disabled").font(.caption2).foregroundColor(.secondary)
+                                }
                             }
                             
                         })
                     }
+                    .disabled(true)
                     
 //                    VStack(alignment: .leading) {
 //                        Toggle(isOn: $showServiceAlert, label: {

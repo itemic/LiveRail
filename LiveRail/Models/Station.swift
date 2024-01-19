@@ -37,3 +37,11 @@ struct PointType: Codable, Hashable {
     var PositionLat: Double
     var PositionLon: Double
 }
+
+/// FOR TOKEN
+
+struct Token: Codable {
+    var access_token: String
+    var expires_in: Double
+    var token_type: String
+}

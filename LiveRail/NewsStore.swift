@@ -10,15 +10,25 @@ import Foundation
 public final class NewsStore: ObservableObject {
     @Published var newsPosts: [NewsPost] = []
     public static let shared = NewsStore(client: .init())
+    @Published var token = ""
     
     init(client: NetworkManager) {
-        HSRService.getNews(client: client) {[weak self] newsPost in
+        HSRService.getAuthToken(client: client) {[weak self] tk in
             DispatchQueue.main.async {
-                self?.newsPosts = newsPost
+                self?.token = tk.access_token
+                HSRService.getNews(client: client, token: tk.access_token) {[weak self] newsPost in
+                    DispatchQueue.main.async {
+                        self?.newsPosts = newsPost
+                    }
+                } failure: {
+                    
+                }
             }
         } failure: {
+            print("news st ore error")
             
         }
+        
        
     }
 }
@@ -26,15 +36,26 @@ public final class NewsStore: ObservableObject {
 
 public final class AlertStore: ObservableObject {
     @Published var alertData: [AlertInfo] = []
-    
+    @Published var token = ""
     public static let shared = AlertStore(client: .init())
+    
     init(client: NetworkManager) {
        
-        HSRService.getAlertInfo(client: client) {[weak self] alert in
+        
+        
+        HSRService.getAuthToken(client: client) {[weak self] tk in
             DispatchQueue.main.async {
-                self?.alertData = alert
+                self?.token = tk.access_token
+                HSRService.getAlertInfo(client: client, token: tk.access_token) {[weak self] alert in
+                    DispatchQueue.main.async {
+                        self?.alertData = alert
+                    }
+                } failure: {
+                    
+                }
             }
         } failure: {
+            print("news st ore error")
             
         }
     }
