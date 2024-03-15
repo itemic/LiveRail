@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4510456025FE101B00232C78 /* DataDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510455F25FE101B00232C78 /* DataDisclaimerView.swift */; };
 		4510975125FB793900D8BBEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510975025FB793900D8BBEF /* SettingsView.swift */; };
+		4516D4352BA43A5700B05122 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4516D4342BA43A5700B05122 /* Constants.swift */; };
 		451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */; };
 		45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5125AD9C770025BD09 /* PrimaryView.swift */; };
 		45232F5825ADBCA80025BD09 /* HSRTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */; };
@@ -44,7 +45,6 @@
 		45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */; };
 		45D00A4925AC94F500DB518F /* Date+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D00A4825AC94F500DB518F /* Date+Time.swift */; };
 		45D1BC8025AC49F300D040CD /* StationTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */; };
-		45D5839025C19A38003097F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5838F25C19A38003097F6 /* Constants.swift */; };
 		45E0611326BF9D0000210BEC /* AlertDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E0611226BF9D0000210BEC /* AlertDetailView.swift */; };
 		45ED0903265627B30029AE84 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED0902265627B30029AE84 /* News.swift */; };
 		45ED090526562A740029AE84 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED090426562A740029AE84 /* NewsView.swift */; };
@@ -72,6 +72,7 @@
 /* Begin PBXFileReference section */
 		4510455F25FE101B00232C78 /* DataDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDisclaimerView.swift; sourceTree = "<group>"; };
 		4510975025FB793900D8BBEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4516D4342BA43A5700B05122 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		451E5C2B25AD548E00BBCE2D /* RailDailyTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailDailyTimetable.swift; sourceTree = "<group>"; };
 		45232F5125AD9C770025BD09 /* PrimaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryView.swift; sourceTree = "<group>"; };
 		45232F5725ADBCA80025BD09 /* HSRTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSRTrainViewModel.swift; sourceTree = "<group>"; };
@@ -111,7 +112,6 @@
 		45BFCF4325D3C8A60036EF96 /* StopPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPatternView.swift; sourceTree = "<group>"; };
 		45D00A4825AC94F500DB518F /* Date+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Time.swift"; sourceTree = "<group>"; };
 		45D1BC7F25AC49F300D040CD /* StationTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimetableView.swift; sourceTree = "<group>"; };
-		45D5838F25C19A38003097F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		45DCBC9925EE5C0F0017AE1E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		45DCBC9B25EE5C0F0017AE1E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		45E0611226BF9D0000210BEC /* AlertDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailView.swift; sourceTree = "<group>"; };
@@ -308,8 +308,8 @@
 			children = (
 				45A64F0025D1135C00886460 /* SharedDateFormatter.swift */,
 				45D00A4825AC94F500DB518F /* Date+Time.swift */,
-				45D5838F25C19A38003097F6 /* Constants.swift */,
 				45A2542C25B2DCDB00CB2522 /* Utilities.swift */,
+				4516D4342BA43A5700B05122 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -399,6 +399,7 @@
 				45ED090726562B540029AE84 /* NewsStore.swift in Sources */,
 				451E5C2C25AD548E00BBCE2D /* RailDailyTimetable.swift in Sources */,
 				45232F5225AD9C770025BD09 /* PrimaryView.swift in Sources */,
+				4516D4352BA43A5700B05122 /* Constants.swift in Sources */,
 				45A2543225B31DA500CB2522 /* Enumerations.swift in Sources */,
 				4569AA3B25B00772002D376B /* FareListingView.swift in Sources */,
 				456750E425F2385F0019244E /* TrainServiceSheetView.swift in Sources */,
@@ -415,7 +416,6 @@
 				45BFCF4425D3C8A60036EF96 /* StopPatternView.swift in Sources */,
 				45A2542D25B2DCDB00CB2522 /* Utilities.swift in Sources */,
 				4510456025FE101B00232C78 /* DataDisclaimerView.swift in Sources */,
-				45D5839025C19A38003097F6 /* Constants.swift in Sources */,
 				45F8518525E4FE7B0068CA83 /* SlideoverSheetView.swift in Sources */,
 				4563E66B25A9F69F00E50C5F /* HSRService.swift in Sources */,
 				45BFA8EA260C45AA00EF1489 /* DeparturesRowView.swift in Sources */,
@@ -588,7 +588,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = "HSR Test";
 				SUPPORTS_MACCATALYST = NO;
@@ -623,7 +623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_ID)";
 				PRODUCT_NAME = HSR;
 				SUPPORTS_MACCATALYST = NO;

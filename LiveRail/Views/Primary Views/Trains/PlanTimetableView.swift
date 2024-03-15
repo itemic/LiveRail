@@ -43,7 +43,7 @@ struct PlanTimetableView: View {
             List {
                 
                 Spacer()
-                    .frame(height: 80)
+                    .frame(height: 100)
                     .listRowInsets(.none)
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)

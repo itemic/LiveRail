@@ -21,7 +21,7 @@ struct HeaderView: View {
                 
                 ZStack {
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 30)
                         .padding(.vertical, 2)
                         .padding(.leading, 2)
                         .padding(.trailing, 8)
@@ -52,9 +52,7 @@ struct HeaderView: View {
                                 .padding(.vertical, 8)
                                 .padding(.horizontal, 8)
                                 .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-//                                .background(BlurView(style: .systemUltraThinMaterial))
                                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-//                                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.clear))
                                 .overlay(
                                     ZStack(alignment: .topTrailing) {
                                         Color.clear
